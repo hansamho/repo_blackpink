@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko"xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>codexdmList</title>
+  </head>
+  <body>
+  <a th:href="@{/codeLogin}" th:text="등록"></a>
+    <table>
+    	<tr>
+    		<td>ch</td>
+    		<td>#</td>
+    		<td>cgseq</td>
+    		<td>cgname</td>
+    		<td>codeDelete</td>
+    		<td>codeseq</td>
+    		<td>codename</td>
+<!--     		<td>codeCreate</td> -->
+    	</tr>
+    	<tr th:if="${#lists.isEmpty(List)}" th:each="list : ${list}"> 
+<!--     		<td th:text="${list.cgDelete}"></td> -->
+    		<td></td>
+    		<td></td>
+    		
+    		<td th:text="${list.code_seq}"></td>
+    		<td th:text="${list.codegroup_name}"></td>
+    		
+    		<td th:if="${list.codeDelete eq 0}">N</td>
+    		<td th:unless="${list.codeDelete eq 0}">Y</td>
+    		
+    		<td th:text="${list.seq}"></td>
+<!--     		<td th:text="${list.name}"></td> -->
+<!--     		<td th:text="${list.codeCreate}"></td> -->
+    		<td><a th:href="@{/codeView(seq=${list.seq},name=${list.name})}" th:text="${list.name}"></a></td>
+    		
+<!--     		<td th:text="${#dates.format(list.modDateTime, 'yyyy-MM-dd HH:mm:ss')}"></td> -->
+    	</tr>
+    	
+    	
+    </table>
+   
+  </body>
+</html>

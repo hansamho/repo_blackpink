@@ -1,0 +1,48 @@
+package com.hotelstay.infra.code;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
+
+@Service
+public class CodeService {
+	
+	@Autowired
+	CodeDao dao;
+//	CodeGroupDao dao = new CodeGroupDao();
+	
+//	public List<CodeGroupDto> selectList(){
+//		
+//		List<CodeGroupDto> list = dao.selectList();
+//		
+//		return list;
+//	}
+	
+	public List<CodeDto> selectList(){ return dao.selectList();}  
+	
+	public CodeDto selectOne(CodeDto dto) {                       
+		
+		return dao.selectOne(dto);
+	}
+	
+	public int insert(CodeDto dto) {                             
+		
+		return dao.insert(dto);
+	}
+	
+	public int update(CodeDto dto) {                             
+		
+		return dao.update(dto);
+	}
+	
+	public int updateDelete(CodeDto dto) {
+		return dao.updateDelete(dto);
+	}
+	
+	public int delete(CodeDto dto) {
+		return dao.delete(dto);
+	}
+}

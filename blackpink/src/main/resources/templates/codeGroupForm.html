@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="ko"xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>codeGroupForm</title>
+  </head>
+  <body>
+  <form method="post" action="codeGroupUpdt">
+	<input type="text" name="seq" th:value="${item.seq}">
+	<br><input type="text" name="name" th:value="${item.name}">
+	<button type="submit">저장</button>
+  </form>
+  </body>
+</html>

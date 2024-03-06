@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ko"xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>codeView</title>
+  </head>
+  <body>
+	<p th:text="${item.seq}"></p>
+	<p th:text="${item.name}"></p>
+	<br>
+	<!--  <a href="/codeGroupXdmList">back</a></td>  -->
+	<a th:href="@{/codeXdmList(seq=${item.seq})}" th:text="back"></a>
+	<a th:href="@{/codeForm(seq=${item.seq})}" th:text="수정"></a>
+	
+	<form method="post" action="codeupdateDelete">
+		<input type="text" name="seq" th:value="${item.seq}">
+		<br><input type="text" name="name" th:value="${item.name}">
+		<button type="submit">N,Y</button>
+	</form>
+	<br>
+	<form method="post" action="codeDelete">
+		<input type="text" name="seq" th:value="${item.seq}">
+		<br><input type="text" name="name" th:value="${item.name}">
+		<button type="submit">데이터 삭제</button>
+	</form>
+  </body>
+</html>

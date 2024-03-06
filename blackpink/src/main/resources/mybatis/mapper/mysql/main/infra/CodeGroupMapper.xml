@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hotelstay.infra.codegroup.CodeGroupDao">
+
+	<resultMap id="resultMapObj" type="com.hotelstay.infra.codegroup.CodeGroupDto"></resultMap>
+
+    <select id="selectList" resultMap="resultMapObj">
+        SELECT
+            a.Seq
+            ,a.Name
+            ,a.cgCreate
+            ,a.cgUpdate
+            ,a.cgDelete
+            ,(select count(aa.seq) from Code aa where 1=1 and aa.codeDelete = 0 and aa.Seq = a.Seq) as xifcdSeqCount
+         FROM CodeGroup a
+        WHERE 1=1
+        ORDER BY a.Seq DESC
+    </select>
+	  
+	  
+	  <select id="selectOne" resultMap="resultMapObj">
+        SELECT
+            a.Seq
+            ,a.Name
+            ,a.cgCreate
+            ,a.cgUpdate
+            ,a.cgDelete
+         FROM CodeGroup a
+        WHERE 1=1
+        AND a.seq = #{seq}
+        ORDER BY a.Seq DESC
+    </select>
+    
+    <insert id="insert">
+    	INSERT INTO codeGroup(
+            name
+            ,cgCreate
+            ,cgUpdate
+            ,cgDelete
+    	) VALUES(		
+    		#{name}
+    		,#{cgCreate}
+    		,#{cgUpdate}
+    		,#{cgDelete}
+    	)
+           
+    </insert>
+    
+    
+    <update id="update">
+    	
+    	UPDATE codeGroup 
+    	set
+    	name = #{name}
+    	WHERE seq = #{seq}
+  
+    </update>
+    
+    <update id="updateDelete">
+    	
+    	UPDATE codeGroup 
+    	set
+    	cgDelete = 0
+    	WHERE seq = #{seq}
+  
+    </update>
+    
+    <delete id="delete">
+    	DELETE FROM  codeGroup
+    	WHERE seq = #{seq}
+    </delete>
+    
+</mapper>
