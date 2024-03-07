@@ -12,19 +12,20 @@ public class CodeGroupController {
 	CodeGroupService service;
 //	CodeGroupService codeGroupService;
 	
+	
 	@RequestMapping(value = "/codeGroupXdmList")
 	public String codeGroupXdmList(Model model) throws Exception{
 //		List<CodeGroupDto> list = service.selectList();
-		
+//		
 //		List<CodeGroupDto> codeGroupDtos = service.selectList();
-		
+//		
 //		for(CodeGroupDto a:codeGroupDtos) {
 //			System.out.println(a.getName());
 //		}
 		
 		model.addAttribute("list", service.selectList());
 		
-		return "codeGroupXdmList"; 
+		return "/adm/infra/codegroup/codeGroupXdmList"; 
 		
 		
 			
@@ -33,14 +34,14 @@ public class CodeGroupController {
 		public String codeGroupView(CodeGroupDto dto, Model model) throws Exception{
 			model.addAttribute("item", service.selectOne(dto));
 		
-			return "codeGroupView"; //
+			return "/adm/infra/codegroup/codeGroupView"; //
 			
 		}
 	@RequestMapping(value = "/codeGroupForm")
 	public String codeGroupForm(CodeGroupDto dto, Model model) throws Exception{
 		model.addAttribute("item", service.selectOne(dto));
 	
-		return "codeGroupForm"; //
+		return "/adm/infra/codegroup/codeGroupForm"; //
 		
 	}
 	
@@ -48,13 +49,13 @@ public class CodeGroupController {
 	public String codeGroupLogin() throws Exception{
 		
 	
-		return "codeGroupLogin"; //
+		return "/adm/infra/codegroup/codeGroupLogin"; //
 		
 	}
 	
 	@RequestMapping(value = "/codeGroupInsert")
 	public String codeGroupInsert(CodeGroupDto dto) throws Exception{
-//		System.out.println("dto.getName():"+dto.getName());
+		System.out.println("dto.getName():"+dto.getName());
 		service.insert(dto);
 		return "redirect:/codeGroupXdmList"; //
 		

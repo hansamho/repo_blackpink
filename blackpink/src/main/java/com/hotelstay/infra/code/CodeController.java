@@ -24,14 +24,14 @@ public class CodeController {
 		
 		model.addAttribute("list", service.selectList());
 		
-		return "codeXdmList";
+		return "/adm/infra/code/codeXdmList";
 	}
 	
 	@RequestMapping(value = "/codeView")
 	public String codeView(CodeDto dto, Model model) throws Exception{
 		model.addAttribute("item", service.selectOne(dto));
 	
-		return "codeView"; //
+		return "/adm/infra/code/codeView"; //
 		
 	}
 	
@@ -39,14 +39,14 @@ public class CodeController {
 	public String codeForm(CodeDto dto, Model model) throws Exception{
 		model.addAttribute("item", service.selectOne(dto));
 	
-		return "codeForm"; //
+		return "/adm/infra/code/codeForm"; //
 		
 	}
 	
 	@RequestMapping(value = "/codeLogin")
 	public String codeLogin() throws Exception{
 		
-		return "codeLogin"; //
+		return "/adm/infra/code/codeLogin"; //
 		
 	}
 	
