@@ -7,8 +7,9 @@ public class CodeDto {
 	private String seq;
 	private String name;
 	private Date codeCreate;
+	private Date codeUpdate;
 	private Integer codeDelete;
-	private Integer codeUpdate;
+	
 	
 	private String code_seq; //그룹코드seq
 	private String codegroup_name; //그룹코드name
@@ -30,17 +31,17 @@ public class CodeDto {
 	public void setCodeCreate(Date codeCreate) {
 		this.codeCreate = codeCreate;
 	}
+	public Date getCodeUpdate() {
+		return codeUpdate;
+	}
+	public void setCodeUpdate(Date codeUpdate) {
+		this.codeUpdate = codeUpdate;
+	}
 	public Integer getCodeDelete() {
 		return codeDelete;
 	}
 	public void setCodeDelete(Integer codeDelete) {
 		this.codeDelete = codeDelete;
-	}
-	public Integer getCodeUpdate() {
-		return codeUpdate;
-	}
-	public void setCodeUpdate(Integer codeUpdate) {
-		this.codeUpdate = codeUpdate;
 	}
 	public String getCode_seq() {
 		return code_seq;
@@ -54,6 +55,9 @@ public class CodeDto {
 	public void setCodegroup_name(String codegroup_name) {
 		this.codegroup_name = codegroup_name;
 	}
+	
+	
+	
 	
 	
 	
