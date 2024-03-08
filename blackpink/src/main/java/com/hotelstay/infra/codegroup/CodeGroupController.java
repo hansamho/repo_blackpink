@@ -30,11 +30,11 @@ public class CodeGroupController {
 		
 			
 	}
-	@RequestMapping(value = "/codeGroupView")
-		public String codeGroupView(CodeGroupDto dto, Model model) throws Exception{
+	@RequestMapping(value = "/codeGroupAdmView")
+		public String codeGroupAdmView(CodeGroupDto dto, Model model) throws Exception{
 			model.addAttribute("item", service.selectOne(dto));
 		
-			return "/adm/infra/codegroup/codeGroupView"; //
+			return "/adm/infra/codegroup/codeGroupAdmView"; //
 			
 		}
 	@RequestMapping(value = "/codeGroupForm")
@@ -87,4 +87,6 @@ public class CodeGroupController {
 		return "redirect:/codeGroupXdmList"; //
 		
 	}
+	
+	
 }

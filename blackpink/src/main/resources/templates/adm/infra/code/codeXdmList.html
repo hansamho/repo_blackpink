@@ -34,7 +34,7 @@
 <!--     		<td th:text="${list.codeCreate}"></td> -->
     		<td><a th:href="@{/codeView(seq=${list.seq},name=${list.name})}" th:text="${list.name}"></a></td>
     		
-<!--     		<td th:text="${#dates.format(list.modDateTime, 'yyyy-MM-dd HH:mm:ss')}"></td> -->
+    		<td th:text="${#dates.format(list.codeCreate, 'yyyy-MM-dd HH:mm:ss')}"></td>
     	</tr>
     	
     	

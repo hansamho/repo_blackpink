@@ -453,11 +453,11 @@
 					<div class="main-header d-flex align-items-center justify-content-between position-relative">
 						<div class="d-flex align-items-center justify-content-center">
 							<div class="page-icon">
-								<i class="bi bi-window-split"></i>
+<!-- 								<i class="bi bi-window-split"></i> -->
 							</div>
-							<div class="page-title d-none d-md-block">
-								<h5>Tables</h5>
-							</div>
+<!-- 							<div class="page-title d-none d-md-block"> -->
+<!-- 								<h5>Tables</h5> -->
+<!-- 							</div> -->
 						</div>
 						<!-- Live updates start -->
 						<ul class="updates d-flex align-items-end flex-column overflow-hidden" id="updates">
@@ -495,7 +495,7 @@
 								<div class="card">
 									<div class="card-body">
 										<div class="card-header">
-											<div class="card-title">Member</div>
+											<div class="card-title">코드그룹 관리</div>
 										</div>
 										<div class="row">
 											<div class="col-2 gy-2" style="padding-left: 2%;">
@@ -554,7 +554,14 @@
 											</div>
 										</div>
 										<div class="table-responsive">
-										<a href="@{codeGroupLogin}" th:text="등록"></a>
+<!-- 										<div  style="padding-left: 2%;"> -->
+<!-- 											<form method="post" action="codeGroupInsert"> -->
+<!--   										<input type="text" name="seq" > -->
+<!--   										<br><input type="text" name="name"> -->
+<!--   										<button type="submit" class="btn btn-primary"><i class="bi bi-plus-square"></i></button> -->
+<!--  										 </form> -->
+<!-- 										</div> -->
+										
 											<table class="table align-middle m-0">
 												<thead>
 													<tr>
@@ -576,7 +583,6 @@
 														<th><input type="checkbox" id="checkboxType"></th>
 														<th>#</th>
 														<th>이름</th>
-														<th>이메일</th>
 														<th>등록일</th>
 														<th>수정일</th>
 														<th>삭제여부</th>
@@ -587,20 +593,20 @@
 														<td><input type="checkbox" id="checkboxType2"></td>
 														<td th:text="${list.seq}"></td>
 														<td>
-															<img src="/adm/template/gear/assets/images/flags/1x1/hk.svg" class="flag-img" alt="Hong Kong" />Hong Kong
+															<a th:href="@{/codeGroupAdmView(seq=${list.seq},name=${list.name})}" th:text="${list.name}"></a>
 														</td>
-														<td>Chinese (official), English</td>
-														<td>7,39,000</td>
-														<td>31.3</td>
-														<td th:if="${list.cgDelete eq 0}">N</td>
-    													<td th:unless="${list.cgDelete eq 0}">Y</td>
+														
+														<td  th:text="${#dates.format(list.cgCreate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+														<td  th:text="${#dates.format(list.cgUpdate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+														<td th:if="${list.cgDelete eq 1}">Y</td>
+    													<td th:unless="${list.cgDelete eq 1}">N</td>
 													</tr>
 													
 												</tbody>
 												<tfoot>
 													<tr>
 														<td colspan="5" class="text-center">
-															Data retrieved from Crowdnub admin.
+															
 														</td>
 													</tr>													
 												</tfoot>
@@ -653,12 +659,12 @@
 								<div class="row">
 									<div class="col">
 													<!-- Button trigger modal -->
-										<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="'#exampleModal' + ${list['seq']}" style="background-color: red;">
+										<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: red;">
 											<i class="bi bi-trash"></i>
 										</button>
 
 										<!-- Modal -->
-										<div class="modal fade" id="'exampleModal' + ${list['seq']}" tabindex="-1" aria-labelledby="exampleModalLabel"
+										<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
 											aria-hidden="true">
 											<div class="modal-dialog">
 												<div class="modal-content">
@@ -668,12 +674,7 @@
 														</h5>
 														<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 													</div>
-													 <form action="codeGroupDelete" method="post">
-													 
-													 	<div class="modal-body">
-													 	 <input type="text" name="seq" th:value="${list.seq}">
-                                                         <input type="text" name="name" th:value="${list.name}">
-													 	삭제하시겠습니까?</div>
+													<div class="modal-body">삭제하시겠습니까?</div>
 													<div class="modal-footer">
 														<button type="button" class="btn btn-primary">
 															예
@@ -683,17 +684,19 @@
 														</button>
 														
 													</div>
-													</form>
-													
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="col" align="Right">
-										<button type="button" class="btn btn-primary">
-											<i class="bi bi-plus-square"></i>
-										</button>
+										<div class="col" align="Right">
+<!-- 										<form method="post" action="codeGroupInsert"> -->
+<!--   										<input type="text" name="seq" > -->
+<!--   										<br><input type="text" name="name"> -->
+  										<button type="submit" class="btn btn-primary"><a th:href="@{codeGroupLogin}" th:text="등록"></a></button>
+<!--  										 </form> -->
 									</div>
+								</div>
+								
 								</div>
 							
 								

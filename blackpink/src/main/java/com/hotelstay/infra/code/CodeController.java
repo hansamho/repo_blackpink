@@ -78,14 +78,7 @@ public class CodeController {
 		
 	}
 	
-	@RequestMapping(value = "/codeDelete")
-	public String codeDelete(CodeDto dto ) throws Exception{
-
-		service.delete(dto);
 	
-		return "redirect:/codeXdmList";   //
-		
-	}
 	
 	
 	

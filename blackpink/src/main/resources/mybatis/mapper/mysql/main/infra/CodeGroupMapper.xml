@@ -61,7 +61,7 @@
     	
     	UPDATE codeGroup 
     	set
-    	cgDelete = 0
+    	cgDelete = 1
     	WHERE seq = #{seq}
   
     </update>
