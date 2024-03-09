@@ -48,7 +48,6 @@
     		,#{codeDelete}
     		,#{code_seq}
     	)
-           
     </insert>
     
     <update id="update">
@@ -64,7 +63,7 @@
     	
     	UPDATE code
     	set
-    	codeDelete = 0
+    	codeDelete = 1
     	WHERE seq = #{seq}
   
     </update>

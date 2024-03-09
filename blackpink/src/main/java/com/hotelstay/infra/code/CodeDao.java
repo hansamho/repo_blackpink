@@ -11,7 +11,7 @@ public interface CodeDao {
 	
 	public int insert(CodeDto dto);
 	
-	public int update(CodeDto dto);
+	public int update(CodeDto dto); 
 	
 	public int updateDelete(CodeDto dto);
 	
