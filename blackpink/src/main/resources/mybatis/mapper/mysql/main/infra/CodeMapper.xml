@@ -10,12 +10,30 @@
             a.seq
             ,a.name
             ,a.code_seq
-            ,a.codeDelete
+            ,a.codeDelete 
             ,a.codeCreate
             ,a.codeUpdate
             ,(select aa.name from codegroup aa where 1=1 and aa.seq = a.code_seq) as codegroup_name
          FROM Code a
         WHERE 1=1
+<!--         <if test="shUseNy != null and !shUseNy.equals('')">AND ifcgUseNy = #{shUseNy}</if> -->
+        <if test="shcodeDelete != null and !shcodeDelete.equals('')"></if> <!-- AND codeDelete = #{shDelNy} -->
+<!--         
+				<choose>
+					<when test="shOptionDate == 1">AND a.regDateTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+					<when test="shOptionDate == 2">AND a.modDateTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+				</choose>
+ -->        
+        <choose>
+            <when test="shOption == 1">AND a.code_seq = #{shValue}</when>
+            <when test="shOption == 2">AND a.seq = #{shValue}</when>
+            <when test="shOption == 3">AND a.Name LIKE CONCAT('%',#{shValue},'%')</when>
+            
+            
+<!--             <when test="shOption == 3">AND ifcgNameEng LIKE CONCAT('%',#{shValue},'%')</when> -->
+        </choose>
+        
+        
         ORDER BY a.Seq DESC
     </select>
 

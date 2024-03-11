@@ -4,7 +4,9 @@ import java.util.List;
 
 public interface CodeGroupDao {
 	
-	public List<CodeGroupDto> selectList(); // 여러개 데이터를 보낼떄는 list 
+//	public List<CodeGroupDto> selectList(); // 여러개 데이터를 보낼떄는 list 
+	
+	public List<CodeGroupDto> selectList(CodeGroupVo vo);
 	
 	public CodeGroupDto selectOne(CodeGroupDto dto); //한개의 데이터를 보낼때
 	

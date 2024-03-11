@@ -12,20 +12,32 @@ public class CodeController {
 	CodeService service;
 //	CodeGroupService codeGroupService;
 	
+//	@RequestMapping(value = "/codeXdmList")
+//	public String codeXdmList(Model model) throws Exception{
+////		List<CodeGroupDto> list = service.selectList();
+//		
+////		List<CodeGroupDto> codeGroupDtos = service.selectList();
+//		
+////		for(CodeGroupDto a:codeGroupDtos) {
+////			System.out.println(a.getName());
+////		}
+//		
+//		model.addAttribute("list", service.selectList());
+//		
+//		return "/adm/infra/code/codeXdmList";
+//	}
+	
+	
 	@RequestMapping(value = "/codeXdmList")
-	public String codeXdmList(Model model) throws Exception{
-//		List<CodeGroupDto> list = service.selectList();
-		
-//		List<CodeGroupDto> codeGroupDtos = service.selectList();
-		
-//		for(CodeGroupDto a:codeGroupDtos) {
-//			System.out.println(a.getName());
-//		}
-		
-		model.addAttribute("list", service.selectList());
-		
-		return "/adm/infra/code/codeXdmList";
-	}
+	public String codeXdmList(CodeVo vo, Model model) throws Exception{
+	
+			model.addAttribute("list", service.selectList(vo));
+			model.addAttribute("vo",vo);
+
+			return "/adm/infra/code/codeXdmList";
+  	}
+	
+	
 	
 	@RequestMapping(value = "/codeView")
 	public String codeView(CodeDto dto, Model model) throws Exception{

@@ -20,7 +20,12 @@ public class CodeGroupService {
 //		return list;
 //	}
 	
-	public List<CodeGroupDto> selectList(){ return dao.selectList();}
+//	public List<CodeGroupDto> selectList(){ return dao.selectList();}
+	
+	
+	public List<CodeGroupDto> selectList(CodeGroupVo vo) { 
+    	return dao.selectList(vo); 
+    }
 
 	public CodeGroupDto selectOne(CodeGroupDto dto) {
 		return dao.selectOne(dto);

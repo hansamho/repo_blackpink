@@ -15,6 +15,19 @@
             ,(select count(aa.seq) from Code aa where 1=1 and aa.codeDelete = 0 and aa.Seq = a.Seq) as xifcdSeqCount
          FROM CodeGroup a
         WHERE 1=1
+<!--          <if test="shUseNy != null and !shUseNy.equals('')">AND ifcgUseNy = #{shUseNy}</if> -->
+        <if test="shDelete != null and !shDelete.equals('')"></if>   <!-- AND cgDelete = #{shDelete} -->
+<!--         
+				<choose>
+					<when test="shOptionDate == 1">AND a.regDateTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+					<when test="shOptionDate == 2">AND a.modDateTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+				</choose>
+ -->        
+        <choose>
+            <when test="shOption == 1">AND a.seq = #{shValue}</when>
+            <when test="shOption == 2">AND a.name LIKE CONCAT('%',#{shValue},'%')</when>
+<!--             <when test="shOption == 3">AND ifcgNameEng LIKE CONCAT('%',#{shValue},'%')</when> -->
+        </choose>
         ORDER BY a.Seq DESC
     </select>
 	  
