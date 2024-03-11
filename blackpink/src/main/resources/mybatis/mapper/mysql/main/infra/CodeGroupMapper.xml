@@ -38,7 +38,7 @@
             ,cgCreate
             ,cgUpdate
             ,cgDelete
-    	) VALUES(		
+    	) VALUES(		 
     		#{name}
     		,#{cgCreate}
     		,#{cgUpdate}

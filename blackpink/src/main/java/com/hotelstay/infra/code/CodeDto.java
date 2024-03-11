@@ -55,12 +55,7 @@ public class CodeDto {
 	public void setCodegroup_name(String codegroup_name) {
 		this.codegroup_name = codegroup_name;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 }
+
+
+
