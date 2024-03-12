@@ -516,10 +516,10 @@
 											<!-- datetimepicker data-->										
 											<div class="col-2 gy-2 ">
 												<!-- datetimepicker -->
-											<input type="text"id="datetimepicker" name="datetimepicker" th:value="${#strings.substring(vo.shDateStart, 0, 10)}" placeholder="시작일" class="datetimepicker form-control form-control-sm" autocomplete="off">
+											<input type="text"id="shDateStart" name="shDateStart" th:value="${#strings.substring(vo.shDateStart, 0, 10)}" placeholder="시작일" class="datetimepicker form-control form-control-sm" autocomplete="off">
 											</div>              
 											<div class="col-2 gy-2">
-												<input type="text" id="datetimepicker2" name="datetimepicker2" th:value="${#strings.substring(vo.shDateEnd, 0, 10)}" placeholder="종료일" class="datetimepicker form-control form-control-sm" autocomplete="off">
+												<input type="text" id="shDateEnd" name="shDateEnd" th:value="${#strings.substring(vo.shDateEnd, 0, 10)}" placeholder="종료일" class="datetimepicker form-control form-control-sm" autocomplete="off">
 											</div>					
 										</div>
 										
@@ -748,7 +748,7 @@
 		
 		<script>
 		window.addEventListener('load', function() {
-			$("#datetimepicker, #datetimepicker2").datetimepicker({
+			$("#shDateStart, #shDateEnd").datetimepicker({
 			timepicker:false,
 	 		format: 'Y-m-d'
 			  });
@@ -772,11 +772,11 @@
 //	 		}
 
 
-//	 		goForm = function (keyValue) {
-//	 		    seq.value = keyValue;
-//	 		    form.action = goUrlXdmForm;
-//	 		    form.submit();
-//	 		}
+	 		goForm = function (keyValue) {
+	 		    seq.value = keyValue;
+	 		    form.action = goUrlXdmForm;
+	 		    form.submit();
+	 		}
 					
 			document.getElementById("btnSearch").onclick = function () {
 			    form.action = goUrlXdmList;

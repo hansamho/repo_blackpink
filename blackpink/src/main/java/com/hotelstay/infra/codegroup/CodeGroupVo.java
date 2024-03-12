@@ -2,9 +2,9 @@ package com.hotelstay.infra.codegroup;
 
 public class CodeGroupVo {
 	
-	private Integer shUseNy = 1; 									/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
-	private Integer shDelete = 0; 								/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
-	private Integer shOptionDate = 1;							/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
+//	private Integer shUseNy = 1; 									/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
+	private Integer shDelete ; 								/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
+	private Integer shOptionDate ;							/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
 	private String shDateStart;
 	private String shDateEnd;
 	private Integer shOption;									/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
@@ -12,13 +12,13 @@ public class CodeGroupVo {
 	
 	private String cgSeq;
 
-	public Integer getShUseNy() {
-		return shUseNy;
-	}
-
-	public void setShUseNy(Integer shUseNy) {
-		this.shUseNy = shUseNy;
-	}
+//	public Integer getShUseNy() {
+//		return shUseNy;
+//	}
+//
+//	public void setShUseNy(Integer shUseNy) {
+//		this.shUseNy = shUseNy;
+//	}
 
 	public Integer getShDelete() {
 		return shDelete;

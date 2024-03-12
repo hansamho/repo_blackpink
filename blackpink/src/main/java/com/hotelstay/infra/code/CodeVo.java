@@ -1,9 +1,9 @@
 package com.hotelstay.infra.code;
 
 public class CodeVo {
-	private Integer shUseNy = 1; 									/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
-	private Integer shcodeDelete = 0; 								/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
-	private Integer shOptionDate = 1;							/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
+	private Integer shUseNy ; 									/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
+	private Integer shcodeDelete ; 								/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
+	private Integer shOptionDate ;							/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
 	private String shDateStart;
 	private String shDateEnd;
 	private Integer shOption;									/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
