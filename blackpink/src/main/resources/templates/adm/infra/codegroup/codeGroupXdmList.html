@@ -553,7 +553,7 @@
 											<table class="table align-middle m-0">
 												<thead>
 													<tr>
-														<th>Total</th>
+														<th>Total :</th>
 														<th></th>
 														<th></th>
 														<th></th>
@@ -677,7 +677,7 @@
 										</div>
 									</div>
 										<div class="col" align="Right">
-  										<button type="submit" class="btn btn-primary"><a th:href="@{codeGroupLogin}" th:text="등록"></a></button>
+  										<button type="submit" id="btnSubmit" class="btn btn-primary"><a th:href="@{codeGroupLogin}" th:text="등록"></a></button>
 									</div>
 								</div>
 								
@@ -749,8 +749,11 @@
 		let goUrlXdmMultiUele = "/codeGroupXdmMultiUele";			/* ### */
 		let goUrlXdmMultiDele = "/codeGroupXdmMultiDele";			/* ### */
 		let goUrlXdmView = "/codeGroupAdmView";								/* ### */
+		
 		let form = document.querySelector("form[name=formList]");
 		let seq = document.querySelector("input[name=seq]");									/* ### */
+		
+		
 		
 		
 		document.getElementById("btnReset").onclick = function () {
