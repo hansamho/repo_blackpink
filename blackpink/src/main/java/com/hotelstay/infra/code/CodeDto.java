@@ -9,7 +9,7 @@ public class CodeDto {
 	private Date codeCreate;
 	private Date codeUpdate;
 	private Integer codeDelete;
-	
+	  
 	
 	private String code_seq; //그룹코드seq
 	private String codegroup_name; //그룹코드name
@@ -20,7 +20,7 @@ public class CodeDto {
 		this.seq = seq;
 	}
 	public String getName() { 
-		return name;
+		return name; 
 	}
 	public void setName(String name) {
 		this.name = name;
