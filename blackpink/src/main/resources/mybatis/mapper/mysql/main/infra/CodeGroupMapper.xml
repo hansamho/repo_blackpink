@@ -7,55 +7,55 @@
 
     <select id="selectList" resultMap="resultMapObj">
         SELECT
-            a.Seq
+            a.cgSeq
             ,a.Name
-            ,a.cgCreate
+            ,a.cgRegDate
             ,a.cgUpdate
-            ,a.cgDelete
-            ,(select count(aa.seq) from Code aa where 1=1 and aa.codeDelete = 0 and aa.Seq = a.Seq) as xifcdSeqCount
-         FROM CodeGroup a
+            ,a.cgDelny
+<!--             ,(select count(aa.seq) from Code aa where 1=1 and aa.codeDelete = 0 and aa.Seq = a.Seq) as xifcdSeqCount -->
+         FROM codeGroup a
         WHERE 1=1
 <!--          <if test="shUseNy != null and !shUseNy.equals('')">AND ifcgUseNy = #{shUseNy}</if> -->
-        <if test="shDelete != null and !shDelete.equals('')">AND a.cgDelete = #{shDelete}</if>   <!-- AND a.cgDelete = #{shDelete} -->
+        <if test="shDelny != null and !shDelny.equals('')">AND a.cgDelny = #{shDelny}</if>   <!-- AND a.cgDelete = #{shDelete} -->
        
 				<choose>
-					<when test="shOptionDate == 1">AND a.cgCreate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+					<when test="shOptionDate == 1">AND a.cgRegDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
 					<when test="shOptionDate == 2">AND a.cgUpdate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
 				</choose>
      
         <choose>
-            <when test="shOption == 1">AND a.seq = #{shValue}</when>
+            <when test="shOption == 1">AND a.cgSeq = #{shValue}</when>
             <when test="shOption == 2">AND a.name LIKE CONCAT('%',#{shValue},'%')</when>
 <!--             <when test="shOption == 3">AND ifcgNameEng LIKE CONCAT('%',#{shValue},'%')</when> -->
         </choose>
-        ORDER BY a.Seq DESC
+        ORDER BY a.cgSeq DESC
     </select>
 	  
 	  
 	  <select id="selectOne" resultMap="resultMapObj">
         SELECT
-            a.Seq
+            a.cgSeq
             ,a.Name
-            ,a.cgCreate
+            ,a.cgRegDate
             ,a.cgUpdate
-            ,a.cgDelete
+            ,a.cgDelny
          FROM CodeGroup a
         WHERE 1=1
-        AND a.seq = #{seq}
-        ORDER BY a.Seq DESC
+        AND a.cgSeq = #{cgSeq}
+        ORDER BY a.cgSeq DESC
     </select>
     
     <insert id="insert">
     	INSERT INTO codeGroup(
             name
-            ,cgCreate
+            ,cgRegDate
             ,cgUpdate
-            ,cgDelete
+            ,cgDelny
     	) VALUES(		 
     		#{name}
-    		,#{cgCreate}
+    		,#{cgRegDate}
     		,#{cgUpdate}
-    		,#{cgDelete}
+    		,#{cgDelny}
     	)
            
     </insert>
@@ -66,7 +66,7 @@
     	UPDATE codeGroup 
     	set
     	name = #{name}
-    	WHERE seq = #{seq}
+    	WHERE cgSeq = #{cgSeq}
   
     </update>
     
@@ -74,14 +74,14 @@
     	
     	UPDATE codeGroup 
     	set
-    	cgDelete = 1
-    	WHERE seq = #{seq}
+    	cgDelny = 1
+    	WHERE cgSeq = #{cgSeq}
   
     </update>
     
     <delete id="delete">
     	DELETE FROM  codeGroup
-    	WHERE seq = #{seq}
+    	WHERE cgSeq = #{cgSeq}
     </delete>
     
 </mapper>

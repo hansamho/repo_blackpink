@@ -579,15 +579,15 @@
 												<tbody>
 													<tr  th:if="${#lists.isEmpty(List)}" th:each="list : ${list}">
 														<td><input type="checkbox" id="checkboxType2"></td>
-														<td th:text="${list.seq}"></td>
+														<td th:text="${list.cgSeq}"></td>
 														<td>
-															<a th:href="@{/codeGroupAdmView(seq=${list.seq},name=${list.name})}" th:text="${list.name}"></a>
+															<a th:href="@{/codeGroupAdmView(cgSeq=${list.cgSeq},name=${list.name})}" th:text="${list.name}"></a>
 														</td>
 														
-														<td  th:text="${#dates.format(list.cgCreate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+														<td  th:text="${#dates.format(list.cgRegDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
 														<td  th:text="${#dates.format(list.cgUpdate, 'yyyy-MM-dd HH:mm:ss')}"></td>
-														<td th:if="${list.cgDelete eq 1}">Y</td>
-    													<td th:unless="${list.cgDelete eq 1}">N</td>
+														<td th:if="${list.cgDelny eq 1}">Y</td>
+    													<td th:unless="${list.cgDelny eq 1}">N</td>
 													</tr>
 													
 												</tbody>
