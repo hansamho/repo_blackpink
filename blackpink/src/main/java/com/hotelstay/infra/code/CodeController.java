@@ -91,10 +91,10 @@ public class CodeController {
 		
 	}
 	
-	@RequestMapping(value = "/codeLogin")
-	public String codeLogin() throws Exception{
+	@RequestMapping(value = "/codeAdd")
+	public String codeAdd() throws Exception{
 		
-		return "/adm/infra/code/codeLogin"; //
+		return "/adm/infra/code/codeAdd"; //
 		
 	}
 	

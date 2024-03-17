@@ -586,17 +586,17 @@
 												<tbody>
 													<tr  th:if="${#lists.isEmpty(List)}" th:each="list : ${list}">
 														<td><input type="checkbox" id="checkboxType2"></td>
-														<td th:text="${list.code_seq}"></td>
-														<td th:text="${list.codegroup_name}"></td>
-														<td th:text="${list.seq}"></td>
+														<td th:text="${list.codeGroup_seq}"></td>
+														<td th:text="${list.codeGroup_name}"></td>
+														<td th:text="${list.cdSeq}"></td>
 														<td>
-															<a th:href="@{/codeView(seq=${list.seq},name=${list.name})}" th:text="${list.name}"></a>
+															<a th:href="@{/codeView(cdSeq=${list.cdSeq},name=${list.name})}" th:text="${list.name}"></a>
 														</td>
 														
-														<td  th:text="${#dates.format(list.codeCreate, 'yyyy-MM-dd HH:mm:ss')}"></td>
-														<td  th:text="${#dates.format(list.codeUpdate, 'yyyy-MM-dd HH:mm:ss')}"></td>
-														<td th:if="${list.codeDelete eq 1}">Y</td>
-    													<td th:unless="${list.codeDelete eq 1}">N</td>
+														<td  th:text="${#dates.format(list.cdRegDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+														<td  th:text="${#dates.format(list.cdUpdate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+														<td th:if="${list.cdDelny eq 1}">Y</td>
+    													<td th:unless="${list.cdDelny eq 1}">N</td>
 													</tr>
 													
 												</tbody>
@@ -686,7 +686,7 @@
 										</div>
 									</div>
 										<div class="col" align="Right">
-  											<button type="submit" class="btn btn-primary"><a th:href="@{codeLogin}" th:text="등록"></a></button>
+  											<button type="submit" class="btn btn-primary"><a th:href="@{codeAdd}" th:text="등록"></a></button>
 										</div>
 								</div>
 								

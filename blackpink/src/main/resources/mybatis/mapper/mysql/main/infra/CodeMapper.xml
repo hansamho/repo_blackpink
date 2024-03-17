@@ -7,64 +7,64 @@
 
 <select id="selectList" resultMap="resultMapObj">
        SELECT
-            a.seq
+            a.cdSeq
             ,a.name
-            ,a.code_seq
-            ,a.codeDelete 
-            ,a.codeCreate
-            ,a.codeUpdate
-            ,(select aa.name from codegroup aa where 1=1 and aa.seq = a.code_seq) as codegroup_name
-         FROM Code a
+            ,a.codeGroup_seq
+            ,a.cdDelny 
+            ,a.cdRegDate
+            ,a.cdUpdate
+            ,(select aa.name from codegroup aa where 1=1 and aa.cgSeq = a.codeGroup_seq) as codegroup_name
+         FROM code a
         WHERE 1=1
 <!--         <if test="shUseNy != null and !shUseNy.equals('')">AND ifcgUseNy = #{shUseNy}</if> -->
-        <if test="shcodeDelete != null and !shcodeDelete.equals('')">AND a.codeDelete = #{shcodeDelete}</if> <!-- AND codeDelete = #{shDelNy} -->
+        <if test="shcodeDelete != null and !shcodeDelete.equals('')">AND a.cdDelny = #{shcodeDelete}</if> <!-- AND codeDelete = #{shDelNy} -->
        
 				<choose>
-					<when test="shOptionDate == 1">AND a.codeCreate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
-					<when test="shOptionDate == 2">AND a.codeUpdate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+					<when test="shOptionDate == 1">AND a.cdRegDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+					<when test="shOptionDate == 2">AND a.cdUpdate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
 				</choose>
     
         <choose>
-            <when test="shOption == 1">AND a.code_seq = #{shValue}</when>
-            <when test="shOption == 2">AND a.seq = #{shValue}</when>
-            <when test="shOption == 3">AND a.Name LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 1">AND a.codeGroup_seq = #{shValue}</when>
+            <when test="shOption == 2">AND a.cdSeq = #{shValue}</when>
+            <when test="shOption == 3">AND a.name LIKE CONCAT('%',#{shValue},'%')</when>
             
             
 <!--             <when test="shOption == 3">AND ifcgNameEng LIKE CONCAT('%',#{shValue},'%')</when> -->
         </choose>
         
         
-        ORDER BY a.Seq DESC
+        ORDER BY a.cdSeq DESC
     </select>
 
 
 	  <select id="selectOne" resultMap="resultMapObj">
        SELECT
-            a.seq
+            a.cdSeq
             ,a.name
-            ,a.code_seq
-            ,a.codeDelete
-            ,a.codeCreate
-            ,a.codeUpdate
-         FROM Code a
+            ,a.codeGroup_seq
+            ,a.cdDelny
+            ,a.cdRegDate
+            ,a.cdUpdate
+         FROM code a
         WHERE 1=1
-        AND a.seq = #{seq}
-        ORDER BY a.Seq DESC
+        AND a.cdSeq = #{cdSeq}
+        ORDER BY a.cdSeq DESC
     </select>
     
      <insert id="insert">
     	INSERT INTO code(
             name
-            ,codeCreate
-            ,codeUpdate
-            ,codeDelete
-            ,code_Seq
+            ,cdRegDate
+            ,cdUpdate
+            ,cdDelny
+            ,codeGroup_seq
     	) VALUES(		
     		#{name}
-    		,#{codeCreate}
-    		,#{codeUpdate}
-    		,#{codeDelete}
-    		,#{code_seq}
+    		,#{cdRegDate}
+    		,#{cdUpdate}
+    		,#{cdDelny}
+    		,#{codeGroup_seq}
     	)
     </insert>
     
@@ -73,7 +73,7 @@
     	UPDATE code
     	set
     	name = #{name}
-    	WHERE seq = #{seq}
+    	WHERE cdSeq = #{cdSeq}
   
     </update>
     
@@ -81,14 +81,14 @@
     	
     	UPDATE code
     	set
-    	codeDelete = 1
-    	WHERE seq = #{seq}
+    	cdDelny = 1
+    	WHERE cdSeq = #{cdSeq}
   
     </update>
    
    <delete id="delete">
     	DELETE FROM  code
-    	WHERE seq = #{seq}
+    	WHERE cdSeq = #{cdSeq}
     </delete>
     
 </mapper>

@@ -497,14 +497,14 @@
 										<form method="post" action="codeUpdate">
 											<div class="row">
 												<div class="col-lg-6 col-sm-4 col-12 gy-2">
-													<input type="text" name="seq" th:value="${item.seq}" class="form-control">
+													<input type="text" name="cdSeq" th:value="${item.cdSeq}" class="form-control">
 												</div>
 												<div class="col-lg-6 col-sm-4 col-12 gy-2">
 													<input type="text" name="name" th:value="${item.name}" class="form-control">
 													
 												</div>
 												<div  class="col gy-2">
-													<button type="submit" class="btn btn-primary"><a th:href="@{/codeXdmList(seq=${item.seq})}" th:text="뒤로가기"></a></button>
+													<button type="submit" class="btn btn-primary"><a th:href="@{/codeXdmList(cdSeq=${item.cdSeq})}" th:text="뒤로가기"></a></button>
 												</div>
 												<div class="col gy-2" align="right">	
 													<button type="submit" class="btn btn-primary" onclick="javascript: form.action='codeDelete';">데이터 삭제</button>
