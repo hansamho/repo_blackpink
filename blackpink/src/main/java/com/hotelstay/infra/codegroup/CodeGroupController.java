@@ -91,11 +91,11 @@ public class CodeGroupController {
 		
 	}
 	
-	@RequestMapping(value = "/codeGroupLogin")
-	public String codeGroupLogin() throws Exception{
+	@RequestMapping(value = "/codeGroupAdd")
+	public String codeGroupAdd() throws Exception{
 		
 	
-		return "/adm/infra/codegroup/codeGroupLogin"; //
+		return "/adm/infra/codegroup/codeGroupAdd"; //
 		
 	}
 	
