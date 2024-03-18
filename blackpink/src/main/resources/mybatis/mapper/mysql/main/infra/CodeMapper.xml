@@ -17,7 +17,7 @@
          FROM code a
         WHERE 1=1
 <!--         <if test="shUseNy != null and !shUseNy.equals('')">AND ifcgUseNy = #{shUseNy}</if> -->
-        <if test="shcodeDelete != null and !shcodeDelete.equals('')">AND a.cdDelny = #{shcodeDelete}</if> <!-- AND codeDelete = #{shDelNy} -->
+        <if test="shcdDelny != null and !shcdDelny.equals('')">AND a.cdDelny = #{shcdDelny}</if> <!-- AND codeDelete = #{shDelNy} -->
        
 				<choose>
 					<when test="shOptionDate == 1">AND a.cdRegDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
