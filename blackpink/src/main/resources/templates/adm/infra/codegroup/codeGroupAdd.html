@@ -494,13 +494,15 @@
 										<div class="card-header">
 											<div class="card-title">코드그룹 관리</div>
 										</div>
-									<form method="post" action="codeGroupInsert" >
+									<form method="post" action='codeGroupInsert'>
 										<div class="row">
 											<div class="col-lg-6 col-sm-4 col-12 gy-2">
+											<label class="form-label">seq</label>
   										  	<input type="text" name="cgSeq" id="cgSeq" class="form-control" placeholder="seq">
 										  	</div>
 										  	
 										  	<div class="col-lg-6 col-sm-4 col-12 gy-2">
+										  		<label class="form-label">이름</label>
 										  		<input type="text" name="name" id="cgName" class="form-control" placeholder="name">
 										  		<div class="invalid-feedback">
 										  			이름을 입력하세요
@@ -512,7 +514,7 @@
 										  	</div>
 										  	
 										  	<div class="col gy-2" align="right">
-										  		<button type="submit" id="btnSubmit" class="btn btn-primary">저장</button>
+										  		<button type="submit" id="btnSubmit" class="btn btn-primary" onclick="javascript: form.action='codeGroupInsert';">저장</button>
 										  	</div>
 										  </div>
   										</form>
