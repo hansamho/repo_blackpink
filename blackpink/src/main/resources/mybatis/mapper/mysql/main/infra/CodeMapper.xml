@@ -10,9 +10,9 @@
             a.cdSeq
             ,a.name
             ,a.codeGroup_seq
-            ,a.cdDelny 
             ,a.cdRegDate
             ,a.cdUpdate
+            ,a.cdDelny
             ,(select aa.name from codegroup aa where 1=1 and aa.cgSeq = a.codeGroup_seq) as codegroup_name
          FROM code a
         WHERE 1=1
@@ -43,9 +43,9 @@
             a.cdSeq
             ,a.name
             ,a.codeGroup_seq
-            ,a.cdDelny
             ,a.cdRegDate
             ,a.cdUpdate
+            ,a.cdDelny
          FROM code a
         WHERE 1=1
         AND a.cdSeq = #{cdSeq}
