@@ -494,18 +494,21 @@
 										<div class="card-header">
 											<div class="card-title">코드그룹 관리</div>
 										</div>
-									<form method="post" action='codeGroupInsert'>
+									<form method="post" action='codeGroupInsert' class="needs-validation" novalidate>
 										<div class="row">
 											<div class="col-lg-6 col-sm-4 col-12 gy-2">
 											<label class="form-label">seq</label>
-  										  	<input type="text" name="cgSeq" id="cgSeq" class="form-control" placeholder="seq">
+  										  	<input type="text" name="cgSeq" id="cgSeq" class="form-control" placeholder="seq" required>
 										  	</div>
 										  	
 										  	<div class="col-lg-6 col-sm-4 col-12 gy-2">
 										  		<label class="form-label">이름</label>
-										  		<input type="text" name="name" id="cgName" class="form-control" placeholder="name">
+										  		<input type="text" name="name" id="cgName" class="form-control" placeholder="name" required>
 										  		<div class="invalid-feedback">
 										  			이름을 입력하세요
+										  		</div>
+													<div class="valid-feedback">
+										  			사용 가능한 이름입니다
 										  		</div>
 										  	</div>
 										  	
@@ -618,7 +621,12 @@
 			
 			document.getElementById("cgName").setAttribute("class", "form-control is-invalid");
 			return false;
-		} 	
+		} else {
+			
+			document.getElementById("cgName").setAttribute("class", "form-control is-valid");
+			return true;s
+		}
+		
 // 		alert("validationUpdt");
 // 		alert("cgName : "+document.getElementById("cgName").value);	
 	}
