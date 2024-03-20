@@ -496,7 +496,7 @@
 								<div class="card">
 									<div class="card-body">
 										<div class="card-header">
-											<div class="card-title">맴버 관리</div>
+											<div class="card-title">멤버 관리</div>
 										</div>
 										<form name="formList" id="formList" method="post" autocomplete="off">
 											<div class="row">
@@ -593,7 +593,11 @@
 														<td th:text="${list.memberSeq}"></td>
 														<td th:text="${list.lastName}"></td>
 														<td th:text="${list.genderCD}"></td>
-														
+														<td th:text="${list.memberID]"></td>
+														<td th:text="${list.memberPhone]"></td>
+														<td th:text="${list.codeNumber]"></td>
+														<td th:text="${list.rodaName]"></td>
+														<td th:text="${list.addrDetail]"></td>
 													</tr>
 												</tbody>
 												<tfoot>
@@ -749,14 +753,14 @@
  	 		format: 'Y-m-d'
  			  });
  			 });
- 			let goUrlXdmList = "/codeXdmList";								/* ### */
- 			let goUrlXdmForm = "/codeForm";								/* ### */
- 			let goUrlXdmMultiUele = "/codeXdmMultiUele";			/* ### */
- 			let goUrlXdmMultiDele = "/codeXdmMultiDele";			/* ### */
-			let goUrlXdmView = "/codeView";								/* ### */
+ 			let goUrlXdmList = "/memberAdmList";								/* ### */
+ 			let goUrlXdmForm = "/memberForm";								/* ### */
+ 			let goUrlXdmMultiUele = "/memberAdmMultiUele";			/* ### */
+ 			let goUrlXdmMultiDele = "/meberAdmMultiDele";			/* ### */
+			let goUrlXdmView = "/memberView";								/* ### */
 			
  			let form = document.querySelector("form[name=formList]");
-			let seq = document.querySelector("input[name=cdSeq]");		/* ### */
+			let seq = document.querySelector("input[name=memberSeq]");		/* ### */
 			
  			document.getElementById("btnReset").onclick = function () {
  			    location.href = goUrlXdmList;
