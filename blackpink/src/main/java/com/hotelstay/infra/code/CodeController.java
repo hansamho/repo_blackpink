@@ -59,16 +59,10 @@ public class CodeController {
 	@RequestMapping(value = "/codeXdmList")
 	public String codeXdmList(@ModelAttribute("vo") CodeVo vo, Model model) throws Exception{
 	
-			System.out.println("vo.getShDateStart():"+vo.getShDateStart());
-			System.out.println("vo.getShDateEnd():"+vo.getShDateEnd());
-			
 			setSearch(vo);
 			model.addAttribute("list", service.selectList(vo));
 //			model.addAttribute("vo",vo);
 			
-			
-			System.out.println("vo.getShDateStart():"+vo.getShDateStart());
-			System.out.println("vo.getShDateEnd():"+vo.getShDateEnd());
 			
 			return "/adm/infra/code/codeXdmList";
   	}

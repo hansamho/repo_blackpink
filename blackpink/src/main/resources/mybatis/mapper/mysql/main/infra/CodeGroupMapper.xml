@@ -53,9 +53,9 @@
             ,cgDelny
     	) VALUES(		 
     		#{name}
-    		,#{cgRegDate}
-    		,#{cgUpdate}
-    		,#{cgDelny}
+    		,now()
+    		,now()
+    		,0
     	)
            
     </insert>

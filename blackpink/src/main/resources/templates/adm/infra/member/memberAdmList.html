@@ -501,23 +501,23 @@
 										<form name="formList" id="formList" method="post" autocomplete="off">
 											<div class="row">
 											<div class="col-2 gy-2" style="padding-left: 2%;">
-												<select id="shcodeDelete" name="shcodeDelete" class="form-select form-select-sm">
-													<option value="" >삭제여부</option>
-													<option value="1" >Y</option>
-													<option value="0" >N</option>            
+												<select id="shDelny" name="shDelny" class="form-select form-select-sm">
+													<option value="" th:selected="${vo.shDelny == null}">삭제여부</option>
+													<option value="1" th:selected="${vo.shDelny == 1}">Y</option>
+													<option value="0" th:selected="${vo.shDelny == 0}">N</option>             
 												</select>
 											</div>
 											<div class="col-2 gy-2">																									
 												<select id="shOptionDate" name="shOptionDate" class="form-select form-select-sm">
-													<option value="" >날짜</option>
-													<option value="1" >등록일</option>
-													<option value="2" >수정일</option>
+													<option value="" th:selected="${vo.shOptionDate == null}">날짜</option>
+													<option value="1" th:selected="${vo.shOptionDate == 1}">등록일</option>
+													<option value="2" th:selected="${vo.shOptionDate == 2}">수정일</option>
 												</select>													
 											</div>
 											<!-- datetimepicker data-->										
 											<div class="col-2 gy-2 ">
 												<!-- datetimepicker -->
-											<input type="text"id="shDateStart" name="shDateStart" th:value="${#strings.substring(vo.shDateStart, 0, 10)}" placeholder="시작일" class="datetimepicker form-control form-control-sm" autocomplete="off">
+											<input type="text"id="shDateStart" name="shDateStart"  th:value="${#strings.substring(vo.shDateStart, 0, 10)}"  placeholder="시작일" class="datetimepicker form-control form-control-sm" autocomplete="off">
 											</div>              
 											<div class="col-2 gy-2">
 												<input type="text" id="shDateEnd" name="shDateEnd" th:value="${#strings.substring(vo.shDateEnd, 0, 10)}" placeholder="종료일" class="datetimepicker form-control form-control-sm" autocomplete="off">
@@ -526,13 +526,20 @@
 										
 										<div class="row">
 											<div class="col-2 gy-2"  style="padding-left: 2%;">
-												<select id="shOption" name="shOption" class="form-select form-select-sm">
-													<option value="" >검색구분</option>
-													<option value="1" >코드그룹 seq</option>
-<!-- 													<option value="2" th:selected="${vo.shOption == 2}">코드그룹 이름</option> -->
-													<option value="2" >코드 seq</option>
-													<option value="3" >코드 이름</option>
-												</select>
+<!-- 												<select id="shOption" name="shOption" class="form-select form-select-sm"> -->
+<!-- 													<option value="" th:selected="${vo.shOption == null}" >검색구분</option> -->
+<!-- 													<option  value="1" th:selected="${vo.shOption == 1}" >멤버 seq</option> -->
+<!-- 													<option  value="2" th:selected="${vo.shOption == 2}" >성</option> -->
+<!-- 													<option  value="3" th:selected="${vo.shOption == 3}" >이름</option> -->
+<!-- 													<option  value="4" th:selected="${vo.shOption == 4}" >성별</option> -->
+<!-- 													<option  value="5" th:selected="${vo.shOption == 5}" >생일</option> -->
+<!-- 													<option  value="6" th:selected="${vo.shOption == 6}" >아이디</option> -->
+<!-- 													<option  value="7" th:selected="${vo.shOption == 7}" >전화번호</option> -->
+<!-- 												</select> -->
+													<select id="genderCD" name="genderCD" class="form-select">
+														<option value="">선택하세요</option>
+														<option th:each="list : ${@codeService.selectListCachedCode(5)}" th:value="${list.cdSeq}" th:text="${list.name}" th:selected="${list.cdSeq} == ${item?.genderCD}"></option>
+													</select>
 											</div> 
 											<div class="col-2 gy-2">
 												<input type="text" id="shValue" name="shValue" th:value="${vo.shValue}" onkeyup="enterkey()" placeholder="검색어" class="form-control form-control-sm">
@@ -566,6 +573,11 @@
 														<th></th>
 														<th></th>
 														<th></th>
+														<th></th>
+														<th></th>
+														<th></th>
+														<th></th>
+														<th></th>
 														<th>
 															<select class="form-select" id="selectTotal">
 																<option value="5">5</option>
@@ -577,27 +589,42 @@
 													<tr>
 														<th><input type="checkbox" id="checkboxType"></th>
 														<th>맴버 Seq</th>
-<!-- 														<th>성</th> -->
+														<th>성</th>
 														<th>이름</th>
 														<th>성별</th>
+														<th>생일</th>
 														<th>아이디</th>
+														<th>비밀번호</th>
 														<th>전화번호</th>
 														<th>우편번호</th>
 														<th>도로명</th>
 														<th>주소상세정보</th>
+														<th>등록일</th>
+														<th>수정일</th>
+														<th>탈퇴여부</th>
 													</tr>
 												</thead>
 												<tbody>
 													<tr  th:if="${#lists.isEmpty(List)}" th:each="list : ${list}">
 														<td><input type="checkbox" id="checkboxType2"></td>
 														<td th:text="${list.memberSeq}"></td>
+														<td th:text="${list.fristName}"></td>
 														<td th:text="${list.lastName}"></td>
-														<td th:text="${list.genderCD}"></td>
-														<td th:text="${list.memberID]"></td>
-														<td th:text="${list.memberPhone]"></td>
-														<td th:text="${list.codeNumber]"></td>
-														<td th:text="${list.rodaName]"></td>
-														<td th:text="${list.addrDetail]"></td>
+														
+														<td th:if="${list.genderCD != null}" th:text="${@codeService.selectOneCachedCode(list.genderCD)}" class="genderCD align-middle"></td>
+														<td th:unless="${list.genderCD != null}" class="genderCD align-middle"></td>
+														
+														<th th:text="${list.birthday}"></th>
+														<td><a th:href="@{/memberAdmView(memberSeq=${list.memberSeq},memberID=${list.memberID})}" th:text="${list.memberID}"></a></td>
+														<td><a th:href="@{/memberAdmView(memberSeq=${list.memberSeq},memberPassword=${list.memberPassword})}" th:text="${list.memberPassword}"></a></td>
+														<td><a th:href="@{/memberAdmView(memberSeq=${list.memberSeq},codeNUmber=${list.memberPhone})}" th:text="${list.memberPhone}"></a></td>
+														<td th:text="${list.codeNumber}"></td>
+														<td><a th:href="@{/memberAdmView(memberSeq=${list.memberSeq},roadName=${list.roadName})}" th:text="${list.roadName}"></a></td>
+														<td><a th:href="@{/memberAdmView(memberSeq=${list.memberSeq},addrDetail=${list.addrDetail})}" th:text="${list.addrDetail}"></a></td>
+														<td  th:text="${#dates.format(list.mbRegDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+														<td  th:text="${#dates.format(list.mbUpdate, 'yyyy-MM-dd HH:mm:ss')}"></td>
+														<td th:if="${list.mbDelny eq 1}">Y</td>
+    													<td th:unless="${list.mbDelny eq 1}">N</td>
 													</tr>
 												</tbody>
 												<tfoot>
@@ -686,7 +713,7 @@
 										</div>
 									</div>
 										<div class="col" align="Right">
-  											<button type="submit" class="btn btn-primary"><a th:href="@{codeAdd}" th:text="등록"></a></button>
+  											<button type="submit" class="btn btn-primary"><a th:href="@{memberAdd}" th:text="등록"></a></button>
 										</div>
 								</div>
 								
@@ -767,9 +794,9 @@
  			}
 
 
-	 		document.getElementById("btnForm").onclick = function () {
-	 		    goForm(0);
-	 		}
+// 	 		document.getElementById("btnForm").onclick = function () {
+// 	 		    goForm(0);
+// 	 		}
 
 
  	 		goForm = function (keyValue) {
@@ -778,10 +805,10 @@
  	 		    form.submit();
  	 		}
 					
- 			document.getElementById("btnSearch").onclick = function () {
+ 	 		document.getElementById("btnSearch").onclick = function () {
  			    form.action = goUrlXdmList;
-			    form.submit();
-				};
+ 			    form.submit();
+ 				};
 				
  				function enterkey() {
  					if (window.event.keyCode == 13) {

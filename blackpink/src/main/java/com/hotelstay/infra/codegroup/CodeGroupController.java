@@ -58,16 +58,11 @@ public class CodeGroupController {
 	@RequestMapping(value = "/codeGroupXdmList")
 	public String codeGroupXdmList(@ModelAttribute("vo") CodeGroupVo vo, Model model) throws Exception{
 			
-			System.out.println("vo.getShDateStart(): " + vo.getShDateStart());
-			System.out.println("vo.getShDateEnd(): " + vo.getShDateEnd());
-			System.out.println("====================================");
+			
 			
 			setSearch(vo);
 			model.addAttribute("list", service.selectList(vo));
 	
-			
-			System.out.println("vo.getShDateStart(): " + vo.getShDateStart());
-			System.out.println("vo.getShDateEnd(): " + vo.getShDateEnd());
 			
 //			model.addAttribute("vo",vo);
 

@@ -2,8 +2,8 @@ package com.hotelstay.infra.member;
 
 public class MemberVo {
 	private Integer shUseNy ; 									/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
-	private Integer shcdDelny ; 								/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
-	private Integer shOptionDate ;							/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
+	private Integer shDelny = 0 ; 								/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
+	private Integer shOptionDate = 1;							/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
 	private String shDateStart;
 	private String shDateEnd;
 	private Integer shOption;									/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
@@ -19,12 +19,12 @@ public class MemberVo {
 		this.shUseNy = shUseNy;
 	}
 
-	public Integer getShcdDelny() {
-		return shcdDelny;
+	public Integer getShDelny() {
+		return shDelny;
 	}
 
-	public void setShcdDelny(Integer shcdDelny) {
-		this.shcdDelny = shcdDelny;
+	public void setShDelny(Integer shDelny) {
+		this.shDelny = shDelny;
 	}
 
 	public Integer getShOptionDate() {
@@ -74,6 +74,8 @@ public class MemberVo {
 	public void setMemberSeq(String memberSeq) {
 		this.memberSeq = memberSeq;
 	}
+
+	
 	
 	
 }

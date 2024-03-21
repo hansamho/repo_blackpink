@@ -61,9 +61,9 @@
             ,codeGroup_seq
     	) VALUES(		
     		#{name}
-    		,#{cdRegDate}
-    		,#{cdUpdate}
-    		,#{cdDelny}
+    		,now()
+    		,now()
+    		,0
     		,#{codeGroup_seq}
     	)
     </insert>
@@ -90,5 +90,19 @@
     	DELETE FROM  code
     	WHERE cdSeq = #{cdSeq}
     </delete>
+    
+    <select id="selectListCachedCodeArrayList" resultMap="resultMapObj">
+		SELECT 
+			a.cdSeq
+			,a.name
+			,a.codeGroup_seq
+		FROM
+			code a
+		WHERE 1=1
+			AND a.cdDelny = 0
+		    
+   </select>
+    
+    
     
 </mapper>
