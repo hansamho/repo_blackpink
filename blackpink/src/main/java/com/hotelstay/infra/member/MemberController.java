@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hotelstay.common.contents.Constants;
 import com.hotelstay.common.util.UtilDateTime;
+import com.hotelstay.infra.codegroup.CodeGroupDto;
 import com.hotelstay.infra.codegroup.CodeGroupVo;
 
 
@@ -53,6 +54,63 @@ public class MemberController {
 		return "/adm/infra/member/memberAdmList";
 	}
 	
+	@RequestMapping(value = "/memberAdmView")
+	public String memberAdmView(MemberDto dto, Model model) throws Exception{
+		model.addAttribute("item", service.selectOne(dto));
+	
+		return "/adm/infra/member/memberAdmView"; //
+		
+	}
+	@RequestMapping(value = "/memberAdmForm")
+	public String memberAdmForm(MemberDto dto, Model model) throws Exception{
+		model.addAttribute("item", service.selectOne(dto));
+
+	return "/adm/infra/member/memberAdmForm"; //
+	
+	}
+
+	@RequestMapping(value = "/memberAdmAdd")
+	public String memberAdmAdd() throws Exception{
+	
+
+	return "/adm/infra/member/memberAdmAdd"; //
+	
+	}
+
+	@RequestMapping(value = "/memberInsert")
+	public String memberInsert(MemberDto dto) throws Exception{
+	
+	service.insert(dto);
+	return "redirect:/memberAdmList"; //
+	
+	}
+
+	@RequestMapping(value = "/memberUpdt")
+	public String memberUpdt(MemberDto dto) throws Exception{
+
+	service.update(dto);
+	
+	return "redirect:/memberAdmList"; //
+	
+	}
+
+	@RequestMapping(value = "/memberUpdtDt")
+	public String memberUpdtDt(MemberDto dto) throws Exception{
+
+	service.updateDelete(dto);
+	
+	return "redirect:/memberAdmList"; //
+	
+	}
+
+	@RequestMapping(value = "/memberDelete")
+	public String memberDelete(MemberDto dto) throws Exception{
+
+	service.delete(dto);
+	
+	return "redirect:/memberAdmList"; //
+	
+	}
 }
 
 

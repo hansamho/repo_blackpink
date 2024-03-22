@@ -9,7 +9,7 @@
             a.memberSeq
             ,a.fristName
             ,a.lastName
-            ,a.genderCd
+            ,a.genderCD
             ,a.birthday
             ,a.memberID
             ,a.memberPassword
@@ -23,24 +23,114 @@
          FROM member a
         WHERE 1=1
 <!--          <if test="shUseNy != null and !shUseNy.equals('')">AND ifcgUseNy = #{shUseNy}</if> -->
-        <if test="shDelny != null and !shDelny.equals('')">AND a.mbDelny = #{shDelny}</if> 
-       
+        	<if test="shDelny != null and !shDelny.equals('')">AND a.mbDelny = #{shDelny}</if> 
+        
 				<choose>
 					<when test="shOptionDate == 1">AND a.mbRegDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
 					<when test="shOptionDate == 2">AND a.mbUpdate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
 				</choose>
-     
+			
+			<if test="shGenderCD != null and !shGenderCD.equals('')">AND a.genderCD = #{shGenderCD}</if> 
+       
         <choose>
             <when test="shOption == 1">AND a.memberSeq = #{shValue}</when>
             <when test="shOption == 2">AND a.fristName LIKE CONCAT('%',#{shValue},'%')</when>
             <when test="shOption == 3">AND a.lastName LIKE CONCAT('%',#{shValue},'%')</when>
-            <when test="shOption == 4">AND a.genderCD LIKE CONCAT('%',#{shValue},'%')</when>
-            <when test="shOption == 5">AND a.birthday LIKE CONCAT('%',#{shValue},'%')</when>
-            <when test="shOption == 6">AND a.memberID LIKE CONCAT('%',#{shValue},'%')</when>
-            <when test="shOption == 7">AND a.memberPhone LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 4">AND a.birthday LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 5">AND a.memberID LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 6">AND a.memberPhone LIKE CONCAT('%',#{shValue},'%')</when>
         </choose>
         ORDER BY a.memberSeq DESC
     </select>
+    
+    <select id="selectOne" resultMap="resultMapObj">
+        SELECT
+            a.memberSeq
+            ,a.fristName
+            ,a.lastName
+            ,a.genderCD
+            ,a.birthday
+            ,a.memberID
+            ,a.memberPassword
+            ,a.memberPhone
+            ,a.codeNumber
+            ,a.roadName
+            ,a.addrDetail
+            ,a.mbRegDate
+            ,a.mbUpdate
+            ,a.mbDelny
+         FROM member a
+        WHERE 1=1
+        AND a.memberSeq = #{memberSeq}
+        ORDER BY a.memberSeq DESC
+    </select>
+    
+    <insert id="insert">
+    	INSERT INTO member(
+            fristName
+            ,lastName
+            ,genderCD
+            ,birthday
+            ,memberID
+            ,memberPassword
+            ,memberPhone
+            ,codeNumber
+            ,roadName
+            ,addrDetail
+            ,mbRegDate
+            ,mbUpdate
+            ,mbDelny
+    	) VALUES(		 
+    		#{fristName}
+    		,#{lastName}
+    		,#{genderCD}
+    		,#{birthday}
+    		,#{memberID}
+    		,#{memberPassword}
+    		,#{memberPhone}
+    		,#{codeNumber}
+    		,#{roadName}
+    		,#{addrDetail}
+    		,now()
+    		,now()
+    		,0
+    	)
+           
+    </insert>
+    
+    
+    <update id="update">
+    	
+    	UPDATE member 
+    	set
+    	fristName =	#{fristName}
+    	,lastName = #{lastName}
+    	,genderCD = #{genderCD}
+    	,birthday = #{birthday}
+    	,memberID = #{memberID}
+    	,memberPassword = #{memberPassword}
+    	,memberPhone = #{memberPhone}
+    	,codeNumber = #{codeNumber}
+    	,roadName = #{roadName}
+    	,addrDetail = #{addrDetail}
+    	WHERE memberSeq = #{memberSeq}
+  
+    </update>
+    
+    <update id="updateDelete">
+    	
+    	UPDATE member 
+    	set
+    	mbDelny = 1
+    	WHERE 1=1
+    	AND memberSeq = #{memberSeq}
+  
+    </update>
+    
+    <delete id="delete">
+    	DELETE FROM  member
+    	WHERE memberSeq = #{memberSeq}
+    </delete>
     
 	  
 </mapper>

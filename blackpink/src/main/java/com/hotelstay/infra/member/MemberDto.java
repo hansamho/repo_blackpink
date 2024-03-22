@@ -106,9 +106,4 @@ public class MemberDto {
 		this.mbDelny = mbDelny;
 	}
 	
-	
-	
-	
-	
-	
 }
