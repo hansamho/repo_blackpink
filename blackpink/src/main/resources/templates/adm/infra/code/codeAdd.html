@@ -44,6 +44,8 @@
 		<link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
 
+		<!-- validationXdm -->
+		<script src="/adm/js/validationXdm.js"></script>
 		
 	</head>
 
@@ -502,16 +504,12 @@
 												<div class="col-lg-6 col-sm-4 col-12 gy-2">
 													<label class="form-label">코드그룹seq</label>
 													<input type="text" name="codeGroup_seq" id="cgSeq" class="form-control" placeholder="코드그룹seq">
-													<div class="invalid-feedback">
-										  			코드그룹seq 입력하세요
-										  			</div>
+													
 												</div>
 												<div class="col-lg-6 col-sm-4 col-12 gy-2">
 													<label class="form-label">이름</label>
 													<input type="text" name="name" id="cdName" class="form-control" placeholder="name">
-													<div class="invalid-feedback">
-										  			이름을 입력하세요
-										  			</div>
+													<div id="cdNameFeedback" class="invalid-feedback"></div>
 												</div>
 												<div class="col gy-2" align="left">
 													<button type="submit"  class="btn btn-primary" onclick="javascript: form.action='codeXdmList';">뒤로가기</button>

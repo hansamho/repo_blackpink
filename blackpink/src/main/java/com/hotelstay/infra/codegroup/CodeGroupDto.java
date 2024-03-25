@@ -8,6 +8,7 @@ public class CodeGroupDto {
 	private Date cgRegDate;
 	private Date cgUpdate;
 	private Integer cgDelny;
+	
 	public String getCgSeq() {
 		return cgSeq;
 	}

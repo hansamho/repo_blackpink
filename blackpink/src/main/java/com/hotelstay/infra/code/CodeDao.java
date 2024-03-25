@@ -21,4 +21,6 @@ public interface CodeDao {
 	public int delete(CodeDto dto);
 
 	public List<CodeDto> selectListCachedCodeArrayList();
+	
+	public List<CodeDto> selectListWithoutPaging();
 }

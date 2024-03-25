@@ -44,6 +44,8 @@
 		<link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
 
+		<!-- validationXdm -->
+		<script src="/adm/js/validationXdm.js"></script>
 		
 	</head>
 
@@ -498,18 +500,13 @@
 										<div class="row">
 											<div class="col-lg-6 col-sm-4 col-12 gy-2">
 											<label class="form-label">seq</label>
-  										  	<input type="text" name="cgSeq" id="cgSeq" class="form-control" placeholder="seq" required>
+  										  	<input type="text" name="seq" id="cgSeq" class="form-control" placeholder="seq" required>
 										  	</div>
 										  	
 										  	<div class="col-lg-6 col-sm-4 col-12 gy-2">
 										  		<label class="form-label">이름</label>
 										  		<input type="text" name="name" id="cgName" class="form-control" placeholder="name" required>
-										  		<div class="invalid-feedback">
-										  			이름을 입력하세요
-										  		</div>
-													<div class="valid-feedback">
-										  			사용 가능한 이름입니다
-										  		</div>
+										  		<div id="cgNameFeedback" class="invalid-feedback"></div>
 										  	</div>
 										  	
 										  	<div class="col gy-2" align="left">
@@ -617,15 +614,13 @@
 	}
 	
 	function validationUpdt(){
-		if(!nullToEmpty(document.getElementById("cgName").value)){
-			
-			document.getElementById("cgName").setAttribute("class", "form-control is-invalid");
-			return false;
-		} 
+		if(!checkOnlyKoreanEnglishNumber('cgName', 2, 0, "코드그룹 이름은 한글, 영문대소문자, 숫자만 입력 가능합니다.")) return false;
+	
+	}
 		
 // 		alert("validationUpdt");
 // 		alert("cgName : "+document.getElementById("cgName").value);	
-	}
+	
 	
 	nullToEmpty = function(value){
 		if(value == null || value == 'null' || value.length == 0){

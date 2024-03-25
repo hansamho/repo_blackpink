@@ -44,6 +44,8 @@
 		<link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
 
+		<!-- validationXdm -->
+		<script src="/adm/js/validationXdm.js"></script>
 		
 	</head>
 
@@ -494,7 +496,7 @@
 										<div class="card-header">
 											<div class="card-title">멤버 관리</div>
 										</div>
-									<form method="post" action='memberInsert' class="needs-validation" novalidate>
+									<form method="post" action='memberInsert'>
 										<div class="row">
 											<div class="col-lg-4 col-sm-4 col-6 gy-2">
 												<label class="form-label">seq</label>	
@@ -503,10 +505,12 @@
 											<div class="col-lg-4 col-sm-4 col-6 gy-2">
 												<label class="form-label">성</label>
 												<input type="text" name="fristName" id="fristName" class="form-control">
+												<div id="fristNameFeedback" class="invalid-feedback" name="fristNameFeedback"></div>
 											</div>
 											<div class="col-lg-4 col-sm-4 col-6 gy-2">
 												<label class="form-label">이름</label>
 												<input type="text" name="lastName" id="lastName" class="form-control">
+												<div id="lastNameFeedback" class="invalid-feedback" name="lastNameFeedback"></div>
 											</div>
 										</div>
 										<div class="row">
@@ -611,17 +615,19 @@
 		
 		<!-- Data Tables -->
 		<script src="/adm/template/gear/assets/vendor/datatables/dataTables.min.js"></script>
-	
+		
+		
+		
 	<script type="text/javascript">
 	
-	let goUrlXdmList = "/codeGroupXdmList";
-	let goUrlXdmLogin = "/codeGroupLogin";
-	let goUrlXdmForm = "/codeGroupForm";
-	let goUrlXdmUpdt = "/codeGroupUpdt";
-	let goUrlXdmInsert = "/codeGroupInsert";								/* ### */
-	let goUrlXdmMultiUele = "/codeGroupXdmMultiUele";			/* ### */
-	let goUrlXdmMultiDele = "/codeGroupXdmMultiDele";			/* ### */
-	let goUrlXdmView = "/codeGroupAdmView";
+	let goUrlXdmList = "/memberAdmList";
+	let goUrlXdmAdd = "/memberAdmAdd";
+	let goUrlXdmForm = "/memberAdmForm";
+	let goUrlXdmUpdt = "/memberUpdt";
+	let goUrlXdmInsert = "/memberInsert";								/* ### */
+	let goUrlXdmMultiUele = "/memberXdmMultiUele";			/* ### */
+	let goUrlXdmMultiDele = "/memberXdmMultiDele";			/* ### */
+	let goUrlXdmView = "/memberAdmView";
 	
 	
 	document.getElementById("btnSubmit").onclick = function () {
@@ -651,16 +657,37 @@
 // 		alert("validationInsert");
 	}
 	
-	function validationUpdt(){
-		if(!nullToEmpty(document.getElementById("cgName").value)){
+// 	function validationUpdt(){
+// 		if(!checkOnlyKorean("fristName",2,1,"성을 입력하세요.")){
+// 			return false;
+// 		}
+		function validationUpdt() {
+// 			alert("fristName");		
+// 			validationTest();
+// 		if(!checkSelectNull('memberSeq', 2, "코드그룹을 선택해 주세요.")) return false;
+// 		if(!checkOnlyEnglishNumber('ifcdSeqAnother', 2, 1, "코드 (Another)는 영대소문자, 숫자만 입력 가능합니다.")) return false;
+		if(!checkOnlyKorean('fristName', 2, 0, "성은 한글만 입력 가능합니다.")) return false;
+		if(!checkOnlyKorean('lastName', 2, 0, "이름은 한글만 입력 가능합니다.")) return false;
+// 		if(!checkOnlyNumber('ifcdOrder', 2, 0, 1, 0, 255, "순서는 숫자(0~255)만 입력 가능합니다.")) return false;
+// 		if(!checkOnlyEnglishNumber('ifcdReferenceV1', 2, 1, "예비1 (varchar type)은 영문대소문자, 숫자만 입력 가능합니다.")) return false;
+// 		if(!checkOnlyEnglishNumber('ifcdReferenceV2', 2, 1, "예비2 (varchar type)은 영문대소문자, 숫자만 입력 가능합니다.")) return false;
+// 		if(!checkOnlyEnglishNumber('ifcdReferenceV3', 2, 1, "예비3 (varchar type)은 영문대소문자, 숫자만 입력 가능합니다.")) return false;
+// 		if(!checkOnlyEnglishNumber('ifcdReferenceV4', 2, 1, "예비4 (varchar type)은 영문대소문자, 숫자만 입력 가능합니다.")) return false;		
+// 		if(!checkOnlyNumber('ifcdReferenceI1', 2, 1, 1, -128, 127, "예비1 (Int type)은 숫자(-128~127)만 입력 가능합니다.")) return false;
+// 		if(!checkOnlyNumber('ifcdReferenceI2', 2, 1, 1, -128, 127, "예비2 (Int type)은 숫자(-128~127)만 입력 가능합니다.")) return false;
+// 		if(!checkOnlyNumber('ifcdReferenceI3', 2, 1, 1, -128, 127, "예비3 (Int type)은 숫자(-128~127)만 입력 가능합니다.")) return false;
+// 		if(!checkOnlyNumber('ifcdReferenceI4', 2, 1, 1, -128, 127, "예비4 (Int type)은 숫자(-128~127)만 입력 가능합니다.")) return false;
+	}	
+		
+// 		if(!nullToEmpty(document.getElementById("lastName").value)){
 			
-			document.getElementById("cgName").setAttribute("class", "form-control is-invalid");
-			return false;
-		} 
+// 			document.getElementById("lastName").setAttribute("class", "form-control is-invalid");
+// 			return false;
+// 		} 
 		
 // 		alert("validationUpdt");
 // 		alert("cgName : "+document.getElementById("cgName").value);	
-	}
+	
 	
 	nullToEmpty = function(value){
 		if(value == null || value == 'null' || value.length == 0){

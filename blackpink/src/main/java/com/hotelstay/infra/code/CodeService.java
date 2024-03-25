@@ -53,6 +53,11 @@ public class CodeService {
 		return dao.delete(dto);
 	}
 	
+	public List<CodeDto> selectListWithoutPaging(){
+		return dao.selectListWithoutPaging();
+	}
+	
+	
 	 @PostConstruct
 		public void selectListCachedCodeArrayList() throws Exception {
 			List<CodeDto> codeListFromDb = (ArrayList<CodeDto>) dao.selectListCachedCodeArrayList();
@@ -86,4 +91,7 @@ public class CodeService {
 			}
 			return rt;
 		}
+	 
+	
+	 
 }
