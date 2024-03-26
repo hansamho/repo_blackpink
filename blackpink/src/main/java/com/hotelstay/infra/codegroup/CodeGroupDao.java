@@ -21,4 +21,6 @@ public interface CodeGroupDao {
 	public int delete(CodeGroupDto dto);
 	
 	public List<CodeGroupDto> selectListWithoutPaging();
+	
+	public int selectOneCount();
 }

@@ -57,9 +57,7 @@ public class CodeGroupController {
 	
 	@RequestMapping(value = "/codeGroupXdmList")
 	public String codeGroupXdmList(@ModelAttribute("vo") CodeGroupVo vo, Model model) throws Exception{
-			
-			
-			
+			model.addAttribute("count", service.selectOneCount());
 			setSearch(vo);
 			model.addAttribute("list", service.selectList(vo));
 	

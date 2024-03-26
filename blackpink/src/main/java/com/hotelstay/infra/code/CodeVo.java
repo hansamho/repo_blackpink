@@ -2,7 +2,7 @@ package com.hotelstay.infra.code;
 
 public class CodeVo {
 	private Integer shUseNy ; 									/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
-	private Integer shcdDelny = 0 ; 								/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
+	private Integer shDelny = 0 ; 								/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
 	private Integer shOptionDate = 1 ;							/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
 	private String shDateStart;
 	private String shDateEnd;
@@ -11,20 +11,17 @@ public class CodeVo {
 	
 	private String Seq;
 	private String code_seq;
-	
-	
-	
 	public Integer getShUseNy() {
 		return shUseNy;
 	}
 	public void setShUseNy(Integer shUseNy) {
 		this.shUseNy = shUseNy;
 	}
-	public Integer getShcodeDelete() {
-		return shcdDelny;
+	public Integer getShDelny() {
+		return shDelny;
 	}
-	public void setShcodeDelete(Integer shcdDelny) {
-		this.shcdDelny = shcdDelny;
+	public void setShDelny(Integer shDelny) {
+		this.shDelny = shDelny;
 	}
 	public Integer getShOptionDate() {
 		return shOptionDate;
@@ -68,6 +65,10 @@ public class CodeVo {
 	public void setCode_seq(String code_seq) {
 		this.code_seq = code_seq;
 	}
+	
+	
+	
+	
 
 	
 
