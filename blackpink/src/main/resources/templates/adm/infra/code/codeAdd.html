@@ -499,12 +499,14 @@
 										<div class="card-header">
 											<div class="card-title">코드 관리</div>
 										</div>
-										<form method="post" >
+										<form method="post" action="codeInsert">
 											<div class="row">
-												<div class="col-lg-6 col-sm-4 col-12 gy-2">
-													<label class="form-label">코드그룹seq</label>
-													<input type="text" name="codeGroup_seq" id="cgSeq" class="form-control" placeholder="코드그룹seq">
-													
+												<div  class="col-lg-6 col-sm-4 col-12 gy-2">
+													<label class="form-label">코드그룹</label>
+													<select  name="codeGroup_seq" id="codeGroup_seq" class="form-select form-select-sm">
+														<option value="">코드그룹 선택하세요</option>
+														<option th:each="listcodegroup : ${@codeGroupService.selectListWithoutPaging()}" th:value="${listcodegroup.cgSeq}" th:text="${listcodegroup.name}" ></option>
+													</select>
 												</div>
 												<div class="col-lg-6 col-sm-4 col-12 gy-2">
 													<label class="form-label">이름</label>
@@ -611,13 +613,7 @@
 	}
 	
 	function validationUpdt(){
-		if(!nullToEmpty(document.getElementById("cdName").value)){
-			
-			document.getElementById("cdName").setAttribute("class", "form-control is-invalid");
-			return false;
-		} 	
-// 		alert("validationUpdt");
-// 		alert("cgName : "+document.getElementById("cgName").value);	
+		if(!checkOnlyKoreanEnglishNumber('cdName', 2, 0, "코드 이름은 한글, 영문대소문자, 숫자만 입력 가능합니다.")) return false;
 	}
 	
 

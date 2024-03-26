@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hotelstay.infra.code.CodeDto;
+
 @Service
 public class CodeGroupService {
 //	CodeGroupDao codeGroupDao;
@@ -45,4 +47,9 @@ public class CodeGroupService {
 	public int delete(CodeGroupDto dto) {
 		return dao.delete(dto);
 	}
+	
+	public List<CodeGroupDto> selectListWithoutPaging(){
+		return dao.selectListWithoutPaging();
+	}
+	
 }

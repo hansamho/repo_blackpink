@@ -18,7 +18,6 @@ public class CodeDto {
 //	for cache
 	public static List<CodeDto> cachedCodeArrayList = new ArrayList<CodeDto>();
 	
-	public static List<CodeDto> withoutPaging = new ArrayList<CodeDto>();
 	
 	public static List<CodeDto> getCachedCodeArrayList() {
 		return cachedCodeArrayList;

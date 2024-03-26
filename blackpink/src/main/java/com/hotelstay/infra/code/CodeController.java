@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hotelstay.common.contents.Constants;
 import com.hotelstay.common.util.UtilDateTime;
+import com.hotelstay.infra.codegroup.CodeGroupService;
 
 
 @Controller
@@ -14,22 +15,11 @@ public class CodeController {
 	
 	@Autowired
 	CodeService service;
-//	CodeGroupService codeGroupService;
 	
-//	@RequestMapping(value = "/codeXdmList")
-//	public String codeXdmList(Model model) throws Exception{
-////		List<CodeGroupDto> list = service.selectList();
-//		
-////		List<CodeGroupDto> codeGroupDtos = service.selectList();
-//		
-////		for(CodeGroupDto a:codeGroupDtos) {
-////			System.out.println(a.getName());
-////		}
-//		
-//		model.addAttribute("list", service.selectList());
-//		
-//		return "/adm/infra/code/codeXdmList";
-//	}
+	@Autowired
+	CodeGroupService codeGroupService;
+	
+
 	
 	public void setSearch(CodeVo vo) throws Exception {
 		/* 최초 화면 로딩시에 세팅은 문제가 없지만 */
@@ -86,7 +76,8 @@ public class CodeController {
 	}
 	
 	@RequestMapping(value = "/codeAdd")
-	public String codeAdd() throws Exception{
+	public String codeAdd(CodeDto dto, Model model) throws Exception{
+		model.addAttribute("listcodegroup", codeGroupService.selectListWithoutPaging());
 		
 		return "/adm/infra/code/codeAdd"; //
 		

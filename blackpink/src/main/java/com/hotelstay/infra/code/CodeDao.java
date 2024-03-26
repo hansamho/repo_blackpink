@@ -22,5 +22,5 @@ public interface CodeDao {
 
 	public List<CodeDto> selectListCachedCodeArrayList();
 	
-	public List<CodeDto> selectListWithoutPaging();
+	
 }

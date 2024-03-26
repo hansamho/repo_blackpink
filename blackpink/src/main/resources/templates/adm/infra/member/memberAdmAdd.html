@@ -527,16 +527,19 @@
 											<div class="col-lg-6 col-sm-4 col-6 gy-2">
 												<label class="form-label">아이디</label>
 												<input type="text" name="memberID" id="memberID" class="form-control">
+												<div id="memberIDFeedback" class="invalid-feedback" name="memberIDFeedback"></div>
 											</div>
 											<div class="col-lg-6 col-sm-4 col-6 gy-2">
 												<label class="form-label">비밀번호</label>
 												<input type="text" name="memberPassword" id="memberPassword" class="form-control">
+												<div id="memberPasswordFeedback" class="invalid-feedback" name="memberPasswordFeedback"></div>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-lg-6 col-sm-4 col-6 gy-2">
 												<label class="form-label">전화번호</label>
 												<input type="text" name="memberPhone" id="memberPhone" class="form-control">
+												<div id="memberPhoneFeedback" class="invalid-feedback" name="memberPhoneFeedback"></div>
 											</div>
 											<div class="col-lg-6 col-sm-4 col-6 gy-2">
 												<label class="form-label">우편번호</label>
@@ -662,21 +665,12 @@
 // 			return false;
 // 		}
 		function validationUpdt() {
-// 			alert("fristName");		
-// 			validationTest();
-// 		if(!checkSelectNull('memberSeq', 2, "코드그룹을 선택해 주세요.")) return false;
-// 		if(!checkOnlyEnglishNumber('ifcdSeqAnother', 2, 1, "코드 (Another)는 영대소문자, 숫자만 입력 가능합니다.")) return false;
-		if(!checkOnlyKorean('fristName', 2, 0, "성은 한글만 입력 가능합니다.")) return false;
-		if(!checkOnlyKorean('lastName', 2, 0, "이름은 한글만 입력 가능합니다.")) return false;
-// 		if(!checkOnlyNumber('ifcdOrder', 2, 0, 1, 0, 255, "순서는 숫자(0~255)만 입력 가능합니다.")) return false;
-// 		if(!checkOnlyEnglishNumber('ifcdReferenceV1', 2, 1, "예비1 (varchar type)은 영문대소문자, 숫자만 입력 가능합니다.")) return false;
-// 		if(!checkOnlyEnglishNumber('ifcdReferenceV2', 2, 1, "예비2 (varchar type)은 영문대소문자, 숫자만 입력 가능합니다.")) return false;
-// 		if(!checkOnlyEnglishNumber('ifcdReferenceV3', 2, 1, "예비3 (varchar type)은 영문대소문자, 숫자만 입력 가능합니다.")) return false;
-// 		if(!checkOnlyEnglishNumber('ifcdReferenceV4', 2, 1, "예비4 (varchar type)은 영문대소문자, 숫자만 입력 가능합니다.")) return false;		
-// 		if(!checkOnlyNumber('ifcdReferenceI1', 2, 1, 1, -128, 127, "예비1 (Int type)은 숫자(-128~127)만 입력 가능합니다.")) return false;
-// 		if(!checkOnlyNumber('ifcdReferenceI2', 2, 1, 1, -128, 127, "예비2 (Int type)은 숫자(-128~127)만 입력 가능합니다.")) return false;
-// 		if(!checkOnlyNumber('ifcdReferenceI3', 2, 1, 1, -128, 127, "예비3 (Int type)은 숫자(-128~127)만 입력 가능합니다.")) return false;
-// 		if(!checkOnlyNumber('ifcdReferenceI4', 2, 1, 1, -128, 127, "예비4 (Int type)은 숫자(-128~127)만 입력 가능합니다.")) return false;
+		if(!checkOnlyKoreanEnglishNumber('fristName', 2, 0, "성은 한글,영어만 입력 가능합니다.")) return false;
+		if(!checkOnlyKoreanEnglishNumber('lastName', 2, 0, "이름은 한글,영어만 입력 가능합니다.")) return false;
+		if(!checkId('memberID',2,0,"아이디는 영어,숫자 4~20자리 까지 입력 가능합니다.")) return false;
+		if(!checkPassword('memberPassword',2,0,"비밀번호는 대소문자,숫자,특수문자 8~20자리 까지 입력 가능합니다.")) return false;
+		if(!checkOnlyNumber('memberPhone',2,0,"핸드폰 번호는 숫자만 입력 가능합니다.")) return false;
+		
 	}	
 		
 // 		if(!nullToEmpty(document.getElementById("lastName").value)){

@@ -53,9 +53,7 @@ public class CodeService {
 		return dao.delete(dto);
 	}
 	
-	public List<CodeDto> selectListWithoutPaging(){
-		return dao.selectListWithoutPaging();
-	}
+	
 	
 	
 	 @PostConstruct

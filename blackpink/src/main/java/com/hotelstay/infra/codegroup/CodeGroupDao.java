@@ -2,6 +2,8 @@ package com.hotelstay.infra.codegroup;
 
 import java.util.List;
 
+import com.hotelstay.infra.code.CodeDto;
+
 public interface CodeGroupDao {
 	
 //	public List<CodeGroupDto> selectList(); // 여러개 데이터를 보낼떄는 list 
@@ -17,4 +19,6 @@ public interface CodeGroupDao {
 	public int updateDelete(CodeGroupDto dto);
 	
 	public int delete(CodeGroupDto dto);
+	
+	public List<CodeGroupDto> selectListWithoutPaging();
 }
