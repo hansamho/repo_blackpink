@@ -47,9 +47,11 @@ public class MemberController {
 	
 	@RequestMapping(value = "/memberAdmList")
 	public String memberAdmList(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception{
-		model.addAttribute("count", service.selectOneCount(vo));
 		
 		setSearch(vo);
+		
+		model.addAttribute("count", service.selectOneCount(vo));
+		
 		vo.setParamsPaging(service.selectOneCount(vo));
 		
 		if (vo.getTotalRows() > 0) {

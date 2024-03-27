@@ -57,11 +57,13 @@ public class CodeGroupController {
 	
 	@RequestMapping(value = "/codeGroupXdmList")
 	public String codeGroupXdmList(@ModelAttribute("vo") CodeGroupVo vo, Model model) throws Exception{
-			model.addAttribute("count", service.selectOneCount(vo));
 			
 			model.addAttribute("list", service.selectList(vo));
 			
 			setSearch(vo);
+			
+			model.addAttribute("count", service.selectOneCount(vo));
+			
 			vo.setParamsPaging(service.selectOneCount(vo));
 			
 			if (vo.getTotalRows() > 0) {

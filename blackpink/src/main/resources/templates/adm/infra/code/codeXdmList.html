@@ -11,109 +11,15 @@
 		<!-- Page wrapper start -->
 		<div class="page-wrapper">
 
-			<!-- Page header starts -->
-			<div class="page-header">
-
-				<div class="toggle-sidebar" id="toggle-sidebar">
-					<i class="bi bi-list"></i>
-				</div>
-
-				<!-- Header actions ccontainer start -->
-				<div class="header-actions-container">
-
-					<!-- Search container start -->
-					<div class="search-container me-4 d-xl-block d-lg-none">
-
-						<!-- Search input group start -->
-						<div class="input-group">
-							<input type="text" class="form-control" placeholder="Search" />
-							<button class="btn btn-outline-secondary" type="button">
-								<i class="bi bi-search"></i>
-							</button>
-						</div>
-						<!-- Search input group end -->
-
-					</div>
-					<!-- Search container end -->
-
-					<!-- Header actions start -->
-					<div class="header-actions d-xl-flex d-lg-none gap-4">
-						<div class="dropdown">
-							<a class="dropdown-toggle" href="#!" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-								<i class="bi bi-chat-text fs-5 lh-1"></i>
-								<span class="count-label"></span>
-							</a>
-							</a>
-							<div class="dropdown-menu dropdown-menu-end shadow-lg">
-								<div class="dropdown-item">
-									<div class="d-flex py-2 border-bottom">
-										<img src="/adm/template/gear/assets/images/user.png" class="img-3x me-3 rounded-3" alt="Admin Dashboards" />
-										<div class="m-0">
-											<h6 class="mb-1 fw-semibold">Araceli Barrera</h6>
-											<p class="mb-1">Membership has been ended.</p>
-											<p class="small m-0 text-secondary">Today, 07:30pm</p>
-										</div>
-									</div>
-								</div>
-								<div class="dropdown-item">
-									<div class="d-flex py-2 border-bottom">
-										<img src="/adm/template/gear/assets/images/user2.png" class="img-3x me-3 rounded-3" alt="Admin Dashboards" />
-										<div class="m-0">
-											<h6 class="mb-1 fw-semibold">Hershel Nixon</h6>
-											<p class="mb-1">Congratulate, James for new job.</p>
-											<p class="small m-0 text-secondary">Today, 08:00pm</p>
-										</div>
-									</div>
-								</div>
-								<div class="dropdown-item">
-									<div class="d-flex py-2">
-										<img src="/adm/template/gear/assets/images/user1.png" class="img-3x me-3 rounded-3" alt="Admin Dashboards" />
-										<div class="m-0">
-											<h6 class="mb-1 fw-semibold">Lottie Caldwell</h6>
-											<p class="mb-1">Lewis added new schedule release.</p>
-											<p class="small m-0 text-secondary">Today, 09:30pm</p>
-										</div>
-									</div>
-								</div>
-								<div class="d-grid mx-3 my-1">
-									<a href="javascript:void(0)" class="btn btn-primary">View all</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- Header actions start -->
-
-					<!-- Header profile start -->
-					<div class="header-profile d-flex align-items-center">
-						<div class="dropdown">
-							<a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
-								<span class="user-name d-none d-md-block">Roslyn Jackson</span>
-								<span class="avatar">
-									<img src="/adm/template/gear/assets/images/user4.png" alt="Admin Templates" />
-									<span class="status online"></span>
-								</span>
-							</a>
-							<div class="dropdown-menu dropdown-menu-end" aria-labelledby="userSettings">
-								<div class="header-profile-actions">
-									<a href="profile.html">Profile</a>
-									<a href="account-settings.html">Settings</a>
-									<a href="login.html">Logout</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- Header profile end -->
-
-				</div>
-				<!-- Header actions ccontainer end -->
-
-			</div>
-			<!-- Page header ends -->
+			<!--헤더 블록 -->
+			<header>
+				<div th:replace="~{adm/infra/include/header :: header}"></div>
+			</header>
 
 			<!-- Main container start -->
 			<div class="main-container">
 
-				<!-- Sidebar wrapper start -->
+				<!-- nav 블록 -->
 				<nav class="sidebar-wrapper">
 					<div th:replace="~{adm/infra/include/nav :: nav}"></div>
 				</nav>
@@ -172,7 +78,7 @@
 										</div>
 										<form name="formList" id="formList" method="post" autocomplete="off">
 											<input type="hidden" name="thisPage" th:value="${vo.thisPage}" default="1"/>
-											<input type="hidden" id="rowNumToShow" name="rowNumToShow" th:value="${vo.rowNumToShow}"/>	
+<!-- 											<input type="hidden" id="rowNumToShow" name="rowNumToShow" th:value="${vo.rowNumToShow}"/>	 -->
 											<div class="row">
 											<div class="col-2 gy-2" style="padding-left: 2%;">
 												<select id="shDelny" name="shDelny" class="form-select form-select-sm">
@@ -218,34 +124,24 @@
 											</div>
 										</div>
 										
-										
+										<div class="row  gx-2">
+											Total:
+											<div class="col gx-2">
+												<label class="form-label" th:text="${count}"></label>
+											</div>
+											<div class="col-1 gy-2" align="right">
+												<select class="form-select form-select-sm" id="rowNumToShow" name="rowNumToShow"
+												th:onchange = "javascript : goList(1)">
+													<option value="5" th:selected="${vo.rowNumToShow == 5}">5</option>
+													<option value="10" th:selected="${vo.rowNumToShow == 10}">10</option>
+													<option value="20" th:selected="${vo.rowNumToShow == 20}">20</option>
+												</select>								
+											</div>
+										</div>
 										
 										<div class="table-responsive">
-<!-- 										<div  style="padding-left: 2%;"> -->
-<!-- 											<form method="post" action="codeGroupInsert"> -->
-<!--   										<input type="text" name="seq" > -->
-<!--   										<br><input type="text" name="name"> -->
-<!--   										<button type="submit" class="btn btn-primary"><i class="bi bi-plus-square"></i></button> -->
-<!--  										 </form> -->
-<!-- 										</div> -->
-										
 											<table class="table align-middle m-0">
 												<thead>
-													<tr>
-														<th>Total</th>
-														<th></th>
-														<th></th>
-														<th></th>
-														<th></th>
-														<th></th>
-														<th>
-															<select class="form-select" id="selectTotal">
-																<option value="5">5</option>
-																<option value="10">10</option>
-																<option value="20">20</option>
-															</select>
-														</th>
-													</tr>												
 													<tr>
 														<th><input type="checkbox" id="checkboxType"></th>
 														<th>코드그룹 seq</th>
@@ -357,11 +253,7 @@
 				</div>
 				<!-- Content wrapper scroll end -->
 
-				<!-- App Footer start -->
-				<div class="app-footer">
-					<span>© Gear admin 2023</span>
-				</div>
-				<!-- App footer end -->
+				
 
 			</div>
 			<!-- Main container end -->

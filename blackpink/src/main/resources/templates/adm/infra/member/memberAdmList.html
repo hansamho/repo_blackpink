@@ -172,7 +172,7 @@
 										</div>
 										<form name="formList" id="formList" method="post" autocomplete="off">
 											<input type="hidden" name="thisPage" th:value="${vo.thisPage}" default="1"/>
-											<input type="hidden" id="rowNumToShow" name="rowNumToShow" th:value="${vo.rowNumToShow}"/>
+<!-- 											<input type="hidden" id="rowNumToShow" name="rowNumToShow" th:value="${vo.rowNumToShow}"/> -->
 											<div class="row">
 											<div class="col-2 gy-2" style="padding-left: 2%;">
 												<select id="shDelny" name="shDelny" class="form-select form-select-sm">
@@ -226,35 +226,25 @@
 											</div>
 										</div>
 										
-										
+										<div class="row gx-2">
+											Total:
+											<div class="col gx-2">
+												<label class="form-label" th:text="${count}"></label>
+											</div>
+											<div class="col-1 gy-2" align="right">
+												<select class="form-select form-select-sm" id="rowNumToShow" name="rowNumToShow"
+												th:onchange = "javascript : goList(1)">
+													<option value="5" th:selected="${vo.rowNumToShow == 5}">5</option>
+													<option value="10" th:selected="${vo.rowNumToShow == 10}">10</option>
+													<option value="20" th:selected="${vo.rowNumToShow == 20}">20</option>
+												</select>								
+											</div>
+										</div>
 										
 										<div class="table-responsive">
 
 											<table class="table align-middle m-0">
 												<thead>
-													<tr>
-														<th>Total</th>
-														<th></th>
-														<th></th>
-														<th></th>
-														<th></th>
-														<th></th>
-														<th></th>
-														<th></th>
-														<th></th>
-														<th></th>
-														<th></th>
-														<th></th>
-														<th></th>
-														<th></th>
-														<th>
-															<select class="form-select" id="selectTotal">
-																<option value="5">5</option>
-																<option value="10">10</option>
-																<option value="20">20</option>
-															</select>
-														</th>
-													</tr>												
 													<tr>
 														<th><input type="checkbox" id="checkboxType"></th>
 														<th>맴버 Seq</th>

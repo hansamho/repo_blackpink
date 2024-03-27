@@ -50,6 +50,9 @@ public class CodeController {
 	public String codeXdmList(@ModelAttribute("vo") CodeVo vo, Model model) throws Exception{
 	
 			setSearch(vo);
+			
+			model.addAttribute("count", service.selectOneCount(vo));
+			
 			vo.setParamsPaging(service.selectOneCount(vo));
 			
 			if (vo.getTotalRows() > 0) {
