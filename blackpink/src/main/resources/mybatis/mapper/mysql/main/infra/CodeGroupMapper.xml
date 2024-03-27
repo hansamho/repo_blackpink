@@ -57,6 +57,7 @@
             ,a.cgDelny
        	<include refid="selectCommon" />
         ORDER BY a.cgSeq DESC
+        limit #{rowNumToShow} offset #{startRnumForMysql}
     </select> 
 	  
 	  <select id="selectOneCount" resultType="Integer">

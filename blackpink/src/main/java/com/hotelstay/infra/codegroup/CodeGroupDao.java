@@ -22,5 +22,7 @@ public interface CodeGroupDao {
 	
 	public List<CodeGroupDto> selectListWithoutPaging();
 	
-	public int selectOneCount();
+	public int selectOneCount(CodeGroupVo vo);
+	
+	
 }
