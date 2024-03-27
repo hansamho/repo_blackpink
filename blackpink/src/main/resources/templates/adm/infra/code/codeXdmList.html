@@ -171,6 +171,8 @@
 											<div class="card-title">코드 관리</div>
 										</div>
 										<form name="formList" id="formList" method="post" autocomplete="off">
+											<input type="hidden" name="thisPage" th:value="${vo.thisPage}" default="1"/>
+											<input type="hidden" id="rowNumToShow" name="rowNumToShow" th:value="${vo.rowNumToShow}"/>	
 											<div class="row">
 											<div class="col-2 gy-2" style="padding-left: 2%;">
 												<select id="shDelny" name="shDelny" class="form-select form-select-sm">
@@ -216,7 +218,7 @@
 											</div>
 										</div>
 										
-										</form>
+										
 										
 										<div class="table-responsive">
 <!-- 										<div  style="padding-left: 2%;"> -->
@@ -284,47 +286,23 @@
 										<div class="row">
 											<div class="col gy-3">
 												<nav aria-label="Page Navigation">
-													<ul class="pagination justify-content-center">
-														<li class="page-item">
-															<a class="page-link" href="#" aria-label="Previous">
-																<span aria-hidden="true">
-																	<i class="bi bi-arrow-left"></i>
-																</span>
-															</a>
-														</li>
-														<li class="page-item active">
-															<a class="page-link" href="#">1</a>
-														</li>
-														<li class="page-item">
-															<a class="page-link" href="#">2</a>
-														</li>
-														<li class="page-item">
-															<a class="page-link" href="#">3</a>
-														</li>
-														<li class="page-item">
-															<a class="page-link" href="#">4</a>
-														</li>
-														<li class="page-item">
-															<a class="page-link" href="#">5</a>
-														</li>
-														<li class="page-item">
-															<a class="page-link" href="#">6</a>
-														</li>
-														<li class="page-item">
-															<a class="page-link" href="#">7</a>
-														</li>
-														<li class="page-item">
-															<a class="page-link" href="#" aria-label="Next">
-																<span aria-hidden="true">
-																	<i class="bi bi-arrow-right"></i>
-																</span>
-															</a>
-														</li>
-													</ul>
+													<!-- paging s  -->				
+												<div class="container-fluid px-0 mt-2 mb-2">
+													<div class="row">
+														<div class="col">
+															<ul class="pagination justify-content-center mb-0">
+																<li th:if="${vo.startPage gt vo.pageNumToShow}" class="page-item" style="cursor: pointer;"><a class="page-link" href="javascript:goList(${vo.startPage - 1})" th:attr="onclick=|goList('${vo.startPage - 1}')|"><i class="bi bi-arrow-left"></i></a></li>
+																<li th:each="num: ${#numbers.sequence(vo.startPage, vo.endPage)}" th:classappend="${num eq vo.thisPage} ? active : ''" class="page-item" style="cursor: pointer;"><a class="page-link" th:attr="onclick=|goList('${num}')|" th:text="${num}"><!-- ${i.index} --></a></li>
+																<li th:if="${vo.endPage ne vo.totalPages}" class="page-item" style="cursor: pointer;"><a class="page-link" th:attr="onclick=|goList('${vo.endPage + 1}')|"><i class="bi bi-arrow-right"></i></a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+												<!-- paging e  -->	
 												</nav>
 											</div>
 										</div>
-							
+									</form>
 								<div class="row">
 									<div class="col">
 													<!-- Button trigger modal -->
@@ -461,6 +439,8 @@
 					    form.submit();
 				    }
 				}
+				
+				
 		</script>
 		
 	</body>

@@ -50,7 +50,13 @@ public class CodeController {
 	public String codeXdmList(@ModelAttribute("vo") CodeVo vo, Model model) throws Exception{
 	
 			setSearch(vo);
-			model.addAttribute("list", service.selectList(vo));
+			vo.setParamsPaging(service.selectOneCount(vo));
+			
+			if (vo.getTotalRows() > 0) {
+				model.addAttribute("list", service.selectList(vo));
+			}
+			
+//			model.addAttribute("list", service.selectList(vo));
 //			model.addAttribute("vo",vo);
 			
 			

@@ -59,6 +59,8 @@ public class CodeGroupController {
 	public String codeGroupXdmList(@ModelAttribute("vo") CodeGroupVo vo, Model model) throws Exception{
 			model.addAttribute("count", service.selectOneCount(vo));
 			
+			model.addAttribute("list", service.selectList(vo));
+			
 			setSearch(vo);
 			vo.setParamsPaging(service.selectOneCount(vo));
 			

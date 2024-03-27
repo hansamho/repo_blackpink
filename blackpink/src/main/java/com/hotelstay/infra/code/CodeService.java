@@ -53,7 +53,9 @@ public class CodeService {
 		return dao.delete(dto);
 	}
 	
-	
+	public int selectOneCount(CodeVo vo) {
+		return dao.selectOneCount(vo);
+	}
 	
 	
 	 @PostConstruct

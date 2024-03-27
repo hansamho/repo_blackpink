@@ -17,4 +17,6 @@ public interface MemberDao {
 	public int updateDelete(MemberDto dto);
 	
 	public int delete(MemberDto dto);
+	
+	public int selectOneCount(MemberVo vo);
 }

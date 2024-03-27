@@ -22,7 +22,7 @@ public interface CodeDao {
 
 	public List<CodeDto> selectListCachedCodeArrayList();
 	
-	
+	public int selectOneCount(CodeVo vo);
 	
 	
 }

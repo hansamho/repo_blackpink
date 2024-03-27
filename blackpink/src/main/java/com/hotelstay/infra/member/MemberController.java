@@ -47,9 +47,14 @@ public class MemberController {
 	
 	@RequestMapping(value = "/memberAdmList")
 	public String memberAdmList(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception{
+		model.addAttribute("count", service.selectOneCount(vo));
 		
 		setSearch(vo);
-		model.addAttribute("list", service.selectList(vo));
+		vo.setParamsPaging(service.selectOneCount(vo));
+		
+		if (vo.getTotalRows() > 0) {
+			model.addAttribute("list", service.selectList(vo));
+		}
 		
 		return "/adm/infra/member/memberAdmList";
 	}
