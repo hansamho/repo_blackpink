@@ -35,7 +35,7 @@
 							<a href="forgot-password.html" class="text-blue text-decoration-underline">비밀번호 찾기</a>
 						</div>
 						<div class="d-grid py-3">
-							<button type="submit" id="buttonSignIn" class="btn btn-lg btn-primary">
+							<button type="submit" id="buttonSignIn" name="buttonSignIn" class="btn btn-lg btn-primary">
 								로그인
 							</button>
 						</div>
@@ -74,21 +74,21 @@
 			,cache: false
 			,type: "post"
 			/* ,dataType:"json" */
-			,url: "/v1/infra/member/signinXdmProc"
+			,url: "/infra/member/memberSignIn"
 			/* ,data : $("#formLogin").serialize() */
-			,data : { "ifmmId" : $("#ifmmId").val(), "ifmmPassword" : $("#ifmmPassword").val(), "autoLogin" : $("#autoLogin").is(":checked")}
+			,data : { "memberID" : $("#memberID").val(), "memberPassword" : $("#memberPassword").val(), "autoLogin" : $("#autoLogin").is(":checked")}
 			,success: function(response) {
 				if(response.rt == "success") {
 					if(response.changePwd == "true") {
-						location.href = "/v1/infra/member/expiredPwdUsrForm";
+						location.href = "/infra/member/expiredPwdUsrForm";
 					} else {
-						location.href = "/v1/infra/index/indexXdmView";
+						location.href = "/infra/index/memberSigIn";
 					}
-				} else {
-			 		document.getElementById("modalAlertTitle").innerText = "확 인";
-			 		document.getElementById("modalAlertBody").innerText = "일치하는 회원이 존재 하지 않습니다!";
-			 		$("#modalAlert").modal("show");
-				}
+				} // else {
+// 			 		document.getElementById("modalAlertTitle").innerText = "확 인";
+// 			 		document.getElementById("modalAlertBody").innerText = "일치하는 회원이 존재 하지 않습니다!";
+// 			 		$("#modalAlert").modal("show");
+// 				}
 			}
 			,error : function(jqXHR, textStatus, errorThrown){
 				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);

@@ -19,4 +19,6 @@ public interface MemberDao {
 	public int delete(MemberDto dto);
 	
 	public int selectOneCount(MemberVo vo);
+	
+	public List<MemberDto> signIn(MemberDto dto);
 }

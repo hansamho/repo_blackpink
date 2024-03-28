@@ -1,6 +1,7 @@
 package com.hotelstay.infra.member;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -8,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hotelstay.common.contents.Constants;
 import com.hotelstay.common.util.UtilDateTime;
-import com.hotelstay.infra.codegroup.CodeGroupDto;
-import com.hotelstay.infra.codegroup.CodeGroupVo;
 
 
 
@@ -86,8 +85,11 @@ public class MemberController {
 
 	@RequestMapping(value = "/memberInsert")
 	public String memberInsert(MemberDto dto) throws Exception{
-	
-	service.insert(dto);
+
+		dto.setMemberPassword(encodeBcrypt(dto.getMemberPassword(),10));
+		
+		service.insert(dto);
+
 	return "redirect:/memberAdmList"; //
 	
 	}
@@ -118,6 +120,18 @@ public class MemberController {
 	return "redirect:/memberAdmList"; //
 	
 	}
+	
+	
+	public String encodeBcrypt(String planeText, int strength) {
+		  return new BCryptPasswordEncoder(strength).encode(planeText);
+	}
+
+			
+	public boolean matchesBcrypt(String planeText, String hashValue, int strength) {
+	  BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(strength);
+	  return passwordEncoder.matches(planeText, hashValue);
+	}
+	
 }
 
 
