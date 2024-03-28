@@ -1,14 +1,20 @@
 package com.hotelstay.infra.member;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hotelstay.common.contents.Constants;
 import com.hotelstay.common.util.UtilDateTime;
+
+import jakarta.servlet.http.HttpSession;
 
 
 
@@ -121,6 +127,26 @@ public class MemberController {
 	
 	}
 	
+	
+	
+	
+	
+	@ResponseBody
+	@RequestMapping(value = "/signinXdmProc")
+	public Map<String, Object> signinXdmProc(MemberDto dto, HttpSession httpSession) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		
+		// 아이디, 패스워드를 통해서 회원인지 아닌지 여부 조회
+
+        returnMap.put("rt", "success");
+		return returnMap;
+	}
+	
+	@RequestMapping(value = "/Login")
+	public String Login(MemberDto dto) throws Exception{
+	
+		return "/usr/infra/index/login";
+	}
 	
 	public String encodeBcrypt(String planeText, int strength) {
 		  return new BCryptPasswordEncoder(strength).encode(planeText);

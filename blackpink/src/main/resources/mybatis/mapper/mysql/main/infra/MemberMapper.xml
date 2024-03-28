@@ -144,14 +144,12 @@
     	WHERE memberSeq = #{memberSeq}
     </delete>
     
-     <select id="signIn" resultMap="resultMapObj">
+     <select id="selectLogin" resultMap="resultMapObj">
  		SELECT 
  			memberID
  			,memberPassword
- 		 FROM member
+ 		 FROM member 
  		 WHERE 1=1
  		 AND memberID = #{memberID}
- 		 	,memberPassword = #{memberPassword}
-    
 	  </select>
 </mapper>

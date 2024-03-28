@@ -20,5 +20,5 @@ public interface MemberDao {
 	
 	public int selectOneCount(MemberVo vo);
 	
-	public List<MemberDto> signIn(MemberDto dto);
+	public MemberDto selectLogin(MemberDto dto);
 }

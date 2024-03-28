@@ -1,7 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	<head th:replace="~{adm/infra/include/head :: head}"></head>
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+		<!-- Meta -->
+		<meta name="description" content="Best Bootstrap Dashboard Templates" />
+		<meta name="author" content="Bootstrap Gallery" />
+		<link rel="canonical" href="https://www.bootstrap.gallery/">
+		<meta property="og:url" content="https://www.bootstrap.gallery">
+		<meta property="og:title" content="Admin Templates - Dashboard Templates | Bootstrap Gallery">
+		<meta property="og:description" content="Marketplace for Bootstrap Admin Dashboards">
+		<meta property="og:type" content="Website">
+		<meta property="og:site_name" content="Bootstrap Gallery">
+		<link rel="shortcut icon" href="assets/images/favicon.svg" />
+
+		<!-- Title -->
+		<title>Admin Dashboard Templates - Admin Dashboards</title>
+
+		<!-- *************
+			************ Common Css Files *************
+		************ -->
+		<!-- Bootstrap css -->
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+
+		<!-- Bootstrap font icons css -->
+		<link rel="stylesheet" href="assets/fonts/bootstrap/bootstrap-icons.css" />
+
+		<!-- Main css -->
+		<link rel="stylesheet" href="assets/css/main.min.css" />
+
+		<!-- Login css -->
+		<link rel="stylesheet" href="assets/css/login.css" />
+	</head>
 
 	<body class="login-container">
 		<!-- Login box start -->
@@ -35,7 +68,7 @@
 							<a href="forgot-password.html" class="text-blue text-decoration-underline">비밀번호 찾기</a>
 						</div>
 						<div class="d-grid py-3">
-							<button type="submit" id="buttonSignIn" class="btn btn-lg btn-primary">
+							<button type="submit" class="btn btn-lg btn-primary">
 								로그인
 							</button>
 						</div>
@@ -63,40 +96,5 @@
 		<script src="assets/js/main.js"></script>
 		<script src="assets/js/validations.js"></script>
 	</body>
-	
-	<script type="text/javascript">
-	document.getElementById("buttonSignIn").onclick = function () {
-		
-		if(validation() == false) return false;
-	
-		$.ajax({
-			async: true 
-			,cache: false
-			,type: "post"
-			/* ,dataType:"json" */
-			,url: "/v1/infra/member/signinXdmProc"
-			/* ,data : $("#formLogin").serialize() */
-			,data : { "ifmmId" : $("#ifmmId").val(), "ifmmPassword" : $("#ifmmPassword").val(), "autoLogin" : $("#autoLogin").is(":checked")}
-			,success: function(response) {
-				if(response.rt == "success") {
-					if(response.changePwd == "true") {
-						location.href = "/v1/infra/member/expiredPwdUsrForm";
-					} else {
-						location.href = "/v1/infra/index/indexXdmView";
-					}
-				} else {
-			 		document.getElementById("modalAlertTitle").innerText = "확 인";
-			 		document.getElementById("modalAlertBody").innerText = "일치하는 회원이 존재 하지 않습니다!";
-			 		$("#modalAlert").modal("show");
-				}
-			}
-			,error : function(jqXHR, textStatus, errorThrown){
-				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-			}
-		});
-	}
-	
-	</script>	
-	
 
 </html>
