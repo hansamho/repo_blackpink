@@ -27,7 +27,7 @@
 								<li class="sidebar-dropdown">
 									<a href="#">
 										<i class="bi bi-grid-3x3"></i>
-										<span class="menu-text">코드 테이블</span>
+										<span class="menu-text">코드그룹 테이블</span>
 									</a>
 									<div class="sidebar-submenu">
 										<ul>
@@ -35,7 +35,24 @@
 												<a th:href="@{codeGroupXdmList}">코드그룹 관리</a>
 											</li>
 											<li>
+												<a th:href="@{codeGroupAdd}">코드 등록</a>
+											</li>
+										</ul>
+									</div>
+								</li>
+								
+								<li class="sidebar-dropdown">
+									<a href="#">
+										<i class="bi bi-grid-3x3"></i>
+										<span class="menu-text">코드 테이블</span>
+									</a>
+									<div class="sidebar-submenu">
+										<ul>
+											<li>
 												<a th:href="@{codeXdmList}">코드 관리</a>
+											</li>
+											<li>
+												<a th:href="@{codeAdd}">코드 등록</a>
 											</li>
 										</ul>
 									</div>
