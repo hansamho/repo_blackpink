@@ -131,22 +131,48 @@ public class MemberController {
 	
 	
 	
-	@ResponseBody
-	@RequestMapping(value = "/signinXdmProc")
-	public Map<String, Object> signinXdmProc(MemberDto dto, HttpSession httpSession) throws Exception {
-		Map<String, Object> returnMap = new HashMap<String, Object>();
-		
-		// 아이디, 패스워드를 통해서 회원인지 아닌지 여부 조회
-
-        returnMap.put("rt", "success");
-		return returnMap;
-	}
-	
 	@RequestMapping(value = "/Login")
 	public String Login(MemberDto dto) throws Exception{
 	
 		return "/usr/infra/index/login";
 	}
+	
+	
+	@RequestMapping(value = "/index")
+	public String index(MemberDto dto) throws Exception{
+	
+		return "/usr/infra/index/index";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/signinXdmProc")
+	public Map<String, Object> signinXdmProc(MemberDto dto, HttpSession httpSession) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		
+		
+		String loginId = dto.getMemberID();
+		String loginpwd = dto.getMemberPassword();
+		
+		service.selectLogin(dto);
+		
+		System.out.println(service.selectLogin(dto).getMemberPassword());
+		
+		if(loginpwd.equals(service.selectLogin(dto).getMemberPassword())) {
+			
+			returnMap.put("rt","success");
+		} else {
+			returnMap.put("rt", "fail");
+		}
+		
+		// 아이디, 패스워드를 통해서 회원인지 아닌지 여부 조회
+		
+		
+
+//        returnMap.put("rt", "success");
+		return returnMap;
+	}
+	
+	
 	
 	public String encodeBcrypt(String planeText, int strength) {
 		  return new BCryptPasswordEncoder(strength).encode(planeText);
