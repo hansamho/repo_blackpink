@@ -499,13 +499,13 @@
 				,cache: false
 				,type: "post"
 				/* ,dataType:"json" */
-				,url: "/signinXdmProc"
+				,url: "/signinUsr"
 				/* ,data : $("#formLogin").serialize() */
 				,data : { "memberID" : $("#memberID").val(), "memberPassword" : $("#memberPassword").val()}
 				,success: function(response) {
 					if(response.rt == "success") {
 // 						alert("sqqqqqqqq");
-						location.href = "/index";
+						location.href = "/usrIndex";
 
 					}  else if(response.rt == "idfail"){
 				 		

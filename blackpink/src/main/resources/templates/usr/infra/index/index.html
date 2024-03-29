@@ -52,7 +52,7 @@
                     <div class="col-6"><i class="icon-phone"></i><strong>1234-5678</strong></div>
                     <div class="col-6">
                         <ul id="top_links">
-                            <li><a th:if="" th:href="@{/Login}" id="buttonSignIn">로그인</a></li>
+                            <button><a th:if="${session.sessNameXdm == null}" th:href="@{/usrLogin}" id="buttonSignIn" type="button" class="mt-2 text-black">로그인</a></button>
                             <li><a href="register.html" id="register">회원가입</a></li>
                             <li><a href="admin.html" id="admin_link">마이페이지</a></li>
                             
@@ -153,100 +153,6 @@
                                     <li><a href="/usr/assets/payment_hotel.html">Booking hotel</a></li>
                                     <li><a href="/usr/assets/confirmation_hotel.html">Confirmation hotel</a></li>
                                 </ul>
-                            </li>
-                             
-                            </li>
-                             <li class="megamenu submenu">
-                                <a href="javascript:void(0);" class="show-submenu-mega">Bonus<i class="icon-down-open-mini"></i></a>
-                                <div class="menu-wrapper">
-                                	<div class="row">
-                                        <div class="col-lg-4">
-                                            <h3>Header styles</h3>
-                                            <ul>
-                                                <li><a href="index.html">Default transparent</a></li>
-                                                <li><a href="header_2.html">Plain color</a></li>
-                                                <li><a href="header_3.html">Plain color on scroll</a></li>
-                                                <li><a href="header_4.html">With socials on top</a></li>
-                                                <li><a href="header_5.html">With language selection</a></li>
-                                                <li><a href="header_6.html">With lang and conversion</a></li>
-                                                <li><a href="header_7.html">With full horizontal menu</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <h3>Footer styles</h3>
-                                            <ul>
-                                                <li><a href="index.html">Footer default</a></li>
-                                                <li><a href="footer_2.html">Footer style 2</a></li>
-                                                <li><a href="footer_3.html">Footer style 3</a></li>
-                                                <li><a href="footer_4.html">Footer style 4</a></li>
-                                                <li><a href="footer_6.html">Footer style 6</a></li>
-                                                <li><a href="footer_7.html">Footer style 7</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <h3>Shop section</h3>
-                                            <ul>
-                                                <li><a href="shop.html">Shop</a></li>
-                                                <li><a href="shop-single.html">Shop single</a></li>
-                                                <li><a href="shopping-cart.html">Shop cart</a></li>
-                                                <li><a href="checkout.html">Shop Checkout</a></li>
-                                            </ul>
-                                        </div>
-                                    </div><!-- End row -->
-                                </div><!-- End menu-wrapper -->
-                            </li>
-                            <li class="megamenu submenu">
-                                <a href="javascript:void(0);" class="show-submenu-mega">Pages<i class="icon-down-open-mini"></i></a>
-                                <div class="menu-wrapper">
-                                	<div class="row">
-										<div class="col-lg-4">
-											<h3>Pages</h3>
-											<ul>
-												<li><a href="about.html">About us</a></li>
-											   <li><a href="general_page.html">General page</a></li>
-												<li><a href="tourist_guide.html">Tourist guide</a></li>
-												 <li><a href="wishlist.html">Wishlist page</a></li>
-												 <li><a href="faq.html">Faq</a></li>
-												 <li><a href="faq_2.html">Faq smooth scroll</a></li>
-												 <li><a href="pricing_tables.html">Pricing tables</a></li>
-												 <li><a href="gallery_3_columns.html">Gallery 3 columns</a></li>
-												<li><a href="gallery_4_columns.html">Gallery 4 columns</a></li>
-												<li><a href="grid_gallery_1.html">Grid gallery</a></li>
-												<li><a href="grid_gallery_2.html">Grid gallery with filters</a></li>
-											</ul>
-										</div>
-										<div class="col-lg-4">
-											<h3>Pages</h3>
-											<ul>
-												<li><a href="contact_us_1.html">Contact us 1</a></li>
-												<li><a href="contact_us_2.html">Contact us 2</a></li>
-												 <li><a href="blog_right_sidebar.html">Blog</a></li>
-												<li><a href="blog.html">Blog left sidebar</a></li>
-												<li><a href="login.html">Login</a></li>
-												<li><a href="register.html">Register</a></li>
-												<li><a href="invoice.html" target="_blank">Invoice</a></li>
-												<li><a href="404.html">404 Error page</a></li>
-												<li><a href="site_launch/index.html">Site launch / Coming soon</a></li>
-												<li><a href="timeline.html">Tour timeline</a></li>
-												<li><a href="page_with_map.html"><i class="icon-map"></i>  Full screen map</a></li>
-											</ul>
-										</div>
-										<div class="col-lg-4">
-											<h3>Elements</h3>
-											<ul>
-												<li><a href="footer_2.html"><i class="icon-columns"></i> Footer with working newsletter</a></li>
-												<li><a href="icon_pack_1.html"><i class="icon-inbox-alt"></i> Icon pack 1 (1900)</a></li>
-												<li><a href="icon_pack_2.html"><i class="icon-inbox-alt"></i> Icon pack 2 (100)</a></li>
-												<li><a href="icon_pack_3.html"><i class="icon-inbox-alt"></i> Icon pack 3 (30)</a></li>
-												<li><a href="icon_pack_4.html"><i class="icon-inbox-alt"></i> Icon pack 4 (200)</a></li>
-												<li><a href="icon_pack_5.html"><i class="icon-inbox-alt"></i> Icon pack 5 (360)</a></li>
-												<li><a href="shortcodes.html"><i class="icon-tools"></i> Shortcodes</a></li>
-												<li><a href="newsletter_template/newsletter.html" target="blank"><i class=" icon-mail"></i> Responsive email template</a></li>
-												<li><a href="admin.html"><i class="icon-cog-1"></i>  Admin area</a></li>
-											</ul>
-										</div>
-                                    </div><!-- End row -->
-                                </div><!-- End menu-wrapper -->
                             </li>
                         </ul>
                     </div><!-- End main-menu -->
@@ -796,7 +702,6 @@
 				,data : { "memberID" : $("#memberID").val(), "memberPassword" : $("#memberPassword").val()}
 				,success: function(response) {
 					if(response.rt == "success") {
-						alert("aaaaaa.");
 						location.href = "/index";
 
 					}  

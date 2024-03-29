@@ -129,25 +129,79 @@ public class MemberController {
 	
 	}
 	
+	@RequestMapping(value = "/AdmLogin")
+	public String AdmLogin(MemberDto dto) throws Exception{
+	
+		return "/adm/infra/index/login";
+	}
+	
+	@RequestMapping(value = "/Admindex")
+	public String Admindex(MemberDto dto) throws Exception{
+	
+		return "/adm/infra/index/index";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/signinAdm")
+	public Map<String, Object> signinAdm(MemberDto dto, HttpSession httpSession) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		
+		
+		String loginId = dto.getMemberID();
+		String loginpwd = dto.getMemberPassword();
+		
+		
+		MemberDto rtDto = service.selectLogin(dto);
+		
+//		System.out.println(service.selectLogin(dto).getMemberPassword());
+		
+		
+		if(rtDto != null) {
+			
+			httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE_XDM); // 60second * 30 = 30minute
+			httpSession.setAttribute("sessSeqXdm", rtDto.getMemberSeq());
+			httpSession.setAttribute("sessIdXdm", rtDto.getMemberID());
+			httpSession.setAttribute("sessNameXdm", rtDto.getLastName());
+			
+			System.out.println("---------------------");
+			System.out.println("httpSession.getAttribute(\"sessNameXdm\"): " + httpSession.getAttribute("sessNameXdm"));
+			System.out.println("---------------------");
+			
+			if(loginId.equals(rtDto.getMemberID())) {
+				
+				if(matchesBcrypt(loginpwd, rtDto.getMemberPassword(),10)) {
+					returnMap.put("rt","success");
+				} else {
+					returnMap.put("rt", "passfail");
+				}
+				
+			} else {
+				returnMap.put("rt", "idfail");
+			}
+		} else {
+			returnMap.put("rt", "notId");
+		}
+		return returnMap;
+	}
+	
+	/* ------------------사용자------------------------------- */
 	
 	
-	
-	
-	@RequestMapping(value = "/Login")
-	public String Login(MemberDto dto) throws Exception{
+	@RequestMapping(value = "/usrLogin")
+	public String usrLogin(MemberDto dto) throws Exception{
 	
 		return "/usr/infra/index/login";
 	}
 	
 	
-	@RequestMapping(value = "/index")
-	public String index(MemberDto dto) throws Exception{
+	@RequestMapping(value = "/usrIndex")
+	public String usrIndex(MemberDto dto) throws Exception{
 	
 		return "/usr/infra/index/index";
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "/signinXdmProc")
+	@RequestMapping(value = "/signinUsr")
 	public Map<String, Object> signinXdmProc(MemberDto dto, HttpSession httpSession) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		
