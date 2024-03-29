@@ -92,7 +92,9 @@ public class MemberController {
 	@RequestMapping(value = "/memberInsert")
 	public String memberInsert(MemberDto dto) throws Exception{
 
+		
 		dto.setMemberPassword(encodeBcrypt(dto.getMemberPassword(),10));
+		
 		
 		service.insert(dto);
 
@@ -153,22 +155,49 @@ public class MemberController {
 		String loginId = dto.getMemberID();
 		String loginpwd = dto.getMemberPassword();
 		
-		service.selectLogin(dto);
+		MemberDto rtDto = service.selectLogin(dto);
 		
-		System.out.println(service.selectLogin(dto).getMemberPassword());
+//		System.out.println(service.selectLogin(dto).getMemberPassword());
 		
-		if(loginpwd.equals(service.selectLogin(dto).getMemberPassword())) {
+		
+		if(rtDto != null) {
 			
-			returnMap.put("rt","success");
+			httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE_XDM); // 60second * 30 = 30minute
+			httpSession.setAttribute("sessSeqXdm", rtDto.getMemberSeq());
+			httpSession.setAttribute("sessIdXdm", rtDto.getMemberID());
+			httpSession.setAttribute("sessNameXdm", rtDto.getLastName());
+			
+			System.out.println("---------------------");
+			System.out.println("httpSession.getAttribute(\"sessNameXdm\"): " + httpSession.getAttribute("sessNameXdm"));
+			System.out.println("---------------------");
+			
+			if(loginId.equals(rtDto.getMemberID())) {
+				
+				if(matchesBcrypt(loginpwd, rtDto.getMemberPassword(),10)) {
+					returnMap.put("rt","success");
+				} else {
+					returnMap.put("rt", "passfail");
+				}
+				
+			} else {
+				returnMap.put("rt", "idfail");
+			}
 		} else {
-			returnMap.put("rt", "fail");
+			returnMap.put("rt", "notId");
 		}
+		return returnMap;
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping(value = "/signoutXdm")
+	public Map<String, Object> signoutXdm(MemberDto dto, HttpSession httpSession) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
 		
-		// 아이디, 패스워드를 통해서 회원인지 아닌지 여부 조회
+		httpSession.invalidate();
 		
 		
-
-//        returnMap.put("rt", "success");
+		returnMap.put("rt", "success");
 		return returnMap;
 	}
 	
