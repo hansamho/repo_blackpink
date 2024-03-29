@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -52,7 +52,7 @@
                     <div class="col-6"><i class="icon-phone"></i><strong>1234-5678</strong></div>
                     <div class="col-6">
                         <ul id="top_links">
-                            <li><a href="#sign-in-dialog" id="access_link">로그인</a></li>
+                            <li><a th:if="" th:href="@{/Login}" id="buttonSignIn">로그인</a></li>
                             <li><a href="register.html" id="register">회원가입</a></li>
                             <li><a href="admin.html" id="admin_link">마이페이지</a></li>
                             
@@ -779,7 +779,35 @@
                 });
             });
         </script>
+	
+		<script type="text/javascript">
+	document.getElementById("buttonSignIn").onclick = function () {
+			
+// 			if(validation() == false) return false;
+			
+		
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				/* ,dataType:"json" */
+				,url: "/signoutXdm"
+				/* ,data : $("#formLogin").serialize() */
+				,data : { "memberID" : $("#memberID").val(), "memberPassword" : $("#memberPassword").val()}
+				,success: function(response) {
+					if(response.rt == "success") {
+						alert("aaaaaa.");
+						location.href = "/index";
 
+					}  
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});
+		}
+			
+		</script>
 	
 	<!-- NOTIFY BUBBLES  -->
 	<script src="/usr/assets/js/notify_func.js"></script>
