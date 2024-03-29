@@ -248,10 +248,8 @@ public class MemberController {
 	public Map<String, Object> signoutXdm(MemberDto dto, HttpSession httpSession) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		
-		httpSession.invalidate();
-		
-		
 		returnMap.put("rt", "success");
+		httpSession.invalidate();
 		return returnMap;
 	}
 	
