@@ -129,14 +129,23 @@ public class MemberController {
 	
 	}
 	
-	@RequestMapping(value = "/AdmLogin")
-	public String AdmLogin(MemberDto dto) throws Exception{
+	/* 첫 화면 페이지*/
+	@RequestMapping(value = "/main")
+	public String main() throws Exception{
+	
+		return "/main/infra/index/mainindex";
+	}
+	
+	/* =====관리자===== */
+	
+	@RequestMapping(value = "/admLogin")
+	public String admLogin(MemberDto dto) throws Exception{
 	
 		return "/adm/infra/index/login";
 	}
 	
-	@RequestMapping(value = "/Admindex")
-	public String Admindex(MemberDto dto) throws Exception{
+	@RequestMapping(value = "/admIndex")
+	public String admIndex(MemberDto dto) throws Exception{
 	
 		return "/adm/infra/index/index";
 	}
@@ -146,9 +155,8 @@ public class MemberController {
 	public Map<String, Object> signinAdm(MemberDto dto, HttpSession httpSession) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		
-		
-		String loginId = dto.getMemberID();
-		String loginpwd = dto.getMemberPassword();
+		System.out.println("aaaaaaaaaaa");
+		System.out.println(dto.getMemberID());
 		
 		
 		MemberDto rtDto = service.selectLogin(dto);
@@ -158,10 +166,14 @@ public class MemberController {
 		
 		if(rtDto != null) {
 			
+			String loginId = dto.getMemberID();
+			String loginpwd = dto.getMemberPassword();
+			
+			
 			httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE_XDM); // 60second * 30 = 30minute
 			httpSession.setAttribute("sessSeqXdm", rtDto.getMemberSeq());
 			httpSession.setAttribute("sessIdXdm", rtDto.getMemberID());
-			httpSession.setAttribute("sessNameXdm", rtDto.getLastName());
+			httpSession.setAttribute("sessNameXdm", rtDto.getMemberName());
 			
 			System.out.println("---------------------");
 			System.out.println("httpSession.getAttribute(\"sessNameXdm\"): " + httpSession.getAttribute("sessNameXdm"));
@@ -183,6 +195,17 @@ public class MemberController {
 		}
 		return returnMap;
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/signoutAdm")
+	public Map<String, Object> signoutAdm(MemberDto dto, HttpSession httpSession) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		
+		returnMap.put("rt", "success");
+		httpSession.invalidate();
+		return returnMap;
+	}
+	
 	
 	/* ------------------사용자------------------------------- */
 	
@@ -206,8 +229,6 @@ public class MemberController {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		
 		
-		String loginId = dto.getMemberID();
-		String loginpwd = dto.getMemberPassword();
 		
 		MemberDto rtDto = service.selectLogin(dto);
 		
@@ -216,10 +237,14 @@ public class MemberController {
 		
 		if(rtDto != null) {
 			
+			String loginId = dto.getMemberID();
+			String loginpwd = dto.getMemberPassword();
+			
+			
 			httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE_XDM); // 60second * 30 = 30minute
 			httpSession.setAttribute("sessSeqXdm", rtDto.getMemberSeq());
 			httpSession.setAttribute("sessIdXdm", rtDto.getMemberID());
-			httpSession.setAttribute("sessNameXdm", rtDto.getLastName());
+			httpSession.setAttribute("sessNameXdm", rtDto.getMemberName());
 			
 			System.out.println("---------------------");
 			System.out.println("httpSession.getAttribute(\"sessNameXdm\"): " + httpSession.getAttribute("sessNameXdm"));
@@ -244,7 +269,7 @@ public class MemberController {
 	
 	
 	@ResponseBody
-	@RequestMapping(value = "/signoutXdm")
+	@RequestMapping(value = "/signoutUsr")
 	public Map<String, Object> signoutXdm(MemberDto dto, HttpSession httpSession) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		

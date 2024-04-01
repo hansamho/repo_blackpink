@@ -209,11 +209,10 @@
 												<select id="shOption" name="shOption" class="form-select form-select-sm">
 													<option value="" th:selected="${vo.shOption == null}" >검색구분</option>
 													<option  value="1" th:selected="${vo.shOption == 1}" >멤버 seq</option>
-													<option  value="2" th:selected="${vo.shOption == 2}" >성</option>
-													<option  value="3" th:selected="${vo.shOption == 3}" >이름</option>
-													<option  value="5" th:selected="${vo.shOption == 4}" >생일</option>
-													<option  value="6" th:selected="${vo.shOption == 5}" >아이디</option>
-													<option  value="7" th:selected="${vo.shOption == 6}" >전화번호</option>
+													<option  value="2" th:selected="${vo.shOption == 2}" >이름</option>
+													<option  value="3" th:selected="${vo.shOption == 3}" >생일</option>
+													<option  value="4" th:selected="${vo.shOption == 4}" >아이디</option>
+													<option  value="5" th:selected="${vo.shOption == 5}" >전화번호</option>
 												</select>
 											</div> 
 											<div class="col-2 gy-2">
@@ -248,7 +247,6 @@
 													<tr>
 														<th><input type="checkbox" id="checkboxType"></th>
 														<th>맴버 Seq</th>
-														<th>성</th>
 														<th>이름</th>
 														<th>성별</th>
 														<th>생일</th>
@@ -267,8 +265,7 @@
 													<tr  th:if="${#lists.isEmpty(List)}" th:each="list : ${list}">
 														<td><input type="checkbox" id="checkboxType2"></td>
 														<td th:text="${list.memberSeq}"></td>
-														<td><a th:href="@{/memberAdmView(memberSeq=${list.memberSeq},memberID=${list.fristName})}" th:text="${list.fristName}"></a></td>
-														<td><a th:href="@{/memberAdmView(memberSeq=${list.memberSeq},memberID=${list.lastName})}" th:text="${list.lastName}"></a></td>
+														<td><a th:href="@{/memberAdmView(memberSeq=${list.memberSeq},memberID=${list.memberName})}" th:text="${list.memberName}"></a></td>
 														
 														<td th:if="${list.genderCD != null}" th:text="${@codeService.selectOneCachedCode(list.genderCD)}" class="genderCD align-middle"></td>
 														<td th:unless="${list.genderCD != null}" class="genderCD align-middle"></td>

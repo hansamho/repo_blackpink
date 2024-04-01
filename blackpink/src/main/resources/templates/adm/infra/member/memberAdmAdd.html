@@ -373,21 +373,15 @@
 									</div>
 									<form method="post" action='memberInsert'>
 										<div class="row">
-											<div class="col-lg-4 col-sm-4 col-6 gy-2">
+											<div class="col-lg-6 col-sm-4 col-6 gy-2">
 												<label class="form-label">seq</label> <input type="text"
 													name="memberSeq" id="memberSeq" class="form-control">
 											</div>
-											<div class="col-lg-4 col-sm-4 col-6 gy-2">
-												<label class="form-label">성</label> <input type="text"
-													name="fristName" id="fristName" class="form-control">
-												<div id="fristNameFeedback" class="invalid-feedback"
-													name="fristNameFeedback"></div>
-											</div>
-											<div class="col-lg-4 col-sm-4 col-6 gy-2">
+											<div class="col-lg-6 col-sm-4 col-6 gy-2">
 												<label class="form-label">이름</label> <input type="text"
-													name="lastName" id="lastName" class="form-control">
-												<div id="lastNameFeedback" class="invalid-feedback"
-													name="lastNameFeedback"></div>
+													name="memberName" id="memberName" class="form-control">
+												<div id="memberNameFeedback" class="invalid-feedback"
+													name="memberNameFeedback"></div>
 											</div>
 										</div>
 										<div class="row">
@@ -551,10 +545,7 @@
 		// 			return false;
 		// 		}
 		function validationUpdt() {
-			if (!checkOnlyKoreanEnglishNumber('fristName', 2, 0,
-					"성은 한글,영어만 입력 가능합니다."))
-				return false;
-			if (!checkOnlyKoreanEnglishNumber('lastName', 2, 0,
+			if (!checkOnlyKoreanEnglishNumber('memberName', 2, 0,
 					"이름은 한글,영어만 입력 가능합니다."))
 				return false;
 			if (!checkId('memberID', 2, 0, "아이디는 영어,숫자 4~20자리 까지 입력 가능합니다."))

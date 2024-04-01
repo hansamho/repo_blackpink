@@ -1,31 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Citytours - Premium site template for city tours agencies, transfers and tickets.">
-    <meta name="author" content="Ansonika">
-    <title>CITY TOURS - City tours and travel site template by Ansonika</title>
-
-    <!-- Favicons-->
-    <link rel="shortcut icon" href="/usr/assets/img/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" type="image/x-icon" href="/usr/assets/img/apple-touch-icon-57x57-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="/usr/assets/img/apple-touch-icon-72x72-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="/usr/assets/img/apple-touch-icon-114x114-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="/usr/assets/img/apple-touch-icon-144x144-precomposed.png">
-
-    <!-- GOOGLE WEB FONT -->
-    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- COMMON CSS -->
-	<link href="/usr/assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/usr/assets/css/style.css" rel="stylesheet">
-	<link href="/usr/assets/css/vendors.css" rel="stylesheet">
-
-	<!-- CUSTOM CSS -->
-	<link href="/usr/assets/css/custom.css" rel="stylesheet">
-
+    <div th:replace="~{usr/infra/include/head :: head}"></div>
 </head>
 
 <body>
@@ -44,153 +21,9 @@
     <div class="layer"></div>
     <!-- Mobile menu overlay mask -->
 
-    <!-- Header================================================== -->
+    <!-- Header -->
     <header>
-        <div id="top_line">
-            <div class="container">
-                <div class="row">
-                    <div class="col-6"><i class="icon-phone"></i><strong>1234-5678</strong></div>
-                    <div class="col-6">
-                        <ul id="top_links">
-                            <button><a th:if="${session.sessNameXdm == null}" th:href="@{/usrLogin}" id="buttonSignIn" type="button" class="mt-2 text-black">로그인</a></button>
-                            <li><a href="register.html" id="register">회원가입</a></li>
-                            <li><a href="admin.html" id="admin_link">마이페이지</a></li>
-                            
-                            
-                        </ul>
-                    </div>
-                </div><!-- End row -->
-            </div><!-- End container-->
-        </div><!-- End top line-->
-        
-        <div class="container">
-            <div class="row">
-                <div class="col-3">
-                    <div id="logo_home">
-                    	<h1><a href="index.html" title="City tours travel template">City Tours travel template</a></h1>
-                    </div>
-                </div>
-                <nav class="col-9">
-                    <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
-                    <div class="main-menu">
-                        <div id="header_menu">
-                            <img src="/usr/assets/img/logo_sticky.png" width="160" height="34" alt="City tours">
-                        </div>
-                        <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
-                        <ul>
-                            <li class="submenu">
-                                <a href="javascript:void(0);" class="show-submenu">홈 <i class="icon-down-open-mini"></i></a>
-                                <ul>
-                                    <li><a href="index.html">Owl Carousel Slider</a></li>
-                                    <li><a href="index_25.html">KenBurns Slider</a></li>
-                                    <li><a href="index_22.html">Home items with Carousel</a></li>
-                                    <li><a href="index_23.html">Home with Search V2</a></li>
-                                    <li class="third-level"><a href="javascript:void(0);">Revolution slider <strong class="badge badge-danger">New!</strong></a>
-                                        <ul>
-                                            <li><a href="index_24.html">Default slider</a></li>
-                                            <li><a href="index_20.html">Basic slider</a></li>
-                                            <li><a href="index_14.html">Youtube Hero</a></li>
-                                            <li><a href="index_15.html">Vimeo Hero</a></li>
-                                            <li><a href="index_17.html">Full Screen <strong class="badge badge-danger">New!</strong></a></li>
-                                            <li><a href="index_21.html">Full Screen Slicey <strong class="badge badge-danger">New!</strong></a></li>
-                                            <li><a href="index_16.html">Carousel</a></li>
-                                            <li><a href="index_19.html">Mailchimp Newsletter</a></li>
-                                            <li><a href="index_18.html">Fixed Caption</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="index_12.html">Layer slider</a></li>
-                                    <li><a href="index_2.html">With Only tours</a></li>
-                                    <li><a href="index_3.html">Single image</a></li>
-                                    <li><a href="index_4.html">Header video</a></li>
-                                    <li><a href="index_7.html">With search panel</a></li>
-                                    <li><a href="index_13.html">With tabs</a></li>
-                                    <li><a href="index_5.html">With map</a></li>
-                                    <li><a href="index_6.html">With search bar</a></li>
-                                    <li><a href="index_8.html">Search bar + Video</a></li>
-                                    <li><a href="index_9.html">With Text Rotator</a></li>
-                                    <li><a href="index_10.html">With Cookie Bar (EU law)</a></li>
-                                    <li><a href="index_11.html">Popup Advertising</a></li>
-                                </ul>
-                            </li>
-                            
-                             <li class="submenu">
-                                <a href="javascript:void(0);" class="show-submenu">호텔 <i class="icon-down-open-mini"></i></a><ul>
-                                    <li><a href="/usr/assets/all_hotels_list.html">All hotels list</a></li>
-                                    <li><a href="/usr/assets/all_hotels_grid.html">All hotels grid</a></li>
-                                    <li><a href="/usr/assets/all_hotels_grid_masonry.html">All hotels Sort Masonry</a></li>
-                                    <li><a href="/usr/assets/all_hotels_map_listing.html">All hotels map listing</a></li>
-                                    <li><a href="/usr/assets/single_hotel.html">Single hotel page</a></li>
-                                    <li><a href="/usr/assets/single_hotel_working_booking.php">Single hotel working booking</a></li>
-                                    <li><a href="/usr/assets/single_hotel_contact.php">Single hotel contact working</a></li>
-                                    <li><a href="/usr/assets/cart_hotel.html">Cart hotel</a></li>
-                                    <li><a href="/usr/assets/payment_hotel.html">Booking hotel</a></li>
-                                    <li><a href="/usr/assets/confirmation_hotel.html">Confirmation hotel</a></li>
-                                </ul>
-                            </li>
-                            <li class="submenu">
-                                <a href="javascript:void(0);" class="show-submenu">펜션 <i class="icon-down-open-mini"></i></a><ul>
-                                    <li><a href="/usr/assets/all_hotels_list.html">All hotels list</a></li>
-                                    <li><a href="/usr/assets/all_hotels_grid.html">All hotels grid</a></li>
-                                    <li><a href="/usr/assets/all_hotels_grid_masonry.html">All hotels Sort Masonry</a></li>
-                                    <li><a href="/usr/assets/all_hotels_map_listing.html">All hotels map listing</a></li>
-                                    <li><a href="/usr/assets/single_hotel.html">Single hotel page</a></li>
-                                    <li><a href="/usr/assets/single_hotel_working_booking.php">Single hotel working booking</a></li>
-                                    <li><a href="/usr/assets/single_hotel_contact.php">Single hotel contact working</a></li>
-                                    <li><a href="/usr/assets/cart_hotel.html">Cart hotel</a></li>
-                                    <li><a href="/usr/assets/payment_hotel.html">Booking hotel</a></li>
-                                    <li><a href="/usr/assets/confirmation_hotel.html">Confirmation hotel</a></li>
-                                </ul>
-                            </li><li class="submenu">
-                                <a href="javascript:void(0);" class="show-submenu">모텔 <i class="icon-down-open-mini"></i></a><ul>
-                                    <li><a href="/usr/assets/all_hotels_list.html">All hotels list</a></li>
-                                    <li><a href="/usr/assets/all_hotels_grid.html">All hotels grid</a></li>
-                                    <li><a href="/usr/assets/all_hotels_grid_masonry.html">All hotels Sort Masonry</a></li>
-                                    <li><a href="/usr/assets/all_hotels_map_listing.html">All hotels map listing</a></li>
-                                    <li><a href="/usr/assets/single_hotel.html">Single hotel page</a></li>
-                                    <li><a href="/usr/assets/single_hotel_working_booking.php">Single hotel working booking</a></li>
-                                    <li><a href="/usr/assets/single_hotel_contact.php">Single hotel contact working</a></li>
-                                    <li><a href="/usr/assets/cart_hotel.html">Cart hotel</a></li>
-                                    <li><a href="/usr/assets/payment_hotel.html">Booking hotel</a></li>
-                                    <li><a href="/usr/assets/confirmation_hotel.html">Confirmation hotel</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div><!-- End main-menu -->
-                    <ul id="top_tools">
-                        <li>
-                            <a href="javascript:void(0);" class="search-overlay-menu-btn"><i class="icon_search"></i></a>
-                        </li>
-                        <li>
-                            <div class="dropdown dropdown-cart">
-                                <a href="#" data-bs-toggle="dropdown" class="cart_bt"><i class="icon_bag_alt"></i><strong>3</strong></a>
-                                <ul class="dropdown-menu" id="cart_items">
-                                    <li>
-                                        <div class="image"><img src="/usr/assets/img/thumb_cart_1.jpg" alt="image"></div>
-                                        <strong><a href="#">Louvre museum</a>1x $36.00 </strong>
-                                        <a href="#" class="action"><i class="icon-trash"></i></a>
-                                    </li>
-                                    <li>
-                                        <div class="image"><img src="/usr/assets/img/thumb_cart_2.jpg" alt="image"></div>
-                                        <strong><a href="#">Versailles tour</a>2x $36.00 </strong>
-                                        <a href="#" class="action"><i class="icon-trash"></i></a>
-                                    </li>
-                                    <li>
-                                        <div class="image"><img src="/usr/assets/img/thumb_cart_3.jpg" alt="image"></div>
-                                        <strong><a href="#">Versailles tour</a>1x $36.00 </strong>
-                                        <a href="#" class="action"><i class="icon-trash"></i></a>
-                                    </li>
-                                    <li>
-                                        <div>Total: <span>$120.00</span></div>
-                                        <a href="cart.html" class="button_drop">Go to cart</a>
-                                        <a href="payment.html" class="button_drop outline">Check out</a>
-                                    </li>
-                                </ul>
-                            </div><!-- End dropdown-cart-->
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div><!-- container -->
+         <div th:replace="~{usr/infra/include/header :: header}"></div>
     </header><!-- End Header -->
 	
 	<!--메인 예약 확인-->
@@ -518,8 +351,6 @@
                     </div>
                     <!-- End box -->
                 </div>
-                
-                
                 <!-- /item -->
             </div>
             
@@ -529,56 +360,12 @@
 				<a href="all_hotels_list.html" class="btn_1">전체 목록</a>
 			</p>
 		</div>
-		<!-- End container -->
-
-		
-
-        
         <!-- End container -->
 	</main>
 	<!-- End main -->
     
-    <footer class="revealed">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h3>고객센터</h3>
-                    <a href="tel://004542344599" id="phone">1234-5678</a>
-                    <a href="mailto:help@citytours.com" id="email_footer">help@citytours.com</a>
-                </div>
-                <div class="col-md-3">
-                    <h3>서비스</h3>
-                    <ul>
-                        <li><a href="#">공지사항</a></li>
-                        <li><a href="#">자주 묻는 질문</a></li>                       
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <h3>회사</h3>
-                    <ul>
-                        <li><a href="#">회사 소개</a></li>
-                        
-                    </ul>
-                </div>
-                
-            </div><!-- End row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div id="social_footer">
-                        <ul>
-                            <li><a href="#"><i class="icon-facebook"></i></a></li>
-                            <li><a href="#"><i class="icon-twitter"></i></a></li>
-                            <li><a href="#"><i class="icon-google"></i></a></li>
-                            <li><a href="#"><i class="icon-instagram"></i></a></li>
-                            <li><a href="#"><i class="icon-pinterest"></i></a></li>
-                            <li><a href="#"><i class="icon-vimeo"></i></a></li>
-                            <li><a href="#"><i class="icon-youtube-play"></i></a></li>
-                        </ul>
-                        <p>© Citytours 2022</p>
-                    </div>
-                </div>
-            </div><!-- End row -->
-        </div><!-- End container -->
+    <footer class="revealed" th:replace="~{usr/infra/include/footer :: footer}">
+		    
     </footer><!-- End footer -->
 
 	<div id="toTop"></div><!-- Back to top button -->
@@ -594,59 +381,7 @@
 	</div><!-- End Search Menu -->
 	
 	<!-- Sign In Popup -->
-	<div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
-		<div class="small-dialog-header">
-			<h3>로그인</h3>
-		</div>
-		<form class="needs-validation" novalidate>
-			<div class="sign-in-wrapper">
-				<a href="#0" class="social_bt facebook">Facebook 로그인</a>
-				<a href="#0" class="social_bt google">Google 로그인</a>
-				<div class="divider"><span>Or</span></div>
-				<div class="form-group">
-					<label for="validationID">아이디</label>
-					<input type="text" class="form-control" name="text" id="validationID" placeholder="아이디" required>
-					<i class="icon_mail_alt"></i>
-                    <div class="invalid-feedback">
-                        아이디를 입력하세요
-                    </div>
-				</div>
-				<div class="form-group">
-					<label for="validationPassword">비밀번호</label>
-					<input type="password" class="form-control" name="password" id="validationPassword" value="" placeholder="비밀번호" required>
-					<i class="icon_lock_alt"></i>
-                    <div class="invalid-feedback">
-                        비밀번호를 입력하세요
-                    </div>
-				</div>
-				<div class="clearfix add_bottom_15">
-					<div class="checkboxes float-start">
-						<label class="container_check">비밀번호 저장
-                          <input type="checkbox">
-                          <span class="checkmark"></span>
-                        </label>
-					</div>
-					<div class="float-end"><a id="forgot" href="javascript:void(0);">비밀번호 찾기</a></div>
-				</div>
-				<div class="text-center">
-                    <button type="submit" class="btn_login">로그인</button>
-                </div>
-				<div class="text-center">
-					계정이 없습니까? <a href="register.html">회원가입</a>
-				</div>
-				<div id="forgot_pw">
-					<div class="form-group">
-						<label>Please confirm login email below</label>
-						<input type="email" class="form-control" name="email_forgot" id="email_forgot">
-						<i class="icon_mail_alt"></i>
-					</div>
-					<p>You will receive an email containing a link allowing you to reset your password to a new preferred one.</p>
-					<div class="text-center"><input type="submit" value="Reset Password" class="btn_1"></div>
-				</div>
-			</div>
-		</form>
-		<!--form -->
-	</div>
+	
 	<!-- /Sign In Popup -->
 
     <!-- Common scripts -->
@@ -687,8 +422,8 @@
         </script>
 	
 		<script type="text/javascript">
-	document.getElementById("buttonSignIn").onclick = function () {
-			
+		document.getElementById("buttonSignout").onclick = function () {
+			alert("qqqqqqqqqq");
 // 			if(validation() == false) return false;
 			
 		
@@ -697,12 +432,14 @@
 				,cache: false
 				,type: "post"
 				/* ,dataType:"json" */
-				,url: "/signoutXdm"
+				,url: "//signoutUsr"
 				/* ,data : $("#formLogin").serialize() */
 				,data : { "memberID" : $("#memberID").val(), "memberPassword" : $("#memberPassword").val()}
 				,success: function(response) {
+					alert("확인");
 					if(response.rt == "success") {
-						location.href = "/index";
+						alert("sssssss");
+						location.href = "/usrLogin";
 
 					}  
 				}

@@ -21,19 +21,17 @@
        
         <choose>
             <when test="shOption == 1">AND a.memberSeq = #{shValue}</when>
-            <when test="shOption == 2">AND a.fristName LIKE CONCAT('%',#{shValue},'%')</when>
-            <when test="shOption == 3">AND a.lastName LIKE CONCAT('%',#{shValue},'%')</when>
-            <when test="shOption == 4">AND a.birthday LIKE CONCAT('%',#{shValue},'%')</when>
-            <when test="shOption == 5">AND a.memberID LIKE CONCAT('%',#{shValue},'%')</when>
-            <when test="shOption == 6">AND a.memberPhone LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 2">AND a.memberName LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 3">AND a.birthday LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 4">AND a.memberID LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 5">AND a.memberPhone LIKE CONCAT('%',#{shValue},'%')</when>
         </choose>
        </sql>
 	
 	 <select id="selectList" resultMap="resultMapObj">
         SELECT
             a.memberSeq
-            ,a.fristName
-            ,a.lastName
+            ,a.memberName
             ,a.genderCD
             ,a.birthday
             ,a.memberID
@@ -58,8 +56,7 @@
     <select id="selectOne" resultMap="resultMapObj">
         SELECT
             a.memberSeq
-            ,a.fristName
-            ,a.lastName
+            ,a.memberName
             ,a.genderCD
             ,a.birthday
             ,a.memberID
@@ -79,8 +76,7 @@
     
     <insert id="insert">
     	INSERT INTO member(
-            fristName
-            ,lastName
+            memberName
             ,genderCD
             ,birthday
             ,memberID
@@ -93,8 +89,7 @@
             ,mbUpdate
             ,mbDelny
     	) VALUES(		 
-    		#{fristName}
-    		,#{lastName}
+    		#{memberName}
     		,#{genderCD}
     		,#{birthday}
     		,#{memberID}
@@ -115,8 +110,7 @@
     	
     	UPDATE member 
     	set
-    	fristName =	#{fristName}
-    	,lastName = #{lastName}
+    	memberName =	#{memberName}
     	,genderCD = #{genderCD}
     	,birthday = #{birthday}
     	,memberID = #{memberID}
@@ -148,6 +142,7 @@
  		SELECT 
  			memberID
  			,memberPassword
+ 			,memberName
  		 FROM member 
  		 WHERE 1=1
  		 AND memberID = #{memberID}

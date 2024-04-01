@@ -5,8 +5,7 @@ import java.util.Date;
 public class MemberDto {
 	
 	private String memberSeq;
-	private String fristName;
-	private String lastName;
+	private String memberName;
 	private String birthday;
 	private String memberID;
 	private String memberPassword;
@@ -18,26 +17,17 @@ public class MemberDto {
 	private Date mbRegDate;
 	private Date mbUpdate;
 	private Integer mbDelny;
-	
-	
-	
 	public String getMemberSeq() {
 		return memberSeq;
 	}
 	public void setMemberSeq(String memberSeq) {
 		this.memberSeq = memberSeq;
 	}
-	public String getFristName() {
-		return fristName;
+	public String getMemberName() {
+		return memberName;
 	}
-	public void setFristName(String fristName) {
-		this.fristName = fristName;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
 	}
 	public String getBirthday() {
 		return birthday;
@@ -105,5 +95,9 @@ public class MemberDto {
 	public void setMbDelny(Integer mbDelny) {
 		this.mbDelny = mbDelny;
 	}
+	
+	
+	
+	
 	
 }
