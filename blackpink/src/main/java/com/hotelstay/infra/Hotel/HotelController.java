@@ -42,7 +42,7 @@ public class HotelController {
 	
 	
 	@RequestMapping(value = "/hotelAdmList")
-	public String codeGroupXdmList(@ModelAttribute("vo") BaseVo vo, Model model) throws Exception{
+	public String hotelAdmList(@ModelAttribute("vo") BaseVo vo, Model model) throws Exception{
 			
 			setSearch(vo);
 			model.addAttribute("list", service.selectList(vo));
@@ -52,5 +52,14 @@ public class HotelController {
 
         return "/adm/infra/hotel/hotelAdmList";
   	}
+	
+	@RequestMapping(value = "/hotelList")
+	public String hotelList(HotelDto dto) throws Exception{
+			
+
+        return "/usr/infra/index/hotelList";
+  	}
+	
+	
 	
 }

@@ -10,8 +10,8 @@
                     <div class="col-6"><i class="icon-phone"></i><strong>1234-5678</strong></div>
                     <div class="col-6">
                         <ul id="top_links">
-                        	<button type="button" th:if="${session.sessNameXdm == null}" class=""> <a th:href="@{/usrLogin}">로그인</a></button>
-                        	<button type="button" th:unless="${session.sessNameXdm == null}" id="buttonSignout">로그아웃</button>
+                        	<button type="button" th:if="${session.sessNameXdm == null}"> <a th:href="@{/usrLogin}" class="mt-2 text-black">로그인</a></button>
+                        	<button type="button" th:unless="${session.sessNameXdm == null}" id="buttonSignout" class="mt-2 text-black">로그아웃</button>
                             <li><a href="register.html" id="register">회원가입</a></li>
                             <li><a href="admin.html" id="admin_link">마이페이지</a></li>
                         </ul>
@@ -47,16 +47,16 @@
                             
                              <li class="submenu">
                                 <a href="javascript:void(0);" class="show-submenu">호텔 <i class="icon-down-open-mini"></i></a><ul>
-                                    <li><a href="/usr/assets/all_hotels_list.html">호텔 리스트</a></li>
+                                    <li><a th:href="@{/hotelList}">호텔 리스트</a></li>
                                 </ul>
                             </li>
                             <li class="submenu">
                                 <a href="javascript:void(0);" class="show-submenu">펜션 <i class="icon-down-open-mini"></i></a><ul>
-                                    <li><a href="/usr/assets/all_hotels_list.html">펜션 리스트</a></li>
+                                    <li><a th:href="@{/hotelList}">펜션 리스트</a></li>
                                 </ul>
                             </li><li class="submenu">
                                 <a href="javascript:void(0);" class="show-submenu">모텔 <i class="icon-down-open-mini"></i></a><ul>
-                                    <li><a href="/usr/assets/all_hotels_list.html">모텔 리스트</a></li>
+                                    <li><a th:href="@{/hotelList}">모텔 리스트</a></li>
                                 </ul>
                             </li>
                         </ul>
