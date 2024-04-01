@@ -141,13 +141,13 @@ public class MemberController {
 	@RequestMapping(value = "/admLogin")
 	public String admLogin(MemberDto dto) throws Exception{
 	
-		return "/adm/infra/index/login";
+		return "/adm/infra/index/admlogin";
 	}
 	
 	@RequestMapping(value = "/admIndex")
 	public String admIndex(MemberDto dto) throws Exception{
 	
-		return "/adm/infra/index/index";
+		return "/adm/infra/index/admindex";
 	}
 	
 	@ResponseBody
@@ -213,14 +213,14 @@ public class MemberController {
 	@RequestMapping(value = "/usrLogin")
 	public String usrLogin(MemberDto dto) throws Exception{
 	
-		return "/usr/infra/index/login";
+		return "/usr/infra/index/usrlogin";
 	}
 	
 	
 	@RequestMapping(value = "/usrIndex")
 	public String usrIndex(MemberDto dto) throws Exception{
 	
-		return "/usr/infra/index/index";
+		return "/usr/infra/index/usrindex";
 	}
 	
 	@ResponseBody

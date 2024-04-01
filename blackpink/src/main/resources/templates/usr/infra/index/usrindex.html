@@ -23,7 +23,149 @@
 
     <!-- Header -->
     <header>
-         <div th:replace="~{usr/infra/include/header :: header}"></div>
+         <div id="top_line">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6"><i class="icon-phone"></i><strong>1234-5678</strong></div>
+                    <div class="col-6">
+                        <ul id="top_links">
+                        	<button type="button" th:if="${session.sessNameXdm == null}" class=""> <a th:href="@{/usrLogin}">로그인</a></button>
+                        	<button type="button" th:unless="${session.sessNameXdm == null}" id="buttonSignout">로그아웃</button>
+                            <li><a href="register.html" id="register">회원가입</a></li>
+                            <li><a href="admin.html" id="admin_link">마이페이지</a></li>
+                        </ul>
+                    </div>
+                </div><!-- End row -->
+            </div><!-- End container-->
+        </div><!-- End top line-->
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <div id="logo_home">
+                    	<h1><a href="index.html" title="City tours travel template">City Tours travel template</a></h1>
+                    </div>
+                </div>
+                <nav class="col-9">
+                    <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
+                    <div class="main-menu">
+                        <div id="header_menu">
+                            <img src="/usr/assets/img/logo_sticky.png" width="160" height="34" alt="City tours">
+                        </div>
+                        <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
+                        <ul>
+                            <li class="submenu">
+                                <a href="javascript:void(0);" class="show-submenu">홈 <i class="icon-down-open-mini"></i></a>
+                                <ul>
+                                    <li><a href="index.html">Owl Carousel Slider</a></li>
+                                    <li><a href="index_25.html">KenBurns Slider</a></li>
+                                    <li><a href="index_22.html">Home items with Carousel</a></li>
+                                    <li><a href="index_23.html">Home with Search V2</a></li>
+                                    <li class="third-level"><a href="javascript:void(0);">Revolution slider <strong class="badge badge-danger">New!</strong></a>
+                                        <ul>
+                                            <li><a href="index_24.html">Default slider</a></li>
+                                            <li><a href="index_20.html">Basic slider</a></li>
+                                            <li><a href="index_14.html">Youtube Hero</a></li>
+                                            <li><a href="index_15.html">Vimeo Hero</a></li>
+                                            <li><a href="index_17.html">Full Screen <strong class="badge badge-danger">New!</strong></a></li>
+                                            <li><a href="index_21.html">Full Screen Slicey <strong class="badge badge-danger">New!</strong></a></li>
+                                            <li><a href="index_16.html">Carousel</a></li>
+                                            <li><a href="index_19.html">Mailchimp Newsletter</a></li>
+                                            <li><a href="index_18.html">Fixed Caption</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="index_12.html">Layer slider</a></li>
+                                    <li><a href="index_2.html">With Only tours</a></li>
+                                    <li><a href="index_3.html">Single image</a></li>
+                                    <li><a href="index_4.html">Header video</a></li>
+                                    <li><a href="index_7.html">With search panel</a></li>
+                                    <li><a href="index_13.html">With tabs</a></li>
+                                    <li><a href="index_5.html">With map</a></li>
+                                    <li><a href="index_6.html">With search bar</a></li>
+                                    <li><a href="index_8.html">Search bar + Video</a></li>
+                                    <li><a href="index_9.html">With Text Rotator</a></li>
+                                    <li><a href="index_10.html">With Cookie Bar (EU law)</a></li>
+                                    <li><a href="index_11.html">Popup Advertising</a></li>
+                                </ul>
+                            </li>
+                            
+                             <li class="submenu">
+                                <a href="javascript:void(0);" class="show-submenu">호텔 <i class="icon-down-open-mini"></i></a><ul>
+                                    <li><a href="/usr/assets/all_hotels_list.html">All hotels list</a></li>
+                                    <li><a href="/usr/assets/all_hotels_grid.html">All hotels grid</a></li>
+                                    <li><a href="/usr/assets/all_hotels_grid_masonry.html">All hotels Sort Masonry</a></li>
+                                    <li><a href="/usr/assets/all_hotels_map_listing.html">All hotels map listing</a></li>
+                                    <li><a href="/usr/assets/single_hotel.html">Single hotel page</a></li>
+                                    <li><a href="/usr/assets/single_hotel_working_booking.php">Single hotel working booking</a></li>
+                                    <li><a href="/usr/assets/single_hotel_contact.php">Single hotel contact working</a></li>
+                                    <li><a href="/usr/assets/cart_hotel.html">Cart hotel</a></li>
+                                    <li><a href="/usr/assets/payment_hotel.html">Booking hotel</a></li>
+                                    <li><a href="/usr/assets/confirmation_hotel.html">Confirmation hotel</a></li>
+                                </ul>
+                            </li>
+                            <li class="submenu">
+                                <a href="javascript:void(0);" class="show-submenu">펜션 <i class="icon-down-open-mini"></i></a><ul>
+                                    <li><a href="/usr/assets/all_hotels_list.html">All hotels list</a></li>
+                                    <li><a href="/usr/assets/all_hotels_grid.html">All hotels grid</a></li>
+                                    <li><a href="/usr/assets/all_hotels_grid_masonry.html">All hotels Sort Masonry</a></li>
+                                    <li><a href="/usr/assets/all_hotels_map_listing.html">All hotels map listing</a></li>
+                                    <li><a href="/usr/assets/single_hotel.html">Single hotel page</a></li>
+                                    <li><a href="/usr/assets/single_hotel_working_booking.php">Single hotel working booking</a></li>
+                                    <li><a href="/usr/assets/single_hotel_contact.php">Single hotel contact working</a></li>
+                                    <li><a href="/usr/assets/cart_hotel.html">Cart hotel</a></li>
+                                    <li><a href="/usr/assets/payment_hotel.html">Booking hotel</a></li>
+                                    <li><a href="/usr/assets/confirmation_hotel.html">Confirmation hotel</a></li>
+                                </ul>
+                            </li><li class="submenu">
+                                <a href="javascript:void(0);" class="show-submenu">모텔 <i class="icon-down-open-mini"></i></a><ul>
+                                    <li><a href="/usr/assets/all_hotels_list.html">All hotels list</a></li>
+                                    <li><a href="/usr/assets/all_hotels_grid.html">All hotels grid</a></li>
+                                    <li><a href="/usr/assets/all_hotels_grid_masonry.html">All hotels Sort Masonry</a></li>
+                                    <li><a href="/usr/assets/all_hotels_map_listing.html">All hotels map listing</a></li>
+                                    <li><a href="/usr/assets/single_hotel.html">Single hotel page</a></li>
+                                    <li><a href="/usr/assets/single_hotel_working_booking.php">Single hotel working booking</a></li>
+                                    <li><a href="/usr/assets/single_hotel_contact.php">Single hotel contact working</a></li>
+                                    <li><a href="/usr/assets/cart_hotel.html">Cart hotel</a></li>
+                                    <li><a href="/usr/assets/payment_hotel.html">Booking hotel</a></li>
+                                    <li><a href="/usr/assets/confirmation_hotel.html">Confirmation hotel</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div><!-- End main-menu -->
+                    <ul id="top_tools">
+                        <li>
+                            <a href="javascript:void(0);" class="search-overlay-menu-btn"><i class="icon_search"></i></a>
+                        </li>
+                        <li>
+                            <div class="dropdown dropdown-cart">
+                                <a href="#" data-bs-toggle="dropdown" class="cart_bt"><i class="icon_bag_alt"></i><strong>3</strong></a>
+                                <ul class="dropdown-menu" id="cart_items">
+                                    <li>
+                                        <div class="image"><img src="/usr/assets/img/thumb_cart_1.jpg" alt="image"></div>
+                                        <strong><a href="#">Louvre museum</a>1x $36.00 </strong>
+                                        <a href="#" class="action"><i class="icon-trash"></i></a>
+                                    </li>
+                                    <li>
+                                        <div class="image"><img src="/usr/assets/img/thumb_cart_2.jpg" alt="image"></div>
+                                        <strong><a href="#">Versailles tour</a>2x $36.00 </strong>
+                                        <a href="#" class="action"><i class="icon-trash"></i></a>
+                                    </li>
+                                    <li>
+                                        <div class="image"><img src="/usr/assets/img/thumb_cart_3.jpg" alt="image"></div>
+                                        <strong><a href="#">Versailles tour</a>1x $36.00 </strong>
+                                        <a href="#" class="action"><i class="icon-trash"></i></a>
+                                    </li>
+                                    <li>
+                                        <div>Total: <span>$120.00</span></div>
+                                        <a href="cart.html" class="button_drop">Go to cart</a>
+                                        <a href="payment.html" class="button_drop outline">Check out</a>
+                                    </li>
+                                </ul>
+                            </div><!-- End dropdown-cart-->
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div><!-- container -->
     </header><!-- End Header -->
 	
 	<!--메인 예약 확인-->
@@ -423,23 +565,22 @@
 	
 		<script type="text/javascript">
 		document.getElementById("buttonSignout").onclick = function () {
-			alert("qqqqqqqqqq");
+// 			alert("qqqqqqqqqq");
 // 			if(validation() == false) return false;
 			
-		
 			$.ajax({
 				async: true 
 				,cache: false
 				,type: "post"
 				/* ,dataType:"json" */
-				,url: "//signoutUsr"
+				,url: "/signoutUsr"
 				/* ,data : $("#formLogin").serialize() */
 				,data : { "memberID" : $("#memberID").val(), "memberPassword" : $("#memberPassword").val()}
 				,success: function(response) {
-					alert("확인");
+// 					alert("확인");
 					if(response.rt == "success") {
-						alert("sssssss");
-						location.href = "/usrLogin";
+// 						alert("sssssss");
+						location.href = "/usrIndex";
 
 					}  
 				}

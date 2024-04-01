@@ -2,6 +2,7 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <!-- Header================================================== -->
+    
     <header th:fragment="header">
         <div id="top_line">
             <div class="container">
@@ -9,18 +10,15 @@
                     <div class="col-6"><i class="icon-phone"></i><strong>1234-5678</strong></div>
                     <div class="col-6">
                         <ul id="top_links">
-                        	<button type="button" th:if="${session.sessNameXdm == null}">로그인</button>
-                        	<button type="button" th:unless="${session.sessNameXdm == null}" th:href="@{/usrLogin}" id="buttonSignout">로그아웃</button>
+                        	<button type="button" th:if="${session.sessNameXdm == null}" class=""> <a th:href="@{/usrLogin}">로그인</a></button>
+                        	<button type="button" th:unless="${session.sessNameXdm == null}" id="buttonSignout">로그아웃</button>
                             <li><a href="register.html" id="register">회원가입</a></li>
                             <li><a href="admin.html" id="admin_link">마이페이지</a></li>
-                            
-                            
                         </ul>
                     </div>
                 </div><!-- End row -->
             </div><!-- End container-->
         </div><!-- End top line-->
-        
         <div class="container">
             <div class="row">
                 <div class="col-3">
