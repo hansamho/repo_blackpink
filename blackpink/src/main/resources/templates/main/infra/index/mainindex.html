@@ -1,39 +1,7 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="ko" xmlns:th="http://www.thymeleaf.org"> <!--<![endif]-->
+ <html class="no-js" lang="ko" xmlns:th="http://www.thymeleaf.org">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Bino html5 free Template</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
-
-        <link rel="stylesheet" href="/main/assets/css/iconfont.css">
-        <link rel="stylesheet" href="/main/assets/css/slick/slick.css">
-        <link rel="stylesheet" href="/main/assets/css/slick/slick-theme.css">
-        <link rel="stylesheet" href="/main/assets/css/stylesheet.css">
-        <link rel="stylesheet" href="/main/assets/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/main/assets/css/jquery.fancybox.css">
-        <link rel="stylesheet" href="/main/assets/css/bootstrap.css">
-        <link rel="stylesheet" href="/main/assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/main/assets/css/magnific-popup.css">
-        <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
-
-
-        <!--For Plugins external css-->
-        <link rel="stylesheet" href="/main/assets/css/plugins.css" />
-
-        <!--Theme custom css -->
-        <link rel="stylesheet" href="/main/assets/css/style.css">
-
-        <!--Theme Responsive css-->
-        <link rel="stylesheet" href="/main/assets/css/responsive.css" />
-
-        <script src="/main/assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <div th:replace="~{main/infra/include/head :: head}"></div>
     </head>
     <body data-spy="scroll" data-target=".navbar-collapse">
 
@@ -69,15 +37,11 @@
                                                 <li><a href="#home">HOME</a></li>
                                                 <li><a href="#history">ABOUT US</a></li>
                                                 <li><a href="#portfolio">PORTFOLIO</a></li>
-                                                <li><a href="#pricing">PRICING</a></li>
                                                 <li><a href="#team">TEAM</a></li>
                                                 <li><a href="#blog">BLOG</a></li>
                                                 <li><a href="#contact">CONTACT</a></li>
                                             </ul>
-
-
                                         </div>
-
                                     </div>
                                 </nav>
                             </div>	
@@ -104,9 +68,7 @@
                                                 <h3>한삼호</h3>
                                                 <h1>프로젝트</h1>
                                                 <div class="separator"></div>
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
-                                                    standard dummy text ever since the 1500s, when an unknown printer took a galley 
-                                                    of type and scrambled it to make a type specimen book.</p>
+                                                <p>사용자 프로젝트 주제 : 숙소예약 사이트</p>
                                                 <div class="home_btn">
                                                     <a th:href="@{admLogin}" class="btn btn-default">관리자</a>
                                                 	<a th:href="@{usrLogin}" class="btn btn-lg m_t_10">사용자</a>
@@ -557,88 +519,6 @@
                     </div>
                 </div><!-- End off container --> 
             </section>   <!-- End of counter section -->
-
-            <!-- Pricing Section -->
-            <section id="pricing" class="pricing">
-                <div class="container">
-                    <div class="row">
-                        <div class="main_pricing_area sections">
-                            <div class="head_title text-center">
-                                <h2>OUR PRICING</h2>
-                                <div class="subtitle">
-                                    A 30 days free trial for all. A brief story about how this process works, keep an eye till the end.
-                                </div>
-                                <div class="separator"></div>
-                            </div><!-- End off Head_title -->
-
-                            <div class="col-md-4 col-sm-6">
-                                <div class="single_pricing">
-                                    <div class="pricing_head">
-                                        <h3>STARTER</h3>
-                                        <div class="pricing_price">
-                                            <div class="p_r text-center">$19</div>
-                                            <div class="m_t text-center">per month</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="pricing_body">
-                                        <ul>
-                                            <li>Competition Analysis Methods</li>
-                                            <li>All Ranked URLs</li>
-                                            <li>International Support System</li>
-                                            <li>Social Media Tracking</li>
-                                        </ul>
-                                        <a href="" class="btn btn-md">CHOOSE PLAN</a>
-                                    </div>
-                                </div>
-                            </div> <!-- End off col-md-4 -->
-                            <div class="col-md-4 col-sm-6">
-                                <div class="single_pricing pricing_business">
-                                    <div class="pricing_head ">
-                                        <h3>PREMIUM</h3>
-                                        <div class="pricing_price">
-                                            <div class="p_r text-center">$39</div>
-                                            <div class="m_t text-center">per month</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="pricing_body">
-                                        <ul>
-                                            <li>Competition Analysis Methods</li>
-                                            <li>All Ranked URLs</li>
-                                            <li>International Support System</li>
-                                            <li>Social Media Tracking</li>
-                                        </ul>
-                                        <a href="" class="btn btn-md">CHOOSE PLAN</a>
-                                    </div>
-                                </div>
-                            </div> <!-- End off col-md-4 -->
-                            <div class="col-md-4 col-sm-6">
-                                <div class="single_pricing">
-                                    <div class="pricing_head">
-                                        <h3>BUSINESS</h3>
-                                        <div class="pricing_price">
-                                            <div class="p_r text-center">$99</div>
-                                            <div class="m_t text-center">per month</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="pricing_body">
-                                        <ul>
-                                            <li>Competition Analysis Methods</li>
-                                            <li>All Ranked URLs</li>
-                                            <li>International Support System</li>
-                                            <li>Social Media Tracking</li>
-                                        </ul>
-                                        <a href="" class="btn btn-md">CHOOSE PLAN</a>
-                                    </div>
-                                </div>
-                            </div> <!-- End off col-md-4 -->
-                        </div>
-                    </div><!-- End off row -->
-                </div><!-- End off container -->
-            </section><!-- End off Pricing Section -->
-
             <!-- Team Section -->
             <section id="team" class="team">
                 <div class="main_team_area">
@@ -875,100 +755,6 @@
             </section><!-- End off Blog Section -->
 
 
-            <section id="contact" class="contact">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="contact_contant sections">
-                                <div class="head_title text-center">
-                                    <h2>kEEP IN TOUCH</h2>
-                                    <div class="subtitle">
-                                        Nullam sit amet odio eu est aliquet euismod a a urna. Proin eu urna suscipit, dictum quam nec.  
-                                    </div>
-                                    <div class="separator"></div>
-                                </div><!-- End off Head_title -->
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="main_contact_info">
-                                            <div class="row">
-                                                <div class="contact_info_content padding-top-90 padding-bottom-60 p_l_r">
-                                                    <div class="col-sm-12">
-                                                        <div class="single_contact_info">
-                                                            <div class="single_info_text">
-                                                                <h3>OUR ADDRESS</h3>
-                                                                <h4>House #13, Streat road, Sydney 
-                                                                    2310 Australia</h4>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-12">
-                                                        <div class="single_contact_info">
-                                                            <div class="single_info_text">
-                                                                <h3>CALL US</h3>
-                                                                <h4>+ 880 168 109 1425</h4>
-                                                                <h4>+ 0216809142</h4>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-12">
-                                                        <div class="single_contact_info">
-                                                            <div class="single_info_text">
-                                                                <h3>EMAIL US</h3>
-                                                                <h4>contactus@email.com</h4>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> 
-
-                                    <div class="col-sm-6">
-                                        <div class="single_contant_left padding-top-90 padding-bottom-90">
-                                            <form action="#" id="formid">
-                                                <div class="col-lg-8 col-md-8 col-sm-10 col-lg-offset-2 col-md-offset-2 col-sm-offset-1">
-
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            <div class="form-group">
-                                                                <input type="text" class="form-control" name="name" placeholder="First Name" required="">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            <div class="form-group">
-                                                                <input type="email" class="form-control" name="email" placeholder="Email" required="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-12">
-                                                            <div class="form-group">
-                                                                <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="form-group">
-                                                        <textarea class="form-control" name="message" rows="7" placeholder="Message"></textarea>
-                                                    </div>
-
-                                                    <div class="">
-                                                        <input type="submit" value="SEND MESSAGE" class="btn btn-lg">
-                                                    </div>
-                                                </div> 
-                                            </form>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section><!-- End of contact section -->
 
             <section id="trial" class="trial text-center wow fadeIn"  data-wow-duration="2s" data-wow-dealy="1.5s">
                 <div class="main_trial_area">
