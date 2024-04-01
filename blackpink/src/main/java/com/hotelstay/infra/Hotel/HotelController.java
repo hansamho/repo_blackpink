@@ -60,6 +60,11 @@ public class HotelController {
         return "/usr/infra/index/hotelList";
   	}
 	
-	
+	@RequestMapping(value = "/hotelDetail")
+	public String hoteDehotelDetailtail(HotelDto dto) throws Exception{
+			
+
+        return "/usr/infra/index/hotelDetail";
+  	}
 	
 }

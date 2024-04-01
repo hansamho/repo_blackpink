@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko"xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -9,25 +9,25 @@
     <title>CITY TOURS - City tours and travel site template by Ansonika</title>
 
     <!-- Favicons-->
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+    <link rel="shortcut icon" href="/usr/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="/usr/assets/img/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="/usr/assets/img/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="/usr/assets/img/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="/usr/assets/img/apple-touch-icon-144x144-precomposed.png">
 
     <!-- GOOGLE WEB FONT -->
     <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- COMMON CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-	<link href="css/vendors.css" rel="stylesheet">
+	<link href="/usr/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/usr/assets/css/style.css" rel="stylesheet">
+	<link href="/usr/assets/css/vendors.css" rel="stylesheet">
 	
 	<!-- CUSTOM CSS -->
-	<link href="css/custom.css" rel="stylesheet">
+	<link href="/usr/assets/css/custom.css" rel="stylesheet">
 
 	<!-- 리뷰 평점-->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2//usr/assets/css/all.min.css">
 	
 </head>
 
@@ -69,15 +69,15 @@
 			<div class="row">
 				<div class="col-3">
 					<div id="logo">
-						<a href="index.html"><img src="img/logo.png" width="160" height="34" alt="City tours" class="logo_normal"></a>
-						<a href="index.html"><img src="img/logo_sticky.png" width="160" height="34" alt="City tours" class="logo_sticky"></a>
+						<a href="index.html"><img src="/usr/assets/img/logo.png" width="160" height="34" alt="City tours" class="logo_normal"></a>
+						<a href="index.html"><img src="/usr/assets/img/logo_sticky.png" width="160" height="34" alt="City tours" class="logo_sticky"></a>
 					</div>
 				</div>
 				<nav class="col-9">
                     <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
                     <div class="main-menu">
                         <div id="header_menu">
-                            <img src="img/logo_sticky.png" width="160" height="34" alt="City tours">
+                            <img src="/usr/assets/img/logo_sticky.png" width="160" height="34" alt="City tours">
                         </div>
                         <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
                          <ul>
@@ -279,17 +279,17 @@
                                 <a href="#" data-bs-toggle="dropdown" class="cart_bt"><i class="icon_bag_alt"></i><strong>3</strong></a>
                                 <ul class="dropdown-menu" id="cart_items">
                                     <li>
-                                        <div class="image"><img src="img/thumb_cart_1.jpg" alt="image"></div>
+                                        <div class="image"><img src="/usr/assets/img/thumb_cart_1.jpg" alt="image"></div>
                                         <strong><a href="#">Louvre museum</a>1x $36.00 </strong>
                                         <a href="#" class="action"><i class="icon-trash"></i></a>
                                     </li>
                                     <li>
-                                        <div class="image"><img src="img/thumb_cart_2.jpg" alt="image"></div>
+                                        <div class="image"><img src="/usr/assets/img/thumb_cart_2.jpg" alt="image"></div>
                                         <strong><a href="#">Versailles tour</a>2x $36.00 </strong>
                                         <a href="#" class="action"><i class="icon-trash"></i></a>
                                     </li>
                                     <li>
-                                        <div class="image"><img src="img/thumb_cart_3.jpg" alt="image"></div>
+                                        <div class="image"><img src="/usr/assets/img/thumb_cart_3.jpg" alt="image"></div>
                                         <strong><a href="#">Versailles tour</a>1x $36.00 </strong>
                                         <a href="#" class="action"><i class="icon-trash"></i></a>
                                     </li>
@@ -309,7 +309,7 @@
 	</header>
 	<!-- End Header -->
 
-	<section class="parallax-window" data-parallax="scroll" data-image-src="img/single_hotel_bg_1.jpg" data-natural-width="1400" data-natural-height="470">
+	<section class="parallax-window" data-parallax="scroll" data-image-src="/usr/assets/img/single_hotel_bg_1.jpg" data-natural-width="1400" data-natural-height="470">
 		<div class="parallax-content-2">
 			<div class="container">
 				<div class="row">
@@ -369,50 +369,50 @@
 						<div class="sp-slides">
 
 							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="css/images/blank.gif" data-src="img/slider_single_tour/1_medium.jpg" data-small="img/slider_single_tour/1_small.jpg" data-medium="img/slider_single_tour/1_medium.jpg" data-large="img/slider_single_tour/1_large.jpg" data-retina="img/slider_single_tour/1_large.jpg">
+								<img alt="Image" class="sp-image" src="/usr/assets/css/images/blank.gif" data-src="/usr/assets/img/slider_single_tour/1_medium.jpg" data-small="/usr/assets/img/slider_single_tour/1_small.jpg" data-medium="/usr/assets/img/slider_single_tour/1_medium.jpg" data-large="/usr/assets/img/slider_single_tour/1_large.jpg" data-retina="/usr/assets/img/slider_single_tour/1_large.jpg">
 							</div>
 							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="css/images/blank.gif" data-src="img/slider_single_tour/2_medium.jpg" data-small="img/slider_single_tour/2_small.jpg" data-medium="img/slider_single_tour/2_medium.jpg" data-large="img/slider_single_tour/2_large.jpg" data-retina="img/slider_single_tour/2_large.jpg">
-							</div>
-
-							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="css/images/blank.gif" data-src="img/slider_single_tour/3_medium.jpg" data-small="img/slider_single_tour/3_small.jpg" data-medium="img/slider_single_tour/3_medium.jpg" data-large="img/slider_single_tour/3_large.jpg" data-retina="img/slider_single_tour/3_large.jpg">
+								<img alt="Image" class="sp-image" src="/usr/assets/css/images/blank.gif" data-src="/usr/assets/img/slider_single_tour/2_medium.jpg" data-small="/usr/assets/img/slider_single_tour/2_small.jpg" data-medium="/usr/assets/img/slider_single_tour/2_medium.jpg" data-large="/usr/assets/img/slider_single_tour/2_large.jpg" data-retina="/usr/assets/img/slider_single_tour/2_large.jpg">
 							</div>
 
 							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="css/images/blank.gif" data-src="img/slider_single_tour/4_medium.jpg" data-small="img/slider_single_tour/4_small.jpg" data-medium="img/slider_single_tour/4_medium.jpg" data-large="img/slider_single_tour/4_large.jpg" data-retina="img/slider_single_tour/4_large.jpg">
+								<img alt="Image" class="sp-image" src="/usr/assets/css/images/blank.gif" data-src="/usr/assets/img/slider_single_tour/3_medium.jpg" data-small="/usr/assets/img/slider_single_tour/3_small.jpg" data-medium="/usr/assets/img/slider_single_tour/3_medium.jpg" data-large="/usr/assets/img/slider_single_tour/3_large.jpg" data-retina="/usr/assets/img/slider_single_tour/3_large.jpg">
 							</div>
 
 							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="css/images/blank.gif" data-src="img/slider_single_tour/5_medium.jpg" data-small="img/slider_single_tour/5_small.jpg" data-medium="img/slider_single_tour/5_medium.jpg" data-large="img/slider_single_tour/5_large.jpg" data-retina="img/slider_single_tour/5_large.jpg">
+								<img alt="Image" class="sp-image" src="/usr/assets/css/images/blank.gif" data-src="/usr/assets/img/slider_single_tour/4_medium.jpg" data-small="/usr/assets/img/slider_single_tour/4_small.jpg" data-medium="/usr/assets/img/slider_single_tour/4_medium.jpg" data-large="/usr/assets/img/slider_single_tour/4_large.jpg" data-retina="/usr/assets/img/slider_single_tour/4_large.jpg">
 							</div>
 
 							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="css/images/blank.gif" data-src="img/slider_single_tour/6_medium.jpg" data-small="img/slider_single_tour/6_small.jpg" data-medium="img/slider_single_tour/6_medium.jpg" data-large="img/slider_single_tour/6_large.jpg" data-retina="img/slider_single_tour/6_large.jpg">
+								<img alt="Image" class="sp-image" src="/usr/assets/css/images/blank.gif" data-src="/usr/assets/img/slider_single_tour/5_medium.jpg" data-small="/usr/assets/img/slider_single_tour/5_small.jpg" data-medium="/usr/assets/img/slider_single_tour/5_medium.jpg" data-large="/usr/assets/img/slider_single_tour/5_large.jpg" data-retina="/usr/assets/img/slider_single_tour/5_large.jpg">
 							</div>
 
 							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="css/images/blank.gif" data-src="img/slider_single_tour/7_medium.jpg" data-small="img/slider_single_tour/7_small.jpg" data-medium="img/slider_single_tour/7_medium.jpg" data-large="img/slider_single_tour/7_large.jpg" data-retina="img/slider_single_tour/7_large.jpg">
+								<img alt="Image" class="sp-image" src="/usr/assets/css/images/blank.gif" data-src="/usr/assets/img/slider_single_tour/6_medium.jpg" data-small="/usr/assets/img/slider_single_tour/6_small.jpg" data-medium="/usr/assets/img/slider_single_tour/6_medium.jpg" data-large="/usr/assets/img/slider_single_tour/6_large.jpg" data-retina="/usr/assets/img/slider_single_tour/6_large.jpg">
 							</div>
 
 							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="css/images/blank.gif" data-src="img/slider_single_tour/8_medium.jpg" data-small="img/slider_single_tour/8_small.jpg" data-medium="img/slider_single_tour/8_medium.jpg" data-large="img/slider_single_tour/8_large.jpg" data-retina="img/slider_single_tour/8_large.jpg">
+								<img alt="Image" class="sp-image" src="/usr/assets/css/images/blank.gif" data-src="/usr/assets/img/slider_single_tour/7_medium.jpg" data-small="/usr/assets/img/slider_single_tour/7_small.jpg" data-medium="/usr/assets/img/slider_single_tour/7_medium.jpg" data-large="/usr/assets/img/slider_single_tour/7_large.jpg" data-retina="/usr/assets/img/slider_single_tour/7_large.jpg">
 							</div>
 
 							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="css/images/blank.gif" data-src="img/slider_single_tour/9_medium.jpg" data-small="img/slider_single_tour/9_small.jpg" data-medium="img/slider_single_tour/9_medium.jpg" data-large="img/slider_single_tour/9_large.jpg" data-retina="img/slider_single_tour/9_large.jpg">
+								<img alt="Image" class="sp-image" src="/usr/assets/css/images/blank.gif" data-src="/usr/assets/img/slider_single_tour/8_medium.jpg" data-small="/usr/assets/img/slider_single_tour/8_small.jpg" data-medium="/usr/assets/img/slider_single_tour/8_medium.jpg" data-large="/usr/assets/img/slider_single_tour/8_large.jpg" data-retina="/usr/assets/img/slider_single_tour/8_large.jpg">
+							</div>
+
+							<div class="sp-slide">
+								<img alt="Image" class="sp-image" src="/usr/assets/css/images/blank.gif" data-src="/usr/assets/img/slider_single_tour/9_medium.jpg" data-small="/usr/assets/img/slider_single_tour/9_small.jpg" data-medium="/usr/assets/img/slider_single_tour/9_medium.jpg" data-large="/usr/assets/img/slider_single_tour/9_large.jpg" data-retina="/usr/assets/img/slider_single_tour/9_large.jpg">
 							</div>
 						</div>
 						<div class="sp-thumbnails">
-							<img alt="Image" class="sp-thumbnail" src="img/slider_single_tour/1_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="img/slider_single_tour/2_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="img/slider_single_tour/3_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="img/slider_single_tour/4_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="img/slider_single_tour/5_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="img/slider_single_tour/6_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="img/slider_single_tour/7_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="img/slider_single_tour/8_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="img/slider_single_tour/9_medium.jpg">
+							<img alt="Image" class="sp-thumbnail" src="/usr/assets/img/slider_single_tour/1_medium.jpg">
+							<img alt="Image" class="sp-thumbnail" src="/usr/assets/img/slider_single_tour/2_medium.jpg">
+							<img alt="Image" class="sp-thumbnail" src="/usr/assets/img/slider_single_tour/3_medium.jpg">
+							<img alt="Image" class="sp-thumbnail" src="/usr/assets/img/slider_single_tour/4_medium.jpg">
+							<img alt="Image" class="sp-thumbnail" src="/usr/assets/img/slider_single_tour/5_medium.jpg">
+							<img alt="Image" class="sp-thumbnail" src="/usr/assets/img/slider_single_tour/6_medium.jpg">
+							<img alt="Image" class="sp-thumbnail" src="/usr/assets/img/slider_single_tour/7_medium.jpg">
+							<img alt="Image" class="sp-thumbnail" src="/usr/assets/img/slider_single_tour/8_medium.jpg">
+							<img alt="Image" class="sp-thumbnail" src="/usr/assets/img/slider_single_tour/9_medium.jpg">
 						</div>
 					</div>
 
@@ -481,19 +481,19 @@
 							<!-- End row  -->
 							<div class="owl-carousel owl-theme carousel-thumbs-2 magnific-gallery">
 								<div class="item">
-									<a href="img/carousel/1.jpg" data-effect="mfp-zoom-in"><img src="img/carousel/1.jpg" alt="Image">
+									<a href="/usr/assets/img/carousel/1.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/1.jpg" alt="Image">
 									</a>
 								</div>
 								<div class="item">
-									<a href="img/carousel/2.jpg" data-effect="mfp-zoom-in"><img src="img/carousel/2.jpg" alt="Image">
+									<a href="/usr/assets/img/carousel/2.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/2.jpg" alt="Image">
 									</a>
 								</div>
 								<div class="item">
-									<a href="img/carousel/3.jpg" data-effect="mfp-zoom-in"><img src="img/carousel/3.jpg" alt="Image">
+									<a href="/usr/assets/img/carousel/3.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/3.jpg" alt="Image">
 									</a>
 								</div>
 								<div class="item">
-									<a href="img/carousel/4.jpg" data-effect="mfp-zoom-in"><img src="img/carousel/4.jpg" alt="Image">
+									<a href="/usr/assets/img/carousel/4.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/4.jpg" alt="Image">
 									</a>
 								</div>
 							</div>
@@ -527,19 +527,19 @@
 							<!-- End row  -->
 							<div class="owl-carousel owl-theme carousel-thumbs-2 magnific-gallery">
 								<div class="item">
-									<a href="img/carousel/1.jpg" data-effect="mfp-zoom-in"><img src="img/carousel/1.jpg" alt="Image">
+									<a href="/usr/assets/img/carousel/1.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/1.jpg" alt="Image">
 									</a>
 								</div>
 								<div class="item">
-									<a href="img/carousel/2.jpg" data-effect="mfp-zoom-in"><img src="img/carousel/2.jpg" alt="Image">
+									<a href="/usr/assets/img/carousel/2.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/2.jpg" alt="Image">
 									</a>
 								</div>
 								<div class="item">
-									<a href="img/carousel/3.jpg" data-effect="mfp-zoom-in"><img src="img/carousel/3.jpg" alt="Image">
+									<a href="/usr/assets/img/carousel/3.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/3.jpg" alt="Image">
 									</a>
 								</div>
 								<div class="item">
-									<a href="img/carousel/4.jpg" data-effect="mfp-zoom-in"><img src="img/carousel/4.jpg" alt="Image">
+									<a href="/usr/assets/img/carousel/4.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/4.jpg" alt="Image">
 									</a>
 								</div>
 							</div>
@@ -593,7 +593,7 @@
 							<!-- End row -->
 							<hr>
 							<div class="review_strip_single">
-								<img src="img/avatar1.jpg" alt="Image" class="rounded-circle">
+								<img src="/usr/assets/img/avatar1.jpg" alt="Image" class="rounded-circle">
 								<small> - 10 March 2015 -</small>
 								<h4>Jhon Doe</h4>
 								<p>
@@ -606,7 +606,7 @@
 							<!-- End review strip -->
 
 							<div class="review_strip_single">
-								<img src="img/avatar2.jpg" alt="Image" class="rounded-circle">
+								<img src="/usr/assets/img/avatar2.jpg" alt="Image" class="rounded-circle">
 								<small> - 10 March 2015 -</small>
 								<h4>Jhon Doe</h4>
 								<p>
@@ -619,7 +619,7 @@
 							<!-- End review strip -->
 
 							<div class="review_strip_single last">
-								<img src="img/avatar3.jpg" alt="Image" class="rounded-circle">
+								<img src="/usr/assets/img/avatar3.jpg" alt="Image" class="rounded-circle">
 								<small> - 10 March 2015 -</small>
 								<h4>Jhon Doe</h4>
 								<p>
@@ -940,12 +940,12 @@
 	<!-- End modal review -->
 
 	<!-- Common scripts -->
-	<script src="js/jquery-3.7.1.min.js"></script>
-	<script src="js/common_scripts_min.js"></script>
-	<script src="js/functions.js"></script>
+	<script src="/usr/assets/js/jquery-3.7.1.min.js"></script>
+	<script src="/usr/assets/js/common_scripts_min.js"></script>
+	<script src="/usr/assets/js/functions.js"></script>
 
 	<!-- Gallery -->
-	<script src="js/jquery.sliderPro.min.js"></script>
+	<script src="/usr/assets/js/jquery.sliderPro.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function ($) {
 			$('#Img_carousel').sliderPro({
@@ -985,8 +985,8 @@
 	
 	<!-- Map -->
 	<script src="http://maps.googleapis.com/maps/api/js"></script>                      
-	<script src="js/map.js"></script>
-	<script src="js/infobox.js"></script>
+	<script src="/usr/assets/js/map.js"></script>
+	<script src="/usr/assets/js/infobox.js"></script>
 	
 	<!-- Carousel -->
 	<script>
@@ -1012,7 +1012,7 @@
 
 
 	<!--Review modal validation -->
-	<script src="assets/validate.js"></script>
+	<script src="/usr/assets/validate.js"></script>
 	
 </body>
 
