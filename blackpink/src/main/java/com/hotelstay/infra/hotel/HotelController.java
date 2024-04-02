@@ -57,8 +57,13 @@ public class HotelController {
 	@RequestMapping(value = "/hotelList")
 	public String hotelList(@ModelAttribute("vo") HotelVo vo, Model model) throws Exception{
 		
-		model.addAttribute("list", service.selectList(vo));
-		System.out.println("@@@@@@@@@@@@@@@@@@@");
+		model.addAttribute("count", service.selectOneCount(vo));
+		
+		vo.setParamsPaging(service.selectOneCount(vo));
+		
+		if (vo.getTotalRows() > 0) {
+			model.addAttribute("list", service.selectList(vo));
+		}
 		
         return "/usr/infra/index/hotelList";
   	}

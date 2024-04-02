@@ -24,10 +24,6 @@ public class HotelVo extends BaseVo {
 		this.wishlist_seq = wishlist_seq;
 	}
 
-	@Override
-	public String toString() {
-		return "HotelVo [hotelSeq=" + hotelSeq + ", wishlist_seq=" + wishlist_seq + "]";
-	}
 	
 	
 }

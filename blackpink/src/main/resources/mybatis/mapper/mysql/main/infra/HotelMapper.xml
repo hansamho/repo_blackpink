@@ -8,8 +8,11 @@
 	 
 	<sql id ="selectCommon">
          FROM hotellist a
-         LEFT JOIN wishlist b on a.hotelSeq = b.wishSeq
+         LEFT JOIN roomdetail b on a.hotelSeq = b.roomSeq
         WHERE 1=1
+        
+        	<if test="hotelTypeCD != null and !hotelTypeCD.equals('')">AND a.hotelTypeCD = #{hotelTypeCD}</if> 
+        	
 <!--          <if test="shUseNy != null and !shUseNy.equals('')">AND ifcgUseNy = #{shUseNy}</if> -->
 <!--         	<if test="shDelny != null and !shDelny.equals('')">AND a.htDelny = #{shDelny}</if>  -->
         
@@ -20,13 +23,13 @@
 			
 <!-- 			<if test="shGenderCD != null and !shGenderCD.equals('')">AND a.genderCD = #{shGenderCD}</if>  -->
        
-        <choose>
+<!--         <choose> -->
 <!--             <when test="shOption == 1">AND a.memberSeq = #{shValue}</when> -->
 <!--             <when test="shOption == 2">AND a.memberName LIKE CONCAT('%',#{shValue},'%')</when> -->
 <!--             <when test="shOption == 3">AND a.birthday LIKE CONCAT('%',#{shValue},'%')</when> -->
 <!--             <when test="shOption == 4">AND a.memberID LIKE CONCAT('%',#{shValue},'%')</when> -->
 <!--             <when test="shOption == 5">AND a.memberPhone LIKE CONCAT('%',#{shValue},'%')</when> -->
-        </choose>
+<!--         </choose> -->
        </sql>
 	
 	 <select id="selectList" resultMap="resultMapObj">
@@ -41,10 +44,10 @@
             ,a.htRegDate
             ,a.htUpdate
             ,a.htDelny
-            ,a.wishlist_seq
+            ,a.wishlist_seq 
         	<include refid="selectCommon" />
         ORDER BY a.hotelSeq DESC
-<!--         limit #{rowNumToShow} offset #{startRnumForMysql} -->
+        limit #{rowNumToShow} offset #{startRnumForMysql}
     </select>
     
     <select id="selectOneCount" resultType="Integer">
