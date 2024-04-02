@@ -223,6 +223,7 @@ public class MemberController {
 		return "/usr/infra/index/usrindex";
 	}
 	
+	//로그인
 	@ResponseBody
 	@RequestMapping(value = "/signinUsr")
 	public Map<String, Object> signinXdmProc(MemberDto dto, HttpSession httpSession) throws Exception {
@@ -278,7 +279,7 @@ public class MemberController {
 		return returnMap;
 	}
 	
-	
+	//암호화
 	
 	public String encodeBcrypt(String planeText, int strength) {
 		  return new BCryptPasswordEncoder(strength).encode(planeText);

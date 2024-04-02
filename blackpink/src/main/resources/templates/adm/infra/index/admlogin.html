@@ -2,44 +2,13 @@
 <html lang="en">
 
 	<head>
-		<!-- Required meta tags -->
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
-		<!-- Meta -->
-		<meta name="description" content="Best Bootstrap Dashboard Templates" />
-		<meta name="author" content="Bootstrap Gallery" />
-		<link rel="canonical" href="https://www.bootstrap.gallery/">
-		<meta property="og:url" content="https://www.bootstrap.gallery">
-		<meta property="og:title" content="Admin Templates - Dashboard Templates | Bootstrap Gallery">
-		<meta property="og:description" content="Marketplace for Bootstrap Admin Dashboards">
-		<meta property="og:type" content="Website">
-		<meta property="og:site_name" content="Bootstrap Gallery">
-		<link rel="shortcut icon" href="/adm/template/gear/assets/images/favicon.svg" />
-
-		<!-- Title -->
-		<title>Admin Dashboard Templates - Admin Dashboards</title>
-
-		<!-- *************
-			************ Common Css Files *************
-		************ -->
-		<!-- Bootstrap css -->
-		<link rel="stylesheet" href="/adm/template/gear/assets/css/bootstrap.min.css" />
-
-		<!-- Bootstrap font icons css -->
-		<link rel="stylesheet" href="/adm/template/gear/assets/fonts/bootstrap/bootstrap-icons.css" />
-
-		<!-- Main css -->
-		<link rel="stylesheet" href="/adm/template/gear/assets/css/main.min.css" />
-
-		<!-- Login css -->
-		<link rel="stylesheet" href="/adm/template/gear/assets/css/login.css" />
+		<div th:replace="~{adm/infra/include/loginhead :: loginhead}"></div>
 	</head>
 
 	<body class="login-container">
 		<!-- Login box start -->
 		<div class="container">
-			<form method="post" class="row g-3 needs-validation" novalidate>
+			<form method="post" class="row g-3">
 				<div class="login-box rounded-2 p-5">
 					<div class="login-form">
 						<a href="index.html" class="login-logo mb-3">
@@ -94,14 +63,14 @@
 
 		<!-- Main Js Required -->
 		<script src="/adm/template/gear/assets/js/jquery.min.js"></script>
-		<script src="/adm/template/gear/assets/js/main.js"></script>
+<!-- 		<script src="/adm/template/gear/assets/js/main.js"></script> -->
 		<script src="/adm/template/gear/assets/js/validations.js"></script>
 		
 		<script type="text/javascript">
 		document.getElementById("buttonSignIn").onclick = function () {
 // 			alert("asdasdasd");
 // 			if(validation() == false) return false;
-			
+// 			alert("확인");
 		
 			$.ajax({
 				async: true 
@@ -128,6 +97,12 @@
 				}
 			});
 		}
+		
+		
+// 		function validation(){
+// 			if(!checkOnlyEnglishNumber('memberID', 2, 0, "아이디는 영어, 숫자만 입력 가능합니다.")) return false;
+// 		}
+		
 		
 		</script>
 	</body>
