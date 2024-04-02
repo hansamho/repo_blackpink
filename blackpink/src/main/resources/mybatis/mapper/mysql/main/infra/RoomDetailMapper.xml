@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.hotelstay.infra.hotel.HotelDao">
+<mapper namespace="com.hotelstay.infra.roomdetail.RoomDetailDao">
 
-	<resultMap id="resultMapObj" type="com.hotelstay.infra.hotel.HotelDto"></resultMap>
+	<resultMap id="resultMapObj" type="com.hotelstay.infra.roomdetail.RoomDetailDto"></resultMap>
 	
 	 
 	<sql id ="selectCommon">
-         FROM hotellist a
-         LEFT JOIN roomdetail b on a.hotelSeq = b.roomSeq
+         FROM roomdetail a
+         LEFT JOIN hotellist b on a.roomSeq = b.hotelSeq
         WHERE 1=1
         
-        	<if test="hotelTypeCD != null and !hotelTypeCD.equals('')">AND a.hotelTypeCD = #{hotelTypeCD}</if>
-        	<if test="areaCD != null and !areaCD.equals('')">AND a.areaCD = #{areaCD}</if> 
+<!--         	<if test="hotelTypeCD != null and !hotelTypeCD.equals('')">AND a.hotelTypeCD = #{hotelTypeCD}</if> -->
+<!--         	<if test="areaCD != null and !areaCD.equals('')">AND a.areaCD = #{areaCD}</if>  -->
         	
 <!--          <if test="shUseNy != null and !shUseNy.equals('')">AND ifcgUseNy = #{shUseNy}</if> -->
 <!--         	<if test="shDelny != null and !shDelny.equals('')">AND a.htDelny = #{shDelny}</if>  -->
@@ -35,20 +35,25 @@
 	
 	 <select id="selectList" resultMap="resultMapObj">
        SELECT
-        	a.hotelSeq
-            ,a.hotelName
-            ,a.hotelContent
-            ,a.hotelRating
-            ,a.htTotalRating
-            ,a.areaCD
-            ,a.hotelTypeCD
-            ,a.htRegDate
-            ,a.htUpdate
-            ,a.htDelny
-            ,a.wishlist_seq 
+        	a.roomSeq,
+            a.roomName, 
+		    a.roomPrice, 
+		    a.roomContent, 
+		    a.roominfo, 
+		    a.roomTypeCD, 
+		    a.tvNy, 
+		    a.wifiNy, 
+		    a.poolNy, 
+		    a.airNy, 
+		    a.bathNy, 
+		    a.bathSuppliesNy, 
+		    a.roomRegDate, 
+		    a.roomUpdate, 
+		    a.roomDelny, 
+		    a.hotelList_seq
         	<include refid="selectCommon" />
-        ORDER BY a.hotelSeq DESC
-        limit #{rowNumToShow} offset #{startRnumForMysql}
+        ORDER BY a.roomSeq DESC
+<!--         limit #{rowNumToShow} offset #{startRnumForMysql} -->
     </select>
     
     <select id="selectOneCount" resultType="Integer">
@@ -58,21 +63,26 @@
     
     <select id="selectOne" resultMap="resultMapObj">
         SELECT
-           a.hotelSeq
-            ,a.hotelName
-            ,a.hotelContent
-            ,a.hotelRating
-            ,a.htTotalRating
-            ,a.areaCD
-            ,a.hotelTypeCD
-            ,a.htRegDate
-            ,a.htUpdate
-            ,a.htDelny
-            ,a.wishlist_seq
-         FROM hotellist a
+          a.roomSeq
+            a.roomName, 
+		    a.roomPrice, 
+		    a.roomContent, 
+		    a.roominfo, 
+		    a.roomTypeCD, 
+		    a.tvNy, 
+		    a.wifiNy, 
+		    a.poolNy, 
+		    a.airNy, 
+		    a.bathNy, 
+		    a.bathSuppliesNy, 
+		    a.roomRegDate, 
+		    a.roomUpdate, 
+		    a.roomDelny, 
+		    a.hotelList_seq
+         FROM roomdetail a
         WHERE 1=1
-        AND a.hotelSeq = #{hotelSeq}
-        ORDER BY a.hotelSeq DESC
+        AND a.roomSeq = #{roomSeq}
+        ORDER BY a.roomSeq DESC
     </select>
     
 </mapper>

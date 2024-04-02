@@ -7,6 +7,7 @@ public class HotelVo extends BaseVo {
 	private String hotelSeq;
 	private String wishlist_seq;
 	private Integer hotelTypeCD;
+	private Integer areaCD;
 	
 
 	public Integer getHotelTypeCD() {
@@ -31,6 +32,14 @@ public class HotelVo extends BaseVo {
 
 	public void setWishlist_seq(String wishlist_seq) {
 		this.wishlist_seq = wishlist_seq;
+	}
+
+	public Integer getAreaCD() {
+		return areaCD;
+	}
+
+	public void setAreaCD(Integer areaCD) {
+		this.areaCD = areaCD;
 	}
 
 	

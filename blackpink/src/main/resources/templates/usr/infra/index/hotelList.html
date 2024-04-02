@@ -234,6 +234,7 @@
 							</div>
 						<!--End collapse -->
 					</div>
+					</div>
 					<!--End filters col-->
 					<div class="box_style_2 d-none d-sm-block">
 						<i class="icon_set_1_icon-57"></i>
@@ -248,9 +249,15 @@
 
 					<div id="tools">
 						<div class="row justify-content-between">
-							<div class="col-md-3 col-sm-4">
-								
-							</div>
+								<div class="col-1 gy-2" align="right">
+									<select class="form-select form-select-sm" id="rowNumToShow" name="rowNumToShow"
+											th:onchange = "javascript : goList(1)">
+										<option value="5" th:selected="${vo.rowNumToShow == 5}">5</option>
+										<option value="10" th:selected="${vo.rowNumToShow == 10}">10</option>
+										<option value="20" th:selected="${vo.rowNumToShow == 20}">20</option>
+									</select>								
+								</div>
+							
 							<div class="col-md-6 col-sm-4 d-none d-sm-block text-end">
 								<a href="all_hotels_list.html" class="bt_filters"><i class=" icon-list"></i></a>
 							</div>
@@ -265,7 +272,7 @@
 									<a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span class="tooltip-back">찜 목록 추가</span></span></a>
 								</div>
 								<div class="img_list">
-									<a href="single_hotel.html"><img src="/usr/assets/img/hotel_1.jpg" alt="Image">
+									<a th:href="@{/roomDetail}"><img src="/usr/assets/img/hotel_1.jpg" alt="Image">
 										<div class="short_info"></div>
 									</a>
 								</div>
@@ -301,7 +308,7 @@
 							<div class="col-lg-2 col-md-2">
 								<div class="price_list">
 									<div><sup>245,000원</sup><span class="normal_price_list"></span><small></small>
-										<p><a th:href="@{/hotelDetail}" class="btn_1">상세정보</a>
+										<p><a th:href="@{/roomDetail}" class="btn_1">상세정보</a>
 										</p>
 									</div>
 								</div>
