@@ -40,7 +40,7 @@
 	<main>
 	<form name="formList" id="formList" method="post" autocomplete="off">
 	<input type="hidden" name="thisPage" th:value="${vo.thisPage}" default="1"/>
-	<input type="hidden" id="rowNumToShow" name="rowNumToShow" th:value="${vo.rowNumToShow}"/>
+<!-- 	<input type="hidden" id="rowNumToShow" name="rowNumToShow" th:value="${vo.rowNumToShow}"/> -->
 		<div id="position">
 			<div class="container">
 				<ul>
@@ -363,8 +363,7 @@
  			let form = document.querySelector("form[name=formList]");
 			let seq = document.querySelector("input[name=hotelSeq]");		/* ### */
 			
-					
- 		</script>
+ 	</script>
 </body>
 
 </html>

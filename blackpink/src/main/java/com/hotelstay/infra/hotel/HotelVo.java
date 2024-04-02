@@ -6,7 +6,16 @@ public class HotelVo extends BaseVo {
 	
 	private String hotelSeq;
 	private String wishlist_seq;
+	private Integer hotelTypeCD;
 	
+
+	public Integer getHotelTypeCD() {
+		return hotelTypeCD;
+	}
+
+	public void setHotelTypeCD(Integer hotelTypeCD) {
+		this.hotelTypeCD = hotelTypeCD;
+	}
 
 	public String getHotelSeq() {
 		return hotelSeq;
