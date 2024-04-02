@@ -1,4 +1,4 @@
-package com.hotelstay.infra.Hotel;
+package com.hotelstay.infra.hotel;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public class HotelService {
 	@Autowired
 	HotelDao dao;
 	
-	public List<HotelDto> selectList(BaseVo vo){
+	public List<HotelDto> selectList(HotelVo vo){
 		return dao.selectList(vo);
 		}
 }

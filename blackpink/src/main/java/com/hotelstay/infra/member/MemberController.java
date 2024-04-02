@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hotelstay.common.contents.Constants;
 import com.hotelstay.common.util.UtilDateTime;
+import com.hotelstay.infra.codegroup.CodeGroupService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -24,7 +25,6 @@ import jakarta.servlet.http.HttpSession;
 public class MemberController {
 	@Autowired
 	MemberService service;
-	
 	
 	public void setSearch(MemberVo vo) throws Exception {
 		/* 최초 화면 로딩시에 세팅은 문제가 없지만 */
@@ -218,8 +218,8 @@ public class MemberController {
 	
 	
 	@RequestMapping(value = "/usrIndex")
-	public String usrIndex(MemberDto dto) throws Exception{
-	
+	public String usrIndex(MemberDto dto, Model model) throws Exception{
+		
 		return "/usr/infra/index/usrindex";
 	}
 	

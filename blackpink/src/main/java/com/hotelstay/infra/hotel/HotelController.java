@@ -1,4 +1,4 @@
-package com.hotelstay.infra.Hotel;
+package com.hotelstay.infra.hotel;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,13 +10,14 @@ import com.hotelstay.common.base.BaseVo;
 import com.hotelstay.common.contents.Constants;
 import com.hotelstay.common.util.UtilDateTime;
 import com.hotelstay.common.util.UtilFunction;
+import com.hotelstay.infra.codegroup.CodeGroupService;
 import com.hotelstay.infra.codegroup.CodeGroupVo;
 
 @Controller
 public class HotelController {
 	@Autowired
 	HotelService service;
-	
+		
 	public void setSearch(BaseVo vo) throws Exception {
 		/* 최초 화면 로딩시에 세팅은 문제가 없지만 */
 		/*이후 전체적으로 데이터를 조회를 하려면 null 값이 넘어 오는 관계로 문제가 전체 데이터 조회가 되지 못한다.*/
@@ -42,7 +43,7 @@ public class HotelController {
 	
 	
 	@RequestMapping(value = "/hotelAdmList")
-	public String hotelAdmList(@ModelAttribute("vo") BaseVo vo, Model model) throws Exception{
+	public String hotelAdmList(@ModelAttribute("vo") HotelVo vo, Model model) throws Exception{
 			
 			setSearch(vo);
 			model.addAttribute("list", service.selectList(vo));
@@ -54,9 +55,11 @@ public class HotelController {
   	}
 	
 	@RequestMapping(value = "/hotelList")
-	public String hotelList(HotelDto dto) throws Exception{
-			
-
+	public String hotelList(@ModelAttribute("vo") HotelVo vo, Model model) throws Exception{
+		
+		model.addAttribute("list", service.selectList(vo));
+		System.out.println("@@@@@@@@@@@@@@@@@@@");
+		
         return "/usr/infra/index/hotelList";
   	}
 	

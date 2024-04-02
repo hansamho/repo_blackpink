@@ -1,9 +1,10 @@
-package com.hotelstay.infra.Hotel;
+package com.hotelstay.infra.hotel;
 
 import java.util.Date;
 
 public class HotelDto {
 	
+	private String hotelSeq;
 	private String hotelName; 
 	private String hotelContent; 
 	private double htTotalRating; 
@@ -16,6 +17,13 @@ public class HotelDto {
 	private String  wishlist_seq;
 	
 	
+	
+	public String getHotelSeq() {
+		return hotelSeq;
+	}
+	public void setHotelSeq(String hotelSeq) {
+		this.hotelSeq = hotelSeq;
+	}
 	public String getHotelName() {
 		return hotelName;
 	}
@@ -76,6 +84,7 @@ public class HotelDto {
 	public void setWishlist_seq(String wishlist_seq) {
 		this.wishlist_seq = wishlist_seq;
 	}
+	
 	
 	
 	

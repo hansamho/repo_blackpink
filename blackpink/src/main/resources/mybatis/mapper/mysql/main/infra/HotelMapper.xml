@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hotelstay.infra.hotel.HotelDao">
+
+	<resultMap id="resultMapObj" type="com.hotelstay.infra.hotel.HotelDto"></resultMap>
+	
+	 
+	<sql id ="selectCommon">
+         FROM hotellist a
+         LEFT JOIN wishlist b on a.hotelSeq = b.wishSeq
+        WHERE 1=1
+<!--          <if test="shUseNy != null and !shUseNy.equals('')">AND ifcgUseNy = #{shUseNy}</if> -->
+<!--         	<if test="shDelny != null and !shDelny.equals('')">AND a.htDelny = #{shDelny}</if>  -->
+        
+<!-- 				<choose> -->
+<!-- 					<when test="shOptionDate == 1">AND a.htRegDate BETWEEN #{shDateStart} AND #{shDateEnd}</when> -->
+<!-- 					<when test="shOptionDate == 2">AND a.htUpdate BETWEEN #{shDateStart} AND #{shDateEnd}</when> -->
+<!-- 				</choose> -->
+			
+<!-- 			<if test="shGenderCD != null and !shGenderCD.equals('')">AND a.genderCD = #{shGenderCD}</if>  -->
+       
+        <choose>
+<!--             <when test="shOption == 1">AND a.memberSeq = #{shValue}</when> -->
+<!--             <when test="shOption == 2">AND a.memberName LIKE CONCAT('%',#{shValue},'%')</when> -->
+<!--             <when test="shOption == 3">AND a.birthday LIKE CONCAT('%',#{shValue},'%')</when> -->
+<!--             <when test="shOption == 4">AND a.memberID LIKE CONCAT('%',#{shValue},'%')</when> -->
+<!--             <when test="shOption == 5">AND a.memberPhone LIKE CONCAT('%',#{shValue},'%')</when> -->
+        </choose>
+       </sql>
+	
+	 <select id="selectList" resultMap="resultMapObj">
+       SELECT
+        	a.hotelSeq
+            ,a.hotelName
+            ,a.hotelContent
+            ,a.hotelRating
+            ,a.htTotalRating
+            ,a.areaCD
+            ,a.hotelTypeCD
+            ,a.htRegDate
+            ,a.htUpdate
+            ,a.htDelny
+            ,a.wishlist_seq
+        	<include refid="selectCommon" />
+        ORDER BY a.hotelSeq DESC
+<!--         limit #{rowNumToShow} offset #{startRnumForMysql} -->
+    </select>
+    
+    <select id="selectOneCount" resultType="Integer">
+		SELECT COUNT(*)
+		<include refid="selectCommon" />
+	</select>
+    
+    <select id="selectOne" resultMap="resultMapObj">
+        SELECT
+           a.hotelSeq
+            ,a.hotelName
+            ,a.hotelContent
+            ,a.hotelRating
+            ,a.htTotalRating
+            ,a.areaCD
+            ,a.hotelTypeCD
+            ,a.htRegDate
+            ,a.htUpdate
+            ,a.htDelny
+            ,a.wishlist_seq
+         FROM hotellist a
+        WHERE 1=1
+        AND a.hotelSeq = #{hotelSeq}
+        ORDER BY a.hotelSeq DESC
+    </select>
+    
+</mapper>
