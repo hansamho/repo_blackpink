@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hotelstay.common.contents.Constants;
 import com.hotelstay.common.util.UtilDateTime;
+import com.hotelstay.infra.member.MemberDto;
 
 
 @Controller
@@ -42,7 +43,15 @@ public class RoomDetailController {
 	public String roomDetail(@ModelAttribute("vo") RoomDetailVo vo, Model model) throws Exception{
 			
 		model.addAttribute("list", service.selectList(vo));
+		System.out.println("sssssssssssss");
         return "/usr/infra/index/roomDetail";
+  	}
+	
+	@RequestMapping(value = "/admin")
+	public String admin() throws Exception{
+		
+		System.out.println("sssssssssssss");
+        return "/usr/infra/index/admin";
   	}
 	
 }
