@@ -16,7 +16,7 @@ public class HotelDto {
 	private Integer htDelny; 
 	private String  wishlist_seq;
 	
-	
+	private int roomPrice;
 	
 	public String getHotelSeq() {
 		return hotelSeq;
@@ -83,6 +83,14 @@ public class HotelDto {
 	}
 	public void setWishlist_seq(String wishlist_seq) {
 		this.wishlist_seq = wishlist_seq;
+	}
+	
+	/*객실 가격*/
+	public int getRoomPrice() {
+		return roomPrice;
+	}
+	public void setRoomPrice(int roomPrice) {
+		this.roomPrice = roomPrice;
 	}
 	
 	

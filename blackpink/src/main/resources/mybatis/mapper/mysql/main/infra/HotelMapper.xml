@@ -10,7 +10,8 @@
          FROM hotellist a
          LEFT JOIN roomdetail b on a.hotelSeq = b.roomSeq
         WHERE 1=1
-        
+        	
+        	<!-- list 조건에 맞는 화면 띄우기 -->
         	<if test="hotelTypeCD != null and !hotelTypeCD.equals('')">AND a.hotelTypeCD = #{hotelTypeCD}</if>
         	<if test="areaCD != null and !areaCD.equals('')">AND a.areaCD = #{areaCD}</if> 
         	
@@ -36,16 +37,16 @@
 	 <select id="selectList" resultMap="resultMapObj">
        SELECT
         	a.hotelSeq
-            ,a.hotelName
-            ,a.hotelContent
-            ,a.hotelRating
-            ,a.htTotalRating
-            ,a.areaCD
-            ,a.hotelTypeCD
-            ,a.htRegDate
-            ,a.htUpdate
-            ,a.htDelny
-            ,a.wishlist_seq 
+			,a.hotelName
+    		,a.hotelContent
+    		,a.hotelRating
+    		,a.htTotalRating
+    		,a.hotelTypeCD
+    		,a.areaCD
+    		,b.roomName
+    		,b.roomPrice
+   		 	,b.roomTypeCD
+    		,b.roomSeq 
         	<include refid="selectCommon" />
         ORDER BY a.hotelSeq DESC
         limit #{rowNumToShow} offset #{startRnumForMysql}
@@ -74,5 +75,7 @@
         AND a.hotelSeq = #{hotelSeq}
         ORDER BY a.hotelSeq DESC
     </select>
+    
+    
     
 </mapper>

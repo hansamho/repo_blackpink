@@ -307,7 +307,7 @@
 							</div>
 							<div class="col-lg-2 col-md-2">
 								<div class="price_list">
-									<div><sup>245,000원</sup><span class="normal_price_list"></span><small></small>
+									<div><sup th:text="${list.roomPrice}">245,000원</sup><span class="normal_price_list"></span><small></small>
 										<p><a th:href="@{/roomDetail}" class="btn_1">상세정보</a>
 										</p>
 									</div>
@@ -371,6 +371,36 @@
 			let seq = document.querySelector("input[name=hotelSeq]");		/* ### */
 			
  	</script>
+ 	
+ 	
+ 	<script type="text/javascript">
+		document.getElementById("buttonSignout").onclick = function () {
+// 			alert("qqqqqqqqqq");
+// 			if(validation() == false) return false;
+			
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				/* ,dataType:"json" */
+				,url: "/signoutUsr"
+				/* ,data : $("#formLogin").serialize() */
+				,data : { "memberID" : $("#memberID").val(), "memberPassword" : $("#memberPassword").val()}
+				,success: function(response) {
+// 					alert("확인");
+					if(response.rt == "success") {
+// 						alert("sssssss");
+						location.href = "/usrIndex";
+
+					}  
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});
+		}
+			
+		</script>
 </body>
 
 </html>
