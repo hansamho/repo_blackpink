@@ -13,18 +13,19 @@
     	,a.bkAdult
     	,a.bkChild
     	,a.bkTotalPrice
+    	,a.member_seq as memberSeqF
     	,b.memberName
     	,c.roomName
     	,c.roomTypeCD
     	,c.roomPrice
+
  	FROM hotelbooking a
 		LEFT JOIN member b
 		ON a.bookingSeq = b.memberSeq
 		LEFT join roomdetail c
 		ON a.bookingSeq = c.roomSeq
-	WHERE a.member_seq = #{member_seq} 
+	WHERE a.member_seq = #{memberSeqF} 
     </select>
-	
 	
 	
 </mapper>

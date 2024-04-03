@@ -238,6 +238,7 @@ public class MemberController {
 		
 		if(rtDto != null) {
 			
+			
 			String loginId = dto.getMemberID();
 			String loginpwd = dto.getMemberPassword();
 			

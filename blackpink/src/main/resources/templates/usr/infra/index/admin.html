@@ -80,7 +80,7 @@
 		</div>
 		<!-- End Position -->
 
-		<div class="margin_60 container">
+		<div class="margin_60 container" th:if="${#lists.isEmpty(List)}" th:each="list : ${list}">
 			<div id="tabs" class="tabs">
 				<nav>
 					<ul>
@@ -98,35 +98,6 @@
 
 					<section id="section-1">
 
-						<div class="strip_booking" th:if="${#lists.isEmpty(List)}" th:each="list : ${list}">
-							<div class="row">
-								<div class="col-lg-2 col-md-2">
-									<div class="date">
-										<span class="month">Dec</span>
-										<span class="day"><strong>23</strong>Sat</span>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-5">
-									<h3 class="hotel_booking" th:text="${list.roomName}">마리아 호텔<span>성인 2 / 아이 2 </span></h3>
-								</div>
-								<div class="col-lg-2 col-md-3">
-									<ul class="info_booking">
-										
-										<li><strong>예약날짜</strong> 2024-03-01~2024-03-03</li>
-										<li th:text="${list.bkTotalPrice}"><strong>결제 가격</strong> 60,000원</li>
-									</ul>
-								</div>
-								<div class="col-lg-2 col-md-2">
-									<div class="booking_buttons">
-										<a href="#0" class="btn_2">상세정보</a>
-										<a href="#0" class="btn_3">예약취소</a>
-									</div>
-								</div>
-							</div>
-							<!-- End row -->
-						</div>
-						<!-- End strip booking -->
-
 						<div class="strip_booking">
 							<div class="row">
 								<div class="col-lg-2 col-md-2">
@@ -136,43 +107,14 @@
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-5">
-									<h3 class="hotel_booking">노블피아 호텔<span>성인2 / 아이2</span></h3>
+									<h3 class="hotel_booking" th:text="${list.roomName}"><span th:text="${list.bkAdult}">성인 2 / 아이 2 </span></h3>
 								</div>
 								<div class="col-lg-2 col-md-3">
 									<ul class="info_booking">
-										
-										<li><strong>예약날짜</strong> 2024-03-01~2024-03-03</li>
-										<li><strong>결제 가격</strong> 60,000원</li>
-									</ul>
-								</div>
-								<div class="col-lg-2 col-md-2">
-									<div class="booking_buttons">
-										<a href="#0" class="btn_2">상세정보</a>
-										<a href="#0" class="btn_3">예약취소</a>
-										
-									</div>
-								</div>
-							</div>
-							<!-- End row -->
-						</div>
-						<!-- End strip booking -->
-
-						<div class="strip_booking">
-							<div class="row">
-								<div class="col-lg-2 col-md-2">
-									<div class="date">
-										<span class="month">Dec</span>
-										<span class="day"><strong>23</strong>Sat</span>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-5">
-									<h3 class="hotel_booking">럭셔리 호텔<span>성인 2 / 아이 2</span></h3>
-								</div>
-								<div class="col-lg-2 col-md-3">
-									<ul class="info_booking">
-										
-										<li><strong>예약날짜</strong> 2024-03-01~2024-03-03</li>
-										<li><strong>결제 가격</strong> 60,000원</li>
+										<li th:text="${list.bkCheckin}"><strong>예약날짜</strong> 2024-03-01~2024-03-03</li>
+										<li th:text="${list.bkTotalPrice}"></li>
+										<li th:text="${list.bkAdult}"></li>
+										<li th:text="${list.bkChild}"></li>
 									</ul>
 								</div>
 								<div class="col-lg-2 col-md-2">
@@ -185,36 +127,6 @@
 							<!-- End row -->
 						</div>
 						<!-- End strip booking -->
-
-						<div class="strip_booking">
-							<div class="row">
-								<div class="col-lg-2 col-md-2">
-									<div class="date">
-										<span class="month">Dec</span>
-										<span class="day"><strong>23</strong>Sat</span>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-5">
-									<h3 class="hotel_booking">스테이트 호텔<span>성인 2 / 아이 2</span></h3>
-								</div>
-								<div class="col-lg-2 col-md-3">
-									<ul class="info_booking">
-										
-										<li><strong>예약날짜</strong> 2024-03-01~2024-03-03</li>
-										<li><strong>결제 가격</strong> 60,000원</li>
-									</ul>
-								</div>
-								<div class="col-lg-2 col-md-2">
-									<div class="booking_buttons">
-										<a href="#0" class="btn_2">상세정보</a>
-										<a href="#0" class="btn_3">예약취소</a>
-									</div>
-								</div>
-							</div>
-							<!-- End row -->
-						</div>
-						<!-- End strip booking -->
-
 					</section>
 					<!-- End section 1 -->
 
@@ -453,8 +365,8 @@
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<label>이름</label>
-									<input class="form-control" name="last_name" id="last_name" type="text">
+									<label >이름</label>
+									<input class="form-control" name="memberName" id="memberName" type="text" th:value="${list.memberName}">
 								</div>
 							</div>
 						</div>
@@ -464,7 +376,7 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>전화번호</label>
-									<input class="form-control" name="phone" id="phone" type="text">
+									<input class="form-control" name="memberPhone" id="memberPhone" type="text" th:value="${list.memberPhone}">
 								</div>
 							</div>
 							<div class="col-md-6">

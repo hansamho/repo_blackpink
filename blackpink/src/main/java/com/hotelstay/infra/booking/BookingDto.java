@@ -17,19 +17,24 @@ public class BookingDto {
 	private Date bkRegDate; 
 	private Date bkUpdate; 
 	private Integer bkDelny; 
-	private String member_seq; 
+	private String memberSeqF; 
 	private String roomDetail_seq;
 	
 	/*멤버*/
 	private String memberSeq;
 	private String memberName;
+	private String memberPhone;
 	
+	public String getMemberPhone() {
+		return memberPhone;
+	}
+	public void setMemberPhone(String memberPhone) {
+		this.memberPhone = memberPhone;
+	}
 	/*객실정보*/
 	private String roomName;
 	private String roomTypeCD;
 	private String roomPrice;
-	
-	
 	public String getBookingSeq() {
 		return bookingSeq;
 	}
@@ -114,11 +119,11 @@ public class BookingDto {
 	public void setBkDelny(Integer bkDelny) {
 		this.bkDelny = bkDelny;
 	}
-	public String getMember_seq() {
-		return member_seq;
+	public String getMemberSeqF() {
+		return memberSeqF;
 	}
-	public void setMember_seq(String member_seq) {
-		this.member_seq = member_seq;
+	public void setMemberSeqF(String memberSeqF) {
+		this.memberSeqF = memberSeqF;
 	}
 	public String getRoomDetail_seq() {
 		return roomDetail_seq;
@@ -126,24 +131,18 @@ public class BookingDto {
 	public void setRoomDetail_seq(String roomDetail_seq) {
 		this.roomDetail_seq = roomDetail_seq;
 	}
-	
-	/*멤버*/
-	public String getMemberName() {
-		return memberName;
-	}
-	public void setMemberName(String memberName) {
-		this.memberName = memberName;
-	}
-	
 	public String getMemberSeq() {
 		return memberSeq;
 	}
 	public void setMemberSeq(String memberSeq) {
 		this.memberSeq = memberSeq;
 	}
-	
-	
-	/*객실정보*/
+	public String getMemberName() {
+		return memberName;
+	}
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
+	}
 	public String getRoomName() {
 		return roomName;
 	}
@@ -164,9 +163,8 @@ public class BookingDto {
 	}
 	
 	
-
-
-}
+	
+	}
 
 
 
