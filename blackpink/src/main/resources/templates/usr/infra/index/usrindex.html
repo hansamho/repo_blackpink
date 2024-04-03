@@ -25,7 +25,7 @@
     <header>
          <div th:replace="~{usr/infra/include/header :: header}"></div>
     </header><!-- End Header -->
-	
+	<form method="get">
 	<!--메인 예약 확인-->
 		<section id="search_container">
             <div id="search">
@@ -112,6 +112,7 @@
             </div>
         </section>
         <main>
+      
 		<div class="container margin_60">
 
 			<div class="main_title">
@@ -360,11 +361,12 @@
 				<a th:href="@{/hotelList}" class="btn_1">전체 목록</a>
 			</p>
 		</div>
+		
         <!-- End container -->
 	</main>
 	<!-- End main -->
-    
-    <!--footer 블록  -->
+    </form>
+    <!--footer 블록  -->`
     <footer class="revealed" th:replace="~{usr/infra/include/footer :: footer}">
 		    
     </footer>

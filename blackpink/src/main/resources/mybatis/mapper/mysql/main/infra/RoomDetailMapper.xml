@@ -85,4 +85,9 @@
         ORDER BY a.roomSeq DESC
     </select>
     
+   
+    
+    
+    
+    
 </mapper>

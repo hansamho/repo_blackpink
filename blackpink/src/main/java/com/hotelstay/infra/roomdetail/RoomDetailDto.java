@@ -19,6 +19,22 @@ public class RoomDetailDto {
 	private Date roomUpdate; 
 	private Integer roomDelny; 
 	private String hotelList_seq;
+	
+	/*멤버*/
+	private String memberName;
+	
+	/*예약*/
+	private Date bkCheckin;
+	private Date bkCheckout;
+	private int bkAdult;
+	private int bkChild;
+	private double bkTotalPrice;
+	
+	/*foreign key*/
+	private String member_seq;
+	private String roomDetail_seq;
+	
+	/*객실*/
 	public String getRoomSeq() {
 		return roomSeq;
 	}
@@ -115,6 +131,63 @@ public class RoomDetailDto {
 	public void setHotelList_seq(String hotelList_seq) {
 		this.hotelList_seq = hotelList_seq;
 	}
+	
+	/*멤버*/
+	public String getMemberName() {
+		return memberName;
+	}
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
+	}
+	
+	
+	/*예약*/
+	public Date getBkCheckin() {
+		return bkCheckin;
+	}
+	public void setBkCheckin(Date bkCheckin) {
+		this.bkCheckin = bkCheckin;
+	}
+	public Date getBkCheckout() {
+		return bkCheckout;
+	}
+	public void setBkCheckout(Date bkCheckout) {
+		this.bkCheckout = bkCheckout;
+	}
+	public int getBkAdult() {
+		return bkAdult;
+	}
+	public void setBkAdult(int bkAdult) {
+		this.bkAdult = bkAdult;
+	}
+	public int getBkChild() {
+		return bkChild;
+	}
+	public void setBkChild(int bkChild) {
+		this.bkChild = bkChild;
+	}
+	public double getBkTotalPrice() {
+		return bkTotalPrice;
+	}
+	public void setBkTotalPrice(double bkTotalPrice) {
+		this.bkTotalPrice = bkTotalPrice;
+	}
+	
+	/*foreign key*/
+	
+	public String getMember_seq() {
+		return member_seq;
+	}
+	public void setMember_seq(String member_seq) {
+		this.member_seq = member_seq;
+	}
+	public String getRoomDetail_seq() {
+		return roomDetail_seq;
+	}
+	public void setRoomDetail_seq(String roomDetail_seq) {
+		this.roomDetail_seq = roomDetail_seq;
+	}
+	
 	
 	
 	

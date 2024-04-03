@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hotelstay.infra.booking.BookingDao">
+
+	<resultMap id="resultMapObj" type="com.hotelstay.infra.booking.BookingDto"></resultMap>
+	
+	 <select id="selectMy" resultMap="resultMapObj">
+   	SELECT
+		a.bookingSeq
+		,a.bkCheckin
+    	,a.bkCheckout
+    	,a.bkAdult
+    	,a.bkChild
+    	,a.bkTotalPrice
+    	,b.memberName
+    	,c.roomName
+    	,c.roomTypeCD
+    	,c.roomPrice
+ 	FROM hotelbooking a
+		LEFT JOIN member b
+		ON a.bookingSeq = b.memberSeq
+		LEFT join roomdetail c
+		ON a.bookingSeq = c.roomSeq
+	WHERE a.member_seq = #{member_seq} 
+    </select>
+	
+	
+	
+</mapper>

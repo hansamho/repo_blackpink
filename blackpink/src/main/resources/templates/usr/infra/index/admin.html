@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<meta charset="utf-8">
@@ -66,6 +66,7 @@
 	<!-- End section -->
 
 	<main>
+	<form method="get">
 		<div id="position">
 			<div class="container">
 				<ul>
@@ -93,11 +94,11 @@
 						</li>
 					</ul>
 				</nav>
-				<div class="content">
+				<div class="content" >
 
 					<section id="section-1">
 
-						<div class="strip_booking">
+						<div class="strip_booking" th:if="${#lists.isEmpty(List)}" th:each="list : ${list}">
 							<div class="row">
 								<div class="col-lg-2 col-md-2">
 									<div class="date">
@@ -106,13 +107,13 @@
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-5">
-									<h3 class="hotel_booking">마리아 호텔<span>성인 2 / 아이 2 </span></h3>
+									<h3 class="hotel_booking" th:text="${list.roomName}">마리아 호텔<span>성인 2 / 아이 2 </span></h3>
 								</div>
 								<div class="col-lg-2 col-md-3">
 									<ul class="info_booking">
 										
 										<li><strong>예약날짜</strong> 2024-03-01~2024-03-03</li>
-										<li><strong>결제 가격</strong> 60,000원</li>
+										<li th:text="${list.bkTotalPrice}"><strong>결제 가격</strong> 60,000원</li>
 									</ul>
 								</div>
 								<div class="col-lg-2 col-md-2">
@@ -527,6 +528,7 @@
 				<!-- End tabs -->
 			</div>
 			<!-- end container -->
+			</form>
 	</main>
 	<!-- End main -->
 
@@ -561,7 +563,35 @@
 			$(this).parent().parent().parent().fadeOut('slow', function (c) {});
 		});
 	</script>
+	
+	<script type="text/javascript">
+		document.getElementById("buttonSignout").onclick = function () {
+// 			alert("qqqqqqqqqq");
+// 			if(validation() == false) return false;
+			
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				/* ,dataType:"json" */
+				,url: "/signoutUsr"
+				/* ,data : $("#formLogin").serialize() */
+				,data : { "memberID" : $("#memberID").val(), "memberPassword" : $("#memberPassword").val()}
+				,success: function(response) {
+// 					alert("확인");
+					if(response.rt == "success") {
+// 						alert("sssssss");
+						location.href = "/usrIndex";
 
+					}  
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});
+		}
+			
+		</script>
 </body>
 
 </html>

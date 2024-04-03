@@ -15,4 +15,10 @@ public class RoomDetailService {
 		
 		return dao.selectList(vo);
 	}
+	
+	public RoomDetailDto selectadmin(RoomDetailDto dto) {
+		return dao.selectadmin(dto);
+	}
+	
+	
 }

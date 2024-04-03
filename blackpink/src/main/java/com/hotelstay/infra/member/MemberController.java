@@ -243,12 +243,13 @@ public class MemberController {
 			
 			
 			httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE_XDM); // 60second * 30 = 30minute
-			httpSession.setAttribute("sessSeqXdm", rtDto.getMemberSeq());
-			httpSession.setAttribute("sessIdXdm", rtDto.getMemberID());
-			httpSession.setAttribute("sessNameXdm", rtDto.getMemberName());
+			httpSession.setAttribute("sessSeqUsr", rtDto.getMemberSeq());
+			httpSession.setAttribute("sessIdUsr", rtDto.getMemberID());
+			httpSession.setAttribute("sessNameUsr", rtDto.getMemberName());
+			httpSession.setAttribute("sessPhoneUsr", rtDto.getMemberPhone());
 			
 			System.out.println("---------------------");
-			System.out.println("httpSession.getAttribute(\"sessNameXdm\"): " + httpSession.getAttribute("sessNameXdm"));
+			System.out.println("httpSession.getAttribute(\"sessNameUsr\"): " + httpSession.getAttribute("sessNameUsr"));
 			System.out.println("---------------------");
 			
 			if(loginId.equals(rtDto.getMemberID())) {
