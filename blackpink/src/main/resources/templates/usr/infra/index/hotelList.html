@@ -280,7 +280,7 @@
 							<div class="col-lg-6 col-md-6">
 								<div class="tour_list_desc">
 									<!-- 호텔 평점 -->
-									<div class="score">평점<span></span>
+									<div class="score">평점<span th:text="${list.roomTotalRating}"></span>
 									</div>
 <!-- 									<div class="rating" th:text="${list.hotelRating}"><i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i> -->
 <!-- 									</div> -->
@@ -365,10 +365,39 @@
 	<script src="/usr/assets/js/infobox.js"></script>
 	
 	<script> 
- 			let goUrlXdmList = "/hotelList";								/* ### */
-			
- 			let form = document.querySelector("form[name=formList]");
-			let seq = document.querySelector("input[name=hotelSeq]");		/* ### */
+// 	let goUrlHotel ="[[@{/hotelList(hotelTypeCD=6)}]]"; 
+// 	let goUrlPension ="[[@{/hotelList(hotelTypeCD=7)}]]";	
+// 	let goUrlMotel ="[[@{/hotelList(hotelTypeCD=8)}]]";
+// 	let goUrlJeju = "[[@{/hotelList(areaCD=9)}]]";
+// 	goList = function (thisPage) {
+		
+// 	    document.querySelector("input[name=thisPage]").value = thisPage;
+// 	    if(thisPage == goUrlHotel) {
+// 			form.action = goUrlHotel;
+//  		}  else if(thisPage == goUrlPension){
+// 			form.action = goUrlPension;
+// 		} else if(thisPage == goUrlMotel){
+// 			form.action = goUrlMotel;
+// 		} else if(thisPage == goUrlJeju){
+// 			form.action = goUrlJeju;
+// 		}
+	    
+// 	    form.submit();
+// 	}
+
+let goUrlUsrList = "[[@{/hotelList(hotelTypeCD=6)}]]";
+let goUrlUserList = "/hotelList"
+goList = function (thisPage) {
+    document.querySelector("input[name=thisPage]").value = thisPage;
+    if(thisPage == goUrlUsrList){
+    	form.action = goUrlUsrList;
+    } 
+    
+   
+    form.submit();
+}
+
+	let form = document.querySelector("form[name=formList]");		/* ### */
 			
  	</script>
  	
