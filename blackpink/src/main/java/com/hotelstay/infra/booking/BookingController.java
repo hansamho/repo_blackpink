@@ -12,16 +12,15 @@ public class BookingController {
 	@Autowired
 	BookingService service;
 	
-	@RequestMapping(value = "/admin")
-	public String admin(BookingDto dto,Model model,HttpSession httpSession) throws Exception{
+	@RequestMapping(value = "/myPage")
+	public String myPage(BookingDto dto,Model model,HttpSession httpSession) throws Exception{
 		
 		System.out.println(httpSession.getAttribute("sessSeqUsr"));
 		
 		dto.setMemberSeqF((String)httpSession.getAttribute("sessSeqUsr"));
-		
 		model.addAttribute("list", service.selectMy(dto));
-		
-		
+		model.addAttribute("item", service.selectOne(dto));
+		model.addAttribute("listwish", service.selectWish(dto));
 		return "/usr/infra/index/admin";
         
   	}

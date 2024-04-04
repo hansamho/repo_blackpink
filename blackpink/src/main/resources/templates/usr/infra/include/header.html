@@ -13,7 +13,7 @@
                         	<button type="button" th:if="${session.sessNameUsr == null}"> <a th:href="@{/usrLogin}" class="mt-2 text-black">로그인</a></button>
                         	<button type="button" th:unless="${session.sessNameUsr == null}" id="buttonSignout" class="mt-2 text-black">로그아웃</button>
                             <li><a href="register.html" id="register">회원가입</a></li>
-                            <li><a th:href="@{/admin}" id="admin_link">마이페이지</a></li>
+                            <li><a th:href="@{/myPage}" id="admin_link">마이페이지</a></li>
                         </ul>
                     </div>
                 </div><!-- End row -->

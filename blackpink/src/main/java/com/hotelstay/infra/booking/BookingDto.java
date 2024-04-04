@@ -8,7 +8,7 @@ public class BookingDto {
 	private Date bkCheckout; 
 	private int bkAdult; 
 	private int bkChild;
-	private double bkTotalPrice; 
+	private int bkTotalPrice; 
 	private String payType; 
 	private String cardNumber; 
 	private String cardDate; 
@@ -23,18 +23,68 @@ public class BookingDto {
 	/*멤버*/
 	private String memberSeq;
 	private String memberName;
+	private String memberID;
 	private String memberPhone;
+	private String birthday;
+	private String codeNumber;
+	private String roadName;
+	private String addrDetail;
 	
+	
+	/*객실정보*/
+	private String roomName;
+	private String roomTypeCD;
+	private String roomPrice;
+	private String roomRating;
+	private Date roomRegDate;
+	
+	
+	
+	public String getBirthday() {
+		return birthday;
+	}
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
+	}
 	public String getMemberPhone() {
 		return memberPhone;
 	}
 	public void setMemberPhone(String memberPhone) {
 		this.memberPhone = memberPhone;
 	}
-	/*객실정보*/
-	private String roomName;
-	private String roomTypeCD;
-	private String roomPrice;
+	
+	public String getCodeNumber() {
+		return codeNumber;
+	}
+	public void setCodeNumber(String codeNumber) {
+		this.codeNumber = codeNumber;
+	}
+	public String getRoadName() {
+		return roadName;
+	}
+	public void setRoadName(String roadName) {
+		this.roadName = roadName;
+	}
+	public String getAddrDetail() {
+		return addrDetail;
+	}
+	public void setAddrDetail(String addrDetail) {
+		this.addrDetail = addrDetail;
+	}
+
+	
+	public Date getRoomRegDate() {
+		return roomRegDate;
+	}
+	public void setRoomRegDate(Date roomRegDate) {
+		this.roomRegDate = roomRegDate;
+	}
+	public String getRoomRating() {
+		return roomRating;
+	}
+	public void setRoomRating(String roomRating) {
+		this.roomRating = roomRating;
+	}
 	public String getBookingSeq() {
 		return bookingSeq;
 	}
@@ -65,10 +115,10 @@ public class BookingDto {
 	public void setBkChild(int bkChild) {
 		this.bkChild = bkChild;
 	}
-	public double getBkTotalPrice() {
+	public int getBkTotalPrice() {
 		return bkTotalPrice;
 	}
-	public void setBkTotalPrice(double bkTotalPrice) {
+	public void setBkTotalPrice(int bkTotalPrice) {
 		this.bkTotalPrice = bkTotalPrice;
 	}
 	public String getPayType() {
@@ -160,6 +210,12 @@ public class BookingDto {
 	}
 	public void setRoomPrice(String roomPrice) {
 		this.roomPrice = roomPrice;
+	}
+	public String getMemberID() {
+		return memberID;
+	}
+	public void setMemberID(String memberID) {
+		this.memberID = memberID;
 	}
 	
 	

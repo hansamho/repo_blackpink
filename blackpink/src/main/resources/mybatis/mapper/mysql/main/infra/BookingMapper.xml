@@ -15,10 +15,11 @@
     	,a.bkTotalPrice
     	,a.member_seq as memberSeqF
     	,b.memberName
+    	,b.memberID
     	,c.roomName
     	,c.roomTypeCD
     	,c.roomPrice
-
+    	,c.roomRegDate
  	FROM hotelbooking a
 		LEFT JOIN member b
 		ON a.bookingSeq = b.memberSeq
@@ -27,5 +28,35 @@
 	WHERE a.member_seq = #{memberSeqF} 
     </select>
 	
+	<select id="selectOne" resultMap="resultMapObj">
+	SELECT
+    	a.member_seq as memberSeqF
+    	,b.memberName
+    	,b.memberPhone
+    	,b.birthday
+    	,b.codeNumber
+    	,b.addrDetail
+    	,b.roadName
+ 	FROM hotelbooking a
+		LEFT JOIN member b
+		ON a.bookingSeq = b.memberSeq
+		LEFT join roomdetail c 
+		ON a.bookingSeq = c.roomSeq
+	WHERE a.member_seq = #{memberSeqF} 
+	</select>
 	
+	<select id="selectWish" resultMap="resultMapObj">
+		SELECT
+			a.member_seq as memberSeqF
+			,c.roomName
+			,c.roomPrice
+			,c.roomTotalRating
+ 		FROM wishlist a
+ 			LEFT JOIN member b
+ 			on a.wishSeq = b.memberSeq
+ 			LEFT JOIN roomDetail c
+ 			on a.wishSeq = c.roomSeq
+ 		WHERE member_seq = #{memberSeqF};
+	
+	</select>
 </mapper>

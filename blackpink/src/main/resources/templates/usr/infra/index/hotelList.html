@@ -280,7 +280,7 @@
 							<div class="col-lg-6 col-md-6">
 								<div class="tour_list_desc">
 									<!-- 호텔 평점 -->
-									<div class="score">평점<span th:text="${list.htTotalRating}"></span>
+									<div class="score">평점<span></span>
 									</div>
 <!-- 									<div class="rating" th:text="${list.hotelRating}"><i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i> -->
 <!-- 									</div> -->
@@ -308,7 +308,7 @@
 							<div class="col-lg-2 col-md-2">
 								<div class="price_list">
 									<div><sup th:text="${list.roomPrice}">245,000원</sup><span class="normal_price_list"></span><small></small>
-										<p><a th:href="@{/roomDetail}" class="btn_1">상세정보</a>
+										<p><a th:href="@{/roomDetail(roomSeq=${list.roomSeq})}" class="btn_1">상세정보</a>
 										</p>
 									</div>
 								</div>

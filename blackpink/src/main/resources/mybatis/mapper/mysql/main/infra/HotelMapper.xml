@@ -40,12 +40,12 @@
 			,a.hotelName
     		,a.hotelContent
     		,a.hotelRating
-    		,a.htTotalRating
     		,a.hotelTypeCD
     		,a.areaCD
     		,b.roomName
     		,b.roomPrice
    		 	,b.roomTypeCD
+   		 	,b.roomTotalRating
     		,b.roomSeq 
         	<include refid="selectCommon" />
         ORDER BY a.hotelSeq DESC
@@ -63,7 +63,6 @@
             ,a.hotelName
             ,a.hotelContent
             ,a.hotelRating
-            ,a.htTotalRating
             ,a.areaCD
             ,a.hotelTypeCD
             ,a.htRegDate

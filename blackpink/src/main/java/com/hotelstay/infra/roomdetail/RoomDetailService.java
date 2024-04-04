@@ -16,6 +16,11 @@ public class RoomDetailService {
 		return dao.selectList(vo);
 	}
 	
+	public RoomDetailDto selectOne(RoomDetailDto dto) {
+		return dao.selectOne(dto);
+	}
+	
+	
 	public RoomDetailDto selectadmin(RoomDetailDto dto) {
 		return dao.selectadmin(dto);
 	}

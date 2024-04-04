@@ -47,9 +47,9 @@ public class RoomDetailController {
 	}
 	
 	@RequestMapping(value = "/roomDetail")
-	public String roomDetail(@ModelAttribute("vo") RoomDetailVo vo, Model model) throws Exception{
+	public String roomDetail(RoomDetailDto dto, Model model) throws Exception{
 			
-		model.addAttribute("list", service.selectList(vo));
+		model.addAttribute("item", service.selectOne(dto));
 		System.out.println("sssssssssssss");
         return "/usr/infra/index/roomDetail";
   	}

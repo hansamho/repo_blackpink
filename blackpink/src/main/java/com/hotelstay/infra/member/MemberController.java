@@ -247,7 +247,6 @@ public class MemberController {
 			httpSession.setAttribute("sessSeqUsr", rtDto.getMemberSeq());
 			httpSession.setAttribute("sessIdUsr", rtDto.getMemberID());
 			httpSession.setAttribute("sessNameUsr", rtDto.getMemberName());
-			httpSession.setAttribute("sessPhoneUsr", rtDto.getMemberPhone());
 			
 			System.out.println("---------------------");
 			System.out.println("httpSession.getAttribute(\"sessNameUsr\"): " + httpSession.getAttribute("sessNameUsr"));
@@ -280,6 +279,15 @@ public class MemberController {
 		httpSession.invalidate();
 		return returnMap;
 	}
+	
+//	@RequestMapping(value = "/myPage")
+//	public String memberpage(MemberDto dto, Model model,HttpSession httpSession) throws Exception{
+//		
+//		dto.setMemberSeq((String)httpSession.getAttribute("sessSeqUsr"));
+//		model.addAttribute("item", service.selectOne(dto));
+//		
+//		return "/usr/infra/index/admin"; //
+//	}
 	
 	//암호화
 	

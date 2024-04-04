@@ -6,6 +6,8 @@ public interface RoomDetailDao {
 	
 	public List<RoomDetailDto> selectList(RoomDetailVo vo);
 	
+	public RoomDetailDto selectOne(RoomDetailDto dto);
+	
 	public RoomDetailDto selectadmin(RoomDetailDto dto);
 	
 	

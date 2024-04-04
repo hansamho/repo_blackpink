@@ -16,8 +16,17 @@ public class HotelDto {
 	private Integer htDelny; 
 	private String  wishlist_seq;
 	
+	private String roomSeq;
 	private int roomPrice;
+	private double roomTotalRating;
 	
+	
+	public double getRoomTotalRating() {
+		return roomTotalRating;
+	}
+	public void setRoomTotalRating(double roomTotalRating) {
+		this.roomTotalRating = roomTotalRating;
+	}
 	public String getHotelSeq() {
 		return hotelSeq;
 	}
@@ -91,6 +100,12 @@ public class HotelDto {
 	}
 	public void setRoomPrice(int roomPrice) {
 		this.roomPrice = roomPrice;
+	}
+	public String getRoomSeq() {
+		return roomSeq;
+	}
+	public void setRoomSeq(String roomSeq) {
+		this.roomSeq = roomSeq;
 	}
 	
 	

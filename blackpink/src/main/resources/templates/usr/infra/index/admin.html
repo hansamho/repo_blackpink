@@ -80,7 +80,7 @@
 		</div>
 		<!-- End Position -->
 
-		<div class="margin_60 container" th:if="${#lists.isEmpty(List)}" th:each="list : ${list}">
+		<div class="margin_60 container">
 			<div id="tabs" class="tabs">
 				<nav>
 					<ul>
@@ -90,31 +90,29 @@
 						</li>
 						<li><a href="#section-3" class="icon-settings"><span>비밀번호 변경</span></a>
 						</li>
-						<li><a href="#section-4" class="icon-profile"><span>프로필</span></a>
+						<li><a th:href="@{/memberpage}" class="icon-profile"><span>프로필</span></a>
 						</li>
 					</ul>
 				</nav>
-				<div class="content" >
+				<div class="content">
 
 					<section id="section-1">
 
-						<div class="strip_booking">
+						<div class="strip_booking" th:if="${#lists.isEmpty(List)}" th:each="list : ${list}">
 							<div class="row">
 								<div class="col-lg-2 col-md-2">
 									<div class="date">
-										<span class="month">Dec</span>
-										<span class="day"><strong>23</strong>Sat</span>
+										<span class="month" th:text="${#dates.format(list.bkCheckin, 'yyyy-MM-dd ')}"></span>
+										<span class="day" th:text="${#dates.format(list.bkCheckout, 'yyyy-MM-dd ')}"></span>
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-5">
-									<h3 class="hotel_booking" th:text="${list.roomName}"><span th:text="${list.bkAdult}">성인 2 / 아이 2 </span></h3>
+									<h3 class="hotel_booking">[[${list.roomName}]]<span> 성인 [[${list.bkAdult}]] / 아이 [[${list.bkChild}]] </span></h3>
 								</div>
 								<div class="col-lg-2 col-md-3">
 									<ul class="info_booking">
-										<li th:text="${list.bkCheckin}"><strong>예약날짜</strong> 2024-03-01~2024-03-03</li>
-										<li th:text="${list.bkTotalPrice}"></li>
-										<li th:text="${list.bkAdult}"></li>
-										<li th:text="${list.bkChild}"></li>
+										<li><strong>예약완료</strong> [[${#dates.format(list.roomRegDate, 'yyyy-MM-dd ')}]]</li>
+										<li><strong>결제 가격</strong> [[${list.bkTotalPrice}]]원</li>
 									</ul>
 								</div>
 								<div class="col-lg-2 col-md-2">
@@ -132,23 +130,23 @@
 
 					<section id="section-2">
 						<div class="row">
-							<div class="col-lg-4 col-md-6">
+							<div class="col-lg-4 col-md-6" th:if="${#lists.isEmpty(List)}" th:each="list : ${list}">
 								<div class="hotel_container">
 									<div class="img_container">
 										<a href="single_hotel.html">
 											<img src="/usr/assets/img/hotel_1.jpg" width="800" height="533" class="img-fluid" alt="Image">
-											<div class="ribbon top_rated">
-											</div>
+<!-- 											<div class="ribbon top_rated"> -->
+<!-- 											</div> -->
 											<div class="score">
-												<span>4.5</span>평점
+<!-- 												<span>4.5</span>평점 -->
 											</div>
 											<div class="short_info hotel">
-												<span class="price"><sup></sup>59,000</span>
+												<span class="price"><sup>[[${list.roomPrice}]]원</sup></span>
 											</div>
 										</a>
 									</div>
 									<div class="hotel_title">
-										<h3><strong>노블피아</strong> 호텔</h3>
+										<h3><strong th:text="${list.roomName}">객실이름</strong></h3>
 										<div class="rating">
 											<i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i>
 										</div>
@@ -161,160 +159,9 @@
 								<!-- End box tour -->
 							</div>
 							<!-- End col-md-6 -->
-
-							<div class="col-lg-4 col-md-6 ">
-								<div class="hotel_container">
-									<div class="img_container">
-										<a href="single_hotel.html">
-											<img src="/usr/assets/img/hotel_2.jpg" width="800" height="533" class="img-fluid" alt="Image">
-											<div class="ribbon top_rated">
-											</div>
-											<div class="score">
-												<span>4.8</span>평점
-											</div>
-											<div class="short_info hotel">
-												<span class="price"><sup></sup>240,000</span>
-											</div>
-										</a>
-									</div>
-									<div class="hotel_title">
-										<h3><strong>신라</strong> 호텔</h3>
-										<div class="rating">
-											<i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i>
-										</div>
-										<!-- end rating -->
-										<div class="wishlist_close_admin">
-											-
-										</div>
-									</div>
-								</div>
-								<!-- End box -->
-							</div>
-							<!-- End col-md-6 -->
-
-							<div class="col-lg-4 col-md-6 ">
-								<div class="hotel_container">
-									<div class="img_container">
-										<a href="single_hotel.html">
-											<img src="/usr/assets/img/hotel_2.jpg" width="800" height="533" class="img-fluid" alt="Image">
-											<div class="ribbon top_rated">
-											</div>
-											<div class="score">
-												<span>4.3</span>평점
-											</div>
-											<div class="short_info hotel">
-												<span class="price"><sup></sup>56,000</span>
-											</div>
-										</a>
-									</div>
-									<div class="hotel_title">
-										<h3><strong>마리아</strong> 호텔</h3>
-										<div class="rating">
-											<i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i>
-										</div>
-										<!-- end rating -->
-										<div class="wishlist_close_admin">
-											-
-										</div>
-									</div>
-								</div>
-								<!-- End box -->
-							</div>
-							<!-- End col-md-6 -->
-
-							<div class="col-lg-4 col-md-6 ">
-								<div class="hotel_container">
-									<div class="img_container">
-										<a href="single_hotel.html">
-											<img src="/usr/assets/img/hotel_2.jpg" width="800" height="533" class="img-fluid" alt="Image">
-											<div class="ribbon top_rated">
-											</div>
-											<div class="score">
-												<span>4.2</span>평점
-											</div>
-											<div class="short_info hotel">
-												<span class="price"><sup></sup>75,000</span>
-											</div>
-										</a>
-									</div>
-									<div class="hotel_title">
-										<h3><strong>스테이트</strong> 호텔</h3>
-										<div class="rating">
-											<i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i>
-										</div>
-										<!-- end rating -->
-										<div class="wishlist_close_admin">
-											-
-										</div>
-									</div>
-								</div>
-								<!-- End box -->
-							</div>
-							<!-- End col-md-6 -->
-
-							<div class="col-lg-4 col-md-6 ">
-								<div class="hotel_container">
-									<div class="img_container">
-										<a href="single_hotel.html">
-											<img src="/usr/assets/img/hotel_2.jpg" width="800" height="533" class="img-fluid" alt="Image">
-											<div class="ribbon top_rated">
-											</div>
-											<div class="score">
-												<span>4.6</span>평점
-											</div>
-											<div class="short_info hotel">
-												<span class="price"><sup></sup>80,000</span>
-											</div>
-										</a>
-									</div>
-									<div class="hotel_title">
-										<h3><strong>럭셔리</strong> 호텔</h3>
-										<div class="rating">
-											<i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i>
-										</div>
-										<!-- end rating -->
-										<div class="wishlist_close_admin">
-											-
-										</div>
-									</div>
-								</div>
-								<!-- End box -->
-							</div>
-							<!-- End col-md-6 -->
-
-							<div class="col-lg-4 col-md-6 ">
-								<div class="hotel_container">
-									<div class="img_container">
-										<a href="single_hotel.html">
-											<img src="/usr/assets/img/hotel_2.jpg" width="800" height="533" class="img-fluid" alt="Image">
-											<div class="ribbon top_rated">
-											</div>
-											<div class="score">
-												<span>4.1</span>평점
-											</div>
-											<div class="short_info hotel">
-												<span class="price"><sup></sup>65,000</span>
-											</div>
-										</a>
-									</div>
-									<div class="hotel_title">
-										<h3><strong>스카이</strong> 호텔</h3>
-										<div class="rating">
-											<i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i>
-										</div>
-										<!-- end rating -->
-										<div class="wishlist_close_admin">
-											-
-										</div>
-									</div>
-								</div>
-								<!-- End box -->
-							</div>
-							<!-- End col-md-6 -->
-
 						</div>
 						<!-- End row -->
-						<button type="submit" class="btn_1 green">저장</button>
+						
 					</section>
 					<!-- End section 2 -->
 
@@ -358,16 +205,12 @@
 								<h4>프로필 수정</h4>
 							</div>
 							<div class="col-md-6">
-								<div class="form-group">
-									<label>성</label>
-									<input class="form-control" name="first_name" id="first_name" type="text">
+							<div class="form-group">
+									<label >이름</label>
+									<input class="form-control" name="memberName" id="memberName" type="text" th:value="${item.memberName}">
 								</div>
 							</div>
 							<div class="col-md-6">
-								<div class="form-group">
-									<label >이름</label>
-									<input class="form-control" name="memberName" id="memberName" type="text" th:value="${list.memberName}">
-								</div>
 							</div>
 						</div>
 						<!-- End row -->
@@ -376,14 +219,14 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>전화번호</label>
-									<input class="form-control" name="memberPhone" id="memberPhone" type="text" th:value="${list.memberPhone}">
+									<input class="form-control" name="memberPhone" id="memberPhone" type="text" th:value="${item.memberPhone}">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>생년월일 <small>(YYYY/MM/DD)</small>
 									</label>
-									<input class="form-control" name="birthday" id="birthday" type="text">
+									<input class="form-control" name="birthday" id="birthday" type="text" th:value=${item.birthday}>
 								</div>
 							</div>
 						</div>
@@ -397,7 +240,7 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>우편번호</label>
-									<input class="form-control" name="codeNumber" id="codeNumber" type="text">
+									<input class="form-control" name="codeNumber" id="codeNumber" type="text" th:value="${item.codeNumber}">
 								</div>
 							</div>
 						</div>
@@ -407,23 +250,19 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>도로명</label>
-									<input class="form-control" name="roadName" id="roadName" type="text">
+									<input class="form-control" name="roadName" id="roadName" type="text" th:value="${item.roadName}">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<label>지번주소</label>
-									<input class="form-control" name="address" id="address" type="text">
+									<label>상세정보</label>
+									<input class="form-control" name="details" id="details" type="text" th:value="${item.addrDetail}">
 								</div>
 							</div>
 							
 						</div>
 						<div class="row">
 							<div class="col-md-6">
-								<div class="form-group">
-									<label>상세정보</label>
-									<input class="form-control" name="details" id="details" type="text">
-								</div>
 							</div>
 						</div>
 						<!-- End row -->

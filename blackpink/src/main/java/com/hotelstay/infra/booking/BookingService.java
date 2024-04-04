@@ -16,6 +16,14 @@ public class BookingService {
 		return dao.selectMy(dto);
 	}
 	
+	public BookingDto selectOne(BookingDto dto) {
+		return dao.selectOne(dto);
+	}
+	
+	public List<BookingDto> selectWish(BookingDto dto){
+		return dao.selectWish(dto);
+	}
+	
 	public List<BookingDto> selectUsr(BookingDto dto){
 		return dao.selectUsr(dto);
 	}

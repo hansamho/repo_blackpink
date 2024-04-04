@@ -144,11 +144,6 @@
  			,memberPassword
  			,memberName
  			,memberSeq
- 			,memberPhone
- 			,birthday
- 			,codeNumber
- 			,roadName
- 			,addrDetail
  		 FROM member 
  		 WHERE 1=1
  		 AND memberID = #{memberID}
