@@ -53,58 +53,50 @@
                                     <input class="date-pick form-control" type="text">
                                 </div>
                             </div>
-                            <div class="col-md-2 col-sm-3 col-6">
-                                <div class="form-group">
-                                    <label>성인</label>
-                                    <div class="numbers-row">
-                                        <input type="text" value="1" id="adults" class="qty2 form-control" name="adults_2">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-2 col-sm-3 col-6">
-                                <div class="form-group">
-                                    <label>아이</label>
-                                    <div class="numbers-row">
-                                        <input type="text" value="0" id="children" class="qty2 form-control" name="children_2">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-2 col-sm-3 col-12">
-                                <div class="form-group">
-                                    <label>객실</label>
-                                    <div class="numbers-row">
-                                        <input type="text" value="1" id="children" class="qty2 form-control" name="rooms">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End row -->
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>숙소 이름</label>
-                                    <input type="text" class="form-control" id="hotel_name" name="hotel_name" placeholder="숙소 이름">
-                                </div>
-                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>지역</label>
                                     <div class="styled-select-common">
-                                        <select name="area">
-                                            <option value="지역선택" selected>지역선택</option>
-                                            <option value="서울">서울</option>
-                                            <option value="부산">부산</option>
-                                            <option value="제주도">제주도</option>
-                                            <option value="강릉">강릉</option>
-                                            <option value="인천">인천</option>
+                                        <select name="shAreaCD" id="shAreaCD" class="form-select form-select-sm">
+                                           	<option value="">지역</option>
+                                           <option
+												th:each="list : ${@codeService.selectListCachedCode(4)}"
+												th:value="${list.cdSeq}" th:text="${list.name}"
+												th:selected="${list.cdSeq} == ${item?.areaCD}">
+											</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
+                            
                         </div>
                         <!-- End row -->
+<!--                         <div class="row"> -->
+<!--                         <div class="col-md-6"> -->
+<!--                                 <div class="form-group"> -->
+<!--                                     <label>지역</label> -->
+<!--                                     <div class="styled-select-common"> -->
+<!--                                         <select name="shAreaCD" id="shAreaCD" class="form-select form-select-sm"> -->
+<!--                                            	<option value="">지역</option> -->
+<!--                                            <option -->
+<!-- 												th:each="list : ${@codeService.selectListCachedCode(4)}" -->
+<!-- 												th:value="${list.cdSeq}" th:text="${list.name}" -->
+<!-- 												th:selected="${list.cdSeq} == ${item?.areaCD}"> -->
+<!-- 											</option> -->
+<!--                                         </select> -->
+<!--                                     </div> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             <div class="col-md-6"> -->
+<!--                                 <div class="form-group"> -->
+<!--                                     <label>숙소 이름</label> -->
+<!--                                     <input type="text" class="form-control" id="hotel_name" name="hotel_name" placeholder="숙소 이름"> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                         </div> -->
+                        <!-- End row -->
                         <hr>
-                        <button class="btn_1 green"><i class="icon-search"></i>검색</button>
+                        <button type="button" id="buttonSearch" class="btn_1 green"><i class="icon-search"></i>검색</button>
                     </div>
                     </div>
                     
@@ -450,6 +442,35 @@
 					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
 				}
 			});
+		}
+			
+		</script>
+		
+		<script type="text/javascript">
+		document.getElementById("buttonSignout").onclick = function () {
+// 			alert("qqqqqqqqqq");
+// 			if(validation() == false) return false;
+			
+// 			$.ajax({
+// 				async: true 
+// 				,cache: false
+// 				,type: "post"
+// 				/* ,dataType:"json" */
+// 				,url: "/signoutUsr"
+// 				/* ,data : $("#formLogin").serialize() */
+// 				,data : { "memberID" : $("#memberID").val(), "memberPassword" : $("#memberPassword").val()}
+// 				,success: function(response) {
+// // 					alert("확인");
+// 					if(response.rt == "success") {
+// // 						alert("sssssss");
+// 						location.href = "/usrIndex";
+
+// 					}  
+// 				}
+// 				,error : function(jqXHR, textStatus, errorThrown){
+// 					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+// 				}
+// 			});
 		}
 			
 		</script>

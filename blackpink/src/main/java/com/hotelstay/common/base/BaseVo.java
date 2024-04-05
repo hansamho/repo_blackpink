@@ -1,5 +1,7 @@
 package com.hotelstay.common.base;
 
+import java.util.Date;
+
 import com.hotelstay.common.contents.Constants;
 
 public class BaseVo {
@@ -12,10 +14,33 @@ public class BaseVo {
 	private String shDateEnd;
 	private Integer shOption;									/* null 값을 받아야 되는 경우가 있어서 int 대신 Integer 사용 */
 	private String ShValue;
+	
+	// 체크인,체크아웃
+	private Date shCheckIn;
+	private Date shCheckOut;
+	
+	// 공통코드
 	private String shGenderCD;
+	private String shAreaCD;
 	
-	
+	//paging
+	private int thisPage = 1;				// 현재 페이지
+	private int rowNumToShow = Constants.ROW_NUM_TO_SHOW;		// 화면에 보여줄 데이터 줄 갯수
+	private int pageNumToShow = Constants.PAGE_NUM_TO_SHOW; 	// 화면에 보여줄 페이징 번호 갯수
 
+	private int totalRows;					// 전체 데이터 갯수
+	private int totalPages;				//전체 페이지 번호
+	private int startPage;					// 시작 페이지 번호
+	private int endPage;					// 마지막 페이지 번호
+	
+	private int startRnumForOracle = 1;		// 쿼리 시작 row
+	private int endRnumForOracle;			// 쿼리 끝 row
+	private Integer RNUM;
+	
+	private int startRnumForMysql = 0;		// 쿼리 시작 row
+
+	
+	
 	public Integer getShUseNy() {
 		return shUseNy;
 	}
@@ -81,21 +106,7 @@ public class BaseVo {
 		this.shGenderCD = shGenderCD;
 	}
 	
-//	paging
-	private int thisPage = 1;				// 현재 페이지
-	private int rowNumToShow = Constants.ROW_NUM_TO_SHOW;		// 화면에 보여줄 데이터 줄 갯수
-	private int pageNumToShow = Constants.PAGE_NUM_TO_SHOW; 	// 화면에 보여줄 페이징 번호 갯수
 
-	private int totalRows;					// 전체 데이터 갯수
-	private int totalPages;				//전체 페이지 번호
-	private int startPage;					// 시작 페이지 번호
-	private int endPage;					// 마지막 페이지 번호
-	
-	private int startRnumForOracle = 1;		// 쿼리 시작 row
-	private int endRnumForOracle;			// 쿼리 끝 row
-	private Integer RNUM;
-	
-	private int startRnumForMysql = 0;		// 쿼리 시작 row
 
 	public int getThisPage() {
 		return thisPage;
@@ -186,6 +197,31 @@ public class BaseVo {
 	}
 	
 	
+	public String getShAreaCD() {
+		return shAreaCD;
+	}
+
+	public void setShAreaCD(String shAreaCD) {
+		this.shAreaCD = shAreaCD;
+	}
+	
+	
+	public Date getShCheckIn() {
+		return shCheckIn;
+	}
+
+	public void setShCheckIn(Date shCheckIn) {
+		this.shCheckIn = shCheckIn;
+	}
+
+	public Date getShCheckOut() {
+		return shCheckOut;
+	}
+
+	public void setShCheckOut(Date shCheckOut) {
+		this.shCheckOut = shCheckOut;
+	}
+
 	public void setParamsPaging(int totalRows) {
 		
 //		setThisPage(3);

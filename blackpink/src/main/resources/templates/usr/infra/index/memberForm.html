@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta name="description" content="Citytours - Premium site template for city tours agencies, transfers and tickets.">
+	<meta name="author" content="Ansonika">
+	<title>CITY TOURS - City tours and travel site template by Ansonika</title>
+
+	<!-- Favicons-->
+	<link rel="shortcut icon" href="/usr/assets/img/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" type="image/x-icon" href="/usr/assets/img/apple-touch-icon-57x57-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="/usr/assets/img/apple-touch-icon-72x72-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="/usr/assets/img/apple-touch-icon-114x114-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="/usr/assets/img/apple-touch-icon-144x144-precomposed.png">
+
+    <!-- GOOGLE WEB FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	
+	<!-- COMMON CSS -->
+	<link href="/usr/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/usr/assets/css/style.css" rel="stylesheet">
+	<link href="/usr/assets/css/vendors.css" rel="stylesheet">
+	
+	<!-- SPECIFIC CSS -->
+	<link href="/usr/assets/css/admin.css" rel="stylesheet">
+	
+	<!-- CUSTOM CSS -->
+	<link href="/usr/assets/css/custom.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<div id="preloader">
+		<div class="sk-spinner sk-spinner-wave">
+			<div class="sk-rect1"></div>
+			<div class="sk-rect2"></div>
+			<div class="sk-rect3"></div>
+			<div class="sk-rect4"></div>
+			<div class="sk-rect5"></div>
+		</div>
+	</div>
+	<!-- End Preload -->
+
+	<div class="layer"></div>
+	<!-- Mobile menu overlay mask -->
+
+	<!-- Header================================================== -->
+	<header>
+         <div th:replace="~{usr/infra/include/header :: header}"></div>
+    </header>
+	<!-- End Header -->
+
+	<section class="parallax-window" data-parallax="scroll" data-image-src="/usr/assets/img/admin_top.jpg" data-natural-width="1400" data-natural-height="470">
+		<div class="parallax-content-1 opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.4)">
+			<div class="animated fadeInDown">
+				<h1>마이 페이지</h1>
+				<p></p>
+			</div>
+		</div>
+	</section>
+	<!-- End section -->
+
+	<main>
+	<form method="post">
+		<div id="position">
+			<div class="container">
+				<ul>
+					<li><a href="#">Home</a>
+					</li>
+					<li><a href="#">Category</a>
+					</li>
+					<li>Page active</li>
+				</ul>
+			</div>
+		</div>
+		<!-- End Position -->
+
+		<div class="margin_60 container">
+			<div id="tabs" class="tabs">
+				<nav>
+					<ul>
+						<li><a th:href="@{/memberpage}" class="icon-profile"><span>프로필</span></a>
+						</li>
+					</ul>
+				</nav>
+				<div class="content">
+					<section id="section-4">
+						<div class="divider"></div>
+						<div class="row">
+							<div class="col-md-12">
+								<h4>프로필 수정</h4>
+							</div>
+							<div class="col-md-6">
+							<div class="form-group">
+									<label >이름</label>
+									<input class="form-control" name="memberName" id="memberName" type="text" th:value="${item.memberName}">
+								</div>
+							</div>
+							<div class="col-md-6">
+							</div>
+						</div>
+						<!-- End row -->
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>전화번호</label>
+									<input class="form-control" name="memberPhone" id="memberPhone" type="text" th:value="${item.memberPhone}">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>생년월일 <small>(YYYY/MM/DD)</small>
+									</label>
+									<input class="form-control" name="birthday" id="birthday" type="text" th:value="${item.birthday}">
+								</div>
+							</div>
+						</div>
+						<!-- End row -->
+
+						<hr>
+						<div class="row">
+							<div class="col-md-12">
+								<h4>주소 수정</h4>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>우편번호</label>
+									<input class="form-control" name="codeNumber" id="codeNumber" type="text" th:value="${item.codeNumber}">
+								</div>
+							</div>
+						</div>
+						<!-- End row -->
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>도로명</label>
+									<input class="form-control" name="roadName" id="roadName" type="text" th:value="${item.roadName}">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>상세정보</label>
+									<input class="form-control" name="addrDetail" id="addrDetail" type="text" th:value="${item.addrDetail}">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+							</div>
+						</div>
+						<!-- End row -->
+						
+							<button type="submit" class="btn_1 green" onclick="javascript: form.action='memberUpdate';" >저장</button>
+					</section>
+					<!-- End section 4 -->
+
+					</div>
+					<!-- End content -->
+				</div>
+				<!-- End tabs -->
+			</div>
+			<!-- end container -->
+			</form>
+	</main>
+	<!-- End main -->
+
+	<footer th:replace="~{usr/infra/include/footer :: footer}">
+       
+    </footer><!-- End footer -->
+
+	<div id="toTop"></div><!-- Back to top button -->
+	
+	<!-- Search Menu -->
+	<div class="search-overlay-menu">
+		<span class="search-overlay-close"><i class="icon_set_1_icon-77"></i></span>
+		<form role="search" id="searchform" method="get">
+			<input value="" name="q" type="text" placeholder="Search..." />
+			<button type="submit"><i class="icon_set_1_icon-78"></i>
+			</button>
+		</form>
+	</div><!-- End Search Menu -->
+	
+	<!-- Common scripts -->
+	<script src="/usr/assets/js/jquery-3.7.1.min.js"></script>
+	<script src="/usr/assets/js/common_scripts_min.js"></script>
+	<script src="/usr/assets/js/functions.js"></script>
+
+	<!-- Specific scripts -->
+	<script src="/usr/assets/js/tabs.js"></script>
+	<script>
+		new CBPFWTabs(document.getElementById('tabs'));
+	</script>
+	<script>
+		$('.wishlist_close_admin').on('click', function (c) {
+			$(this).parent().parent().parent().fadeOut('slow', function (c) {});
+		});
+	</script>
+	
+	<script type="text/javascript">
+		document.getElementById("buttonSignout").onclick = function () {
+// 			alert("qqqqqqqqqq");
+// 			if(validation() == false) return false;
+			
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				/* ,dataType:"json" */
+				,url: "/signoutUsr"
+				/* ,data : $("#formLogin").serialize() */
+				,data : { "memberID" : $("#memberID").val(), "memberPassword" : $("#memberPassword").val()}
+				,success: function(response) {
+// 					alert("확인");
+					if(response.rt == "success") {
+// 						alert("sssssss");
+						location.href = "/usrIndex";
+
+					}  
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});
+		}
+			
+		</script>
+</body>
+
+</html>

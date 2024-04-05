@@ -15,6 +15,10 @@
         	<if test="hotelTypeCD != null and !hotelTypeCD.equals('')">AND a.hotelTypeCD = #{hotelTypeCD}</if>
         	<if test="areaCD != null and !areaCD.equals('')">AND a.areaCD = #{areaCD}</if> 
         	
+        	<if test="shCheckIn != null and !shCheckIn.equals('')">AND a.shCheckIn = #{shCheckIn}></if>
+        	<if test="shCheckOut != null and !shCheckOut.equals('')">AND a.shCheckOut = #{shCheckOut}> ></if>
+        	
+        	
 <!--          <if test="shUseNy != null and !shUseNy.equals('')">AND ifcgUseNy = #{shUseNy}</if> -->
 <!--         	<if test="shDelny != null and !shDelny.equals('')">AND a.htDelny = #{shDelny}</if>  -->
         
