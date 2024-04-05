@@ -2,7 +2,6 @@ package com.hotelstay.infra.booking;
 
 import java.util.List;
 
-import com.hotelstay.infra.member.MemberDto;
 
 public interface BookingDao {
 	

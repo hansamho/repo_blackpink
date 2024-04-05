@@ -283,14 +283,13 @@ public class MemberController {
 		return returnMap;
 	}
 	
-//	@RequestMapping(value = "/myPage")
-//	public String memberpage(MemberDto dto, Model model,HttpSession httpSession) throws Exception{
-//		
-//		dto.setMemberSeq((String)httpSession.getAttribute("sessSeqUsr"));
-//		model.addAttribute("item", service.selectOne(dto));
-//		
-//		return "/usr/infra/index/admin"; //
-//	}
+	//  회원가입	
+	@RequestMapping(value = "/register")
+	public String register(MemberDto dto,Model model) throws Exception{
+		
+		return "/usr/infra/index/register";
+	}
+	
 	
 	//암호화
 	

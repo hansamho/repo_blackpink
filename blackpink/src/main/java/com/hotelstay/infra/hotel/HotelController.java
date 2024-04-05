@@ -74,7 +74,6 @@ public class HotelController {
 		if (vo.getTotalRows() > 0) {
 			model.addAttribute("list", service.selectList(vo));
 			
-			
 		}
 		
         return "/usr/infra/index/hotelList";
