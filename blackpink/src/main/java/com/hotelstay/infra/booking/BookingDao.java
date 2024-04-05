@@ -2,6 +2,8 @@ package com.hotelstay.infra.booking;
 
 import java.util.List;
 
+import com.hotelstay.infra.member.MemberDto;
+
 public interface BookingDao {
 	
 	public List<BookingDto> selectMy(BookingDto dto);
@@ -12,4 +14,5 @@ public interface BookingDao {
 	
 	public List<BookingDto> selectUsr(BookingDto dto);
 	
+	public BookingDto memberUpdate(BookingDto dto);
 }

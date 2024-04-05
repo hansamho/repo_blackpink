@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hotelstay.infra.member.MemberDto;
+
 
 
 @Service
@@ -26,5 +28,9 @@ public class BookingService {
 	
 	public List<BookingDto> selectUsr(BookingDto dto){
 		return dao.selectUsr(dto);
+	}
+	
+	public BookingDto memberUpdate(BookingDto dto) {
+		return dao.memberUpdate(dto);
 	}
 }

@@ -13,6 +13,7 @@
     	,a.bkAdult
     	,a.bkChild
     	,a.bkTotalPrice
+    	,format(a.bkTotalPrice,0) as bkTotalPrice
     	,a.member_seq as memberSeqF
     	,b.memberName
     	,b.memberID
@@ -59,4 +60,17 @@
  		WHERE member_seq = #{memberSeqF};
 	
 	</select>
+	
+	<update id="memberUpdate">
+		UPDATE member 
+    	set
+    	memberName = #{memberName}
+    	,birthday = #{birthday}
+    	,memberPhone = #{memberPhone}
+    	,codeNumber = #{codeNumber}
+    	,roadName = #{roadName}
+    	,addrDetail = #{addrDetail}
+    	WHERE memberSeq = #{memberSeq}
+	</update>
+	
 </mapper>
