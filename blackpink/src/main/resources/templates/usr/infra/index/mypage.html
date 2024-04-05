@@ -66,7 +66,7 @@
 	<!-- End section -->
 
 	<main>
-	<form method="get">
+	<form method="post">
 		<div id="position">
 			<div class="container">
 				<ul>
@@ -111,7 +111,7 @@
 								</div>
 								<div class="col-lg-2 col-md-3">
 									<ul class="info_booking">
-										<li><strong>예약완료</strong> [[${#dates.format(list.roomRegDate, 'yyyy-MM-dd ')}]]</li>
+										<li><strong>예약완료</strong> [[${#dates.format(list.roomRegDate, 'yyyy-MM-dd HH:mm:ss')}]]</li>
 										<li><strong>결제 가격</strong> [[${list.bkTotalPrice}]]원</li>
 									</ul>
 								</div>
@@ -130,7 +130,7 @@
 
 					<section id="section-2">
 						<div class="row">
-							<div class="col-lg-4 col-md-6" th:if="${#lists.isEmpty(List)}" th:each="list : ${list}">
+							<div class="col-lg-4 col-md-6" th:if="${#lists.isEmpty(listwish)}" th:each="list : ${listwish}">
 								<div class="hotel_container">
 									<div class="img_container">
 										<a href="single_hotel.html">
@@ -141,12 +141,12 @@
 <!-- 												<span>4.5</span>평점 -->
 											</div>
 											<div class="short_info hotel">
-												<span class="price"><sup>[[${list.roomPrice}]]원</sup></span>
+												<span class="price"><sup>[[${listwish.roomPrice}]]원</sup></span>
 											</div>
 										</a>
 									</div>
 									<div class="hotel_title">
-										<h3><strong th:text="${list.roomName}">객실이름</strong></h3>
+										<h3><strong th:text="${listwish.roomName}">객실이름</strong></h3>
 										<div class="rating">
 											<i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i>
 										</div>
@@ -201,8 +201,11 @@
 						<div class="divider"></div>
 
 						<div class="row">
-							<div class="col-md-12">
+							<div class="col-md-6">
 								<h4>프로필 수정</h4>
+							</div>
+							<div class="col-md-6" align="right">
+								<a th:href="@{/memberForm}">프로필 수정</a>
 							</div>
 							<div class="col-md-6">
 							<div class="form-group">
@@ -266,10 +269,7 @@
 							</div>
 						</div>
 						<!-- End row -->
-
 						
-						
-							<button type="submit" class="btn_1 green">프로필 수정</button>
 					</section>
 					<!-- End section 4 -->
 
