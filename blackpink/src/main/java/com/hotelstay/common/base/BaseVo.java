@@ -19,6 +19,9 @@ public class BaseVo {
 	private Date shCheckIn;
 	private Date shCheckOut;
 	
+	//체크박스 
+	private String[] checkboxSeqArray;
+	
 	// 공통코드
 	private String shGenderCD;
 	private String shAreaCD;
@@ -220,6 +223,16 @@ public class BaseVo {
 
 	public void setShCheckOut(Date shCheckOut) {
 		this.shCheckOut = shCheckOut;
+	}
+
+	
+	
+	public String[] getCheckboxSeqArray() {
+		return checkboxSeqArray;
+	}
+
+	public void setCheckboxSeqArray(String[] checkboxSeqArray) {
+		this.checkboxSeqArray = checkboxSeqArray;
 	}
 
 	public void setParamsPaging(int totalRows) {

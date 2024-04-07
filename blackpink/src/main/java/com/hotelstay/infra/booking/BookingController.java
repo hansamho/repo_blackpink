@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hotelstay.infra.code.CodeDto;
 import com.hotelstay.infra.member.MemberDto;
+import com.hotelstay.infra.member.MemberService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -14,6 +15,8 @@ import jakarta.servlet.http.HttpSession;
 public class BookingController {
 	@Autowired
 	BookingService service;
+	@Autowired
+	MemberService memberService;
 	
 	@RequestMapping(value = "/myPage")
 	public String myPage(BookingDto dto,Model model,HttpSession httpSession) throws Exception{
@@ -39,7 +42,7 @@ public class BookingController {
 	@RequestMapping(value = "/memberUpdate")
 	public String memberUpdate(BookingDto dto,HttpSession httpSession ) throws Exception{
 
-		dto.setMemberSeqF((String)httpSession.getAttribute("sessSeqUsr"));
+		dto.setMemberSeqF((String) httpSession.getAttribute("sessSeqUsr"));
 		service.memberUpdate(dto);
 	
 		return "redirect:/myPage";  //

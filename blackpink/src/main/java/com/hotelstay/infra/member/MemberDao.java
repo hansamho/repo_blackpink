@@ -21,4 +21,7 @@ public interface MemberDao {
 	public int selectOneCount(MemberVo vo);
 	
 	public MemberDto selectLogin(MemberDto dto);
+	
+	public int usrInsert(MemberDto dto);
+	
 }

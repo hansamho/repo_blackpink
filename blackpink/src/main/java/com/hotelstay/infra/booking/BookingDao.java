@@ -13,5 +13,5 @@ public interface BookingDao {
 	
 	public List<BookingDto> selectUsr(BookingDto dto);
 	
-	public BookingDto memberUpdate(BookingDto dto);
+	public int memberUpdate(BookingDto dto);
 }

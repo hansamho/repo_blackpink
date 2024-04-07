@@ -17,6 +17,16 @@ public class MemberDto {
 	private Date mbRegDate;
 	private Date mbUpdate;
 	private Integer mbDelny;
+	private String memberSeqF;
+	
+	
+	
+	public String getMemberSeqF() {
+		return memberSeqF;
+	}
+	public void setMemberSeqF(String memberSeqF) {
+		this.memberSeqF = memberSeqF;
+	}
 	public String getMemberSeq() {
 		return memberSeq;
 	}

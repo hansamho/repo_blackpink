@@ -46,4 +46,8 @@ public class MemberService {
 		return dao.selectLogin(dto);
 	}
 	
+	public int usrInsert(MemberDto dto) {
+		return dao.usrInsert(dto);
+	}
+	
 }

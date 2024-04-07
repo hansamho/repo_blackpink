@@ -30,7 +30,7 @@ public class BookingService {
 		return dao.selectUsr(dto);
 	}
 	
-	public BookingDto memberUpdate(BookingDto dto) {
+	public int memberUpdate(BookingDto dto) {
 		return dao.memberUpdate(dto);
 	}
 }

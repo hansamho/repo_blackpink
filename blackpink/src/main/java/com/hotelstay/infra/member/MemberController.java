@@ -106,8 +106,9 @@ public class MemberController {
 
 	@RequestMapping(value = "/memberUpdt")
 	public String memberUpdt(MemberDto dto) throws Exception{
-
-	service.update(dto);
+	
+		dto.setMemberPassword(encodeBcrypt(dto.getMemberPassword(),10));
+		service.update(dto);
 	
 	return "redirect:/memberAdmList"; //
 	
@@ -291,6 +292,18 @@ public class MemberController {
 	}
 	
 	
+	@RequestMapping(value = "/usrInsert")
+	public String usrInsert(MemberDto dto) throws Exception{
+
+		
+		dto.setMemberPassword(encodeBcrypt(dto.getMemberPassword(),10));
+		
+		
+		service.usrInsert(dto);
+
+	return "redirect:/usrIndex"; //
+	
+	}
 	//암호화
 	
 	public String encodeBcrypt(String planeText, int strength) {

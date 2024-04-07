@@ -6,7 +6,18 @@ public class MemberVo extends BaseVo {
 	
 	
 	private String memberSeq;
+	
+	private String memberSeqF;
+	
+	
 
+	public String getMemberSeqF() {
+		return memberSeqF;
+	}
+
+	public void setMemberSeqF(String memberSeqF) {
+		this.memberSeqF = memberSeqF;
+	}
 
 	public String getMemberSeq() {
 		return memberSeq;
