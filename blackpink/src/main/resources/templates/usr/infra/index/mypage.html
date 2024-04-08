@@ -171,17 +171,17 @@
 								<h4>비밀번호 변경</h4>
 								<div class="form-group">
 									<label>기존 비밀번호</label>
-									<input class="form-control" name="old_password" id="old_password" type="password">
+									<input class="form-control" name="memberPassword" id="memberPassword" type="text">
 								</div>
 								<div class="form-group">
 									<label>변경 비밀번호</label>
-									<input class="form-control" name="new_password" id="new_password" type="password">
+									<input class="form-control" name="newPassword" id="newPassword" type="text">
 								</div>
 								<div class="form-group">
 									<label>변경 비밀번호 확인</label>
-									<input class="form-control" name="confirm_new_password" id="confirm_new_password" type="password">
+									<input class="form-control" name="passwordCheck" id="passwordCheck" type="text">
 								</div>
-								<button type="submit" class="btn_1 green">비밀번호 변경</button>
+								<button type="submit" id="buttonCheck" class="btn_1 green">비밀번호 변경</button>
 							</div>
 							
 						</div>
@@ -343,7 +343,34 @@
 		}
 			
 		</script>
-		
+		<script type="text/javascript">
+		document.getElementById("buttonCheck").onclick = function () {
+// 			alert("qqqqqqqqqq");
+			
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				/* ,dataType:"json" */
+				,url: "/memberPwd"
+				/* ,data : $("#formLogin").serialize() */
+				,data : {"memberPassword" : $("#memberPassword").val()}
+				,success: function(response) {
+// 					alert("확인");
+					if(response.rt == "success") {
+// 						alert("sssssss");
+						location.href = "/myPage";
+					}  else {
+						alert("다시 입력해주세요");
+					}
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});
+		}
+			
+		</script>
 </body>
 
 </html>

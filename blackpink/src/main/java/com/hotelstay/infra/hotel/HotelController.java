@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hotelstay.common.base.BaseVo;
 import com.hotelstay.common.contents.Constants;
@@ -59,6 +60,7 @@ public class HotelController {
 	@RequestMapping(value = "/hotelList")
 	public String hotelList(@ModelAttribute("vo") HotelVo vo, Model model) throws Exception{
 		
+		
 		model.addAttribute("count", service.selectOneCount(vo));
 		
 		vo.setParamsPaging(service.selectOneCount(vo));
@@ -79,5 +81,17 @@ public class HotelController {
         return "/usr/infra/index/hotelList";
   	}
 	
+	@RequestMapping(value = "hotelMultiUele")
+	public String hotelMultiUele(HotelVo vo, HotelDto dto, RedirectAttributes redirectAttributes) throws Exception {
+
+		for (String checkboxSeq : vo.getCheckboxSeqArray()) {
+			dto.setHotelSeq(checkboxSeq);
+			service.selectList(vo); 
+		}
+
+		redirectAttributes.addFlashAttribute("vo", vo);
+
+		return  "/usr/infra/index/hotelList";
+	}
 	
 }

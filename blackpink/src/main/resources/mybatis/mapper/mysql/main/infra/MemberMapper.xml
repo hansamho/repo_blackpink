@@ -156,6 +156,14 @@
     	,addrDetail = #{addrDetail}
     	WHERE memberSeq = #{memberSeqF}
 	</update>
+	
+	<update id="passwordUpdate">
+	UPDATE member
+	SET
+		memberPassword = #{memberPassword}
+	WHERE memberSeq=#{memberSeq}
+	</update>
+	
     
     <update id="updateDelete">
     	

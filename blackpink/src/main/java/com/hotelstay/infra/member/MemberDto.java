@@ -19,8 +19,18 @@ public class MemberDto {
 	private Integer mbDelny;
 	private String memberSeqF;
 	
+	//비밀번호 체크
+	private String checkPassword;
 	
 	
+	
+	
+	public String getCheckPwd() {
+		return checkPwd;
+	}
+	public void setCheckPwd(String checkPwd) {
+		this.checkPwd = checkPwd;
+	}
 	public String getMemberSeqF() {
 		return memberSeqF;
 	}

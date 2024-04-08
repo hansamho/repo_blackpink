@@ -23,6 +23,9 @@ public class RoomDetailDto {
 	/*멤버*/
 	private String memberName;
 	
+	/*호텔*/
+	private String hotelName;
+	
 	/*예약*/
 	private Date bkCheckin;
 	private Date bkCheckout;
@@ -186,6 +189,12 @@ public class RoomDetailDto {
 	}
 	public void setRoomDetail_seq(String roomDetail_seq) {
 		this.roomDetail_seq = roomDetail_seq;
+	}
+	public String getHotelName() {
+		return hotelName;
+	}
+	public void setHotelName(String hotelName) {
+		this.hotelName = hotelName;
 	}
 	
 	

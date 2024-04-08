@@ -230,7 +230,7 @@ public class MemberController {
 	//로그인
 	@ResponseBody
 	@RequestMapping(value = "/signinUsr")
-	public Map<String, Object> signinXdmProc(MemberDto dto, HttpSession httpSession) throws Exception {
+	public Map<String, Object> signinUsr(MemberDto dto, HttpSession httpSession) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		
 		
@@ -276,7 +276,7 @@ public class MemberController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/signoutUsr")
-	public Map<String, Object> signoutXdm(MemberDto dto, HttpSession httpSession) throws Exception {
+	public Map<String, Object> signoutUsr(MemberDto dto, HttpSession httpSession) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		
 		returnMap.put("rt", "success");
@@ -304,6 +304,18 @@ public class MemberController {
 	return "redirect:/usrIndex"; //
 	
 	}
+	
+	//비밀번호 체크
+	@ResponseBody
+	@RequestMapping(value = "/passwordUpdate")
+	public Map<String, Object> passwordUpdate(MemberDto dto, HttpSession httpSession) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+			
+		dto.setMemberSeqF((String)httpSession.getAttribute("sessSeqUsr"));
+		String checkPwd = dto.getMemberPassword();
+		
+		return returnMap;
+		}
 	//암호화
 	
 	public String encodeBcrypt(String planeText, int strength) {

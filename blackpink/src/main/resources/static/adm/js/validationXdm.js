@@ -66,6 +66,12 @@ function checkOnlyKorean (objName, pattern, nullAllowedNy, message) {
 }
 
 
+function checkbirthDay (objName, pattern, nullAllowedNy, message) {
+// checkId = function(obj, value, message) {
+    var regExp = /^[0-9]{8,8}$/;
+    return checkLogic (objName, pattern, nullAllowedNy, message, regExp);
+}
+
 function checkOnlyNumber (objName, pattern, nullAllowedNy, minMaxCheckNy, min, max, message) {
 // checkOnlyNumber = function(obj, value, message) {
     var obj = document.getElementById(objName);

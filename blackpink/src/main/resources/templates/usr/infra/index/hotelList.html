@@ -67,10 +67,10 @@
 						<a class="btn_map" data-bs-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" data-text-swap="Hide map" data-text-original="View on map">위치</a>
 					</p>
 
-					<div id="filters_col">
+					<div id="filters_col" >
 						<a data-bs-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters" id="filters_col_bt"><i class="icon_set_1_icon-65"></i>필터</a>
 						<div class="collapse show" id="collapseFilters">
-							<div class="filter_type">
+							<div class="filter_type">chec
 								<h6>가격</h6>
 								<input type="text" id="range" name="range" value="">
 							</div>
@@ -127,22 +127,34 @@
 							<div class="filter_type">
 								<h6>숙소 유형</h6>
 								<ul>
-									<li>
-										<input id="hotel" type="radio"  value="hotel" name="ss">
-										<label for="form-label">호텔</label>
-									</li>
+									 <li>
+                                        <label class="container_check">
+                                             호텔
+                                             <input type="hidden" name="checkboxSeqArray">
+                                            <input type="checkbox" name="checkboxSeq" id="">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </li>
 								</ul>
 								<ul>
 									<li>
-										<input id="pension" type="radio"  value="pension" name="ss">
-										<label for="form-label">펜션</label>
+										 <li>
+                                        <label class="container_check">
+                                             펜션
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </li>
 									</li>
 								</ul>
 								<ul>
-									<li>
-										<input id="motel" type="radio"  value="motel" name="ss">
-										<label for="form-label">모텔</label>
-									</li>
+									 <li>
+                                        <label class="container_check">
+                                             모텔
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </li>
 								</ul>
 							</div>
 							<div class="filter_type">
@@ -249,13 +261,9 @@
 
 					<div id="tools">
 						<div class="row justify-content-between">
-								<div class="col-1 gy-2" align="right">
-									<select class="form-select form-select-sm" id="rowNumToShow" name="rowNumToShow"
-											th:onchange = "javascript : goList(1)">
-										<option value="5" th:selected="${vo.rowNumToShow == 5}">5</option>
-										<option value="10" th:selected="${vo.rowNumToShow == 10}">10</option>
-										<option value="20" th:selected="${vo.rowNumToShow == 20}">20</option>
-									</select>								
+								<div class="col gx-5">
+									<strong>Total :</strong> 
+									<label class="form-label" th:text="${count}"></label>
 								</div>
 							
 							<div class="col-md-6 col-sm-4 d-none d-sm-block text-end">
@@ -269,7 +277,7 @@
 						<div class="row" >
 							<div class="col-lg-4 col-md-4 position-relative" >
 								<div class="wishlist">
-									<a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span class="tooltip-back">찜 목록 추가</span></span></a>
+									<a class="tooltip_flip tooltip-effect-1" th:href="@{/myPage}">+<span class="tooltip-content-flip"><span class="tooltip-back">찜 목록 추가</span></span></a>
 								</div>
 								<div class="img_list">
 									<a th:href="@{/roomDetail}"><img src="/usr/assets/img/hotel_1.jpg" alt="Image">
@@ -280,6 +288,7 @@
 							<div class="col-lg-6 col-md-6">
 								<div class="tour_list_desc">
 									<!-- 호텔 평점 -->
+									<span class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class=" icon-star-empty"></i></span>
 									<div class="score">평점<span th:text="${list.roomTotalRating}"></span>
 									</div>
 <!-- 									<div class="rating" th:text="${list.hotelRating}"><i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i> -->
@@ -307,7 +316,7 @@
 							</div>
 							<div class="col-lg-2 col-md-2">
 								<div class="price_list">
-									<div><sup th:text="${list.roomPrice}">245,000원</sup><span class="normal_price_list"></span><small></small>
+									<div><sup >[[${list.roomPrice}]] 원</sup><span class="normal_price_list"></span><small></small>
 										<p><a th:href="@{/roomDetail(roomSeq=${list.roomSeq})}" class="btn_1">상세정보</a>
 										</p>
 									</div>
@@ -393,7 +402,7 @@
 // 		goList = function (thisPage) {
 // 		    document.querySelector("input[name=thisPage]").value = thisPage;
 // 		    if(thisPage == goUrlUsrList){
-// 		    	form.action = goUrlUsrList;
+// 		    	form.action = goUrlUsrList
 // 		    } 
 		    
 		   
@@ -441,6 +450,19 @@
 			});
 		}
 			
+		</script>
+		
+		<script type="text/javascript">
+		document.getElementById("checkboxSeq").click = function () {
+		    let checkBoxArr = document.querySelectorAll("input[name='checkboxSeq']:checked");
+
+		    for (let i = 0; i < checkBoxArr.length; i++) {
+		        if (checkBoxArr[i].checked) checkboxSeqArray.push(checkBoxArr[i].value);
+		    }
+		    document.querySelector("input[name='checkboxSeqArray']").value = checkboxSeqArray;
+		    form.action = goUrlXdmMultiDele;
+		    form.submit();
+		}
 		</script>
 </body>
 

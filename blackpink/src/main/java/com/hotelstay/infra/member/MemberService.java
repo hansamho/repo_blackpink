@@ -50,4 +50,7 @@ public class MemberService {
 		return dao.usrInsert(dto);
 	}
 	
+	public int passwordUpdate(MemberDto dto) {
+		return dao.passwordUpdate(dto);
+	}
 }
