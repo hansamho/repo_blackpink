@@ -308,14 +308,38 @@ public class MemberController {
 	//비밀번호 체크
 	@ResponseBody
 	@RequestMapping(value = "/passwordUpdate")
-	public Map<String, Object> passwordUpdate(MemberDto dto, HttpSession httpSession) throws Exception {
-		Map<String, Object> returnMap = new HashMap<String, Object>();
+	public Map<String, Object> passwordUpdate(MemberDto dto, HttpSession httpSession,Model model) throws Exception {
+			Map<String, Object> returnMap = new HashMap<String, Object>();
 			
-		dto.setMemberSeqF((String)httpSession.getAttribute("sessSeqUsr"));
-		String checkPwd = dto.getMemberPassword();
-		
-		return returnMap;
-		}
+			dto.setMemberSeqF((String)httpSession.getAttribute("sessSeqUsr"));
+			
+			MemberDto rtPwd = service.pwdcheck(dto);
+			
+			System.out.println(rtPwd+"@@@@@@@@@@@@@@@@@");
+			
+			if(rtPwd != null) {
+			System.out.println("aaaaaaaaaaaaaaaaaaaa");
+			if(matchesBcrypt(dto.getChangePwd(), rtPwd.getMemberPassword(),10) )  {
+				System.out.println("bbbbbbbbbbbbbbbbb");
+				if(dto.getChangePwd().equals(dto.getCheckPwd()) ) {
+					System.out.println(dto.getMemberPassword()+"ddddd");
+					dto.setChangePwd(encodeBcrypt(dto.getChangePwd(), 10));
+					service.passwordUpdate(dto);
+					returnMap.put("rt", "success");
+				} else {
+					returnMap.put("rt", "fail");
+				}
+				
+			} else {
+				returnMap.put("rt", "fail");
+				}
+			} else {
+				returnMap.put("rt", "fail");
+			}
+	
+			return returnMap;
+
+	}
 	//암호화
 	
 	public String encodeBcrypt(String planeText, int strength) {

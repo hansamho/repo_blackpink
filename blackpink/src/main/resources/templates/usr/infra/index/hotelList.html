@@ -316,7 +316,7 @@
 							</div>
 							<div class="col-lg-2 col-md-2">
 								<div class="price_list">
-									<div><sup >[[${list.roomPrice}]] 원</sup><span class="normal_price_list"></span><small></small>
+									<div><sup th:text="${#numbers.formatInteger(list.roomPrice,1,'COMMA')} + '원'" ></sup><span class="normal_price_list"></span><small></small>
 										<p><a th:href="@{/roomDetail(roomSeq=${list.roomSeq})}" class="btn_1">상세정보</a>
 										</p>
 									</div>
@@ -377,37 +377,7 @@
 	<script src="/usr/assets/js/infobox.js"></script>
 	
 	<script> 
-// 	let goUrlHotel ="[[@{/hotelList(hotelTypeCD=6)}]]"; 
-// 	let goUrlPension ="[[@{/hotelList(hotelTypeCD=7)}]]";	
-// 	let goUrlMotel ="[[@{/hotelList(hotelTypeCD=8)}]]";
-// 	let goUrlJeju = "[[@{/hotelList(areaCD=9)}]]";
-// 	goList = function (thisPage) {
-		
-// 	    document.querySelector("input[name=thisPage]").value = thisPage;
-// 	    if(thisPage == goUrlHotel) {
-// 			form.action = goUrlHotel;
-//  		}  else if(thisPage == goUrlPension){
-// 			form.action = goUrlPension;
-// 		} else if(thisPage == goUrlMotel){
-// 			form.action = goUrlMotel;
-// 		} else if(thisPage == goUrlJeju){
-// 			form.action = goUrlJeju;
-// 		}
-	    
-// 	    form.submit();
-// 	}
 
-// 		let goUrlUsrList = "[[@{/hotelList(hotelTypeCD=6)}]]";
-// 		let goUrlUserList = "/hotelList"
-// 		goList = function (thisPage) {
-// 		    document.querySelector("input[name=thisPage]").value = thisPage;
-// 		    if(thisPage == goUrlUsrList){
-// 		    	form.action = goUrlUsrList
-// 		    } 
-		    
-		   
-// 		    form.submit();
-// 		}
 		
 		let goUrlUsrHotel = "[[@{/hotelList(HotelTypeCD=${vo.HotelTypeCD})}]]";
 		

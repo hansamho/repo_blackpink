@@ -70,7 +70,7 @@
             ,a.mbDelny
          FROM member a
         WHERE 1=1
-        AND a.memberSeq = #{memberSeqF}
+        AND a.memberSeq = #{memberSeq}
         ORDER BY a.memberSeq DESC
     </select>
     
@@ -157,13 +157,23 @@
     	WHERE memberSeq = #{memberSeqF}
 	</update>
 	
+	<!-- 비밀번호 변경-->
 	<update id="passwordUpdate">
 	UPDATE member
 	SET
 		memberPassword = #{memberPassword}
-	WHERE memberSeq=#{memberSeq}
+	WHERE memberSeq=#{memberSeqF}
 	</update>
 	
+	<select id="pwdcheck" resultMap="resultMapObj">
+		SELECT 
+		 	memberID
+		 	,memberPassword
+		FROM member 
+		WHERE 1=1
+		AND memberSeq=#{memberSeqF} 
+	</select>
+   
     
     <update id="updateDelete">
     	

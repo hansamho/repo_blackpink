@@ -25,4 +25,6 @@ public interface MemberDao {
 	public int usrInsert(MemberDto dto);
 	
 	public int passwordUpdate(MemberDto dto);
+	
+	public MemberDto pwdcheck(MemberDto dto);
 }

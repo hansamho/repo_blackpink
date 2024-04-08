@@ -112,7 +112,7 @@
 								<div class="col-lg-2 col-md-3">
 									<ul class="info_booking">
 										<li><strong>예약완료</strong> [[${#dates.format(list.roomRegDate, 'yyyy-MM-dd HH:mm:ss')}]]</li>
-										<li><strong>결제 가격</strong> [[${list.bkTotalPrice}]]원</li>
+										<li><strong>결제 가격</strong> [[${#numbers.formatInteger(list.bkTotalPrice,1,"COMMA")}]]원</li>
 									</ul>
 								</div>
 								<div class="col-lg-2 col-md-2">
@@ -171,17 +171,17 @@
 								<h4>비밀번호 변경</h4>
 								<div class="form-group">
 									<label>기존 비밀번호</label>
-									<input class="form-control" name="memberPassword" id="memberPassword" type="text">
+									<input class="form-control" name="memberPassword" id="memberPassword" type="password">
 								</div>
 								<div class="form-group">
 									<label>변경 비밀번호</label>
-									<input class="form-control" name="newPassword" id="newPassword" type="text">
+									<input class="form-control" name="changePwd" id="changePwd" type="password">
 								</div>
 								<div class="form-group">
 									<label>변경 비밀번호 확인</label>
-									<input class="form-control" name="passwordCheck" id="passwordCheck" type="text">
+									<input class="form-control" name="checkPwd" id="checkPwd" type="password">
 								</div>
-								<button type="submit" id="buttonCheck" class="btn_1 green">비밀번호 변경</button>
+								<button type="button" id="buttonCheck" class="btn_1 green">비밀번호 변경</button>
 							</div>
 							
 						</div>
@@ -347,21 +347,22 @@
 		document.getElementById("buttonCheck").onclick = function () {
 // 			alert("qqqqqqqqqq");
 			
-			$.ajax({
+	
+		$.ajax({
 				async: true 
 				,cache: false
 				,type: "post"
 				/* ,dataType:"json" */
-				,url: "/memberPwd"
+				,url: "/passwordUpdate"
 				/* ,data : $("#formLogin").serialize() */
-				,data : {"memberPassword" : $("#memberPassword").val()}
+				,data : {"memberPassword" : $("#memberPassword").val(), "changePwd" : $("#changePwd").val(), "checkPwd" : $("#checkPwd").val()}
 				,success: function(response) {
-// 					alert("확인");
+					alert("wefwef");
 					if(response.rt == "success") {
-// 						alert("sssssss");
+						alert("aaaaaaa");
 						location.href = "/myPage";
-					}  else {
-						alert("다시 입력해주세요");
+					}else {
+							alert("비밀번호가 틀렸습니다");
 					}
 				}
 				,error : function(jqXHR, textStatus, errorThrown){
@@ -371,6 +372,8 @@
 		}
 			
 		</script>
+		
+		
 </body>
 
 </html>

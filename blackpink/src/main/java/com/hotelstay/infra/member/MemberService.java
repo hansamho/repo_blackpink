@@ -53,4 +53,8 @@ public class MemberService {
 	public int passwordUpdate(MemberDto dto) {
 		return dao.passwordUpdate(dto);
 	}
+	
+	public MemberDto pwdcheck(MemberDto dto) {
+		return dao.pwdcheck(dto);
+	}
 }

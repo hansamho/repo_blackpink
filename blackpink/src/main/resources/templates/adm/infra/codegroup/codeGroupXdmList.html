@@ -295,7 +295,11 @@
 		let form = document.querySelector("form[name=formList]");
 		let seq = document.querySelector("input[name=cgSeq]");									/* ### */
 		
-		
+		goList = function (thisPage) {
+		    document.querySelector("input[name=thisPage]").value = thisPage;
+		    form.action = goUrlXdmList;
+		    form.submit();
+		}
 		
 		
 		document.getElementById("btnReset").onclick = function () {

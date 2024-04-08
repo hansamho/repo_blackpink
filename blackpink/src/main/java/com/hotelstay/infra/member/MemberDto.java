@@ -20,9 +20,9 @@ public class MemberDto {
 	private String memberSeqF;
 	
 	//비밀번호 체크
-	private String checkPassword;
-	
-	
+	private String checkPwd;
+	//변경 할 비밀번호 입력
+	private String changePwd;
 	
 	
 	public String getCheckPwd() {
@@ -30,6 +30,12 @@ public class MemberDto {
 	}
 	public void setCheckPwd(String checkPwd) {
 		this.checkPwd = checkPwd;
+	}
+	public String getChangePwd() {
+		return changePwd;
+	}
+	public void setChangePwd(String changePwd) {
+		this.changePwd = changePwd;
 	}
 	public String getMemberSeqF() {
 		return memberSeqF;
