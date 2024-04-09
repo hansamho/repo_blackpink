@@ -22,7 +22,7 @@ public class BookingService {
 		return dao.selectOne(dto);
 	}
 	
-	public List<BookingDto> selectWish(BookingDto dto){
+	public BookingDto selectWish(BookingDto dto){
 		return dao.selectWish(dto);
 	}
 	

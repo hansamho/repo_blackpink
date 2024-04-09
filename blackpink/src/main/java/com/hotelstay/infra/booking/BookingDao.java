@@ -9,7 +9,7 @@ public interface BookingDao {
 	
 	public BookingDto selectOne(BookingDto dto);
 	
-	public List<BookingDto> selectWish(BookingDto dto);
+	public BookingDto selectWish(BookingDto dto);
 	
 	public List<BookingDto> selectUsr(BookingDto dto);
 	

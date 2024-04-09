@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.hotelstay.common.contents.Constants;
 import com.hotelstay.common.util.UtilDateTime;
 import com.hotelstay.infra.codegroup.CodeGroupService;
+import com.hotelstay.infra.hotel.HotelDto;
+import com.hotelstay.infra.hotel.HotelService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -28,6 +30,10 @@ public class MemberController {
 	
 	@Autowired
 	CodeGroupService codeGroupService;
+	
+	@Autowired
+	HotelService hotelService;
+	
 	public void setSearch(MemberVo vo) throws Exception {
 		/* 최초 화면 로딩시에 세팅은 문제가 없지만 */
 		/*이후 전체적으로 데이터를 조회를 하려면 null 값이 넘어 오는 관계로 문제가 전체 데이터 조회가 되지 못한다.*/
@@ -219,11 +225,13 @@ public class MemberController {
 		return "/usr/infra/index/usrlogin";
 	}
 	
-	
 	@RequestMapping(value = "/usrIndex")
-	public String usrIndex(MemberDto dto, Model model) throws Exception{
+	public String usrIndex(HotelDto dto,MemberDto mdto, Model model) throws Exception{
+		
 		
 		model.addAttribute("listCodeGroup",codeGroupService.selectListWithoutPaging());
+		model.addAttribute("item", hotelService.selectOne(dto));
+		
 		return "/usr/infra/index/usrindex";
 	}
 	

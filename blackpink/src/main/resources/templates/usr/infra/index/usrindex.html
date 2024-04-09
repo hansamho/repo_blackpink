@@ -70,31 +70,6 @@
                             </div>
                             
                         </div>
-                        <!-- End row -->
-<!--                         <div class="row"> -->
-<!--                         <div class="col-md-6"> -->
-<!--                                 <div class="form-group"> -->
-<!--                                     <label>지역</label> -->
-<!--                                     <div class="styled-select-common"> -->
-<!--                                         <select name="shAreaCD" id="shAreaCD" class="form-select form-select-sm"> -->
-<!--                                            	<option value="">지역</option> -->
-<!--                                            <option -->
-<!-- 												th:each="list : ${@codeService.selectListCachedCode(4)}" -->
-<!-- 												th:value="${list.cdSeq}" th:text="${list.name}" -->
-<!-- 												th:selected="${list.cdSeq} == ${item?.areaCD}"> -->
-<!-- 											</option> -->
-<!--                                         </select> -->
-<!--                                     </div> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                             <div class="col-md-6"> -->
-<!--                                 <div class="form-group"> -->
-<!--                                     <label>숙소 이름</label> -->
-<!--                                     <input type="text" class="form-control" id="hotel_name" name="hotel_name" placeholder="숙소 이름"> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                         </div> -->
-                        <!-- End row -->
                         <hr>
                         <button type="button" id="buttonSearch" class="btn_1 green"><i class="icon-search"></i>검색</button>
                     </div>
@@ -117,7 +92,7 @@
                     <div class="tour_container">
                         <div class="ribbon_3 popular"><span>인기</span></div>
                         <div class="img_container">
-                            <a href="all_hotels_list.html">
+                            <a th:href="@{/hotelList(areaCD=9)}">
                                 <img src="/usr/assets/img/tour_box_1.jpg" width="800" height="533" class="img-fluid" alt="image">
                                
                             </a>
@@ -133,7 +108,7 @@
                     <div class="tour_container">
                         <div class="ribbon_3 popular"><span>인기</span></div>
                         <div class="img_container">
-                            <a href="all_hotels_list.html">
+                            <a th:href="@{/hotelList(areaCD=10)}">
                                 <img src="/usr/assets/img/tour_box_2.jpg" width="800" height="533" class="img-fluid" alt="image">
                                 
                             </a>
@@ -149,7 +124,7 @@
                     <div class="tour_container">
                         <div class="ribbon_3 popular"><span>인기</span></div>
                         <div class="img_container">
-                            <a href="all_hotels_list.html">
+                            <a th:href="@{/hotelList(areaCD=11)}">
                                 <img src="/usr/assets/img/tour_box_3.jpg" width="800" height="533" class="img-fluid" alt="image">
                                 
                                 
@@ -166,7 +141,7 @@
                     <div class="tour_container">
                         <div class="ribbon_3 popular"><span>인기</span></div>
                         <div class="img_container">
-                            <a href="all_hotels_list.html">
+                            <a th:href="@{/hotelList(areaCD=12)}">
                                 <img src="/usr/assets/img/tour_box_4.jpg" width="800" height="533" class="img-fluid" alt="image">
                                
                                
@@ -184,7 +159,7 @@
                     <div class="tour_container">
                         <div class="ribbon_3 popular"><span>인기</span></div>
                         <div class="img_container">
-                            <a href="all_hotels_list.html">
+                            <a th:href="@{/hotelList(areaCD=13)}">
                                 <img src="/usr/assets/img/tour_box_14.jpg" width="800" height="533" class="img-fluid" alt="image">                                
                             </a>
                         </div>
@@ -208,13 +183,13 @@
 				<h2>인기 <span>추천</span> 숙소</h2>
 				<p></p>
 			</div>
-
+	
             <div class="owl-carousel owl-theme list_carousel add_bottom_30">
                 <div class="item">
                     <div class="hotel_container">
                         <div class="ribbon_3 "><span>추천</span></div>
                         <div class="img_container">
-                            <a href="single_hotel.html">
+                            <a >
                                 <img src="/usr/assets/img/hotel_1.jpg" width="800" height="533" class="img-fluid" alt="image">
                                 <div class="score"><span>4.5</span>평점</div>
                                 <div class="short_info hotel">
@@ -223,7 +198,7 @@
                             </a>
                         </div>
                         <div class="hotel_title">
-                            <h3><strong>제주도</strong>호텔</h3>
+                            <h3 ><strong>제주도</strong>호텔</h3>
                             <div class="rating">
                                 <i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i>
                             </div>

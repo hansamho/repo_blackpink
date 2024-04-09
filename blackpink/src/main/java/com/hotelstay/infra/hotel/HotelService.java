@@ -21,4 +21,7 @@ public class HotelService {
 		return dao.selectOneCount(vo);
 	}
 	
+	public HotelDto selectOne(HotelDto dto) {
+		return dao.selectOne(dto);
+	}
 }

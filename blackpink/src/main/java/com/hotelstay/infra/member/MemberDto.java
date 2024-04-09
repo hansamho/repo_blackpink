@@ -24,7 +24,39 @@ public class MemberDto {
 	//변경 할 비밀번호 입력
 	private String changePwd;
 	
+	// 호텔,객실가격,평점
+	private String hotelSeq;
+	private String hotelName;
+	private int roomPrice;
+	private double roomTotalRating;
 	
+	
+	
+	
+	public String getHotelSeq() {
+		return hotelSeq;
+	}
+	public void setHotelSeq(String hotelSeq) {
+		this.hotelSeq = hotelSeq;
+	}
+	public String getHotelName() {
+		return hotelName;
+	}
+	public void setHotelName(String hotelName) {
+		this.hotelName = hotelName;
+	}
+	public int getRoomPrice() {
+		return roomPrice;
+	}
+	public void setRoomPrice(int roomPrice) {
+		this.roomPrice = roomPrice;
+	}
+	public double getRoomTotalRating() {
+		return roomTotalRating;
+	}
+	public void setRoomTotalRating(double roomTotalRating) {
+		this.roomTotalRating = roomTotalRating;
+	}
 	public String getCheckPwd() {
 		return checkPwd;
 	}

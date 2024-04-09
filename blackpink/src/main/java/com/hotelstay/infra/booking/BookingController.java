@@ -26,7 +26,7 @@ public class BookingController {
 		dto.setMemberSeqF((String)httpSession.getAttribute("sessSeqUsr"));
 		model.addAttribute("list", service.selectMy(dto));
 		model.addAttribute("item", service.selectOne(dto));
-		model.addAttribute("listwish", service.selectWish(dto));
+		model.addAttribute("wish", service.selectWish(dto));
 		return "/usr/infra/index/mypage";
   	}
 	

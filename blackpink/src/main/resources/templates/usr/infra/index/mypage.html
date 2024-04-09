@@ -130,7 +130,7 @@
 
 					<section id="section-2">
 						<div class="row">
-							<div class="col-lg-4 col-md-6" th:if="${#lists.isEmpty(listwish)}" th:each="listwish : ${listwish}">
+							<div class="col-lg-4 col-md-6">
 								<div class="hotel_container">
 									<div class="img_container">
 										<a href="single_hotel.html">
@@ -141,12 +141,12 @@
 <!-- 												<span>4.5</span>평점 -->
 											</div>
 											<div class="short_info hotel">
-												<span class="price"><sup>[[${listwish.roomPrice}]]원</sup></span>
+												<span class="price"><sup th:text="${#numbers.formatInteger(item.roomPrice,1,'COMMA')} + '원'"></sup></span>
 											</div>
 										</a>
 									</div>
 									<div class="hotel_title">
-										<h3><strong th:text="${listwish.roomName}">객실이름</strong></h3>
+										<h3><strong th:text="${wish.roomName}">객실이름</strong></h3>
 										<div class="rating">
 											<i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i>
 										</div>

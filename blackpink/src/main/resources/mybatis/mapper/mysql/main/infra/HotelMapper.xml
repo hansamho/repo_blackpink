@@ -73,7 +73,9 @@
             ,a.htUpdate
             ,a.htDelny
             ,a.wishlist_seq
+            ,b.roomPrice
          FROM hotellist a
+         LEFT JOIN roomdetail b on a.hotelSeq = b.roomSeq
         WHERE 1=1
         AND a.hotelSeq = #{hotelSeq}
         ORDER BY a.hotelSeq DESC
