@@ -315,30 +315,21 @@ public class MemberController {
 			
 			MemberDto rtPwd = service.pwdcheck(dto);
 			
-			System.out.println(rtPwd+"@@@@@@@@@@@@@@@@@");
+//			System.out.println(rtPwd+"@@@@@@@@@@@@@@@@@");
 			
 			if(rtPwd != null) {
-			System.out.println("aaaaaaaaaaaaaaaaaaaa");
-			if(matchesBcrypt(dto.getChangePwd(), rtPwd.getMemberPassword(),10) )  {
-				System.out.println("bbbbbbbbbbbbbbbbb");
-				if(dto.getChangePwd().equals(dto.getCheckPwd()) ) {
-					System.out.println(dto.getMemberPassword()+"ddddd");
-					dto.setChangePwd(encodeBcrypt(dto.getChangePwd(), 10));
-					service.passwordUpdate(dto);
-					returnMap.put("rt", "success");
-				} else {
-					returnMap.put("rt", "fail");
-				}
-				
+			System.out.println("dto.getChangePwd()"+dto.getChangePwd());
+			
+			if(dto.getChangePwd().equals(dto.getCheckPwd())) {
+				dto.setMemberPassword(encodeBcrypt(dto.getChangePwd(),10));
+				service.passwordUpdate(dto);
+				returnMap.put("rt", "success") ;
 			} else {
 				returnMap.put("rt", "fail");
-				}
-			} else {
-				returnMap.put("rt", "fail");
+			} 
+			
 			}
-	
-			return returnMap;
-
+			return returnMap ;
 	}
 	//암호화
 	

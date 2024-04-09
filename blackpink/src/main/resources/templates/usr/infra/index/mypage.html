@@ -130,7 +130,7 @@
 
 					<section id="section-2">
 						<div class="row">
-							<div class="col-lg-4 col-md-6" th:if="${#lists.isEmpty(listwish)}" th:each="list : ${listwish}">
+							<div class="col-lg-4 col-md-6" th:if="${#lists.isEmpty(listwish)}" th:each="listwish : ${listwish}">
 								<div class="hotel_container">
 									<div class="img_container">
 										<a href="single_hotel.html">
@@ -359,7 +359,7 @@
 				,success: function(response) {
 					alert("wefwef");
 					if(response.rt == "success") {
-						alert("aaaaaaa");
+						alert("변경 비밀번호가 일치합니다.");
 						location.href = "/myPage";
 					}else {
 							alert("비밀번호가 틀렸습니다");

@@ -38,7 +38,7 @@
 					</div>
 					<div class="col-md-4">
 						<div id="price_single_main" class="hotel">
-							from/per night <span><sup>$</sup>95</span>
+						 <span><sup>가격 : [[${#numbers.formatInteger(item.roomPrice,1,"COMMA")}]]원</sup></span>
 						</div>
 					</div>
 				</div>
@@ -138,20 +138,18 @@
 
 					<div class="row">
 						<div class="col-lg-3">
-							<h3>숙소 소개</h3>
+							<h3>객실 소개</h3>
 						</div>
 						<div class="col-lg-9">
-							<p>
-								숙소에 대한 소개.....
+							<p th:text="${item.roomContent}">
 							</p>
-							<h4>숙소 이용 정보</h4>
+							<h4>객실 이용 정보</h4>
 							<p>
-								
 							</p>
 							<div class="row">
 								<div class="col-md-6">
 									<ul class="list_ok">
-										<li>체크인 : 16:00 | 체크아웃 : 11:00</li>
+										<li th:text="${item.roominfo}">체크인 : 16:00 | 체크아웃 : 11:00</li>
 										<li>무료 와이파이</li>
 										<li>실내 흡연 금지</li>
 										<li>치약 칫솔 미제공</li>
