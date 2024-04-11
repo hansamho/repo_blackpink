@@ -149,11 +149,7 @@
 							<div class="row">
 								<div class="col-md-6">
 									<ul class="list_ok">
-										<li th:text="${item.roominfo}">체크인 : 16:00 | 체크아웃 : 11:00</li>
-										<li>무료 와이파이</li>
-										<li>실내 흡연 금지</li>
-										<li>치약 칫솔 미제공</li>
-										
+										<li th:utext="${item.roominfo != null ? item.roominfo.replaceAll('\n','<br>') : ''}"></li>
 									</ul>
 								</div>
 								
@@ -171,10 +167,8 @@
 							<h3>객실 유형</h3>
 						</div>
 						<div class="col-lg-9">
-							<h4>싱글 룸</h4>
-							<p>
-								싱글 베드 2개
-							</p>
+							<h4 th:if="${item.roomTypeCD!= null}"th:text="${@codeService.selectOneCachedCode(16)}"class="roomTypeCD align-middle"></h4>
+							<h4  th:unless="${item.roomTypeCD != null}"class="roomTypeCD align-middle">></h4>
 
 							<div class="row">
 								<p>객실 내 시설</p>
@@ -217,10 +211,8 @@
 
 							<hr>
 
-							<h4>더블 룸</h4>
-							<p>
-								더블 베드 1개
-							</p>
+							<h4 th:if="${item.roomTypeCD!= null}"th:text="${@codeService.selectOneCachedCode(17)}"class="roomTypeCD align-middle"></h4>
+							<h4  th:unless="${item.roomTypeCD != null}"class="roomTypeCD align-middle">></h4>
 
 							<div class="row">
 								<p>객실 내 시설</p>
@@ -260,6 +252,49 @@
 								</div>
 							</div>
 							<!-- End photo carousel  -->
+							
+							<hr>
+							
+							<h4 th:if="${item.roomTypeCD!= null}"th:text="${@codeService.selectOneCachedCode(18)}"class="roomTypeCD align-middle"></h4>
+							<h4  th:unless="${item.roomTypeCD != null}"class="roomTypeCD align-middle">></h4>
+
+							<div class="row">
+								<p>객실 내 시설</p>
+								<div class="col-md-6">
+									<ul class="list_icons">
+										<li><i class="icon_set_1_icon-86"></i> 와이파이</li>
+										<li><i class="icon_set_2_icon-116"></i> TV</li>
+										<li><i class=" icon-air"></i>에어컨</li>
+									</ul>
+								</div>
+								<div class="col-md-6">
+									<ul class="list_icons">
+										<li><i class="icon_set_2_icon-110"></i>수영장</li>
+										<li><i class="icon_set_2_icon-103"></i>욕실용품</li>
+										<li><i class=" icon_set_2_icon-111"></i>욕조</li>
+										
+									</ul>
+								</div>
+							</div>
+							<!-- End row  -->
+							<div class="owl-carousel owl-theme carousel-thumbs-2 magnific-gallery">
+								<div class="item">
+									<a href="/usr/assets/img/carousel/1.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/1.jpg" alt="Image">
+									</a>
+								</div>
+								<div class="item">
+									<a href="/usr/assets/img/carousel/2.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/2.jpg" alt="Image">
+									</a>
+								</div>
+								<div class="item">
+									<a href="/usr/assets/img/carousel/3.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/3.jpg" alt="Image">
+									</a>
+								</div>
+								<div class="item">
+									<a href="/usr/assets/img/carousel/4.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/4.jpg" alt="Image">
+									</a>
+								</div>
+							</div>
 						</div>
 						<!-- End col-md-9  -->
 					</div>

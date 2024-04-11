@@ -323,10 +323,8 @@ public class MemberController {
 			
 			MemberDto rtPwd = service.pwdcheck(dto);
 			
-//			System.out.println(rtPwd+"@@@@@@@@@@@@@@@@@");
 			
 			if(rtPwd != null) {
-			System.out.println("dto.getChangePwd()"+dto.getChangePwd());
 			
 			if(dto.getChangePwd().equals(dto.getCheckPwd())) {
 				dto.setMemberPassword(encodeBcrypt(dto.getChangePwd(),10));
