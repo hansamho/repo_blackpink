@@ -33,7 +33,7 @@
 				<div class="row">
 					<div class="col-md-8">
 						<span class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class=" icon-star-empty"></i></span>
-						<h1 th:text="${item.hotelName}"></h1>
+						<h1 th:text="${item.roomName}"></h1>
 						<span></span>
 					</div>
 					<div class="col-md-4">
@@ -71,13 +71,12 @@
 				<div class="col-lg-8" id="single_tour_desc">
 					<div id="single_tour_feat">
 						<ul>
-							
-							<li><i class="icon_set_2_icon-116"></i>TV</li>
-							<li><i class="icon_set_1_icon-86"></i>와이파이</li>
-							<li><i class="icon_set_2_icon-110"></i>수영장</li>
-							<li><i class="icon_set_2_icon-103"></i>욕실용품</li>
-							<li><i class=" icon_set_2_icon-111"></i>욕조</li>
-							<li><i class=" icon-air"></i>에어컨</li>
+							<li th:value="${item.tvNy}"><i class="icon_set_2_icon-116"></i>TV</li>
+							<li th:value="${item.wifiNy}"><i class="icon_set_1_icon-86"></i>와이파이</li>
+							<li th:value="${item.poolNy}"><i class="icon_set_2_icon-110"></i>수영장</li>
+							<li th:value="${item.bathSuppliesNy}"><i class="icon_set_2_icon-103"></i>욕실용품</li>
+							<li th:value="${item.bathNy}"><i class=" icon_set_2_icon-111"></i>욕조</li>
+							<li th:value="${item.airNy}"><i class=" icon-air"></i>에어컨</li>
 						</ul>
 					</div>
 					<p class="d-block d-lg-none"><a class="btn_map" data-bs-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" data-text-swap="Hide map" data-text-original="View on map">View on map</a>
@@ -174,16 +173,16 @@
 								<p>객실 내 시설</p>
 								<div class="col-md-6">
 									<ul class="list_icons">
-										<li><i class="icon_set_1_icon-86"></i> 와이파이</li>
-										<li><i class="icon_set_2_icon-116"></i> TV</li>
-										<li><i class=" icon-air"></i>에어컨</li>
+										<li th:value="${item.wifiNy}"><i class="icon_set_1_icon-86"></i> 와이파이</li>
+										<li th:value="${item.tvNy}"><i class="icon_set_2_icon-116"></i> TV</li>
+										<li th:value="${item.airNy}"><i class=" icon-air"></i>에어컨</li>
 									</ul>
 								</div>
 								<div class="col-md-6">
 									<ul class="list_icons">
-										<li><i class="icon_set_2_icon-110"></i>수영장</li>
-										<li><i class="icon_set_2_icon-103"></i>욕실용품</li>
-										<li><i class=" icon_set_2_icon-111"></i>욕조</li>
+										<li th:value="${item.poolNy}"><i class="icon_set_2_icon-110"></i>수영장</li>
+										<li th:value="${item.bathSuppliesNy}"><i class="icon_set_2_icon-103"></i>욕실용품</li>
+										<li th:value="${item.bathNy}"><i class=" icon_set_2_icon-111"></i>욕조</li>
 										
 									</ul>
 								</div>
@@ -218,16 +217,16 @@
 								<p>객실 내 시설</p>
 								<div class="col-md-6">
 									<ul class="list_icons">
-										<li><i class="icon_set_1_icon-86"></i> 와이파이</li>
-										<li><i class="icon_set_2_icon-116"></i> TV</li>
-										<li><i class=" icon-air"></i>에어컨</li>
+										<li th:value="${item.wifiNy}"><i class="icon_set_1_icon-86"></i> 와이파이</li>
+										<li th:value="${item.tvNy}"><i class="icon_set_2_icon-116"></i> TV</li>
+										<li th:value="${item.airNy}"><i class=" icon-air"></i>에어컨</li>
 									</ul>
 								</div>
 								<div class="col-md-6">
 									<ul class="list_icons">
-										<li><i class="icon_set_2_icon-110"></i>수영장</li>
-										<li><i class="icon_set_2_icon-103"></i>욕실용품</li>
-										<li><i class=" icon_set_2_icon-111"></i>욕조</li>
+										<li th:value="${item.poolNy}"><i class="icon_set_2_icon-110"></i>수영장</li>
+										<li th:value="${item.bathSuppliesNy}"><i class="icon_set_2_icon-103"></i>욕실용품</li>
+										<li th:value="${item.bathNy}"><i class=" icon_set_2_icon-111"></i>욕조</li>
 										
 									</ul>
 								</div>
@@ -262,16 +261,16 @@
 								<p>객실 내 시설</p>
 								<div class="col-md-6">
 									<ul class="list_icons">
-										<li><i class="icon_set_1_icon-86"></i> 와이파이</li>
-										<li><i class="icon_set_2_icon-116"></i> TV</li>
-										<li><i class=" icon-air"></i>에어컨</li>
+										<li th:value="${item.wifiNy}"><i class="icon_set_1_icon-86"></i> 와이파이</li>
+										<li th:value="${item.tvNy}"><i class="icon_set_2_icon-116"></i> TV</li>
+										<li th:value="${item.airNy}"><i class=" icon-air"></i>에어컨</li>
 									</ul>
 								</div>
 								<div class="col-md-6">
 									<ul class="list_icons">
-										<li><i class="icon_set_2_icon-110"></i>수영장</li>
-										<li><i class="icon_set_2_icon-103"></i>욕실용품</li>
-										<li><i class=" icon_set_2_icon-111"></i>욕조</li>
+										<li th:value="${item.poolNy}"><i class="icon_set_2_icon-110"></i>수영장</li>
+										<li th:value="${item.bathSuppliesNy}"><i class="icon_set_2_icon-103"></i>욕실용품</li>
+										<li th:value="${item.bathNy}"><i class=" icon_set_2_icon-111"></i>욕조</li>
 										
 									</ul>
 								</div>
@@ -307,7 +306,7 @@
 							<h3>리뷰</h3>
 							<a href="#" class="btn_1 add_bottom_30" data-bs-toggle="modal" data-bs-target="#myReview">리뷰 작성</a>
 						</div>
-						<div class="col-lg-9">
+						<div class="col-lg-9" >
 							<div id="score_detail"><span>4.5</span>평점 <small>(34명)</small>
 							</div>
 							<!-- End general_rating -->
@@ -343,11 +342,11 @@
 							</div>
 							<!-- End row -->
 							<hr>
-							<div class="review_strip_single">
+							<div class="review_strip_single" th:if="${#lists.isEmpty(List)}" th:each="list : ${list}">
 								<img src="/usr/assets/img/avatar1.jpg" alt="Image" class="rounded-circle">
-								<small> - 10 March 2015 -</small>
-								<h4>Jhon Doe</h4>
-								<p>
+								<small th:text="${#dates.format(list.reRegDate, 'yyyy-MM-dd HH:mm:ss')}"> - 10 March 2015 -</small>
+								<h4 th:text="${list.memberNickName}">Jhon Doe</h4>
+								<p th:text=${list.reviewContent}>
 									"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."
 								</p>
 								<div class="rating">
@@ -471,36 +470,27 @@
 				<div class="modal-body">
 					<div id="message-review">
 					</div>
-					<form method="post" action="assets/review_hotel.php" name="review_hotel" id="review_hotel">
-						<input name="hotel_name" id="hotel_name" type="hidden" value="Mariott Hotel Paris">
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-									<input name="name_review" id="name_review" type="text" placeholder="성" class="form-control">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-									<input name="lastname_review" id="lastname_review" type="text" placeholder="이름" class="form-control">
-								</div>
-							</div>
-						</div>
+					<form method="post" action="reviewInset">
+<!-- 						<input name="hotel_name" id="hotel_name" type="hidden" value="Mariott Hotel Paris"> -->
+						<input name="roomDetail_roomSeq" id="roomDetail_roomSeq" type="hidden" th:value="${item.roomDetail_roomSeq}">
 						<!-- End row -->
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-									<input name="text_review" id="text_review" type="text" placeholder="아이디" class="form-control">
+									<input name="memberNickName" id="memberNickName" type="text" placeholder="닉네임" class="form-control">
 								</div>
 							</div>
 							<div class="col-md-6">
-								<div class="form-group">
-									<select class="form-select" name="room_type_review" id="room_type_review">
-										<option value="">객실유형</option>
-										<option value="Single room">싱글 룸</option>
-										<option value="Double Room">더블 룸</option>
-										
-									</select>
-								</div>
+								<div class="styled-select-common">
+                                        <select name="shRoomTypeCD" id="shRoomTypeCD" class="form-select form-select-sm">
+                                           	<option value="">객실 유형</option>
+                                           	<option
+												th:each="list : ${@codeService.selectListCachedCode(6)}"
+												th:value="${list.cdSeq}" th:text="${list.name}"
+												th:selected="${list.cdSeq} == ${item?.roomTypeCD}">
+											</option>
+                                        </select>
+                                    </div>
 							</div>
 						</div>
 						<!-- End row -->
@@ -509,7 +499,7 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>청결</label>
-									<select class="form-select" name="quality_review" id="quality_review">
+									<select class="form-select" name="cleanRating" id="cleanRating">
 										<option value="">리뷰 평점</option>
 										<option value="5">5</option>
 										<option value="4">4</option>
@@ -523,7 +513,7 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>편안함</label>
-									<select class="form-select" name="quality_review" id="quality_review">
+									<select class="form-select" name="comfortRating" id="comfortRating">
 										<option value="">리뷰 평점</option>
 										<option value="5">5</option>
 										<option value="4">4</option>
@@ -540,7 +530,7 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>가격</label>
-									<select class="form-select" name="quality_review" id="quality_review">
+									<select class="form-select" name="priceRating" id="priceRating">
 										<option value="">리뷰 평점</option>
 										<option value="5">5</option>
 										<option value="4">4</option>
@@ -554,7 +544,7 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>퀄리티</label>
-									<select class="form-select" name="quality_review" id="quality_review">
+									<select class="form-select" name="qualityRating" id="qualityRating">
 										<option value="">리뷰 평점</option>
 										<option value="5">5</option>
 										<option value="4">4</option>
@@ -568,10 +558,10 @@
 						</div>
 						<!-- End row -->
 						<div class="form-group">
-							<textarea name="review_text" id="review_text" class="form-control" style="height:100px" placeholder="내용작성"></textarea>
+							<textarea name="reviewContent" id="reviewContent" class="form-control" style="height:100px" placeholder="내용작성"></textarea>
 						</div>
 						
-						<input type="submit" value="작성" class="btn_1" id="submit-review">
+						<input type="submit" value="작성" class="btn_1" id="btnSubmit">
 
 					</form>
 				</div>

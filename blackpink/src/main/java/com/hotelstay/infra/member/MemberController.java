@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.hotelstay.common.contents.Constants;
 import com.hotelstay.common.util.UtilDateTime;
 import com.hotelstay.infra.codegroup.CodeGroupService;
-import com.hotelstay.infra.hotel.HotelDto;
 import com.hotelstay.infra.hotel.HotelService;
+import com.hotelstay.infra.hotel.HotelVo;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -226,11 +226,15 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/usrIndex")
-	public String usrIndex(HotelDto dto,MemberDto mdto, Model model) throws Exception{
-		
+	public String usrIndex(@ModelAttribute("vo") HotelVo vo,MemberDto mdto, Model model) throws Exception{
 		
 		model.addAttribute("listCodeGroup",codeGroupService.selectListWithoutPaging());
-		model.addAttribute("item", hotelService.selectOne(dto));
+		System.out.println("vo.getRoomTotalRating()"+" "+vo.getRoomTotalRating());
+		
+		if(vo.getRoomTotalRating()>4.2) {
+			
+			model.addAttribute("list", hotelService.selectList(vo));
+		}
 		
 		return "/usr/infra/index/usrindex";
 	}

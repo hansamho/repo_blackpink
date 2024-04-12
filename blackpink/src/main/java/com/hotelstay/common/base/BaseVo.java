@@ -25,6 +25,7 @@ public class BaseVo {
 	// 공통코드
 	private String shGenderCD;
 	private String shAreaCD;
+	private String shRoomTypeCD;
 	
 	//paging
 	private int thisPage = 1;				// 현재 페이지
@@ -109,7 +110,15 @@ public class BaseVo {
 		this.shGenderCD = shGenderCD;
 	}
 	
+	
 
+	public String getSgRoomTypeCD() {
+		return shRoomTypeCD;
+	}
+
+	public void setSgRoomTypeCD(String sgRoomTypeCD) {
+		this.shRoomTypeCD = sgRoomTypeCD;
+	}
 
 	public int getThisPage() {
 		return thisPage;

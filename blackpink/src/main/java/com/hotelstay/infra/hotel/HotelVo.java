@@ -8,7 +8,18 @@ public class HotelVo extends BaseVo {
 	private String wishlist_seq;
 	private Integer hotelTypeCD;
 	private Integer areaCD;
+	private double roomTotalRating;
 	
+	
+	
+
+	public double getRoomTotalRating() {
+		return roomTotalRating;
+	}
+
+	public void setRoomTotalRating(double roomTotalRating) {
+		this.roomTotalRating = roomTotalRating;
+	}
 
 	public Integer getHotelTypeCD() {
 		return hotelTypeCD;

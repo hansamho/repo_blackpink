@@ -79,14 +79,13 @@
 		    a.roomUpdate, 
 		    a.roomDelny, 
 		    a.hotelList_seq,
-		    b.hotelName
-         <include refid="selectCommon"/>
-        ORDER BY a.roomSeq DESC
+		    b.hotelName,
+		    a.roomSeq as roomDetail_roomSeq
+		FROM roomdetail a
+         LEFT JOIN hotellist b on a.roomSeq = b.hotelSeq
+        WHERE 1=1
+        AND a.roomSeq=#{roomSeq}
     </select>
-    
-   
-    
-    
     
     
 </mapper>

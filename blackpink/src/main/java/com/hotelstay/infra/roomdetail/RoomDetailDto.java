@@ -19,9 +19,13 @@ public class RoomDetailDto {
 	private Date roomUpdate; 
 	private Integer roomDelny; 
 	private String hotelList_seq;
+	private String roomSeqF;
+	
+	
 	
 	/*멤버*/
 	private String memberName;
+	private String memberSeqF;
 	
 	/*호텔*/
 	private String hotelName;
@@ -36,6 +40,7 @@ public class RoomDetailDto {
 	/*foreign key*/
 	private String member_seq;
 	private String roomDetail_seq;
+	private String roomDetail_roomSeq;
 	
 	/*객실*/
 	public String getRoomSeq() {
@@ -144,6 +149,12 @@ public class RoomDetailDto {
 	}
 	
 	
+	public String getMemberSeqF() {
+		return memberSeqF;
+	}
+	public void setMemberSeqF(String memberSeqF) {
+		this.memberSeqF = memberSeqF;
+	}
 	/*예약*/
 	public Date getBkCheckin() {
 		return bkCheckin;
@@ -195,6 +206,18 @@ public class RoomDetailDto {
 	}
 	public void setHotelName(String hotelName) {
 		this.hotelName = hotelName;
+	}
+	public String getRoomDetail_roomSeq() {
+		return roomDetail_roomSeq;
+	}
+	public void setRoomDetail_roomSeq(String roomDetail_roomSeq) {
+		this.roomDetail_roomSeq = roomDetail_roomSeq;
+	}
+	public String getRoomSeqF() {
+		return roomSeqF;
+	}
+	public void setRoomSeqF(String roomSeqF) {
+		this.roomSeqF = roomSeqF;
 	}
 	
 	

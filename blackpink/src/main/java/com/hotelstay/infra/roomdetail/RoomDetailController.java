@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hotelstay.common.contents.Constants;
 import com.hotelstay.common.util.UtilDateTime;
+import com.hotelstay.infra.booking.BookingDto;
 import com.hotelstay.infra.member.MemberDto;
+import com.hotelstay.infra.review.ReviewDto;
+import com.hotelstay.infra.review.ReviewService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -22,6 +25,9 @@ import jakarta.servlet.http.HttpSession;
 public class RoomDetailController {
 	@Autowired
 	RoomDetailService service;
+	
+	@Autowired
+	ReviewService reviewService;
 	
 	public void setSearch(RoomDetailVo vo) throws Exception {
 		/* 최초 화면 로딩시에 세팅은 문제가 없지만 */
@@ -48,11 +54,12 @@ public class RoomDetailController {
 	
 	@RequestMapping(value = "/roomDetail")
 	public String roomDetail(RoomDetailDto dto, Model model) throws Exception{
-			
+	
 		model.addAttribute("item", service.selectOne(dto));
-		System.out.println("sssssssssssss");
+		
         return "/usr/infra/index/roomDetail";
   	}
+	
 	
 	
 	

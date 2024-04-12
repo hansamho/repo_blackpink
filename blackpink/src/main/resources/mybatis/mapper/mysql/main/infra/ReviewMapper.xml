@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hotelstay.infra.review.ReviewDao">
+
+	<resultMap id="resultMapObj" type="com.hotelstay.infra.review.ReviewDto"></resultMap>
+	
+	 <select id="selectList" resultMap="resultMapObj">
+	 SELECT 
+	 	 memberNickName
+         ,cleanRating
+         ,comfortRating
+         ,priceRating
+         ,qualityRating
+         ,reviewContent
+         ,reRegDate
+         ,roomDetail_roomSeq as roomSeq
+	 FROM review
+	 WHERE 1=1
+	 </select>
+	 
+	 
+    <insert id="reviewInsert">
+    INSERT INTO review(
+            memberNickName
+            ,cleanRating
+            ,comfortRating
+            ,priceRating
+            ,qualityRating
+            ,reviewContent
+            ,reRegDate
+            ,roomDetail_roomSeq
+    	) VALUES(		
+    		#{memberNickName}
+    		,#{cleanRating}
+    		,#{comfortRating}
+    		,#{priceRating}
+    		,#{qualityRating}
+    		,#{reviewContent}
+    		,now()
+    		,#{roomDetail_roomSeq}
+    	)
+    </insert>
+   
+    <select id="selectOne" resultMap="resultMapObj">
+        SELECT
+         	a.roomSeq,
+            a.roomName, 
+		    a.roomPrice, 
+		    a.roomContent, 
+		    a.roominfo, 
+		    a.roomTypeCD, 
+		    a.tvNy, 
+		    a.wifiNy, 
+		    a.poolNy, 
+		    a.airNy, 
+		    a.bathNy, 
+		    a.bathSuppliesNy, 
+		    a.roomRegDate, 
+		    a.roomUpdate, 
+		    a.roomDelny, 
+		    b.cleanRating,
+		    b.comfortRating,
+		    b.priceRating,
+		    b.qualityRating,
+		    b.reviewContent,
+		    b.reRegDate,
+		    b.roomDetail_roomSeq as roomSeqF
+		FROM roomdetail a
+         LEFT JOIN review b on a.roomSeq = b.reviewSeq
+        WHERE 1=1
+        AND b.roomDetail_roomSeq=#{roomSeqF}
+    </select>
+    
+    
+    
+</mapper>

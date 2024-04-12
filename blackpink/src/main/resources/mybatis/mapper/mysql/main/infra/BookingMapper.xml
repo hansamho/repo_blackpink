@@ -13,7 +13,6 @@
     	,a.bkAdult
     	,a.bkChild
     	,a.bkTotalPrice
-    	,format(a.bkTotalPrice,0) as bkTotalPrice
     	,a.member_seq as memberSeqF
     	,b.memberName
     	,b.memberID
