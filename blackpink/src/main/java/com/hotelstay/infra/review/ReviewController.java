@@ -28,6 +28,9 @@ public class ReviewController {
 		
 		service.reviewInsert(dto);
 		
+		System.out.println("detailDto.getRoomDetail_roomSeq()"+" "+detailDto.getRoomDetail_roomSeq());
+		
+		model.addAttribute("item", detailService.selectOne(detailDto));
 		
 		return "redirect:/roomDetail";  //
 		

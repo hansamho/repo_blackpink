@@ -17,6 +17,7 @@
          ,roomDetail_roomSeq as roomSeq
 	 FROM review
 	 WHERE 1=1
+	 AND roomDetail_roomSeq =#{roomSeq}
 	 </select>
 	 
 	 
@@ -42,35 +43,7 @@
     	)
     </insert>
    
-    <select id="selectOne" resultMap="resultMapObj">
-        SELECT
-         	a.roomSeq,
-            a.roomName, 
-		    a.roomPrice, 
-		    a.roomContent, 
-		    a.roominfo, 
-		    a.roomTypeCD, 
-		    a.tvNy, 
-		    a.wifiNy, 
-		    a.poolNy, 
-		    a.airNy, 
-		    a.bathNy, 
-		    a.bathSuppliesNy, 
-		    a.roomRegDate, 
-		    a.roomUpdate, 
-		    a.roomDelny, 
-		    b.cleanRating,
-		    b.comfortRating,
-		    b.priceRating,
-		    b.qualityRating,
-		    b.reviewContent,
-		    b.reRegDate,
-		    b.roomDetail_roomSeq as roomSeqF
-		FROM roomdetail a
-         LEFT JOIN review b on a.roomSeq = b.reviewSeq
-        WHERE 1=1
-        AND b.roomDetail_roomSeq=#{roomSeqF}
-    </select>
+    
     
     
     
