@@ -25,12 +25,10 @@ public class ReviewController {
 		dto.setMemberSeqF((String) httpSession.getAttribute("sessSeqUsr"));
 		
 		System.out.println("dto.getRoomDetail_roomSeq()"+ " " + dto.getRoomDetail_roomSeq());
-		System.out.println("detailDto.getRoomSeq()"+" "+detailDto.getRoomSeq());
 		
 		service.reviewInsert(dto);
 		
 		model.addAttribute("list", service.selectList(dto));
-		model.addAttribute("item", service.selectOne(dto));
 		
 		return "redirect:/roomDetail";  //
 		

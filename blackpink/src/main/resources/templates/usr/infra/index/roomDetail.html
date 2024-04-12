@@ -344,40 +344,39 @@
 							<hr>
 							<div class="review_strip_single" th:if="${#lists.isEmpty(List)}" th:each="list : ${list}">
 								<img src="/usr/assets/img/avatar1.jpg" alt="Image" class="rounded-circle">
-								<small th:text="${#dates.format(list.reRegDate, 'yyyy-MM-dd HH:mm:ss')}"> - 10 March 2015 -</small>
-								<h4 th:text="${list.memberNickName}">Jhon Doe</h4>
-								<p th:text=${list.reviewContent}>
-									"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."
-								</p>
-								<div class="rating">
-									<i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i><i class="icon-star-empty"></i>
+								<small th:text="${#dates.format(list.reRegDate, 'yyyy-MM-dd HH:mm:ss')}"></small>
+								<h4 th:text="${list.memberNickName}"></h4>
+								<p th:text=${list.reviewContent}></p>
+								<div class="row" id="rating_summary">
+								<div class="col-md-6">
+									<ul>
+										<li>청결
+											<div class="rating">
+												<i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i>
+											</div>
+										</li>
+										<li>편안함
+											<div class="rating">
+												<i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div class="col-md-6">
+									<ul>
+										<li>가격
+											<div class="rating">
+												<i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i>
+											</div>
+										</li>
+										<li>퀄리티
+											<div class="rating">
+												<i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i>
+											</div>
+										</li>
+									</ul>
 								</div>
 							</div>
-							<!-- End review strip -->
-
-							<div class="review_strip_single">
-								<img src="/usr/assets/img/avatar2.jpg" alt="Image" class="rounded-circle">
-								<small> - 10 March 2015 -</small>
-								<h4>Jhon Doe</h4>
-								<p>
-									"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."
-								</p>
-								<div class="rating">
-									<i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i>
-								</div>
-							</div>
-							<!-- End review strip -->
-
-							<div class="review_strip_single last">
-								<img src="/usr/assets/img/avatar3.jpg" alt="Image" class="rounded-circle">
-								<small> - 10 March 2015 -</small>
-								<h4>Jhon Doe</h4>
-								<p>
-									"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus."
-								</p>
-								<div class="rating">
-									<i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i>
-								</div>
 							</div>
 							<!-- End review strip -->
 						</div>
