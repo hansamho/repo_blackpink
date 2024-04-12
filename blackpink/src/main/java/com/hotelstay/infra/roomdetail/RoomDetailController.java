@@ -59,6 +59,8 @@ public class RoomDetailController {
 		
 		model.addAttribute("list", reviewService.selectList(rdto));
 		
+		
+		
         return "/usr/infra/index/roomDetail";
   	}
 	

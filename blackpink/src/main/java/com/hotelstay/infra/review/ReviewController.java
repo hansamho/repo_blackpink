@@ -24,11 +24,10 @@ public class ReviewController {
 	public String reviewInset(ReviewDto dto,RoomDetailDto detailDto,Model model,HttpSession httpSession ) throws Exception{
 		dto.setMemberSeqF((String) httpSession.getAttribute("sessSeqUsr"));
 		
-		System.out.println("dto.getRoomDetail_roomSeq()"+ " " + dto.getRoomDetail_roomSeq());
+//		System.out.println("dto.getRoomDetail_roomSeq()"+ " " + dto.getRoomDetail_roomSeq());
 		
 		service.reviewInsert(dto);
 		
-		model.addAttribute("list", service.selectList(dto));
 		
 		return "redirect:/roomDetail";  //
 		
