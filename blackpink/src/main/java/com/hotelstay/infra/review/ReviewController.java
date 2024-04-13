@@ -30,9 +30,9 @@ public class ReviewController {
 		
 		System.out.println("detailDto.getRoomDetail_roomSeq()"+" "+detailDto.getRoomDetail_roomSeq());
 		
-		model.addAttribute("item", detailService.selectOne(detailDto));
+//		model.addAttribute("item", detailService.selectOneReview(detailDto));
 		
-		return "redirect:/roomDetail";  //
+		return "redirect:/hotelList";  //
 		
 	}
 }

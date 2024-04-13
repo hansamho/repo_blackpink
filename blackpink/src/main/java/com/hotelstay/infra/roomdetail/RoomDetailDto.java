@@ -40,8 +40,18 @@ public class RoomDetailDto {
 	/*foreign key*/
 	private String member_seq;
 	private String roomDetail_seq;
-	private String roomDetail_roomSeq;
 	
+	/*리뷰*/
+	private String memberNickName;
+	private String cleanRating;
+	private int comfortRating; 
+	private int priceRating; 
+	private int qualityRating; 
+	private String reviewContent; 
+	private Date reRegDate; 
+	private Date reUpdate; 
+	private Integer Delny; 
+	private String roomDetail_roomSeq;
 	/*객실*/
 	public String getRoomSeq() {
 		return roomSeq;
@@ -218,6 +228,60 @@ public class RoomDetailDto {
 	}
 	public void setRoomSeqF(String roomSeqF) {
 		this.roomSeqF = roomSeqF;
+	}
+	public String getCleanRating() {
+		return cleanRating;
+	}
+	public void setCleanRating(String cleanRating) {
+		this.cleanRating = cleanRating;
+	}
+	public int getComfortRating() {
+		return comfortRating;
+	}
+	public void setComfortRating(int comfortRating) {
+		this.comfortRating = comfortRating;
+	}
+	public int getPriceRating() {
+		return priceRating;
+	}
+	public void setPriceRating(int priceRating) {
+		this.priceRating = priceRating;
+	}
+	public int getQualityRating() {
+		return qualityRating;
+	}
+	public void setQualityRating(int qualityRating) {
+		this.qualityRating = qualityRating;
+	}
+	public String getReviewContent() {
+		return reviewContent;
+	}
+	public void setReviewContent(String reviewContent) {
+		this.reviewContent = reviewContent;
+	}
+	public Date getReRegDate() {
+		return reRegDate;
+	}
+	public void setReRegDate(Date reRegDate) {
+		this.reRegDate = reRegDate;
+	}
+	public Date getReUpdate() {
+		return reUpdate;
+	}
+	public void setReUpdate(Date reUpdate) {
+		this.reUpdate = reUpdate;
+	}
+	public Integer getDelny() {
+		return Delny;
+	}
+	public void setDelny(Integer delny) {
+		Delny = delny;
+	}
+	public String getMemberNickName() {
+		return memberNickName;
+	}
+	public void setMemberNickName(String memberNickName) {
+		this.memberNickName = memberNickName;
 	}
 	
 	

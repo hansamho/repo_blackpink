@@ -25,5 +25,7 @@ public class RoomDetailService {
 		return dao.selectadmin(dto);
 	}
 	
-	
+	public RoomDetailDto selectOneReview(RoomDetailDto dto) {
+		return dao.selectOneReview(dto);
+	}
 }
