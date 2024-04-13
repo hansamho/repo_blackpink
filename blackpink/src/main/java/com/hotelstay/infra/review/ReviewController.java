@@ -20,19 +20,19 @@ public class ReviewController {
 	@Autowired
 	RoomDetailService detailService;
 	
-	@RequestMapping(value = "/reviewInset")
-	public String reviewInset(ReviewDto dto,RoomDetailDto detailDto,Model model,HttpSession httpSession ) throws Exception{
-		dto.setMemberSeqF((String) httpSession.getAttribute("sessSeqUsr"));
-		
-//		System.out.println("dto.getRoomDetail_roomSeq()"+ " " + dto.getRoomDetail_roomSeq());
-		
-		service.reviewInsert(dto);
-		
-		System.out.println("detailDto.getRoomDetail_roomSeq()"+" "+detailDto.getRoomDetail_roomSeq());
-		
-//		model.addAttribute("item", detailService.selectOneReview(detailDto));
-		
-		return "redirect:/hotelList";  //
-		
-	}
+//	@RequestMapping(value = "/reviewInset")
+//	public String reviewInset(ReviewDto dto,RoomDetailDto detailDto,Model model,HttpSession httpSession ) throws Exception{
+//		dto.setMemberSeqF((String) httpSession.getAttribute("sessSeqUsr"));
+//		
+////		System.out.println("dto.getRoomSeqF()"+ " " + dto.getRoomSeqF());
+//		
+//		service.reviewInsert(dto);
+//		
+////		System.out.println("detailDto.detailDto.getRoomSeqF()"+" "+detailDto.getRoomSeqF());
+//		
+////		model.addAttribute("item", detailService.selectOne(detailDto));
+//		
+//		return "redirect:/roomDetail";  //
+//		
+//	}
 }

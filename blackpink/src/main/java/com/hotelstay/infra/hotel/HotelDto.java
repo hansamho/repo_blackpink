@@ -8,7 +8,7 @@ public class HotelDto {
 	private String hotelName; 
 	private String hotelContent; 
 	private double htTotalRating; 
-	private int hotelRating; 
+	private double hotelRating; 
 	private String hotelTypeCD;
 	private String areaCD; 
 	private Date htRegDate;
@@ -51,10 +51,10 @@ public class HotelDto {
 	public void setHtTotalRating(double htTotalRating) {
 		this.htTotalRating = htTotalRating;
 	}
-	public int getHotelRating() {
+	public double getHotelRating() {
 		return hotelRating;
 	}
-	public void setHotelRating(int hotelRating) {
+	public void setHotelRating(double hotelRating) {
 		this.hotelRating = hotelRating;
 	}
 	public String getHotelTypeCD() {

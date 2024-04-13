@@ -14,10 +14,10 @@
          ,qualityRating
          ,reviewContent
          ,reRegDate
-         ,roomDetail_roomSeq as roomSeq
+         ,roomSeqF as roomSeq
 	 FROM review
 	 WHERE 1=1
-	 AND roomDetail_roomSeq =#{roomSeq}
+	 AND roomSeqF =#{roomSeq}
 	 </select>
 	 
 	 
@@ -30,7 +30,7 @@
             ,qualityRating
             ,reviewContent
             ,reRegDate
-            ,roomDetail_roomSeq
+            ,roomSeqF
     	) VALUES(		
     		#{memberNickName}
     		,#{cleanRating}
@@ -39,7 +39,7 @@
     		,#{qualityRating}
     		,#{reviewContent}
     		,now()
-    		,#{roomDetail_roomSeq}
+    		,#{roomSeqF}
     	)
     </insert>
    

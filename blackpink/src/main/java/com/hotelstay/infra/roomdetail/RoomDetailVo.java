@@ -5,6 +5,16 @@ import com.hotelstay.common.base.BaseVo;
 public class RoomDetailVo extends BaseVo {
 	private String roomSeq;
 	private String hotellist_seq;
+	private double roomTotalRating;
+	
+	
+	
+	public double getRoomTotalRating() {
+		return roomTotalRating;
+	}
+	public void setRoomTotalRating(double roomTotalRating) {
+		this.roomTotalRating = roomTotalRating;
+	}
 	public String getRoomSeq() {
 		return roomSeq;
 	}

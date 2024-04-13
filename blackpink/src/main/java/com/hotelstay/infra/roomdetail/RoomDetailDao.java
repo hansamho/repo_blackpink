@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface RoomDetailDao {
 	
-	public List<RoomDetailDto> selectList(RoomDetailVo vo);
+	public List<RoomDetailDto> selectList(RoomDetailDto dto);
 	
 	public RoomDetailDto selectOne(RoomDetailDto dto);
 	

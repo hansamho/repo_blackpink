@@ -11,9 +11,9 @@ public class RoomDetailService {
 	@Autowired
 	RoomDetailDao dao;
 	
-	public List<RoomDetailDto> selectList(RoomDetailVo vo){
+	public List<RoomDetailDto> selectList(RoomDetailDto dto){
 		
-		return dao.selectList(vo);
+		return dao.selectList(dto);
 	}
 	
 	public RoomDetailDto selectOne(RoomDetailDto dto) {

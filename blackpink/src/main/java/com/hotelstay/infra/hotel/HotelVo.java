@@ -9,9 +9,18 @@ public class HotelVo extends BaseVo {
 	private Integer hotelTypeCD;
 	private Integer areaCD;
 	private double roomTotalRating;
+	private int hotelRating;
 	
 	
 	
+
+	public int getHotelRating() {
+		return hotelRating;
+	}
+
+	public void setHotelRating(int hotelRating) {
+		this.hotelRating = hotelRating;
+	}
 
 	public double getRoomTotalRating() {
 		return roomTotalRating;

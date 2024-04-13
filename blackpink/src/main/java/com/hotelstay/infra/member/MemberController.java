@@ -1,7 +1,9 @@
 package com.hotelstay.infra.member;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -14,8 +16,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.hotelstay.common.contents.Constants;
 import com.hotelstay.common.util.UtilDateTime;
 import com.hotelstay.infra.codegroup.CodeGroupService;
+import com.hotelstay.infra.hotel.HotelDto;
 import com.hotelstay.infra.hotel.HotelService;
 import com.hotelstay.infra.hotel.HotelVo;
+import com.hotelstay.infra.roomdetail.RoomDetailDto;
+import com.hotelstay.infra.roomdetail.RoomDetailService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -33,6 +38,9 @@ public class MemberController {
 	
 	@Autowired
 	HotelService hotelService;
+	
+	@Autowired
+	RoomDetailService detailService;
 	
 	public void setSearch(MemberVo vo) throws Exception {
 		/* 최초 화면 로딩시에 세팅은 문제가 없지만 */
@@ -226,15 +234,17 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/usrIndex")
-	public String usrIndex(@ModelAttribute("vo") HotelVo vo,MemberDto mdto, Model model) throws Exception{
+	public String usrIndex(@ModelAttribute("vo") HotelVo vo,HotelDto dto,RoomDetailDto detailDto, Model model) throws Exception{
 		
 		model.addAttribute("listCodeGroup",codeGroupService.selectListWithoutPaging());
-		System.out.println("vo.getRoomTotalRating()"+" "+vo.getRoomTotalRating());
 		
-		if(vo.getRoomTotalRating()>4.2) {
+			
+		 List<HotelDto> highRatedHotels = hotelService.selectList(vo).stream()
+		            .filter(hotel -> hotel.getHotelRating() >= 4.9 )
+		            .collect(Collectors.toList());
 			
 			model.addAttribute("list", hotelService.selectList(vo));
-		}
+		
 		
 		return "/usr/infra/index/usrindex";
 	}

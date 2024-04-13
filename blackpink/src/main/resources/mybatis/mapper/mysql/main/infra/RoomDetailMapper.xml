@@ -62,8 +62,8 @@
 	</select>
     
     <select id="selectOne" resultMap="resultMapObj">
-        SELECT
-         	a.roomSeq,
+       SELECT 
+    		a.roomSeq,
             a.roomName, 
 		    a.roomPrice, 
 		    a.roomContent, 
@@ -74,17 +74,18 @@
 		    a.poolNy, 
 		    a.airNy, 
 		    a.bathNy, 
-		    a.bathSuppliesNy, 
-		    a.roomRegDate, 
-		    a.roomUpdate, 
-		    a.roomDelny, 
-		    a.hotelList_seq,
-		    b.hotelName,
-		    a.roomSeq as roomDetail_roomSeq
-		FROM roomdetail a
-         LEFT JOIN hotellist b on a.roomSeq = b.hotelSeq
-        WHERE 1=1
-        AND a.roomSeq=#{roomSeq}
+		    a.bathSuppliesNy,
+		    b.memberNickName,
+		    b.cleanRating,
+		    b.comfortRating,
+		    b.priceRating,
+		    b.qualityRating,
+		    b.reviewContent,
+		    a.roomSeq as roomSeqF
+		 FROM roomDetail a 
+		 LEFT JOIN review b on a.roomSeq= b.reviewSeq
+		 WHERE 1=1 
+		 AND a.roomSeq =#{roomSeq}
     </select>
     	
     <select id="selectOneReview">
@@ -107,10 +108,11 @@
 		    b.priceRating,
 		    b.qualityRating,
 		    b.reviewContent,
-		    b.roomDetail_roomSeq as roomSeqF
+		    b.roomSeqF
+		    a.roomSeq as roomSeqF
 		 FROM roomDetail a 
-		 LEFT JOIN review b on a.roomSeq= b.roomDetail_roomSeq
+		 LEFT JOIN review b on a.roomSeq= b.reviewSeq
 		 WHERE 1=1 
-		 AND a.roomSeq =#{roomDetail_roomSeq}
+		 AND a.roomSeq =#{roomSeq}
     </select>
 </mapper>

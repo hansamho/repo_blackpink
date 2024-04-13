@@ -20,7 +20,7 @@ public class RoomDetailDto {
 	private Integer roomDelny; 
 	private String hotelList_seq;
 	private String roomSeqF;
-	
+	private double roomTotalRating;
 	
 	
 	/*멤버*/
@@ -53,8 +53,16 @@ public class RoomDetailDto {
 	private Integer Delny; 
 	private String roomDetail_roomSeq;
 	/*객실*/
+	
+	
 	public String getRoomSeq() {
 		return roomSeq;
+	}
+	public double getRoomTotalRating() {
+		return roomTotalRating;
+	}
+	public void setRoomTotalRating(double roomTotalRating) {
+		this.roomTotalRating = roomTotalRating;
 	}
 	public void setRoomSeq(String roomSeq) {
 		this.roomSeq = roomSeq;
