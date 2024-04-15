@@ -30,11 +30,8 @@
 		<section id="search_container">
             <div id="search">
                 <ul class="nav nav-tabs">
-                    
                     <li><a href="#hotels" data-bs-toggle="tab" class="active show">국내 숙소</a></li>
-                    
                 </ul>
-    
                 <div class="tab-content">
                     <div class="tab-pane active show" id="hotels"> 
                     <!-- End rab -->
@@ -71,10 +68,10 @@
                             
                         </div>
                         <hr>
-                        <button type="button" id="buttonSearch" class="btn_1 green"><i class="icon-search"></i>검색</button>
+                        <button type="button" id="btnSearch" class="btn_1 green"><i class="icon-search"></i>검색</button>
                     </div>
                     </div>
-                    
+                   
                 </div>
             </div>
         </section>
@@ -205,7 +202,7 @@
                             </div>
                             <!-- end rating -->
                             <div class="wishlist">
-                                <a class="tooltip_flip tooltip-effect-1" href="#">+<span class="tooltip-content-flip"><span class="tooltip-back">Add to wishlist</span></span></a>
+                                <a class="tooltip_flip tooltip-effect-1" th:href="@{/myPage}">+<span class="tooltip-content-flip"><span class="tooltip-back">Add to wishlist</span></span></a>
                             </div>
                             <!-- End wish list-->
                         </div>
@@ -233,20 +230,6 @@
     <!-- End footer -->
 
 	<div id="toTop"></div><!-- Back to top button -->
-	
-	<!-- Search Menu -->
-	<div class="search-overlay-menu">
-		<span class="search-overlay-close"><i class="icon_set_1_icon-77"></i></span>
-		<form role="search" id="searchform" method="get">
-			<input value="" name="q" type="text" placeholder="Search..." />
-			<button type="submit"><i class="icon_set_1_icon-78"></i>
-			</button>
-		</form>
-	</div><!-- End Search Menu -->
-	
-	<!-- Sign In Popup -->
-	
-	<!-- /Sign In Popup -->
 
     <!-- Common scripts -->
     <script src="/usr/assets/js/jquery-3.7.1.min.js"></script>
@@ -313,7 +296,6 @@
 		}
 			
 		</script>
-		
 	
 	<!-- NOTIFY BUBBLES  -->
 <!-- 	<script src="/usr/assets/js/notify_func.js"></script> -->

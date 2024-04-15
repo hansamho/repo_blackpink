@@ -240,7 +240,7 @@ public class MemberController {
 		
 			
 		 List<HotelDto> highRatedHotels = hotelService.selectList(vo).stream()
-		            .filter(hotel -> hotel.getHotelRating() >= 4.9 )
+		            .filter(hotel -> hotel.getHotelRating() >= 4.0 )
 		            .collect(Collectors.toList());
 			
 			model.addAttribute("list", hotelService.selectList(vo));
@@ -319,6 +319,7 @@ public class MemberController {
 
 		
 		dto.setMemberPassword(encodeBcrypt(dto.getMemberPassword(),10));
+		
 		
 		
 		service.usrInsert(dto);

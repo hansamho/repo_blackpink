@@ -54,11 +54,12 @@ public class RoomDetailController {
 	
 	@RequestMapping(value = "/roomDetail")
 	public String roomDetail(RoomDetailDto dto,ReviewDto rdto, Model model) throws Exception{
-	
+		
+		
 		model.addAttribute("item", service.selectOne(dto));
 		
-		model.addAttribute("list", reviewService.selectList(rdto));
 		
+		model.addAttribute("list", reviewService.selectList(rdto));
 		
         return "/usr/infra/index/roomDetail";
   	}
@@ -69,13 +70,24 @@ public class RoomDetailController {
 		
 //		System.out.println("dto.getRoomSeqF()"+ " " + dto.getRoomSeqF());
 		
+		
 		reviewService.reviewInsert(rdto);
 		
-		System.out.println("dto.getRoomSeq()"+" "+dto.getRoomSeq());
-		
-//		model.addAttribute("item", detailService.selectOne(detailDto));
 		
 		return "redirect:/roomDetail";  //
 	}
 	
+	
+	
+	@ResponseBody
+	@RequestMapping(value = "/reviewInsert")
+	public Map<String, Object> reviewInsert(ReviewDto dto,RoomDetailDto dDto, HttpSession httpSession) throws Exception {
+			Map<String, Object> returnMap = new HashMap<String, Object>();
+			
+			dto.setMemberSeqF((String) httpSession.getAttribute("sessSeqUsr"));
+			
+			
+			
+			return returnMap;
+	}
 }

@@ -9,4 +9,6 @@ public interface ReviewDao {
 	public ReviewDto selectOne(ReviewDto dto);
 	
 	public int reviewInsert(ReviewDto dto);
+	
+	public ReviewDto selectOneCount(ReviewDto dto);
 }

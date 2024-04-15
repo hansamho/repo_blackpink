@@ -346,20 +346,20 @@
 								<img src="/usr/assets/img/avatar1.jpg" alt="Image" class="rounded-circle">
 								<small th:text="${#dates.format(list.reRegDate, 'yyyy-MM-dd HH:mm:ss')}"></small>
 								<h4 th:text="${list.memberNickName}"></h4>
-								<p th:text=${list.reviewContent}></p>
 								<div class="row" id="rating_summary">
+								<p th:text=${list.reviewContent}></p>
 								<div class="col-md-6">
 									<ul>
 										<li>청결
 											<div class="rating">
-												[[${list.cleanRating}]]점
-<!-- 												<i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i> -->
+<!-- 												[[${list.cleanRating}]]점 -->
+												<i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i>
 											</div>
 										</li>
 										<li>편안함
 											<div class="rating">
-												[[${list.comfortRating}]]점
-<!-- 												<i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i> -->
+<!-- 												[[${list.comfortRating}]]점 -->
+												<i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i>
 											</div>
 										</li>
 									</ul>
@@ -368,14 +368,14 @@
 									<ul>
 										<li>가격
 											<div class="rating">
-											[[${list.priceRating}]]점
-<!-- 												<i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i> -->
+<!-- 											[[${list.priceRating}]]점 -->
+												<i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i>
 											</div>
 										</li>
 										<li>퀄리티
 											<div class="rating">
-											[[${list.qualityRating}]]점
-<!-- 												<i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i> -->
+<!-- 											[[${list.qualityRating}]]점 -->
+												<i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i>
 											</div>
 										</li>
 									</ul>
@@ -476,26 +476,6 @@
 					<form method="post" action="reviewInset">
 <!-- 						<input name="hotel_name" id="hotel_name" type="hidden" value="Mariott Hotel Paris"> -->
 						<input name="roomSeqF" id="roomSeqF" type="hidden" th:value="${item.roomSeqF}">
-						<!-- End row -->
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-									<input name="memberNickName" id="memberNickName" type="text" placeholder="닉네임" class="form-control">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="styled-select-common">
-                                        <select name="shRoomTypeCD" id="shRoomTypeCD" class="form-select form-select-sm">
-                                           	<option value="">객실 유형</option>
-                                           	<option
-												th:each="list : ${@codeService.selectListCachedCode(6)}"
-												th:value="${list.cdSeq}" th:text="${list.name}"
-												th:selected="${list.cdSeq} == ${item?.roomTypeCD}">
-											</option>
-                                        </select>
-                                    </div>
-							</div>
-						</div>
 						<!-- End row -->
 						<hr>
 						<div class="row">
@@ -643,10 +623,46 @@
 		}
 	});
 	</script>
-
-
+	
 	<!--Review modal validation -->
 	<script src="/usr/assets/validate.js"></script>
+	
+	<script type="text/javascript">
+	let goUrlRoomDetail = "@{/roomDetail(roomSeq=${item.roomSeqF})}";
+	
+	document.getElementById("btnSubmit").onclick = function () {
+	    location.href = goUrlRoomDetail;
+	}
+	</script>
+	
+	<script type="text/javascript">
+		document.getElementById("buttonSignout").onclick = function () {
+// 			alert("qqqqqqqqqq");
+// 			if(validation() == false) return false;
+			
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				/* ,dataType:"json" */
+				,url: "/signoutUsr"
+				/* ,data : $("#formLogin").serialize() */
+				,data : { "memberID" : $("#memberID").val(), "memberPassword" : $("#memberPassword").val()}
+				,success: function(response) {
+// 					alert("확인");
+					if(response.rt == "success") {
+// 						alert("sssssss");
+						location.href = "/usrIndex";
+
+					}  
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});
+		}
+			
+		</script>
 	
 </body>
 

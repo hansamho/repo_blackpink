@@ -7,8 +7,7 @@
 	
 	 <select id="selectList" resultMap="resultMapObj">
 	 SELECT 
-	 	 memberNickName
-         ,cleanRating
+         cleanRating
          ,comfortRating
          ,priceRating
          ,qualityRating
@@ -23,8 +22,8 @@
 	 
     <insert id="reviewInsert">
     INSERT INTO review(
-            memberNickName
-            ,cleanRating
+            
+            cleanRating
             ,comfortRating
             ,priceRating
             ,qualityRating
@@ -32,8 +31,8 @@
             ,reRegDate
             ,roomSeqF
     	) VALUES(		
-    		#{memberNickName}
-    		,#{cleanRating}
+    		
+    		#{cleanRating}
     		,#{comfortRating}
     		,#{priceRating}
     		,#{qualityRating}
@@ -43,7 +42,12 @@
     	)
     </insert>
    
-  
+  	<select id="selectOneCount" resultType="Integer">
+		SELECT COUNT(*)
+		FROM review
+		WHERE 1=1 
+		AND roomSeqF =#{roomSeq}
+	</select>
     
     
     

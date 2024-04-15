@@ -21,4 +21,8 @@ public class ReviewService {
 	public int reviewInsert(ReviewDto dto) {
 		return dao.reviewInsert(dto);
 	}
+	
+	public ReviewDto selectOneCount(ReviewDto dto) {
+		return dao.selectOneCount(dto);
+	}
 }
