@@ -15,9 +15,9 @@
         	<if test="hotelTypeCD != null and !hotelTypeCD.equals('')">AND a.hotelTypeCD = #{hotelTypeCD}</if>
         	<if test="areaCD != null and !areaCD.equals('')">AND a.areaCD = #{areaCD}</if> 
         	
-        	<!-- 체크인 체크아웃 -->
-        	<if test="shCheckIn != null and !shCheckIn.equals('')">AND a.bkCheckIn = #{shCheckIn}></if>
-        	<if test="shCheckOut != null and !shCheckOut.equals('')">AND a.bkCheckOut = #{shCheckOut}></if>
+<!--         	체크인 체크아웃 -->
+<!--         	<if test="shCheckIn != null and !shCheckIn.equals('')">AND a.bkCheckIn = #{shCheckIn}></if> -->
+<!--         	<if test="shCheckOut != null and !shCheckOut.equals('')">AND a.bkCheckOut = #{shCheckOut}></if> -->
         	
         	
 <!--          <if test="shUseNy != null and !shUseNy.equals('')">AND ifcgUseNy = #{shUseNy}</if> -->

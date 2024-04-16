@@ -321,12 +321,34 @@ public class MemberController {
 		dto.setMemberPassword(encodeBcrypt(dto.getMemberPassword(),10));
 		
 		
-		
 		service.usrInsert(dto);
 
 	return "redirect:/usrIndex"; //
 	
 	}
+	
+//	@ResponseBody
+//	@RequestMapping(value = "/usrInsert")
+//	public Map<String, Object> usrInsert(MemberDto dto, HttpSession httpSession,Model model) throws Exception {
+//			Map<String, Object> returnMap = new HashMap<String, Object>();
+//			
+//			MemberDto rtPwd = service.pwdcheck(dto);
+//			
+//			
+//			if(rtPwd != null) {
+//			
+//			if(dto.getChangePwd().equals(dto.getCheckPwd())) {
+//				dto.setMemberPassword(encodeBcrypt(dto.getChangePwd(),10));
+//				service.passwordUpdate(dto);
+//				returnMap.put("rt", "success") ;
+//			} else {
+//				returnMap.put("rt", "fail");
+//			} 
+//			
+//			}
+//			return returnMap ;
+//			
+//	}
 	
 	//비밀번호 체크
 	@ResponseBody

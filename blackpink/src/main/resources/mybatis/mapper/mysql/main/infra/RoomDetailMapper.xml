@@ -7,10 +7,10 @@
 	
 	 
 	<sql id ="selectCommon">
-         FROM roomdetail a
-         LEFT JOIN hotellist b on a.roomSeq = b.hotelSeq
-        WHERE 1=1
-        AND roomSeq=#{roomSeq}
+        FROM roomDetail a 
+		 LEFT JOIN review b on a.roomSeq= b.reviewSeq
+		 WHERE 1=1 
+		 AND a.roomSeq =#{roomSeq}
 <!--         	<if test="hotelTypeCD != null and !hotelTypeCD.equals('')">AND a.hotelTypeCD = #{hotelTypeCD}</if> -->
 <!--         	<if test="areaCD != null and !areaCD.equals('')">AND a.areaCD = #{areaCD}</if>  -->
         	
@@ -50,7 +50,7 @@
 		    a.roomRegDate, 
 		    a.roomUpdate, 
 		    a.roomDelny, 
-		    a.hotelList_seq
+		    b.roomSeqF
         	<include refid="selectCommon" />
         ORDER BY a.roomSeq DESC
 <!--         limit #{rowNumToShow} offset #{startRnumForMysql} -->
@@ -75,13 +75,12 @@
 		    a.airNy, 
 		    a.bathNy, 
 		    a.bathSuppliesNy,
-		    b.memberNickName,
 		    b.cleanRating,
 		    b.comfortRating,
 		    b.priceRating,
 		    b.qualityRating,
 		    b.reviewContent,
-		    a.roomSeq as roomSeqF
+		    b.roomSeqF
 		 FROM roomDetail a 
 		 LEFT JOIN review b on a.roomSeq= b.reviewSeq
 		 WHERE 1=1 

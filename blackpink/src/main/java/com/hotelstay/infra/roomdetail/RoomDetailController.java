@@ -64,29 +64,38 @@ public class RoomDetailController {
         return "/usr/infra/index/roomDetail";
   	}
 	
-	@RequestMapping(value = "/reviewInset")
-	public String reviewInset(ReviewDto rdto,RoomDetailDto dto,Model model,HttpSession httpSession ) throws Exception{
-		dto.setMemberSeqF((String) httpSession.getAttribute("sessSeqUsr"));
-		
-//		System.out.println("dto.getRoomSeqF()"+ " " + dto.getRoomSeqF());
-		
-		
-		reviewService.reviewInsert(rdto);
-		
-		
-		return "redirect:/roomDetail";  //
-	}
+//	@RequestMapping(value = "/reviewInset")
+//	public String reviewInset(ReviewDto rdto,RoomDetailDto dto,Model model,HttpSession httpSession ) throws Exception{
+//		dto.setMemberSeqF((String) httpSession.getAttribute("sessSeqUsr"));
+//		
+//		System.out.println("dto.getRoomSeq()"+ " " + dto.getRoomSeq());
+//		
+//		
+//		reviewService.reviewInsert(rdto);
+//		
+//		
+//		return "redirect:/roomDetail";  //
+//	}
 	
 	
-	
+	//리뷰 작성
 	@ResponseBody
 	@RequestMapping(value = "/reviewInsert")
-	public Map<String, Object> reviewInsert(ReviewDto dto,RoomDetailDto dDto, HttpSession httpSession) throws Exception {
+	public Map<String, Object> reviewInsert(ReviewDto rdto,RoomDetailDto dto, HttpSession httpSession) throws Exception {
 			Map<String, Object> returnMap = new HashMap<String, Object>();
 			
 			dto.setMemberSeqF((String) httpSession.getAttribute("sessSeqUsr"));
 			
+			System.out.println("dto.getRoomSeq()" +" "+ dto.getRoomSeq());
 			
+			rdto.setRoomSeqF(dto.getRoomSeq());  
+			
+			reviewService.reviewInsert(rdto);  
+			
+			returnMap.put("seq", dto.getRoomSeq());  
+			
+			returnMap.put("rt", "success") ;    
+
 			
 			return returnMap;
 	}

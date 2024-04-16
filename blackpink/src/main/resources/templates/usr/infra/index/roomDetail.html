@@ -57,7 +57,7 @@
 					</li>
 					<li>호텔 상세정보</li>
 				</ul>
-			</div>
+			</div>	
 		</div>
 		<!-- End Position -->
 
@@ -343,7 +343,6 @@
 							<!-- End row -->
 							<hr>
 							<div class="review_strip_single" th:if="${#lists.isEmpty(List)}" th:each="list : ${list}">
-								<img src="/usr/assets/img/avatar1.jpg" alt="Image" class="rounded-circle">
 								<small th:text="${#dates.format(list.reRegDate, 'yyyy-MM-dd HH:mm:ss')}"></small>
 								<h4 th:text="${list.memberNickName}"></h4>
 								<div class="row" id="rating_summary">
@@ -463,6 +462,9 @@
 	
 
 	<!-- Modal Review -->
+	<form method="post">
+		<input name="roomSeq" id="roomSeq" type="hidden" th:value="${item.roomSeq}">
+		<input name="roomSeqF" id="roomSeqF" type="hidden" th:value="${item.roomSeqF}">
 	<div class="modal fade" id="myReview" tabindex="-1" role="dialog" aria-labelledby="myReviewLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -473,9 +475,6 @@
 				<div class="modal-body">
 					<div id="message-review">
 					</div>
-					<form method="post" action="reviewInset">
-<!-- 						<input name="hotel_name" id="hotel_name" type="hidden" value="Mariott Hotel Paris"> -->
-						<input name="roomSeqF" id="roomSeqF" type="hidden" th:value="${item.roomSeqF}">
 						<!-- End row -->
 						<hr>
 						<div class="row">
@@ -544,13 +543,13 @@
 							<textarea name="reviewContent" id="reviewContent" class="form-control" style="height:100px" placeholder="내용작성"></textarea>
 						</div>
 						
-						<input type="submit" value="작성" class="btn_1" id="btnSubmit">
-
-					</form>
+<!-- 						<input type="button" value="작성" class="btn_1" id="btnSubmit"> -->
+						<button type="button" class="btn_1" id="btnSubmit">작성</button>
 				</div>
 			</div>
 		</div>
 	</div>
+	</form>
 	<!-- End modal review -->
 
 	<!-- Common scripts -->
@@ -655,6 +654,35 @@
 						location.href = "/usrIndex";
 
 					}  
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});
+		}
+			
+		</script>
+		
+		<script type="text/javascript">
+		document.getElementById("btnSubmit").onclick = function () {
+			alert("qqqqqqqqqq");
+			
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				/* ,dataType:"json" */
+				,url: "/reviewInsert"
+				/* ,data : $("#formLogin").serialize() */
+				,data : { "roomSeq" : $("#roomSeq").val(), "cleanRating" : $("#cleanRating").val(),"comfortRating" : $("#comfortRating").val(),
+					"priceRating" : $("#priceRating").val(),"qualityRating" : $("#qualityRating").val(),"reviewContent" : $("#reviewContent").val()}
+				,success: function(response) {
+					if(response.rt == "success") {
+						location.href = "/roomDetail?roomSeq="+ response.seq;
+
+					} else(response.rt == "fail")
+						alert("ddddd");
+					
 				}
 				,error : function(jqXHR, textStatus, errorThrown){
 					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
