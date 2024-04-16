@@ -16,8 +16,8 @@ public class BaseVo {
 	private String ShValue;
 	
 	// 체크인,체크아웃
-	private Date shCheckIn;
-	private Date shCheckOut;
+	private Date bkCheckIn;
+	private Date bkCheckOut;
 	
 	//체크박스 
 	private String[] checkboxSeqArray;
@@ -219,19 +219,19 @@ public class BaseVo {
 	
 	
 	public Date getShCheckIn() {
-		return shCheckIn;
+		return bkCheckIn;
 	}
 
-	public void setShCheckIn(Date shCheckIn) {
-		this.shCheckIn = shCheckIn;
+	public void setbkCheckIn(Date bkCheckIn) {
+		this.bkCheckIn = bkCheckIn;
 	}
 
 	public Date getShCheckOut() {
-		return shCheckOut;
+		return bkCheckOut;
 	}
 
-	public void setShCheckOut(Date shCheckOut) {
-		this.shCheckOut = shCheckOut;
+	public void setbkCheckOut(Date bkCheckOut) {
+		this.bkCheckOut = bkCheckOut;
 	}
 
 	

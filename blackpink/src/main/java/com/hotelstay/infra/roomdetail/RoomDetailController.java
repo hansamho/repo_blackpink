@@ -58,8 +58,8 @@ public class RoomDetailController {
 		
 		model.addAttribute("item", service.selectOne(dto));
 		
-		
 		model.addAttribute("list", reviewService.selectList(rdto));
+		
 		
         return "/usr/infra/index/roomDetail";
   	}
