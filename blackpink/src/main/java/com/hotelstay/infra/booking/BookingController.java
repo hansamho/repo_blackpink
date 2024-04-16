@@ -49,4 +49,19 @@ public class BookingController {
 		
 	}
 	
+	@RequestMapping(value = "/booking")
+	public String booking(BookingDto dto,HttpSession httpSession ) throws Exception{
+
+	
+		return "/usr/infra/index/booking";  //
+		
+	}
+	
+	@RequestMapping(value = "/payhotel")
+	public String payhotel(BookingDto dto,HttpSession httpSession ) throws Exception{
+
+	
+		return "/usr/infra/index/payhotel";  //
+		
+	}
 }

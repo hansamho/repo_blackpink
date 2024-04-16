@@ -23,10 +23,10 @@
 <!--          <if test="shUseNy != null and !shUseNy.equals('')">AND ifcgUseNy = #{shUseNy}</if> -->
 <!--         	<if test="shDelny != null and !shDelny.equals('')">AND a.htDelny = #{shDelny}</if>  -->
         
-				<choose>
-					<when test="shOptionDate == 1">AND a.bkCheckIn BETWEEN #{shDateStart} AND #{shDateEnd}</when>
-					<when test="shOptionDate == 2">AND a.bkCheckOut BETWEEN #{shDateStart} AND #{shDateEnd}</when>
-				</choose>
+<!-- 				<choose> -->
+<!-- 					<when test="shOptionDate == 1">AND a.bkCheckIn BETWEEN #{shDateStart} AND #{shDateEnd}</when> -->
+<!-- 					<when test="shOptionDate == 2">AND a.bkCheckOut BETWEEN #{shDateStart} AND #{shDateEnd}</when> -->
+<!-- 				</choose> -->
 			
 <!-- 			<if test="shGenderCD != null and !shGenderCD.equals('')">AND a.genderCD = #{shGenderCD}</if>  -->
        

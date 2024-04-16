@@ -3,73 +3,76 @@
 
 <mapper namespace="com.hotelstay.infra.booking.BookingDao">
 
-	<resultMap id="resultMapObj" type="com.hotelstay.infra.booking.BookingDto"></resultMap>
-	
-	 <select id="selectMy" resultMap="resultMapObj">
-   	SELECT
+	<resultMap id="resultMapObj"
+		type="com.hotelstay.infra.booking.BookingDto"></resultMap>
+
+	<select id="selectMy" resultMap="resultMapObj">
+		SELECT
 		a.bookingSeq
 		,a.bkCheckin
-    	,a.bkCheckout
-    	,a.bkAdult
-    	,a.bkChild
-    	,a.bkTotalPrice
-    	,a.member_seq as memberSeqF
-    	,b.memberName
-    	,b.memberID
-    	,c.roomName
-    	,c.roomTypeCD
-    	,c.roomPrice
-    	,c.roomRegDate
- 	FROM hotelbooking a
+		,a.bkCheckout
+		,a.bkAdult
+		,a.bkChild
+		,a.bkTotalPrice
+		,a.member_seq as memberSeqF
+		,b.memberName
+		,b.memberID
+		,c.roomName
+		,c.roomTypeCD
+		,c.roomPrice
+		,c.roomRegDate
+		FROM hotelbooking a
 		LEFT JOIN member b
 		ON a.bookingSeq = b.memberSeq
-		LEFT join roomdetail c
+		LEFT
+		join roomdetail c
 		ON a.bookingSeq = c.roomSeq
-	WHERE a.member_seq = #{memberSeqF} 
-    </select>
-	
-	<select id="selectOne" resultMap="resultMapObj">
-	SELECT
-    	a.member_seq as memberSeqF
-    	,b.memberName
-    	,b.memberPhone
-    	,b.birthday
-    	,b.codeNumber
-    	,b.addrDetail
-    	,b.roadName
- 	FROM hotelbooking a
-		LEFT JOIN member b
-		ON a.bookingSeq = b.memberSeq
-		LEFT join roomdetail c 
-		ON a.bookingSeq = c.roomSeq
-	WHERE a.member_seq = #{memberSeqF} 
+		WHERE a.member_seq = #{memberSeqF}
 	</select>
-	
+
+	<select id="selectOne" resultMap="resultMapObj">
+		SELECT
+		a.member_seq as memberSeqF
+		,b.memberName
+		,b.memberPhone
+		,b.birthday
+		,b.codeNumber
+		,b.addrDetail
+		,b.roadName
+		FROM hotelbooking a
+		LEFT JOIN member b
+		ON a.bookingSeq = b.memberSeq
+		LEFT
+		join roomdetail c
+		ON a.bookingSeq = c.roomSeq
+		WHERE a.member_seq = #{memberSeqF}
+	</select>
+
 	<select id="selectWish" resultMap="resultMapObj">
 		SELECT
-			a.member_seq as memberSeqF
-			,c.roomName
-			,c.roomPrice
-			,c.roomTotalRating
- 		FROM wishlist a
- 			LEFT JOIN member b
- 			on a.wishSeq = b.memberSeq
- 			LEFT JOIN roomDetail c
- 			on a.wishSeq = c.roomSeq
- 		WHERE member_seq = #{memberSeqF};
-	
+		a.member_seq as memberSeqF
+		,c.roomName
+		,c.roomPrice
+		,c.roomTotalRating
+		FROM wishlist a
+		LEFT JOIN member b
+		on a.wishSeq = b.memberSeq
+		LEFT JOIN roomDetail c
+		on a.wishSeq = c.roomSeq
+		WHERE member_seq = #{memberSeqF};
+
 	</select>
-	
+
 	<update id="memberUpdate">
-		UPDATE member 
-    	set
-    	memberName = #{memberName}
-    	,birthday = #{birthday}
-    	,memberPhone = #{memberPhone}
-    	,codeNumber = #{codeNumber}
-    	,roadName = #{roadName}
-    	,addrDetail = #{addrDetail}
-    	WHERE memberSeq = #{memberSeqF}
+		UPDATE member
+		set
+		memberName = #{memberName}
+		,birthday = #{birthday}
+		,memberPhone = #{memberPhone}
+		,codeNumber = #{codeNumber}
+		,roadName = #{roadName}
+		,addrDetail = #{addrDetail}
+		WHERE memberSeq = #{memberSeqF}
 	</update>
-	
+
 </mapper>
