@@ -315,12 +315,12 @@
 									<ul>
 										<li>청결
 											<div class="rating">
-												<i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i>
+												<span><i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i></span>
 											</div>
 										</li>
 										<li>편안함
 											<div class="rating">
-												<i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i>
+												<span><i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i></span>
 											</div>
 										</li>
 									</ul>
@@ -329,12 +329,12 @@
 									<ul>
 										<li>가격
 											<div class="rating">
-												<i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i>
+												<span><i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i></span>
 											</div>
 										</li>
 										<li>퀄리티
 											<div class="rating">
-												<i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i>
+												<span><i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i></span>
 											</div>
 										</li>
 									</ul>
@@ -351,14 +351,16 @@
 									<ul>
 										<li>청결
 											<div class="rating">
-<!-- 												[[${list.cleanRating}]]점 -->
-												<i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i>
+												<span th:if="${list.cleanRating == 5}"><i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i></span>
+												<span th:if="${list.cleanRating == 4}"><i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i></span>
+												<span th:if="${list.cleanRating == 3}"><i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i></span>
+												<span th:if="${list.cleanRating == 2}"><i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i></span>
+												<span th:if="${list.cleanRating == 1}"><i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i></span>
 											</div>
 										</li>
 										<li>편안함
 											<div class="rating">
-<!-- 												[[${list.comfortRating}]]점 -->
-												<i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i>
+												<span><i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i></span>
 											</div>
 										</li>
 									</ul>
@@ -367,14 +369,12 @@
 									<ul>
 										<li>가격
 											<div class="rating">
-<!-- 											[[${list.priceRating}]]점 -->
-												<i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i>
+												<span><i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i></span>
 											</div>
 										</li>
 										<li>퀄리티
 											<div class="rating">
-<!-- 											[[${list.qualityRating}]]점 -->
-												<i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i>
+												<span><i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star-empty"></i></span>
 											</div>
 										</li>
 									</ul>

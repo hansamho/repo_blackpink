@@ -63,20 +63,7 @@ public class RoomDetailController {
 		
         return "/usr/infra/index/roomDetail";
   	}
-	
-//	@RequestMapping(value = "/reviewInset")
-//	public String reviewInset(ReviewDto rdto,RoomDetailDto dto,Model model,HttpSession httpSession ) throws Exception{
-//		dto.setMemberSeqF((String) httpSession.getAttribute("sessSeqUsr"));
-//		
-//		System.out.println("dto.getRoomSeq()"+ " " + dto.getRoomSeq());
-//		
-//		
-//		reviewService.reviewInsert(rdto);
-//		
-//		
-//		return "redirect:/roomDetail";  //
-//	}
-	
+		
 	
 	//리뷰 작성
 	@ResponseBody
