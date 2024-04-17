@@ -20,7 +20,24 @@ public class HotelDto {
 	private int roomPrice;
 	private double roomTotalRating;
 	
+	// 체크인,체크아웃
+	public Date bkCheckIn;
+	public Date bkCheckOut;
 	
+	
+	
+	public Date getBkCheckIn() {
+		return bkCheckIn;
+	}
+	public void setBkCheckIn(Date bkCheckIn) {
+		this.bkCheckIn = bkCheckIn;
+	}
+	public Date getBkCheckOut() {
+		return bkCheckOut;
+	}
+	public void setBkCheckOut(Date bkCheckOut) {
+		this.bkCheckOut = bkCheckOut;
+	}
 	public double getRoomTotalRating() {
 		return roomTotalRating;
 	}

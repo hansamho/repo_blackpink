@@ -26,7 +26,7 @@
     <header>
          <div th:replace="~{usr/infra/include/header :: header}"></div>
     </header><!-- End Header -->
-	<form method="get">
+	<form name="formList" id="formList" method="post">
 	<!--메인 예약 확인-->
 		<section id="search_container">
             <div id="search">
@@ -42,13 +42,13 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label><i class="icon-calendar-7"></i> 체크인</label>
-                                    <input class="date-pick form-control" type="text">
+                                    <input class="date-pick form-control" type="text" id="shbkCheckIn" name="shbkCheckIn">
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label><i class="icon-calendar-7"></i> 체크아웃</label>
-                                    <input class="date-pick form-control" type="text">
+                                    <input class="date-pick form-control" type="text" id="shbkCheckOut" name="shbkCheckOut">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -252,6 +252,13 @@
               console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('DD-MM-YYYY') + ' (predefined range: ' + label + ')');
             });
         });
+		let goUrlHotel = "[[@{/hotelList(areaCD=${vo.areaCD})}]]";
+		
+		let form = document.querySelector("form[name=formList]");
+		document.getElementById("btnSearch").onclick = function() {
+			form.action = goUrlHotel;
+			form.submit();
+		};
     </script>
         <script>
             $('input.time-pick').timepicker({
@@ -298,10 +305,6 @@
 			
 		</script>
 		
-		<script type="text/javascript">
-			
-			
-		</script>
 	<!-- NOTIFY BUBBLES  -->
 <!-- 	<script src="/usr/assets/js/notify_func.js"></script> -->
 

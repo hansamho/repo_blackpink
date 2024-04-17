@@ -87,5 +87,11 @@
 		 AND a.roomSeq =#{roomSeq}
     </select>
     	
-    
+    <select id="reviewCount">
+    SELECT COUNT(*)
+    FROM roomdetail a
+    LEFT JOIN review b on a.roomSeq = b.roomSeqF
+    WHERE 1=1
+    AND roomSeqF = #{roomSeq};
+	</select>
 </mapper>

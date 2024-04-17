@@ -28,4 +28,8 @@ public class RoomDetailService {
 	public RoomDetailDto selectOneReview(RoomDetailDto dto) {
 		return dao.selectOneReview(dto);
 	}
+	
+	public RoomDetailDto reviewCount(RoomDetailDto dto) {
+		return dao.reviewCount(dto);
+	}
 }

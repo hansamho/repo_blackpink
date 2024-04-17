@@ -11,4 +11,6 @@ public interface RoomDetailDao {
 	public RoomDetailDto selectadmin(RoomDetailDto dto);
 	
 	public RoomDetailDto selectOneReview(RoomDetailDto dto);
+	
+	public RoomDetailDto reviewCount(RoomDetailDto dto);
 }

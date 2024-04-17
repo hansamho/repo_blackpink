@@ -17,6 +17,7 @@ import com.hotelstay.infra.booking.BookingDto;
 import com.hotelstay.infra.member.MemberDto;
 import com.hotelstay.infra.review.ReviewDto;
 import com.hotelstay.infra.review.ReviewService;
+import com.hotelstay.infra.review.ReviewVo;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -51,14 +52,17 @@ public class RoomDetailController {
 		
 		
 	}
-	
+	 
 	@RequestMapping(value = "/roomDetail")
-	public String roomDetail(RoomDetailDto dto,ReviewDto rdto, Model model) throws Exception{
+	public String roomDetail(@ModelAttribute("vo") RoomDetailVo vo, RoomDetailDto dto,ReviewDto rdto, Model model) throws Exception{
 		
 		
 		model.addAttribute("item", service.selectOne(dto));
 		
+		model.addAttribute("count", service.reviewCount(dto));
+		
 		model.addAttribute("list", reviewService.selectList(rdto));
+		
 		
 		
         return "/usr/infra/index/roomDetail";

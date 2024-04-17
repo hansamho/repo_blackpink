@@ -6,9 +6,17 @@ public class RoomDetailVo extends BaseVo {
 	private String roomSeq;
 	private String hotellist_seq;
 	private double roomTotalRating;
+	private String roomSeqF;
 	
 	
 	
+	
+	public String getRoomSeqF() {
+		return roomSeqF;
+	}
+	public void setRoomSeqF(String roomSeqF) {
+		this.roomSeqF = roomSeqF;
+	}
 	public double getRoomTotalRating() {
 		return roomTotalRating;
 	}

@@ -14,7 +14,7 @@
          ,reviewContent
          ,reRegDate
          ,roomSeqF as roomSeq
-	 FROM review
+	 FROM review a
 	 WHERE 1=1
 	 AND roomSeqF =#{roomSeq}
 	 </select>
@@ -42,12 +42,12 @@
     	)
     </insert>
    
-  	<select id="selectOneCount" resultType="Integer">
-		SELECT COUNT(*)
-		FROM review
-		WHERE 1=1 
-		AND roomSeqF =#{roomSeq}
-	</select>
+<!--   	<select id="selectOneCount" resultType="Integer"> -->
+<!-- 		SELECT COUNT(*) -->
+<!-- 		FROM review -->
+<!-- 		WHERE 1=1  -->
+<!-- 		AND roomSeqF =#{roomSeq} -->
+<!-- 	</select> -->
     
     
     
