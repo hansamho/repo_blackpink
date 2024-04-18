@@ -18,7 +18,7 @@ public class BookingDto {
 	private Date bkUpdate; 
 	private Integer bkDelny; 
 	private String memberSeqF; 
-	private String roomDetail_seq;
+	private String roomDetail_roomSeq;
 	
 	/*멤버*/
 	private String memberSeq;
@@ -176,10 +176,10 @@ public class BookingDto {
 		this.memberSeqF = memberSeqF;
 	}
 	public String getRoomDetail_seq() {
-		return roomDetail_seq;
+		return roomDetail_roomSeq;
 	}
-	public void setRoomDetail_seq(String roomDetail_seq) {
-		this.roomDetail_seq = roomDetail_seq;
+	public void setRoomDetail_seq(String roomDetail_roomSeq) {
+		this.roomDetail_roomSeq = roomDetail_roomSeq;
 	}
 	public String getMemberSeq() {
 		return memberSeq;

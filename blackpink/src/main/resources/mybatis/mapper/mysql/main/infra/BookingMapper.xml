@@ -74,5 +74,33 @@
 		,addrDetail = #{addrDetail}
 		WHERE memberSeq = #{memberSeqF}
 	</update>
-
+	
+	<select id="bookingSelectOne">
+		SELECT
+		a.memberSeq
+		,a.memberName
+        ,a.birthday
+        ,a.memberPhone
+        ,b.bkCheckin
+        ,b.bkCheckout
+        ,b.bkAdult
+        ,b.bkChild
+        ,b.bkTotalPrice
+        ,b.payType
+        ,b.cardNumber
+        ,b.cardDate
+        ,b.cardYear
+        ,b.cardCcv
+        ,c.roomName
+        ,c.roomTypeCD
+        ,c.roomPrice
+		FROM member a
+		LEFT JOIN hotelbooking b on b.bookingSeq = a.memberSeq
+		LEFT JOIN roomdetail c on b.bookingSeq = c.roomSeq
+		WHERE 1=1
+		AND a.memberSeq = #{memberSeq};
+	</select>
+	
+	
+	
 </mapper>

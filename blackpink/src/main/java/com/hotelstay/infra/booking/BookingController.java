@@ -50,8 +50,9 @@ public class BookingController {
 	}
 	
 	@RequestMapping(value = "/booking")
-	public String booking(BookingDto dto,HttpSession httpSession ) throws Exception{
+	public String booking(BookingDto dto,Model model,HttpSession httpSession ) throws Exception{
 		dto.setMemberSeqF((String) httpSession.getAttribute("sessSeqUsr"));
+		model.addAttribute("item", service.bookingSelectOne(dto));
 		
 		return "/usr/infra/index/booking";  //
 		

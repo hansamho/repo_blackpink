@@ -33,4 +33,8 @@ public class BookingService {
 	public int memberUpdate(BookingDto dto) {
 		return dao.memberUpdate(dto);
 	}
+	
+	public BookingDto bookingSelectOne(BookingDto dto) {
+		return dao.bookingSelectOne(dto);
+	}
 }
