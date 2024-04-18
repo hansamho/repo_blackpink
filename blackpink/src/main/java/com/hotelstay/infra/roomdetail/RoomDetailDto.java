@@ -21,7 +21,9 @@ public class RoomDetailDto {
 	private String hotelList_seq;
 	private String roomSeqF;
 	private double roomTotalRating;
-	
+	private int singleRoomPrice;
+	private int doubleRoomPrice;
+	private int twinRoomPrice;
 	
 	/*멤버*/
 	private String memberName;
@@ -52,9 +54,27 @@ public class RoomDetailDto {
 	private Date reUpdate; 
 	private Integer Delny; 
 	private String roomDetail_roomSeq;
-	/*객실*/
 	
 	
+	
+	public int getSingleRoomPrice() {
+		return singleRoomPrice;
+	}
+	public void setSingleRoomPrice(int singleRoomPrice) {
+		this.singleRoomPrice = singleRoomPrice;
+	}
+	public int getDoubleRoomPrice() {
+		return doubleRoomPrice;
+	}
+	public void setDoubleRoomPrice(int doubleRoomPrice) {
+		this.doubleRoomPrice = doubleRoomPrice;
+	}
+	public int getTwinRoomPrice() {
+		return twinRoomPrice;
+	}
+	public void setTwinRoomPrice(int twinRoomPrice) {
+		this.twinRoomPrice = twinRoomPrice;
+	}
 	public String getRoomSeq() {
 		return roomSeq;
 	}

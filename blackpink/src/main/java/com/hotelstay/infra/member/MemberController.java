@@ -309,6 +309,8 @@ public class MemberController {
 	//  회원가입	
 	@RequestMapping(value = "/register")
 	public String register(MemberDto dto,Model model) throws Exception{
+		model.addAttribute("listCodeGroup", codeGroupService.selectListWithoutPaging());
+		
 		
 		return "/usr/infra/index/register";
 	}

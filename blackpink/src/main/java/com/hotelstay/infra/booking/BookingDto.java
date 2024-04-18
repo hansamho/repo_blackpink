@@ -37,9 +37,44 @@ public class BookingDto {
 	private String roomPrice;
 	private String roomRating;
 	private Date roomRegDate;
+	private String roomSeq;
+	private int singleRoomPrice;
+	private int doubleRoomPrice;
+	private int twinRoomPrice;
 	
 	
 	
+	
+	public int getSingleRoomPrice() {
+		return singleRoomPrice;
+	}
+	public void setSingleRoomPrice(int singleRoomPrice) {
+		this.singleRoomPrice = singleRoomPrice;
+	}
+	public int getDoubleRoomPrice() {
+		return doubleRoomPrice;
+	}
+	public void setDoubleRoomPrice(int doubleRoomPrice) {
+		this.doubleRoomPrice = doubleRoomPrice;
+	}
+	public int getTwinRoomPrice() {
+		return twinRoomPrice;
+	}
+	public void setTwinRoomPrice(int twinRoomPrice) {
+		this.twinRoomPrice = twinRoomPrice;
+	}
+	public String getRoomDetail_roomSeq() {
+		return roomDetail_roomSeq;
+	}
+	public void setRoomDetail_roomSeq(String roomDetail_roomSeq) {
+		this.roomDetail_roomSeq = roomDetail_roomSeq;
+	}
+	public String getRoomSeq() {
+		return roomSeq;
+	}
+	public void setRoomSeq(String roomSeq) {
+		this.roomSeq = roomSeq;
+	}
 	public String getBirthday() {
 		return birthday;
 	}

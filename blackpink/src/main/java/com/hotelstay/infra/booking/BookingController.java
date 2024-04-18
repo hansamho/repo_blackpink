@@ -52,17 +52,20 @@ public class BookingController {
 	@RequestMapping(value = "/booking")
 	public String booking(BookingDto dto,Model model,HttpSession httpSession ) throws Exception{
 		dto.setMemberSeqF((String) httpSession.getAttribute("sessSeqUsr"));
+		
 		model.addAttribute("item", service.bookingSelectOne(dto));
 		
 		return "/usr/infra/index/booking";  //
 		
 	}
 	
-	@RequestMapping(value = "/payhotel")
-	public String payhotel(BookingDto dto,HttpSession httpSession ) throws Exception{
+	@RequestMapping(value = "/bookinginfo")
+	public String bookinginfo(BookingDto dto,Model model,HttpSession httpSession ) throws Exception{
 		dto.setMemberSeqF((String) httpSession.getAttribute("sessSeqUsr"));
-	
-		return "/usr/infra/index/payhotel";  //
+		
+		model.addAttribute("item", service.bookingSelectOne(dto));
+		
+		return "/usr/infra/index/bookinginfo";  //
 		
 	}
 }

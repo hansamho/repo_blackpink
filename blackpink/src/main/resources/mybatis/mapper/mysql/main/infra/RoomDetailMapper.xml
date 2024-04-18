@@ -65,7 +65,10 @@
        SELECT 
     		a.roomSeq,
             a.roomName, 
-		    a.roomPrice, 
+		    a.roomPrice,
+		    a.singleRoomPrice
+		    ,a.doubleRoomPrice
+		    ,a.twinRoomPrice,
 		    a.roomContent, 
 		    a.roominfo, 
 		    a.roomTypeCD, 
@@ -87,7 +90,7 @@
 		 AND a.roomSeq =#{roomSeq}
     </select>
     	
-    <select id="reviewCount">
+    <select id="reviewCount" resultType="Integer">
     SELECT COUNT(*)
     FROM roomdetail a
     LEFT JOIN review b on a.roomSeq = b.roomSeqF

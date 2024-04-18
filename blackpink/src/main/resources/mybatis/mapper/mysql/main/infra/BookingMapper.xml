@@ -94,11 +94,15 @@
         ,c.roomName
         ,c.roomTypeCD
         ,c.roomPrice
+        ,c.singleRoomPrice
+        ,c.doubleRoomPrice
+        ,c.twinRoomPrice
+        ,c.roomSeq
 		FROM member a
 		LEFT JOIN hotelbooking b on b.bookingSeq = a.memberSeq
 		LEFT JOIN roomdetail c on b.bookingSeq = c.roomSeq
 		WHERE 1=1
-		AND a.memberSeq = #{memberSeq};
+		AND c.roomSeq = #{roomSeq};
 	</select>
 	
 	

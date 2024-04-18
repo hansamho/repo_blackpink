@@ -24,7 +24,7 @@
 	<!-- Header================================================== -->
 	<header>
          <div th:replace="~{usr/infra/include/header :: header}"></div>
-    </header><!-- End Header -->
+    </header>
 	<!-- End Header -->
 
 	<section class="parallax-window" data-parallax="scroll" data-image-src="/usr/assets/img/single_hotel_bg_1.jpg" data-natural-width="1400" data-natural-height="470">
@@ -307,7 +307,7 @@
 							<a href="#" class="btn_1 add_bottom_30" data-bs-toggle="modal" data-bs-target="#myReview">리뷰 작성</a>
 						</div>
 						<div class="col-lg-9">
-							<div id="score_detail"><span>4.5</span>평점 <small th:text="${count}">(34명)</small>
+							<div id="score_detail"><span>4.5</span>평점 <small>Total: [[${count}]]</small>
 							</div>
 							<!-- End general_rating -->
 							<div class="row" id="rating_summary">
@@ -408,7 +408,7 @@
 						<a class="btn_map" data-bs-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" data-text-swap="Hide map" data-text-original="View on map">View on map</a>
 					</p>
 					<div class="box_style_1 expose">
-						<h3 class="inner">체크인/체크아웃</h3>
+						<h3 class="inner">예약</h3>
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group">
@@ -428,7 +428,7 @@
 								<div class="form-group">
 									<label>성인</label>
 									<div class="numbers-row">
-										<input type="text" value="1" id="adults" class="qty2 form-control" name="quantity">
+										<input type="text" value="0" id="bkAdult" class="qty2 form-control" name="bkAdult">
 									</div>
 								</div>
 							</div>
@@ -436,11 +436,94 @@
 								<div class="form-group">
 									<label>아이</label>
 									<div class="numbers-row">
-										<input type="text" value="0" id="children" class="qty2 form-control" name="quantity">
+										<input type="text" value="0" id="bkChild" class="qty2 form-control" name="bkChild">
 									</div>
 								</div>
 							</div>
 						</div>
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="alert alert-info" role="alert"><strong>객실 유형</strong> 선택
+							</div>
+					<table class="table table-striped cart-list add_bottom_30">
+						<thead>
+							<tr>
+								<th>
+									객실 유형
+								</th>
+								<th>
+									개수
+								</th>
+								<th>
+									가격
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<div class="thumb_cart">
+										<a href="#" data-bs-toggle="modal" data-bs-target="#modal_single_room"><img src="/usr/assets/img/thumb_cart_1.jpg" alt="Image">
+										</a>
+									</div>
+									<!-- 객실 유형 싱글룸 -->
+									<span class="item_cart" th:if="${item.roomTypeCD!= null}"th:text="${@codeService.selectOneCachedCode(16)}"></span>
+									<span th:unless="${item.roomTypeCD!= null}"></span>
+								</td>
+								<td>
+									<div class="numbers-row">
+										<input type="text" value="0" id="quantity_1" class="qty2 form-control" name="quantity_1">
+									</div>
+								</td>
+								<td>
+									<strong th:text="${#numbers.formatInteger(item.singleRoomPrice,1,'COMMA')} + '원'"></strong>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="thumb_cart">
+										<a href="#" data-bs-toggle="modal" data-bs-target="#modal_double_room"><img src="/usr/assets/img/thumb_cart_1.jpg" alt="Image">
+										</a>
+									</div>
+									<!-- 객실 유형 더블룸 -->
+									<span class="item_cart" th:if="${item.roomTypeCD!= null}"th:text="${@codeService.selectOneCachedCode(17)}"></span>
+									<span th:unless="${item.roomTypeCD!= null}"></span>
+								</td>
+								<td>
+									<div class="numbers-row">
+										<input type="text" value="0" id="quantity_2" class="qty2 form-control" name="quantity_2">
+									</div>
+								</td>
+								<td>
+									<strong th:text="${#numbers.formatInteger(item.doubleRoomPrice,1,'COMMA')} + '원'"></strong>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="thumb_cart">
+										<a href="#" data-bs-toggle="modal" data-bs-target="#modal_double_room"><img src="/usr/assets/img/thumb_cart_1.jpg" alt="Image">
+										</a>
+									</div>
+									<!-- 객실 유형 트윈룸 -->
+									<span class="item_cart" th:if="${item.roomTypeCD!= null}"th:text="${@codeService.selectOneCachedCode(18)}"></span>
+									<span th:unless="${item.roomTypeCD!= null}"></span>
+								</td>
+								<td>
+									<div class="numbers-row">
+										<input type="text" value="0" id="quantity_2" class="qty2 form-control" name="quantity_2">
+									</div>
+								</td>
+								<td>
+									<strong th:text="${#numbers.formatInteger(item.twinRoomPrice,1,'COMMA')} + '원'"></strong>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					
+				</div>
+							
+						</div>
+					</div>
 						<br>
 
 						<a class="btn_full" th:href="@{/booking(roomSeq=${item.roomSeq})}">예약</a>

@@ -12,5 +12,5 @@ public interface RoomDetailDao {
 	
 	public RoomDetailDto selectOneReview(RoomDetailDto dto);
 	
-	public RoomDetailDto reviewCount(RoomDetailDto dto);
+	public int reviewCount(RoomDetailDto dto);
 }

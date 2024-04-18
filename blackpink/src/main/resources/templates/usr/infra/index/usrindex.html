@@ -58,9 +58,9 @@
                                         <select name="shAreaCD" id="shAreaCD" class="form-select form-select-sm">
                                            	<option value="">지역</option>
                                            <option
-												th:each="list : ${@codeService.selectListCachedCode(4)}"
-												th:value="${list.cdSeq}" th:text="${list.name}"
-												th:selected="${list.cdSeq} == ${item?.areaCD}">
+												th:each="listCodeGroup : ${@codeService.selectListCachedCode(4)}"
+												th:value="${listCodeGroup.cdSeq}" th:text="${listCodeGroup.name}"
+												th:selected="${listCodeGroup.cdSeq} == ${item?.areaCD}">
 											</option>
                                         </select>
                                     </div>

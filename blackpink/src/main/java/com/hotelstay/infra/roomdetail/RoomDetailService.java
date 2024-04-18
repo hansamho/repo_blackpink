@@ -29,7 +29,7 @@ public class RoomDetailService {
 		return dao.selectOneReview(dto);
 	}
 	
-	public RoomDetailDto reviewCount(RoomDetailDto dto) {
+	public int reviewCount(RoomDetailDto dto) {
 		return dao.reviewCount(dto);
 	}
 }
