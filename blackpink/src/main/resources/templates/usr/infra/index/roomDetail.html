@@ -427,7 +427,7 @@
 							<div class="col-6">
 								<div class="form-group">
 									<label>성인</label>
-									<div class="numbers-row">
+									<div class="numbers-row" id="adult">
 										<input type="text" value="0" id="bkAdult" class="qty2 form-control" name="bkAdult">
 									</div>
 								</div>
@@ -435,7 +435,7 @@
 							<div class="col-6">
 								<div class="form-group">
 									<label>아이</label>
-									<div class="numbers-row">
+									<div class="numbers-row" id="child">
 										<input type="text" value="0" id="bkChild" class="qty2 form-control" name="bkChild">
 									</div>
 								</div>
@@ -471,12 +471,12 @@
 									<span th:unless="${item.roomTypeCD!= null}"></span>
 								</td>
 								<td>
-									<div class="numbers-row">
-										<input type="text" value="0" id="quantity_1" class="qty2 form-control" name="quantity_1">
+									<div class="numbers-row" id="singleRoom">
+										<input type="text" value="1" id="btnSingle" class="qty2 form-control" name="btnSingle">
 									</div>
 								</td>
 								<td>
-									<strong th:text="${#numbers.formatInteger(item.singleRoomPrice,1,'COMMA')} + '원'"></strong>
+									<strong id="singlePrice" th:text="${#numbers.formatInteger(item.singleRoomPrice,1,'COMMA')} + '원'"></strong>
 								</td>
 							</tr>
 							<tr>
@@ -490,12 +490,12 @@
 									<span th:unless="${item.roomTypeCD!= null}"></span>
 								</td>
 								<td>
-									<div class="numbers-row">
-										<input type="text" value="0" id="quantity_2" class="qty2 form-control" name="quantity_2">
+									<div class="numbers-row" id="doubleRoom">
+										<input type="text" value="1" id="btnDouble" class="qty2 form-control" name="btnDouble">
 									</div>
 								</td>
 								<td>
-									<strong th:text="${#numbers.formatInteger(item.doubleRoomPrice,1,'COMMA')} + '원'"></strong>
+									<strong id="doublePrice" th:text="${#numbers.formatInteger(item.doubleRoomPrice,1,'COMMA')} + '원'"></strong>
 								</td>
 							</tr>
 							<tr>
@@ -509,12 +509,12 @@
 									<span th:unless="${item.roomTypeCD!= null}"></span>
 								</td>
 								<td>
-									<div class="numbers-row">
-										<input type="text" value="0" id="quantity_2" class="qty2 form-control" name="quantity_2">
+									<div class="numbers-row" id="twinRoom">
+										<input type="text" value="1" id="btnTwin" class="qty2 form-control" name="btnTwin">
 									</div>
 								</td>
 								<td>
-									<strong th:text="${#numbers.formatInteger(item.twinRoomPrice,1,'COMMA')} + '원'"></strong>
+									<strong id="twinPrice" th:text="${#numbers.formatInteger(item.twinRoomPrice,1,'COMMA')} + '원'"></strong>
 								</td>
 							</tr>
 						</tbody>
@@ -790,7 +790,7 @@
 		}
 			
 		</script>
-	
+		
 </body>
 
 </html>

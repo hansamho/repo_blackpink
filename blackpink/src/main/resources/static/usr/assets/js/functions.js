@@ -168,12 +168,13 @@ $(function () {
 	});
 
 	/* Input incrementer*/
-	$(".numbers-row").append('<div class="inc button_inc">+</div><div class="dec button_inc">-</div>');
+	
+	$("#adult,#child").append('<div class="inc button_inc">+</div><div class="dec button_inc">-</div>');
 	$(".button_inc").on('click', function () {
 
 		var $button = $(this);
 		var oldValue = $button.parent().find("input").val();
-
+		
 		if ($button.text() == "+") {
 			var newVal = parseFloat(oldValue) + 1;
 		} else {
@@ -185,8 +186,70 @@ $(function () {
 			}
 		}
 		$button.parent().find("input").val(newVal);
+		var singleTotal = newVal * single;
+		
+		
+		
 	});
+	
+	/* Input incrementer*/
+	/* 싱글룸 수량 누르면 가격 변경 */
+	$("#singleRoom").append('<div class="inc button_inc" id="single">+</div><div class="dec button_inc" id="singlem">-</div>');
+		var single = parseInt(document.getElementById("singlePrice").innerText)
+	$("#single,#singlem").on('click', function () {
+
+		var $button = $(this);
+		var oldValuedS = $button.parent().find("input").val();
+		
+		if ($button.text() == "+") {
+			var newValS = parseFloat(oldValuedS) + 1;
+		} else {
+			// Don't allow decrementing below zero
+			if (oldValuedS > 1) {
+				var newValS = parseFloat(oldValuedS) - 1;
+			} else {
+				newValS = 0;
+			}
+		}
+		$button.parent().find("input").val(newValS);
+		var singleTotal = newValS * single;
+		
+		document.getElementById("singlePrice").innerText = singleTotal;
+		
+		
+	});
+	
+	
+	/* Input incrementer*/
+	/* 더블룸 수량 누르면 가격 변경 */
+	$("#doubleRoom").append('<div class="inc button_inc id="double">+</div><div class="dec button_inc" id="doublem">-</div>');
+		var double = parseInt(document.getElementById("doublePrice").innerText)
+	$("#double,#doublem").on('click', function () {
+
+		var $button = $(this);
+		var oldValuedD = $button.parent().find("input").val();
+		
+		if ($button.text() == "+") {
+			var newValD = parseFloat(oldValuedD) + 1;
+		} else {
+			// Don't allow decrementing below zero
+			if (oldValuedD > 1) {
+				var newValD = parseFloat(oldValuedD) - 1;
+			} else {
+				newValD = 0;
+			}
+		}
+		$button.parent().find("input").val(newValD);
+		var doubleTotal = newValD * double;
+		
+		document.getElementById("doublePrice").innerText = doubleTotal;
+		
+		
+	});
+	
 });
+
+
 
 /* Cat nav onclick active */
 $('ul#cat_nav li a').on('click', function () {
