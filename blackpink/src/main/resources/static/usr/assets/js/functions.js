@@ -186,7 +186,7 @@ $(function () {
 			}
 		}
 		$button.parent().find("input").val(newVal);
-		var singleTotal = newVal * single;
+		
 		
 		
 		
@@ -216,37 +216,72 @@ $(function () {
 		
 		document.getElementById("singlePrice").innerText = singleTotal;
 		
-		
+		var formattedSingleTotal = (singleTotal * 1000).toLocaleString() + "원";
+
+    	document.getElementById("singlePrice").innerText = formattedSingleTotal;
 	});
 	
 	
 	/* Input incrementer*/
 	/* 더블룸 수량 누르면 가격 변경 */
-	$("#doubleRoom").append('<div class="inc button_inc id="double">+</div><div class="dec button_inc" id="doublem">-</div>');
+	$("#doubleRoom").append('<div class="inc button_inc" id="double">+</div><div class="dec button_inc" id="doublem">-</div>');
 		var double = parseInt(document.getElementById("doublePrice").innerText)
 	$("#double,#doublem").on('click', function () {
 
 		var $button = $(this);
-		var oldValuedD = $button.parent().find("input").val();
+		var oldValuedS = $button.parent().find("input").val();
 		
 		if ($button.text() == "+") {
-			var newValD = parseFloat(oldValuedD) + 1;
+			var newValS = parseFloat(oldValuedS) + 1;
 		} else {
 			// Don't allow decrementing below zero
-			if (oldValuedD > 1) {
-				var newValD = parseFloat(oldValuedD) - 1;
+			if (oldValuedS > 1) {
+				var newValS = parseFloat(oldValuedS) - 1;
 			} else {
-				newValD = 0;
+				newValS = 0;
 			}
 		}
-		$button.parent().find("input").val(newValD);
-		var doubleTotal = newValD * double;
+		$button.parent().find("input").val(newValS);
+		var doubleTotal = newValS * double;
 		
 		document.getElementById("doublePrice").innerText = doubleTotal;
+		
+		var formattedDoubleTotal = (doubleTotal * 1000).toLocaleString() + "원";
+
+    	document.getElementById("doublePrice").innerText = formattedDoubleTotal;
 		
 		
 	});
 	
+	
+	/* Input incrementer*/
+	/* 싱글룸 수량 누르면 가격 변경 */
+	$("#twinRoom").append('<div class="inc button_inc" id="twin">+</div><div class="dec button_inc" id="twinm">-</div>');
+		var twin = parseInt(document.getElementById("twinPrice").innerText)
+	$("#twin,#twinm").on('click', function () {
+
+		var $button = $(this);
+		var oldValuedS = $button.parent().find("input").val();
+		
+		if ($button.text() == "+") {
+			var newValS = parseFloat(oldValuedS) + 1;
+		} else {
+			// Don't allow decrementing below zero
+			if (oldValuedS > 1) {
+				var newValS = parseFloat(oldValuedS) - 1;
+			} else {
+				newValS = 0;
+			}
+		}
+		$button.parent().find("input").val(newValS);
+		var twinTotal = newValS * twin;
+		
+		document.getElementById("twinPrice").innerText = twinTotal;
+		
+		var formattedTwinTotal = (twinTotal * 1000).toLocaleString() + "원";
+
+    	document.getElementById("twinPrice").innerText = formattedTwinTotal;
+	});
 });
 
 
