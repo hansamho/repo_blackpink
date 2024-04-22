@@ -20,8 +20,8 @@
         	<if test="shAreaCD != null and !shAreaCD.equals('')">AND a.areaCD = #{shAreaCD}</if> 
         	
         	<!-- 체크인 체크아웃 -->
-        	<if test="shCheckIn != null and !shCheckIn.equals('')">AND a.bkCheckIn = #{shCheckIn}></if>
-        	<if test="shCheckOut != null and !shCheckOut.equals('')">AND a.bkCheckOut = #{shCheckOut}></if>
+<!--         	<if test="shCheckIn != null and !shCheckIn.equals('')">AND c.bkCheckIn = #{shCheckIn}></if> -->
+<!--         	<if test="shCheckOut != null and !shCheckOut.equals('')">AND c.bkCheckOut = #{shCheckOut}></if> -->
         	
         
 <!-- 				<choose> -->

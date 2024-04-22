@@ -42,13 +42,13 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label><i class="icon-calendar-7"></i> 체크인</label>
-                                    <input class="date-pick form-control" type="text" id="shbkCheckIn" name="shbkCheckIn">
+                                    <input class="date-pick form-control" type="text" id="shCheckIn" name="shCheckIn" >
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label><i class="icon-calendar-7"></i> 체크아웃</label>
-                                    <input class="date-pick form-control" type="text" id="shbkCheckOut" name="shbkCheckOut">
+                                    <input class="date-pick form-control" type="text" id="shCheckOut" name="shCheckOut">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -239,7 +239,7 @@
     
     <script>
         $(function() {
-          $('#shbkCheckIn , #shbkCheckOut').daterangepicker({
+          $('#shCheckIn , #shCheckOut').daterangepicker({
               autoUpdateInput: true,
               singleDatePicker: true,
               autoApply: true,

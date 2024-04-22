@@ -196,6 +196,7 @@ $(function () {
 	/* 싱글룸 수량 누르면 가격 변경 */
 	$("#singleRoom").append('<div class="inc button_inc" id="single">+</div><div class="dec button_inc" id="singlem">-</div>');
 		var single = parseInt(document.getElementById("singlePrice").innerText)
+//		alert(single);
 	$("#single,#singlem").on('click', function () {
 
 		var $button = $(this);
@@ -215,10 +216,14 @@ $(function () {
 		var singleTotal = newValS * single;
 		
 		document.getElementById("singlePrice").innerText = singleTotal;
+		document.getElementById("singleRoomPrice").value =singleTotal;
 		
 		var formattedSingleTotal = (singleTotal * 1000).toLocaleString() + "원";
 
     	document.getElementById("singlePrice").innerText = formattedSingleTotal;
+    	alert(formattedSingleTotal); 
+    	document.getElementById("singleRoomPrice").value = formattedSingleTotal;
+    	alert(formattedSingleTotal);
 	});
 	
 	
@@ -245,10 +250,14 @@ $(function () {
 		var doubleTotal = newValS * double;
 		
 		document.getElementById("doublePrice").innerText = doubleTotal;
+		document.getElementById("doubleRoomPrice").value = doubleTotal;
 		
 		var formattedDoubleTotal = (doubleTotal * 1000).toLocaleString() + "원";
 
     	document.getElementById("doublePrice").innerText = formattedDoubleTotal;
+    	alert(formattedDoubleTotal);
+    	document.getElementById("doubleRoomPrice").value = formattedDoubleTotal;
+    	alert(formattedDoubleTotal);
 		
 		
 	});
@@ -277,10 +286,14 @@ $(function () {
 		var twinTotal = newValS * twin;
 		
 		document.getElementById("twinPrice").innerText = twinTotal;
+		document.getElementById("twinRoomPrice").value = twinTotal;
 		
 		var formattedTwinTotal = (twinTotal * 1000).toLocaleString() + "원";
 
     	document.getElementById("twinPrice").innerText = formattedTwinTotal;
+    	alert(formattedTwinTotal);
+    	document.getElementById("twinRoomPrice").value = formattedTwinTotal;
+    	alert(formattedTwinTotal);
 	});
 });
 

@@ -52,7 +52,6 @@
 		    a.roomDelny, 
 		    b.roomSeqF
         	<include refid="selectCommon" />
-        ORDER BY a.roomSeq DESC
 <!--         limit #{rowNumToShow} offset #{startRnumForMysql} -->
     </select>
     

@@ -413,13 +413,13 @@
 							<div class="col-md-12">
 								<div class="form-group">
 									<label><i class="icon-calendar-7"></i> 체크인</label>
-									<input class="date-pick form-control" type="text" placeholder="Select dates">
+									<input class="date-pick form-control" type="text" placeholder="Select dates" id="shCheckIn" name="shCheckIn">
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
 									<label><i class="icon-calendar-7"></i> 체크아웃</label>
-									<input class="date-pick form-control" type="text" placeholder="Select dates">
+									<input class="date-pick form-control" type="text" placeholder="Select dates" id="shCheckOut" name="shCheckOut">
 								</div>
 							</div>
 						</div>
@@ -476,6 +476,7 @@
 									</div>
 								</td>
 								<td>
+									<input type="hidden" id="singleRoomPrice" name="singleRoomPrice" th:value="${#numbers.formatInteger(item.singleRoomPrice,1,'COMMA')} + '원'">
 									<strong id="singlePrice" th:text="${#numbers.formatInteger(item.singleRoomPrice,1,'COMMA')} + '원'"></strong>
 								</td>
 							</tr>
@@ -495,6 +496,7 @@
 									</div>
 								</td>
 								<td>
+									<input type="hidden" id="doubleRoomPrice" name="doubleRoomPrice" th:value="${#numbers.formatInteger(item.doubleRoomPrice,1,'COMMA')} + '원'">
 									<strong id="doublePrice" th:text="${#numbers.formatInteger(item.doubleRoomPrice,1,'COMMA')} + '원'"></strong>
 								</td>
 							</tr>
@@ -514,6 +516,7 @@
 									</div>
 								</td>
 								<td>
+									<input type="hidden" id="twinRoomPrice" name="twinRoomPrice" th:value="${#numbers.formatInteger(item.twinRoomPrice,1,'COMMA')} + '원'">
 									<strong id="twinPrice" th:text="${#numbers.formatInteger(item.twinRoomPrice,1,'COMMA')} + '원'"></strong>
 								</td>
 							</tr>

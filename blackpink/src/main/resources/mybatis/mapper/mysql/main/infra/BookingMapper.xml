@@ -105,6 +105,19 @@
 		AND c.roomSeq = #{roomSeq};
 	</select>
 	
+	<insert id="roomInsert">
+		INSERT INTO roomDetail(
+			
+		)VALUES(
+			
+		)
+	
+	</insert>
+	
+	<insert id="bookingInsert">
+		
+	</insert>
+	
 	
 	
 </mapper>
