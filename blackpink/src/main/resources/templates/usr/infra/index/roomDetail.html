@@ -34,7 +34,6 @@
 					<div class="col-md-8">
 						<span class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class=" icon-star-empty"></i></span>
 						<h1 th:text="${item.roomName}"></h1>
-						<span></span>
 					</div>
 					<div class="col-md-4">
 						<div id="price_single_main" class="hotel">
@@ -529,7 +528,7 @@
 					</div>
 						<br>
 
-						<a class="btn_full" th:href="@{/booking(roomSeq=${item.roomSeq})}">예약</a>
+						<a class="btn_full" th:href="@{/booking(memberSeq=${item.memberSeqF})}">예약</a>
 						<a class="btn_full_outline" th:href="@{hotelList}">뒤로가기</i></a>
 					</div>
 					<!--/box_style_1 -->

@@ -75,12 +75,13 @@
 		WHERE memberSeq = #{memberSeqF}
 	</update>
 	
-	<select id="bookingSelectOne">
+	<select id="bookingSelectOne" resultMap="resultMapObj">
 		SELECT
 		a.memberSeq
 		,a.memberName
         ,a.birthday
         ,a.memberPhone
+        ,b.member_seq as memberSeqF
         ,b.bkCheckin
         ,b.bkCheckout
         ,b.bkAdult
@@ -98,16 +99,21 @@
         ,c.doubleRoomPrice
         ,c.twinRoomPrice
         ,c.roomSeq
+        
 		FROM member a
 		LEFT JOIN hotelbooking b on b.bookingSeq = a.memberSeq
 		LEFT JOIN roomdetail c on b.bookingSeq = c.roomSeq
 		WHERE 1=1
-		AND c.roomSeq = #{roomSeq};
+		AND a.memberSeq = #{memberSeqF};
 	</select>
 	
 	<insert id="roomInsert">
 		INSERT INTO roomDetail(
-			
+			roomName
+			,singleRoomPrice
+			,doubleRoomPrice
+			,twinRoomPrice
+			,
 		)VALUES(
 			
 		)
@@ -115,6 +121,11 @@
 	</insert>
 	
 	<insert id="bookingInsert">
+		INSERT INTO hotelBooking(
+			
+		)VALUE(
+			
+		)
 		
 	</insert>
 	

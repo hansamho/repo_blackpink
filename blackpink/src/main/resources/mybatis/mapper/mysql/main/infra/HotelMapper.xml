@@ -20,8 +20,8 @@
         	<if test="shAreaCD != null and !shAreaCD.equals('')">AND a.areaCD = #{shAreaCD}</if> 
         	
         	<!-- 체크인 체크아웃 -->
-<!--         	<if test="shCheckIn != null and !shCheckIn.equals('')">AND c.bkCheckIn = #{shCheckIn}></if> -->
-<!--         	<if test="shCheckOut != null and !shCheckOut.equals('')">AND c.bkCheckOut = #{shCheckOut}></if> -->
+<!--         	<if test="shCheckIn != null and !shAreaCD.equals('')" >AND c.bkCheckIn = #{shCheckIn}></if> -->
+<!--         	<if test="shCheckOut != null and !shAreaCD.equals('')" >AND c.bkCheckOut = #{shCheckOut}></if> -->
         	
         
 <!-- 				<choose> -->
@@ -44,6 +44,12 @@
     		,b.roomPrice
    		 	,b.roomTypeCD
    		 	,b.roomTotalRating
+   		 	,b.tvNy
+            ,b.wifiNy
+            ,poolNy
+            ,b.bathNy
+            ,b.bathSuppliesNy
+            ,b.airNy
     		,b.roomSeq
     		,c.bkCheckIn
     		,c.bkCheckOut
@@ -74,7 +80,6 @@
          LEFT JOIN roomdetail b on a.hotelSeq = b.roomSeq
         WHERE 1=1
         AND a.hotelSeq = #{hotelSeq}
-        ORDER BY a.hotelSeq DESC
     </select>
     
     

@@ -42,13 +42,13 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label><i class="icon-calendar-7"></i> 체크인</label>
-                                    <input class="date-pick form-control" type="text" id="shCheckIn" name="shCheckIn" >
+                                    <input class="date-pick form-control" type="text" id="shCheckIn" name="shCheckIn" th:value="${#strings.substring(vo.shCheckIn, 0, 10)}">
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label><i class="icon-calendar-7"></i> 체크아웃</label>
-                                    <input class="date-pick form-control" type="text" id="shCheckOut" name="shCheckOut">
+                                    <input class="date-pick form-control" type="text" id="shCheckOut" name="shCheckOut" th:value="${#strings.substring(vo.shCheckOut, 0, 10)}">
                                 </div>
                             </div>
                             <div class="col-md-6">

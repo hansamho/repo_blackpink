@@ -28,6 +28,7 @@ public class RoomDetailDto {
 	/*멤버*/
 	private String memberName;
 	private String memberSeqF;
+	private String memberSeq;
 	
 	/*호텔*/
 	private String hotelName;
@@ -57,6 +58,12 @@ public class RoomDetailDto {
 	
 	
 	
+	public String getMemberSeq() {
+		return memberSeq;
+	}
+	public void setMemberSeq(String memberSeq) {
+		this.memberSeq = memberSeq;
+	}
 	public int getSingleRoomPrice() {
 		return singleRoomPrice;
 	}

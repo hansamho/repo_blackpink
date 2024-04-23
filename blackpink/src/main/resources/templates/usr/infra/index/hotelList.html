@@ -130,8 +130,8 @@
 									 <li>
                                         <label class="container_check">
                                              호텔
-                                             <input type="hidden" name="checkboxSeqArray">
-                                            <input type="checkbox" name="checkboxSeq" id="">
+                                             <input type="hidden" name="checkboxSeqArray" id="checkboxSeqArray">
+                                            <input type="checkbox" name="checkboxSeq" id="checkboxSeq">
                                             <span class="checkmark"></span>
                                         </label>
                                     </li>
@@ -213,7 +213,7 @@
                                             <input type="checkbox">
                                             <span class="checkmark"></span>
                                         </label>
-                                    </li>
+                                    </li>	
                                     <li>
                                         <label class="container_check">
                                              서울
@@ -299,7 +299,7 @@
 									<p th:text="${list.hotelContent}"></p>
 									<ul class="add_info">
 										<li>
-											<a href="javascript:void(0);" class="tooltip-1" data-bs-placement="top" title="무료 와이파이"><i class="icon_set_1_icon-86"></i></a>
+											<a href="javascript:void(0);" id="tvNy" name="tvNy" class="tooltip-1" data-bs-placement="top" title="무료 와이파이"><i class="icon_set_1_icon-86"></i></a>
 										</li>
 										<li>
 											<a href="javascript:void(0);" class="tooltip-1" data-bs-placement="top" title="TV"><i class="icon_set_2_icon-116"></i></a>
@@ -378,7 +378,7 @@
 	
 	<script> 
 
-		
+		let goUrUsrHotelList = "/hotelList";
 		let goUrlUsrHotel = "[[@{/hotelList(HotelTypeCD=${vo.HotelTypeCD})}]]";
 		
 		goList = function (thisPage) {
@@ -430,7 +430,7 @@
 		        if (checkBoxArr[i].checked) checkboxSeqArray.push(checkBoxArr[i].value);
 		    }
 		    document.querySelector("input[name='checkboxSeqArray']").value = checkboxSeqArray;
-		    form.action = goUrlXdmMultiDele;
+		    form.action = goUrUsrHotelList;
 		    form.submit();
 		}
 		</script>
