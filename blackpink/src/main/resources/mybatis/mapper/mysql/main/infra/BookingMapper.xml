@@ -9,8 +9,8 @@
 	<select id="selectMy" resultMap="resultMapObj">
 		SELECT
 		a.bookingSeq
-		,a.bkCheckin
-		,a.bkCheckout
+		,a.bkCheckIn
+		,a.bkCheckOut
 		,a.bkAdult
 		,a.bkChild
 		,a.bkTotalPrice
@@ -77,58 +77,67 @@
 	
 	<select id="bookingSelectOne" resultMap="resultMapObj">
 		SELECT
-		a.memberSeq
-		,a.memberName
-        ,a.birthday
-        ,a.memberPhone
-        ,b.member_seq as memberSeqF
-        ,b.bkCheckin
-        ,b.bkCheckout
-        ,b.bkAdult
-        ,b.bkChild
-        ,b.bkTotalPrice
-        ,b.payType
-        ,b.cardNumber
-        ,b.cardDate
-        ,b.cardYear
-        ,b.cardCcv
-        ,c.roomName
-        ,c.roomTypeCD
-        ,c.roomPrice
-        ,c.singleRoomPrice
-        ,c.doubleRoomPrice
-        ,c.twinRoomPrice
-        ,c.roomSeq
-        
+			a.memberSeq
+			,a.memberName
+	        ,a.birthday
+	        ,a.memberPhone
+	        ,b.member_seq as memberSeqF
+	        ,b.bkCheckin
+	        ,b.bkCheckout
+	        ,b.bkAdult
+	        ,b.bkChild
+	        ,b.bkTotalPrice
+	        ,b.payType
+	        ,b.cardNumber
+	        ,b.cardDate
+	        ,b.cardYear
+	        ,b.cardCcv
+	        ,c.roomName
+	        ,c.roomTypeCD
+	        ,c.roomPrice
+	        ,c.singleRoomPrice
+	        ,c.doubleRoomPrice
+	        ,c.twinRoomPrice
+	        ,c.roomSeq
+			,b.roomDetail_roomSeq as roomSeqF
 		FROM member a
-		LEFT JOIN hotelbooking b on b.bookingSeq = a.memberSeq
-		LEFT JOIN roomdetail c on b.bookingSeq = c.roomSeq
+		LEFT JOIN hotelbooking b on b.member_seq = a.memberSeq
+		LEFT JOIN roomdetail c on b.roomDetail_roomSeq = c.roomSeq
 		WHERE 1=1
-		AND a.memberSeq = #{memberSeqF};
+		AND a.memberSeq = #{memberSeqF}
 	</select>
 	
-	<insert id="roomInsert">
-		INSERT INTO roomDetail(
-			roomName
-			,singleRoomPrice
-			,doubleRoomPrice
-			,twinRoomPrice
-			,
-		)VALUES(
-			
-		)
 	
-	</insert>
 	
 	<insert id="bookingInsert">
 		INSERT INTO hotelBooking(
-			
+			bkCheckIn
+			,bkCheckOut
+			,bkAdult
+			,bkChild
+			,member_seq
+			,roomDetail_roomSeq
 		)VALUE(
-			
+			#{bkCheckIn}
+			,#{bkCheckOut}
+			,#{bkAdult}
+			,#{bkChild}
+			,#{memberSeqF}
+			,#{roomSeqF}
 		)
-		
 	</insert>
 	
+	<insert id="roomInsert">
+		INSERT INTO roomDetail(
+			,singleRoomPrice
+			,doubleRoomPrice
+			,twinRoomPrice
+		)VALUES(
+			#{singleRoomPrice}
+			,#{doubleRoomPrice}
+			,#{twinRoomPrice}
+		)
 	
+	</insert>
 	
 </mapper>

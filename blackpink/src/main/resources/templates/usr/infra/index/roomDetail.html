@@ -406,19 +406,20 @@
 					<p class="d-block d-lg-none">
 						<a class="btn_map" data-bs-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" data-text-swap="Hide map" data-text-original="View on map">View on map</a>
 					</p>
+					<form method="post" action="bookingInsert">
 					<div class="box_style_1 expose">
 						<h3 class="inner">예약</h3>
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group">
 									<label><i class="icon-calendar-7"></i> 체크인</label>
-									<input class="date-pick form-control" type="text" placeholder="Select dates" id="shCheckIn" name="shCheckIn">
+									<input class="date-pick form-control" type="text" placeholder="Select dates" id="bkCheckIn" name="bkCheckIn">
 								</div>
 							</div>
 							<div class="col-md-12">
 								<div class="form-group">
 									<label><i class="icon-calendar-7"></i> 체크아웃</label>
-									<input class="date-pick form-control" type="text" placeholder="Select dates" id="shCheckOut" name="shCheckOut">
+									<input class="date-pick form-control" type="text" placeholder="Select dates" id="bkCheckOut" name="bkCheckOut">
 								</div>
 							</div>
 						</div>
@@ -521,23 +522,28 @@
 							</tr>
 						</tbody>
 					</table>
-					
 				</div>
-							
-						</div>
-					</div>
+			</div>
+			<div class="d-flex justify-content-between mt-4">
+				<button  type="submit" class="btn_full" th:href="@{/booking(memberSeq=${item.memberSeqF})}">예약</button>
+			</div>
+			<div>
+				<a class="btn_full_outline" th:href="@{hotelList}">뒤로가기</a>
+			</div>
+		</div>
+		</form>
+			
 						<br>
-
-						<a class="btn_full" th:href="@{/booking(memberSeq=${item.memberSeqF})}">예약</a>
-						<a class="btn_full_outline" th:href="@{hotelList}">뒤로가기</i></a>
+<!-- 						<button class="btn_full" th:href="@{/booking(memberSeq=${item.memberSeqF})}">예약</button> -->
+<!-- 						<a class="btn_full_outline" th:href="@{hotelList}">뒤로가기</a> -->
 					</div>
 					<!--/box_style_1 -->
-
+				</aside>	
 					
-				</aside>
+				
 			</div>
 			<!--End row -->
-		</div>
+<!-- 		</div> -->
 		<!--End container -->
         
         <div id="overlay"></div>

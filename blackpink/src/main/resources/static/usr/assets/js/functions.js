@@ -195,71 +195,75 @@ $(function () {
 	/* Input incrementer*/
 	/* 싱글룸 수량 누르면 가격 변경 */
 	$("#singleRoom").append('<div class="inc button_inc" id="single">+</div><div class="dec button_inc" id="singlem">-</div>');
-		var single = parseInt(document.getElementById("singlePrice").innerText)
-//		alert(single);
-	$("#single,#singlem").on('click', function () {
-
-		var $button = $(this);
-		var oldValuedS = $button.parent().find("input").val();
-		
-		if ($button.text() == "+") {
-			var newValS = parseFloat(oldValuedS) + 1;
-		} else {
-			// Don't allow decrementing below zero
-			if (oldValuedS > 1) {
-				var newValS = parseFloat(oldValuedS) - 1;
-			} else {
-				newValS = 0;
-			}
-		}
-		$button.parent().find("input").val(newValS);
-		var singleTotal = newValS * single;
-		
-		document.getElementById("singlePrice").innerText = singleTotal;
-		document.getElementById("singleRoomPrice").value =singleTotal;
-		
-		var formattedSingleTotal = (singleTotal * 1000).toLocaleString() + "원";
-
-    	document.getElementById("singlePrice").innerText = formattedSingleTotal;
-    	alert(formattedSingleTotal); 
-    	document.getElementById("singleRoomPrice").value = formattedSingleTotal;
-    	alert(formattedSingleTotal);
+			var single = parseInt(document.getElementById("singlePrice").innerText)
+	//		alert(single);
+		$("#single,#singlem").on('click', function () {
+	
+	    var $button = $(this);
+	    var oldValuedS = $button.parent().find("input").val();
+	
+	    // '원' 문자열을 제거하고 숫자만 추출
+	    var oldValuedSNumber = parseFloat(oldValuedS.replace(/[^\d.]/g, ''));
+	
+	    if ($button.text() == "+") {
+	        var newValS = oldValuedSNumber + 1;
+	    } else {
+	        // Don't allow decrementing below zero
+	        if (oldValuedSNumber > 1) {
+	            var newValS = oldValuedSNumber - 1;
+	        } else {
+	            newValS = 0;
+	        }
+	    }
+	    $button.parent().find("input").val(newValS);
+	    var singleTotal = newValS * single;
+	
+	    document.getElementById("singlePrice").innerText = singleTotal;
+	    document.getElementById("singleRoomPrice").value = singleTotal;
+	
+	    var formattedSingleTotal = (singleTotal * 1000).toLocaleString() + "원";
+	
+	    document.getElementById("singlePrice").innerText = formattedSingleTotal;
+	    alert(formattedSingleTotal);
+	    document.getElementById("singleRoomPrice").value = formattedSingleTotal;
+	     alert(formattedSingleTotal);
 	});
 	
 	
 	/* Input incrementer*/
 	/* 더블룸 수량 누르면 가격 변경 */
 	$("#doubleRoom").append('<div class="inc button_inc" id="double">+</div><div class="dec button_inc" id="doublem">-</div>');
-		var double = parseInt(document.getElementById("doublePrice").innerText)
-	$("#double,#doublem").on('click', function () {
-
-		var $button = $(this);
-		var oldValuedS = $button.parent().find("input").val();
-		
-		if ($button.text() == "+") {
-			var newValS = parseFloat(oldValuedS) + 1;
-		} else {
-			// Don't allow decrementing below zero
-			if (oldValuedS > 1) {
-				var newValS = parseFloat(oldValuedS) - 1;
-			} else {
-				newValS = 0;
-			}
-		}
-		$button.parent().find("input").val(newValS);
-		var doubleTotal = newValS * double;
-		
-		document.getElementById("doublePrice").innerText = doubleTotal;
-		document.getElementById("doubleRoomPrice").value = doubleTotal;
-		
-		var formattedDoubleTotal = (doubleTotal * 1000).toLocaleString() + "원";
-
-    	document.getElementById("doublePrice").innerText = formattedDoubleTotal;
-    	alert(formattedDoubleTotal);
-    	document.getElementById("doubleRoomPrice").value = formattedDoubleTotal;
-    	alert(formattedDoubleTotal);
-		
-		
+			var double = parseInt(document.getElementById("doublePrice").innerText)
+		$("#double,#doublem").on('click', function () {
+	
+	    var $button = $(this);
+	    var oldValuedS = $button.parent().find("input").val();
+	
+	    // '원' 문자열을 제거하고 숫자만 추출
+	    var oldValuedSNumber = parseFloat(oldValuedS.replace(/[^\d.]/g, ''));
+	
+	    if ($button.text() == "+") {
+	        var newValS = oldValuedSNumber + 1;
+	    } else {
+	        // Don't allow decrementing below zero
+	        if (oldValuedSNumber > 1) {
+	            var newValS = oldValuedSNumber - 1;
+	        } else {
+	            newValS = 0;
+	        }
+	    }
+	    $button.parent().find("input").val(newValS);
+	    var doubleTotal = newValS * double;
+	
+	    document.getElementById("doublePrice").innerText = doubleTotal;
+	    document.getElementById("doubleRoomPrice").value = doubleTotal;
+	
+	    var formattedDoubleTotal = (doubleTotal * 1000).toLocaleString() + "원";
+	
+	    document.getElementById("doublePrice").innerText = formattedDoubleTotal;
+	    alert(formattedDoubleTotal);
+	    document.getElementById("doubleRoomPrice").value = formattedDoubleTotal;
+	    alert(formattedDoubleTotal);
 	});
 	
 	
@@ -267,33 +271,36 @@ $(function () {
 	/* 싱글룸 수량 누르면 가격 변경 */
 	$("#twinRoom").append('<div class="inc button_inc" id="twin">+</div><div class="dec button_inc" id="twinm">-</div>');
 		var twin = parseInt(document.getElementById("twinPrice").innerText)
-	$("#twin,#twinm").on('click', function () {
-
-		var $button = $(this);
-		var oldValuedS = $button.parent().find("input").val();
-		
-		if ($button.text() == "+") {
-			var newValS = parseFloat(oldValuedS) + 1;
-		} else {
-			// Don't allow decrementing below zero
-			if (oldValuedS > 1) {
-				var newValS = parseFloat(oldValuedS) - 1;
-			} else {
-				newValS = 0;
-			}
-		}
-		$button.parent().find("input").val(newValS);
-		var twinTotal = newValS * twin;
-		
-		document.getElementById("twinPrice").innerText = twinTotal;
-		document.getElementById("twinRoomPrice").value = twinTotal;
-		
-		var formattedTwinTotal = (twinTotal * 1000).toLocaleString() + "원";
-
-    	document.getElementById("twinPrice").innerText = formattedTwinTotal;
-    	alert(formattedTwinTotal);
-    	document.getElementById("twinRoomPrice").value = formattedTwinTotal;
-    	alert(formattedTwinTotal);
+		$("#twin,#twinm").on('click', function () {
+	
+	    var $button = $(this);
+	    var oldValuedS = $button.parent().find("input").val();
+	
+	    // '원' 문자열을 제거하고 숫자만 추출
+	    var oldValuedSNumber = parseFloat(oldValuedS.replace(/[^\d.]/g, ''));
+	
+	    if ($button.text() == "+") {
+	        var newValS = oldValuedSNumber + 1;
+	    } else {
+	        // Don't allow decrementing below zero
+	        if (oldValuedSNumber > 1) {
+	            var newValS = oldValuedSNumber - 1;
+	        } else {
+	            newValS = 0;
+	        }
+	    }
+	    $button.parent().find("input").val(newValS);
+	    var twinTotal = newValS * twin;
+	
+	    document.getElementById("twinPrice").innerText = twinTotal;
+	    document.getElementById("twinRoomPrice").value = twinTotal;
+	
+	    var formattedTwinTotal = (twinTotal * 1000).toLocaleString() + "원";
+	
+	    document.getElementById("twinPrice").innerText = formattedTwinTotal;
+	    alert(formattedTwinTotal);
+	    document.getElementById("twinRoomPrice").value = formattedTwinTotal;
+	    alert(formattedTwinTotal);
 	});
 });
 

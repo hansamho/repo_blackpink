@@ -4,8 +4,8 @@ import java.util.Date;
 
 public class BookingDto {
 	private String bookingSeq;
-	private Date bkCheckin; 
-	private Date bkCheckout; 
+	private String bkCheckIn; 
+	private String bkCheckOut; 
 	private int bkAdult; 
 	private int bkChild;
 	private int bkTotalPrice; 
@@ -19,6 +19,8 @@ public class BookingDto {
 	private Integer bkDelny; 
 	private String memberSeqF; 
 	private String roomDetail_roomSeq;
+	private String roomSeqF;
+	private String member_seq;
 	
 	/*멤버*/
 	private String memberSeq;
@@ -38,29 +40,47 @@ public class BookingDto {
 	private String roomRating;
 	private Date roomRegDate;
 	private String roomSeq;
-	private int singleRoomPrice;
-	private int doubleRoomPrice;
-	private int twinRoomPrice;
+	private String singleRoomPrice;
+	private String doubleRoomPrice;
+	private String twinRoomPrice;
 	
 	
 	
 	
-	public int getSingleRoomPrice() {
+	public void setBkCheckIn(String bkCheckIn) {
+		this.bkCheckIn = bkCheckIn;
+	}
+	public void setBkCheckOut(String bkCheckOut) {
+		this.bkCheckOut = bkCheckOut;
+	}
+	public String getRoomSeqF() {
+		return roomSeqF;
+	}
+	public void setRoomSeqF(String roomSeqF) {
+		this.roomSeqF = roomSeqF;
+	}
+	public String getMember_seq() {
+		return member_seq;
+	}
+	public void setMember_seq(String member_seq) {
+		this.member_seq = member_seq;
+	}
+	public String getSingleRoomPrice() {
 		return singleRoomPrice;
 	}
-	public void setSingleRoomPrice(int singleRoomPrice) {
+	public void setSingleRoomPrice(String singleRoomPrice) {
 		this.singleRoomPrice = singleRoomPrice;
 	}
-	public int getDoubleRoomPrice() {
+	public String getDoubleRoomPrice() {
 		return doubleRoomPrice;
 	}
-	public void setDoubleRoomPrice(int doubleRoomPrice) {
+	public void setDoubleRoomPrice(String doubleRoomPrice) {
 		this.doubleRoomPrice = doubleRoomPrice;
 	}
-	public int getTwinRoomPrice() {
+	public String getTwinRoomPrice() {
 		return twinRoomPrice;
 	}
-	public void setTwinRoomPrice(int twinRoomPrice) {
+	public void setTwinRoomPrice(String twinRoomPrice) {
 		this.twinRoomPrice = twinRoomPrice;
 	}
 	public String getRoomDetail_roomSeq() {
@@ -126,17 +146,17 @@ public class BookingDto {
 	public void setBookingSeq(String bookingSeq) {
 		this.bookingSeq = bookingSeq;
 	}
-	public Date getBkCheckin() {
-		return bkCheckin;
+	public String getBkCheckIn() {
+		return bkCheckIn;
 	}
-	public void setBkCheckin(Date bkCheckin) {
-		this.bkCheckin = bkCheckin;
+	public void setBkCheckin(String bkCheckIn) {
+		this.bkCheckIn = bkCheckIn;
 	}
-	public Date getBkCheckout() {
-		return bkCheckout;
+	public String getBkCheckOut() {
+		return bkCheckOut;
 	}
-	public void setBkCheckout(Date bkCheckout) {
-		this.bkCheckout = bkCheckout;
+	public void setBkCheckout(String bkCheckOut) {
+		this.bkCheckOut = bkCheckOut;
 	}
 	public int getBkAdult() {
 		return bkAdult;

@@ -69,4 +69,16 @@ public class BookingController {
 		return "/usr/infra/index/bookinginfo";  //
 		
 	}
+	
+	@RequestMapping(value = "/bookingInsert")
+	public String bookingInsert(BookingDto dto,Model model,HttpSession httpSession ) throws Exception{
+		
+		dto.setMemberSeqF((String) httpSession.getAttribute("sessSeqUsr"));
+		
+		service.bookingInsert(dto);
+		
+		return "redirect:/bookinginfo";  //
+		
+	}
+	
 }

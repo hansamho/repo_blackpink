@@ -16,4 +16,9 @@ public interface BookingDao {
 	public int memberUpdate(BookingDto dto);
 	
 	public BookingDto bookingSelectOne(BookingDto dto);
+	
+	public int  bookingInsert(BookingDto dto);
+	
+	public int roomInsert(BookingDto dto);
+	
 }
