@@ -21,4 +21,6 @@ public interface BookingDao {
 	
 	public int roomInsert(BookingDto dto);
 	
+	public BookingDto bkInfoSelectOne(BookingDto dto);
+	
 }

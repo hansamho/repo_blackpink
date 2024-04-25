@@ -41,8 +41,11 @@ public class BookingService {
 	public int bookingInsert(BookingDto dto) {
 		
 		dao.bookingInsert(dto);
-		dao.roomInsert(dto);
 		
 		return 1;
+	}
+	
+	public BookingDto bkInfoSelectOne(BookingDto dto) {
+		return dao.bkInfoSelectOne(dto);
 	}
 }

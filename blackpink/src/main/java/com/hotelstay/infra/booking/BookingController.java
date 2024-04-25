@@ -25,6 +25,7 @@ public class BookingController {
 		
 		dto.setMemberSeqF((String)httpSession.getAttribute("sessSeqUsr"));
 		
+		
 		model.addAttribute("list", service.selectMy(dto));
 		model.addAttribute("item", service.selectOne(dto));
 		model.addAttribute("wish", service.selectWish(dto));
@@ -54,6 +55,7 @@ public class BookingController {
 	public String booking(BookingDto dto,Model model,HttpSession httpSession ) throws Exception{
 		dto.setMemberSeqF((String) httpSession.getAttribute("sessSeqUsr"));
 		
+		
 		model.addAttribute("item", service.bookingSelectOne(dto));
 		
 		return "/usr/infra/index/booking";  //
@@ -64,7 +66,8 @@ public class BookingController {
 	public String bookinginfo(BookingDto dto,Model model,HttpSession httpSession ) throws Exception{
 		dto.setMemberSeqF((String) httpSession.getAttribute("sessSeqUsr"));
 		
-		model.addAttribute("item", service.bookingSelectOne(dto));
+		
+//		model.addAttribute("item", service.bookingSelectOne(dto));
 		
 		return "/usr/infra/index/bookinginfo";  //
 		
@@ -75,9 +78,9 @@ public class BookingController {
 		
 		dto.setMemberSeqF((String) httpSession.getAttribute("sessSeqUsr"));
 		
-		service.bookingInsert(dto);
+//		service.bookingInsert(dto);
 		
-		return "redirect:/bookinginfo";  //
+		return "redirect:/booking";  //
 		
 	}
 	

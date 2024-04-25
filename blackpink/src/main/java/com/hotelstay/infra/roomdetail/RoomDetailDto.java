@@ -32,7 +32,7 @@ public class RoomDetailDto {
 	
 	/*호텔*/
 	private String hotelName;
-	
+	private String hotelListSeqF;
 	/*예약*/
 	private Date bkCheckin;
 	private Date bkCheckout;
@@ -58,6 +58,12 @@ public class RoomDetailDto {
 	
 	
 	
+	public String getHotelListSeqF() {
+		return hotelListSeqF;
+	}
+	public void setHotelListSeqF(String hotelListSeqF) {
+		this.hotelListSeqF = hotelListSeqF;
+	}
 	public String getMemberSeq() {
 		return memberSeq;
 	}

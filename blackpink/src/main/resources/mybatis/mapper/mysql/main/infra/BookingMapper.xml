@@ -8,44 +8,45 @@
 
 	<select id="selectMy" resultMap="resultMapObj">
 		SELECT
-		a.bookingSeq
-		,a.bkCheckIn
-		,a.bkCheckOut
-		,a.bkAdult
-		,a.bkChild
-		,a.bkTotalPrice
-		,a.member_seq as memberSeqF
-		,b.memberName
-		,b.memberID
-		,c.roomName
-		,c.roomTypeCD
-		,c.roomPrice
-		,c.roomRegDate
-		FROM hotelbooking a
-		LEFT JOIN member b
-		ON a.bookingSeq = b.memberSeq
-		LEFT
-		join roomdetail c
-		ON a.bookingSeq = c.roomSeq
-		WHERE a.member_seq = #{memberSeqF}
+			a.memberSeq
+			,a.memberName
+	        ,a.birthday
+	        ,a.memberPhone
+            ,a.codeNumber
+			,a.addrDetail
+			,a.roadName
+	        ,b.member_seq as memberSeqF
+	        ,b.bkCheckin
+	        ,b.bkCheckout
+	        ,b.bkAdult
+	        ,b.bkChild
+	        ,b.bkTotalPrice	       
+	        ,c.roomName
+	        ,c.roomTypeCD
+	        ,c.roomPrice
+            ,c.roomRegDate
+	        ,c.roomSeq
+			,b.roomDetail_roomSeq as roomSeqF
+			,c.hotelList_seq as hotelListSeqF
+		FROM member a
+		LEFT JOIN hotelbooking b on b.member_seq = a.memberSeq
+		LEFT JOIN roomdetail c on b.roomDetail_roomSeq = c.roomSeq
+		WHERE 1=1
+		AND a.memberSeq = #{memberSeqF}
 	</select>
 
 	<select id="selectOne" resultMap="resultMapObj">
 		SELECT
-		a.member_seq as memberSeqF
-		,b.memberName
-		,b.memberPhone
-		,b.birthday
-		,b.codeNumber
-		,b.addrDetail
-		,b.roadName
-		FROM hotelbooking a
-		LEFT JOIN member b
-		ON a.bookingSeq = b.memberSeq
-		LEFT
-		join roomdetail c
-		ON a.bookingSeq = c.roomSeq
-		WHERE a.member_seq = #{memberSeqF}
+			a.memberSeq
+			,a.memberName
+	        ,a.birthday
+	        ,a.memberPhone
+            ,a.codeNumber
+			,a.addrDetail
+			,a.roadName
+		FROM member a
+		WHERE 1=1
+		AND a.memberSeq =  #{memberSeqF};
 	</select>
 
 	<select id="selectWish" resultMap="resultMapObj">
@@ -77,7 +78,8 @@
 	
 	<select id="bookingSelectOne" resultMap="resultMapObj">
 		SELECT
-			a.memberSeq
+			b.bookingSeq
+			,a.memberSeq
 			,a.memberName
 	        ,a.birthday
 	        ,a.memberPhone
@@ -95,19 +97,28 @@
 	        ,c.roomName
 	        ,c.roomTypeCD
 	        ,c.roomPrice
-	        ,c.singleRoomPrice
-	        ,c.doubleRoomPrice
-	        ,c.twinRoomPrice
+	        ,b.singleRoomPrice
+	        ,b.doubleRoomPrice
+	        ,b.twinRoomPrice
 	        ,c.roomSeq
 			,b.roomDetail_roomSeq as roomSeqF
+			,c.hotelList_seq as hotelListSeqF
 		FROM member a
 		LEFT JOIN hotelbooking b on b.member_seq = a.memberSeq
 		LEFT JOIN roomdetail c on b.roomDetail_roomSeq = c.roomSeq
 		WHERE 1=1
-		AND a.memberSeq = #{memberSeqF}
+		AND b.bookingSeq = #{bookingSeq}
 	</select>
 	
-	
+<!-- 	<select id="bkInfoSelectOne"> -->
+<!-- 		SELECT  -->
+<!-- 		a.memberSeq -->
+<!-- 		,b.member_seq as memberSeqF -->
+<!-- 		FROM member a  -->
+<!-- 		LEFT JOIN hotelbooking b on a.memberSeq = b.member_seq -->
+<!-- 		WHERE 1=1 -->
+<!-- 		AND b.bookingSeq = #{memberSeqF} -->
+<!-- 	</select> -->
 	
 	<insert id="bookingInsert">
 		INSERT INTO hotelBooking(
@@ -115,29 +126,22 @@
 			,bkCheckOut
 			,bkAdult
 			,bkChild
+			,singleRoomPrice
+			,doubleRoomPrice
+			,twinRoomPrice
 			,member_seq
-			,roomDetail_roomSeq
+			,roomDetail_roomSeq 
 		)VALUE(
 			#{bkCheckIn}
 			,#{bkCheckOut}
 			,#{bkAdult}
 			,#{bkChild}
+			,#{singleRoomPrice}
+			,#{doubleRoomPrice}
+			,#{twinRoomPrice}
 			,#{memberSeqF}
 			,#{roomSeqF}
 		)
-	</insert>
-	
-	<insert id="roomInsert">
-		INSERT INTO roomDetail(
-			,singleRoomPrice
-			,doubleRoomPrice
-			,twinRoomPrice
-		)VALUES(
-			#{singleRoomPrice}
-			,#{doubleRoomPrice}
-			,#{twinRoomPrice}
-		)
-	
 	</insert>
 	
 </mapper>

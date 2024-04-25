@@ -65,9 +65,6 @@
     		a.roomSeq,
             a.roomName, 
 		    a.roomPrice,
-		    a.singleRoomPrice
-		    ,a.doubleRoomPrice
-		    ,a.twinRoomPrice,
 		    a.roomContent, 
 		    a.roominfo, 
 		    a.roomTypeCD, 
@@ -82,9 +79,17 @@
 		    b.priceRating,
 		    b.qualityRating,
 		    b.reviewContent,
-		    b.roomSeqF
+		    b.roomSeqF,
+		    a.hotelList_seq
+		     ,c.singleRoomPrice
+            ,c.doubleRoomPrice
+            ,c.twinRoomPrice
+          ,c.member_seq as memberSeqF
+          ,d.memberSeq
 		 FROM roomDetail a 
 		 LEFT JOIN review b on a.roomSeq= b.reviewSeq
+		 LEFT JOIN hotelbooking c on a.roomSeq = c.bookingSeq
+		 LEFT JOIN member d on c.member_seq = d.memberSeq
 		 WHERE 1=1 
 		 AND a.roomSeq =#{roomSeq}
     </select>

@@ -4,8 +4,8 @@ import java.util.Date;
 
 public class BookingDto {
 	private String bookingSeq;
-	private String bkCheckIn; 
-	private String bkCheckOut; 
+	private Date bkCheckIn; 
+	private Date bkCheckOut; 
 	private int bkAdult; 
 	private int bkChild;
 	private int bkTotalPrice; 
@@ -44,15 +44,38 @@ public class BookingDto {
 	private String doubleRoomPrice;
 	private String twinRoomPrice;
 	
+	//호텔 리스트
+	private String hotelList_seq;
+	private String hotelListSeqF;
 	
 	
 	
-	public void setBkCheckIn(String bkCheckIn) {
+	
+	public Date getBkCheckIn() {
+		return bkCheckIn;
+	}
+	public void setBkCheckIn(Date bkCheckIn) {
 		this.bkCheckIn = bkCheckIn;
 	}
-	public void setBkCheckOut(String bkCheckOut) {
+	public Date getBkCheckOut() {
+		return bkCheckOut;
+	}
+	public void setBkCheckOut(Date bkCheckOut) {
 		this.bkCheckOut = bkCheckOut;
 	}
+	public String getHotelListSeqF() {
+		return hotelListSeqF;
+	}
+	public void setHotelListSeqF(String hotelListSeqF) {
+		this.hotelListSeqF = hotelListSeqF;
+	}
+	public String getHotelList_seq() {
+		return hotelList_seq;
+	}
+	public void setHotelList_seq(String hotelList_seq) {
+		this.hotelList_seq = hotelList_seq;
+	}
+	
 	public String getRoomSeqF() {
 		return roomSeqF;
 	}
@@ -65,6 +88,9 @@ public class BookingDto {
 	public void setMember_seq(String member_seq) {
 		this.member_seq = member_seq;
 	}
+	
+	
+	
 	public String getSingleRoomPrice() {
 		return singleRoomPrice;
 	}
@@ -146,18 +172,7 @@ public class BookingDto {
 	public void setBookingSeq(String bookingSeq) {
 		this.bookingSeq = bookingSeq;
 	}
-	public String getBkCheckIn() {
-		return bkCheckIn;
-	}
-	public void setBkCheckin(String bkCheckIn) {
-		this.bkCheckIn = bkCheckIn;
-	}
-	public String getBkCheckOut() {
-		return bkCheckOut;
-	}
-	public void setBkCheckout(String bkCheckOut) {
-		this.bkCheckOut = bkCheckOut;
-	}
+	
 	public int getBkAdult() {
 		return bkAdult;
 	}
