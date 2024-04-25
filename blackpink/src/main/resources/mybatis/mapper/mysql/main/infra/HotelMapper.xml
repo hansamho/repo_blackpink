@@ -22,14 +22,12 @@
         	<!-- 체크인 체크아웃 -->
 <!--         	<if test="shCheckIn != null and !shAreaCD.equals('')" >AND c.bkCheckIn = #{shCheckIn}></if> -->
 <!--         	<if test="shCheckOut != null and !shAreaCD.equals('')" >AND c.bkCheckOut = #{shCheckOut}></if> -->
-        	
-        
-<!-- 				<choose> -->
-<!-- 					<when test="shOptionDate == 1">AND a.bkCheckIn BETWEEN #{shDateStart} AND #{shDateEnd}</when> -->
-<!-- 					<when test="shOptionDate == 2">AND a.bkCheckOut BETWEEN #{shDateStart} AND #{shDateEnd}</when> -->
-<!-- 				</choose> -->
-			
-       
+        	<if test="shCheckboxHotelTypeArray != null and shCheckboxHotelTypeArray.length != 0">
+				AND a.hotelTypeCD IN
+		    <foreach collection="shCheckboxHotelTypeArray" item="type" open="(" close=")" separator=",">
+			    #{type}
+			</foreach> 		              
+	         </if>
        </sql>
 	
 	 <select id="selectList" resultMap="resultMapObj">

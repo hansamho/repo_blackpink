@@ -39,6 +39,7 @@ public class RoomDetailDto {
 	private int bkAdult;
 	private int bkChild;
 	private double bkTotalPrice;
+	private String bookingSeq;
 	
 	/*foreign key*/
 	private String member_seq;
@@ -58,6 +59,12 @@ public class RoomDetailDto {
 	
 	
 	
+	public String getBookingSeq() {
+		return bookingSeq;
+	}
+	public void setBookingSeq(String bookingSeq) {
+		this.bookingSeq = bookingSeq;
+	}
 	public String getHotelListSeqF() {
 		return hotelListSeqF;
 	}

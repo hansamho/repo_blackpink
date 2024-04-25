@@ -20,12 +20,54 @@ public class BaseVo {
 	private String shCheckOut;
 	
 	//체크박스 
-	private String[] checkboxSeqArray;
+	private String[] shCheckboxHotelTypeArray; // 호텔 유형
+	private String[] shCheckboxAreaArray;      // 지역
+	private String[] shCheckboxRoomArray;      // 객실 내 시설
+	
 	
 	// 공통코드
-	private String shGenderCD;
-	private String shAreaCD;
-	private String shRoomTypeCD;
+		private String shGenderCD;
+		private String shAreaCD;
+		private String shRoomTypeCD;
+	
+	
+	public String[] getShCheckboxHotelTypeArray() {
+		return shCheckboxHotelTypeArray;
+	}
+
+	public void setShCheckboxHotelTypeArray(String[] shCheckboxHotelTypeArray) {
+		this.shCheckboxHotelTypeArray = shCheckboxHotelTypeArray;
+	}
+
+	public String[] getShCheckboxAreaArray() {
+		return shCheckboxAreaArray;
+	}
+
+	public void setShCheckboxAreaArray(String[] shCheckboxAreaArray) {
+		this.shCheckboxAreaArray = shCheckboxAreaArray;
+	}
+
+	public String[] getShCheckboxRoomArray() {
+		return shCheckboxRoomArray;
+	}
+
+	public void setShCheckboxRoomArray(String[] shCheckboxRoomArray) {
+		this.shCheckboxRoomArray = shCheckboxRoomArray;
+	}
+
+	public String getShRoomTypeCD() {
+		return shRoomTypeCD;
+	}
+
+	public void setShRoomTypeCD(String shRoomTypeCD) {
+		this.shRoomTypeCD = shRoomTypeCD;
+	}
+
+
+
+
+
+	
 	
 	//paging
 	private int thisPage = 1;				// 현재 페이지
@@ -240,13 +282,7 @@ public class BaseVo {
 
 	
 
-	public String[] getCheckboxSeqArray() {
-		return checkboxSeqArray;
-	}
 
-	public void setCheckboxSeqArray(String[] checkboxSeqArray) {
-		this.checkboxSeqArray = checkboxSeqArray;
-	}
 
 	public void setParamsPaging(int totalRows) {
 		

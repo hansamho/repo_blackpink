@@ -86,6 +86,7 @@
             ,c.twinRoomPrice
           ,c.member_seq as memberSeqF
           ,d.memberSeq
+          ,c.bookingSeq
 		 FROM roomDetail a 
 		 LEFT JOIN review b on a.roomSeq= b.reviewSeq
 		 LEFT JOIN hotelbooking c on a.roomSeq = c.bookingSeq

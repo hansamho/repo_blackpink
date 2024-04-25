@@ -89,11 +89,6 @@
 	        ,b.bkAdult
 	        ,b.bkChild
 	        ,b.bkTotalPrice
-	        ,b.payType
-	        ,b.cardNumber
-	        ,b.cardDate
-	        ,b.cardYear
-	        ,b.cardCcv
 	        ,c.roomName
 	        ,c.roomTypeCD
 	        ,c.roomPrice
@@ -110,15 +105,15 @@
 		AND b.bookingSeq = #{bookingSeq}
 	</select>
 	
-<!-- 	<select id="bkInfoSelectOne"> -->
-<!-- 		SELECT  -->
-<!-- 		a.memberSeq -->
-<!-- 		,b.member_seq as memberSeqF -->
-<!-- 		FROM member a  -->
-<!-- 		LEFT JOIN hotelbooking b on a.memberSeq = b.member_seq -->
-<!-- 		WHERE 1=1 -->
-<!-- 		AND b.bookingSeq = #{memberSeqF} -->
-<!-- 	</select> -->
+	<select id="bkInfoSelectOne">
+		SELECT 
+		a.memberSeq
+		,b.member_seq as memberSeqF
+		FROM member a 
+		LEFT JOIN hotelbooking b on a.memberSeq = b.member_seq
+		WHERE 1=1
+		AND b.bookingSeq = #{memberSeqF}
+	</select>
 	
 	<insert id="bookingInsert">
 		INSERT INTO hotelBooking(

@@ -94,7 +94,7 @@
 							<div class="col-sm-6">
 								<div class="form-group">
 									<label>이름</label>
-									<input type="hidden" id="memberSeqF" name="memberSeqF" th:value="${item.memberSeqF}">
+<!-- 									<input type="hidden" id="bookingSeq" name="bookingSeq" th:value="${item.bookingSeq}"> -->
 									<input type="text" class="form-control" id="lastname_booking" name="lastname_booking" placeholder="홍길동">
 								</div>
 							</div>
@@ -245,7 +245,7 @@
 								</tr>
 							</tbody>
 						</table>
-						<a class="btn_full" th:href="@{/bookinginfo(memberSeq=${item.memberSeq})}">예약</a>
+						<a class="btn_full" th:href="@{/bookinginfo}">예약</a>
 <!-- 						<a class="btn_full_outline" th:href="@{/roomDetail(roomSeq=${item.roomSeq})}"><i class="icon-right"></i> 뒤로가기</a> -->
 					</div>
 					

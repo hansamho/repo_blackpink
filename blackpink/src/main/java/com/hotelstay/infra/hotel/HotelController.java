@@ -7,12 +7,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.hotelstay.common.base.BaseVo;
 import com.hotelstay.common.contents.Constants;
 import com.hotelstay.common.util.UtilDateTime;
 import com.hotelstay.common.util.UtilFunction;
 import com.hotelstay.infra.codegroup.CodeGroupService;
-import com.hotelstay.infra.codegroup.CodeGroupVo;
 
 @Controller
 public class HotelController {
@@ -21,6 +19,7 @@ public class HotelController {
 		
 	@Autowired
 	CodeGroupService codeGroupService;
+	
 	public void setSearch(HotelVo vo) throws Exception {
 		/* 최초 화면 로딩시에 세팅은 문제가 없지만 */
 		/*이후 전체적으로 데이터를 조회를 하려면 null 값이 넘어 오는 관계로 문제가 전체 데이터 조회가 되지 못한다.*/
@@ -49,16 +48,17 @@ public class HotelController {
 	public String hotelAdmList(@ModelAttribute("vo") HotelVo vo, Model model) throws Exception{
 			
 			setSearch(vo);
-			model.addAttribute("list", service.selectList(vo));
-	
 			
-//			model.addAttribute("vo",vo);
+			model.addAttribute("list", service.selectList(vo));
+			
 
         return "/adm/infra/hotel/hotelAdmList";
   	}
 	
 	@RequestMapping(value = "/hotelList")
 	public String hotelList(@ModelAttribute("vo") HotelVo vo, Model model) throws Exception{
+		
+		model.addAttribute("listCodeGroup",codeGroupService.selectListWithoutPaging());
 		
 		
 		model.addAttribute("count", service.selectOneCount(vo));
@@ -84,10 +84,7 @@ public class HotelController {
 	@RequestMapping(value = "hotelMultiUele")
 	public String hotelMultiUele(HotelVo vo, HotelDto dto, RedirectAttributes redirectAttributes) throws Exception {
 
-		for (String checkboxSeq : vo.getCheckboxSeqArray()) {
-			dto.setHotelSeq(checkboxSeq);
-			service.selectList(vo); 
-		}
+		
 
 		redirectAttributes.addFlashAttribute("vo", vo);
 

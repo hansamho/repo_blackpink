@@ -237,7 +237,6 @@ public class MemberController {
 	public String usrIndex(@ModelAttribute("vo") HotelVo vo,HotelDto dto,RoomDetailDto detailDto, Model model) throws Exception{
 		
 		model.addAttribute("listCodeGroup",codeGroupService.selectListWithoutPaging());
-		
 			
 		 List<HotelDto> highRatedHotels = hotelService.selectList(vo).stream()
 		            .filter(hotel -> hotel.getHotelRating() >= 4.0 )

@@ -4,8 +4,8 @@ import java.util.Date;
 
 public class BookingDto {
 	private String bookingSeq;
-	private Date bkCheckIn; 
-	private Date bkCheckOut; 
+	private String bkCheckIn; 
+	private String bkCheckOut; 
 	private int bkAdult; 
 	private int bkChild;
 	private int bkTotalPrice; 
@@ -51,16 +51,16 @@ public class BookingDto {
 	
 	
 	
-	public Date getBkCheckIn() {
+	public String getBkCheckIn() {
 		return bkCheckIn;
 	}
-	public void setBkCheckIn(Date bkCheckIn) {
+	public void setBkCheckIn(String bkCheckIn) {
 		this.bkCheckIn = bkCheckIn;
 	}
-	public Date getBkCheckOut() {
+	public String getBkCheckOut() {
 		return bkCheckOut;
 	}
-	public void setBkCheckOut(Date bkCheckOut) {
+	public void setBkCheckOut(String bkCheckOut) {
 		this.bkCheckOut = bkCheckOut;
 	}
 	public String getHotelListSeqF() {
