@@ -79,22 +79,19 @@
 			</div>
 		</div>
 		<!-- End position -->
-
+		<form method="post">
 		<div class="container margin_60">
 			<div class="row">
 				<div class="col-lg-8 add_bottom_15">
 					<div class="form_title">
 						<h3><strong>1</strong>예약자 정보</h3>
-						<p>
-							
-						</p>
+						<input type="hidden" id="bookingSeq" name="bookingSeq" th:value="${item.bookingSeq}">
 					</div>
 					<div class="step">
 						<div class="row">
 							<div class="col-sm-6">
 								<div class="form-group">
 									<label>이름</label>
-<!-- 									<input type="hidden" id="bookingSeq" name="bookingSeq" th:value="${item.bookingSeq}"> -->
 									<input type="text" class="form-control" id="lastname_booking" name="lastname_booking" placeholder="홍길동">
 								</div>
 							</div>
@@ -222,7 +219,7 @@
 									<td>
 										성인
 									</td>
-									<td class="text-end">
+									<td class="text-end" >
 										2
 									</td>
 								</tr>
@@ -230,7 +227,7 @@
 									<td>
 										아이
 									</td>
-									<td class="text-end">
+									<td class="text-end" >
 										0
 									</td>
 								</tr>
@@ -239,13 +236,13 @@
 									<td>
 										총 가격
 									</td>
-									<td class="text-end">
+									<td class="text-end" >
 										$154
 									</td>
 								</tr>
 							</tbody>
 						</table>
-						<a class="btn_full" th:href="@{/bookinginfo}">예약</a>
+						<a class="btn_full" th:href="@{/bookinginfo(memberSeq=${item.memberSeqF})}">예약</a>
 <!-- 						<a class="btn_full_outline" th:href="@{/roomDetail(roomSeq=${item.roomSeq})}"><i class="icon-right"></i> 뒤로가기</a> -->
 					</div>
 					
@@ -254,6 +251,7 @@
 			</div>
 			<!--End row -->
 		</div>
+		</form>
 		<!--End container -->
 	</main>
 	<!-- End main -->
@@ -273,53 +271,6 @@
 		</form>
 	</div><!-- End Search Menu -->
 	
-	<!-- Sign In Popup -->
-	<div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
-		<div class="small-dialog-header">
-			<h3>Sign In</h3>
-		</div>
-		<form>
-			<div class="sign-in-wrapper">
-				<a href="#0" class="social_bt facebook">Login with Facebook</a>
-				<a href="#0" class="social_bt google">Login with Google</a>
-				<div class="divider"><span>Or</span></div>
-				<div class="form-group">
-					<label>Email</label>
-					<input type="email" class="form-control" name="email" id="email">
-					<i class="icon_mail_alt"></i>
-				</div>
-				<div class="form-group">
-					<label>Password</label>
-					<input type="password" class="form-control" name="password" id="password" value="">
-					<i class="icon_lock_alt"></i>
-				</div>
-				<div class="clearfix add_bottom_15">
-					<div class="checkboxes float-start">
-						<label class="container_check">Remember me
-                          <input type="checkbox">
-                          <span class="checkmark"></span>
-                        </label>
-					</div>
-					<div class="float-end"><a id="forgot" href="javascript:void(0);">Forgot Password?</a></div>
-				</div>
-				<div class="text-center"><input type="submit" value="Log In" class="btn_login"></div>
-				<div class="text-center">
-					Don’t have an account? <a href="javascript:void(0);">Sign up</a>
-				</div>
-				<div id="forgot_pw">
-					<div class="form-group">
-						<label>Please confirm login email below</label>
-						<input type="email" class="form-control" name="email_forgot" id="email_forgot">
-						<i class="icon_mail_alt"></i>
-					</div>
-					<p>You will receive an email containing a link allowing you to reset your password to a new preferred one.</p>
-					<div class="text-center"><input type="submit" value="Reset Password" class="btn_1"></div>
-				</div>
-			</div>
-		</form>
-		<!--form -->
-	</div>
-	<!-- /Sign In Popup -->
 
 	<!-- Common scripts -->
 	<script src="/usr/assets/js/jquery-3.7.1.min.js"></script>

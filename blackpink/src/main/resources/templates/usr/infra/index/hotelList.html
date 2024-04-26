@@ -127,11 +127,11 @@
 							<div class="filter_type">
 								<h6>숙소 유형</h6>
 								<ul>
-<!-- 								<th:block th:each="listCodeGroup : ${@codeService.selectListCachedCode(3)}"> -->
+<!-- 								<th:block th:each="list : ${@codeService.selectListCachedCode(3)}"> -->
 									 <li>
                                         <label class="container_check">
                                              호텔
-                                            <input type="checkbox" name="checkboxSeq" id="checkboxSeq">
+                                            <input type="checkbox" id="checkboxSeq">
                                             <span class="checkmark"></span>
                                         </label>
                                     </li>
@@ -422,62 +422,6 @@
 			
 		</script>
 		
-		<script type="text/javascript">
-		fnCheckboxClick = function() {	
-			// 체크된 항목 저장 변수
-			let checkboxHotelTypeCheckedArray  = []; // 호텔 유형
-			let checkboxAreaCheckedArray = []; // 지역
-			let checkboxCheckedArray      = []; // 객실 내 시설
-			
-			// 호텔 체크박스 항목 수 만큼 배열선언
-			let checkboxHotelTypeArr = document.querySelectorAll("input[name='checkboxHotelTypeSeq']");
-			for(let i = 0; i < checkboxHotelTypeArr.length; i++) {
-				if(checkboxHotelTypeArr[i].checked) checkboxHotelTypeCheckedArray.push(checkboxHotelTypeArr[i].value);
-			}
-			// 호텔 체크된값 저장
-			document.querySelector("input[name='shCheckboxHotelTypeArray']").value = checkboxHotelTypeCheckedArray;
-			
-			// 제조사 체크박스 항목 수 만큼 배열선언
-			let checkboxBrandArr = document.querySelectorAll("input[name='checkboxBrandSeq']");
-			for(let i = 0; i < checkboxBrandArr.length; i++) {
-				if(checkboxBrandArr[i].checked) checkboxBrandCheckedArray.push(checkboxBrandArr[i].value);
-			}			
-			// 제조사 체크된값 저장
-			document.querySelector("input[name='shCheckboxBrandArray']").value = checkboxBrandCheckedArray;
-			
-			// 색상 체크된 항목만큼 배열선언
-			let checkboxColordArr = document.querySelectorAll("input[name='checkboxColorSeq']");
-			for(let i = 0; i < checkboxColordArr.length; i++) {
-				if(checkboxColordArr[i].checked) checkboxCheckedArray.push(checkboxColordArr[i].value);
-			}			
-			// 색상 체크된값 저장
-			document.querySelector("input[name='shCheckboxColorArray']").value = checkboxCheckedArray;
-			
-			// controller 호출
-			fnCallController();
-			
-			/* $.ajax({
-				async: true
-				, cache: false
-				, type: "post"
-				, data: {"shCheckboxTypeArray" :$("#shCheckboxTypeArray" ).val()
-						,"shCheckboxBrandArray":$("#shCheckboxBrandArray").val()
-						,"shCheckboxColorArray":$("#shCheckboxColorArray").val()
-						,"shOptionYearFrom"    :$("#shOptionYearFrom"    ).val()
-						,"shOptionYearTo"      :$("#shOptionYearTo"      ).val()
-						,"shPriceFrom"         :$("#shPriceFrom"         ).val()
-						,"shPriceTo"           :$("#shPriceTo"           ).val()	
-						}					
-				, url: "/selectListReload"
-				, success: function(fragment) {
-					$("#listCar").replaceWith(fragment);
-				}
-				, error : function(jqXHR, textStatus, errorThrown){
-					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-				}
-			}); */
-		}
-		</script>
 </body>
 
 </html>

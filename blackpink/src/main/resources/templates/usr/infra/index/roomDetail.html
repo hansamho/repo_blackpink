@@ -409,6 +409,7 @@
 					<form method="post" action="bookingInsert">
 					<input name="roomSeqF" id="roomSeqF" type="hidden" th:value="${item.roomSeqF}">
 					<input type="hidden" id="hotelList_seq" name="hotelList_seq" th:value="${item.hotelList_seq}">
+					<input name="bookingSeq" id="bookingSeq" type="hidden" th:value="${item.bookingSeq}">
 					<div class="box_style_1 expose">
 						<h3 class="inner">예약</h3>
 						<div class="row">
@@ -527,7 +528,7 @@
 				</div>
 			</div>
 			<div class="d-flex justify-content-between mt-4">
-				<button  type="submit" class="btn_full" th:href="@{/booking(memberSeq=${item.memberSeqF})}">예약</button>
+				<button  type="submit" class="btn_full" th:href="@{/booking(bookingSeq=${item.bookingSeq})}">예약</button>
 			</div>
 			<div>
 				<a class="btn_full_outline" th:href="@{hotelList}">뒤로가기</a>
@@ -536,10 +537,7 @@
 		</form>
 			
 						<br>
-<!-- 						<button class="btn_full" th:href="@{/booking(memberSeq=${item.memberSeqF})}">예약</button> -->
-<!-- 						<a class="btn_full_outline" th:href="@{hotelList}">뒤로가기</a> -->
-					</div>
-					<!--/box_style_1 -->
+
 				</aside>	
 					
 				

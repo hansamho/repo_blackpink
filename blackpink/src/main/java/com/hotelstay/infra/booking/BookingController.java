@@ -1,12 +1,13 @@
 package com.hotelstay.infra.booking;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.hotelstay.infra.code.CodeDto;
-import com.hotelstay.infra.member.MemberDto;
 import com.hotelstay.infra.member.MemberService;
 
 import jakarta.servlet.http.HttpSession;
@@ -52,9 +53,12 @@ public class BookingController {
 	}
 	
 	@RequestMapping(value = "/booking")
-	public String booking(BookingDto dto,Model model,HttpSession httpSession ) throws Exception{
+	public String booking(@RequestParam("bookingSeq") String booking , BookingDto dto,Model model,HttpSession httpSession ) throws Exception{
 		dto.setMemberSeqF((String) httpSession.getAttribute("sessSeqUsr"));
 		
+		System.out.println("dto.getBookingSeq()"+" "+dto.getBookingSeq());
+		
+		System.out.println("booking"+" "+booking);
 		
 		model.addAttribute("item", service.bookingSelectOne(dto));
 		
@@ -74,14 +78,18 @@ public class BookingController {
 	}
 	
 	@RequestMapping(value = "/bookingInsert")
-	public String bookingInsert(BookingDto dto,Model model,HttpSession httpSession ) throws Exception{
+	public String bookingInsert(BookingDto dto,Model model,HttpSession httpSession,RedirectAttributes redirectAttributes  ) throws Exception{
 		
 		dto.setMemberSeqF((String) httpSession.getAttribute("sessSeqUsr"));
 		
-//		service.bookingInsert(dto);
+		service.bookingInsert(dto);
+		
+		redirectAttributes.addAttribute("bookingSeq", dto.getBookingSeq());
 		
 		return "redirect:/booking";  //
 		
 	}
+	
+	
 	
 }

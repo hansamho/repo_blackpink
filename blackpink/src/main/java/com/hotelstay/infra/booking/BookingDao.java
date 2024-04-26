@@ -23,4 +23,6 @@ public interface BookingDao {
 	
 	public BookingDto bkInfoSelectOne(BookingDto dto);
 	
+	public List<BookingDto> bookingSelectList(BookingDto dto);
+	
 }

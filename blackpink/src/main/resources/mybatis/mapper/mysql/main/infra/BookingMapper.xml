@@ -76,46 +76,57 @@
 		WHERE memberSeq = #{memberSeqF}
 	</update>
 	
-	<select id="bookingSelectOne" resultMap="resultMapObj">
+	<select id="bookingSelectList" resultMap="resultMapObj">
 		SELECT
+			a.bookingSeq
+			,a.bkAdult
+	        ,a.bkChild
+	        ,a.bkCheckIn
+	        ,a.bkCheckOut
+	        ,a.bkTotalPrice
+	        ,a.singleRoomPrice
+	        ,a.doubleRoomPrice
+	        ,a.twinRoomPrice
+	        ,a.member_seq as memberSeqF
+	        ,e.memberName
+		 from hotelbooking a
+        left join bookingpay c on a.bookingSeq = c.hotelBooking_bookingSeq
+        left join payment d on d.paySeq =c.payment_paySeq
+        left join member e on a.member_seq = e.memberSeq
+		WHERE 1=1
+	</select>
+	
+	
+	
+	
+	
+	<select id="bookingSelectOne" resultMap="resultMapObj">
+		 SELECT 
 			b.bookingSeq
 			,a.memberSeq
 			,a.memberName
-	        ,a.birthday
-	        ,a.memberPhone
-	        ,b.member_seq as memberSeqF
-	        ,b.bkCheckin
-	        ,b.bkCheckout
-	        ,b.bkAdult
-	        ,b.bkChild
-	        ,b.bkTotalPrice
-	        ,c.roomName
-	        ,c.roomTypeCD
-	        ,c.roomPrice
-	        ,b.singleRoomPrice
-	        ,b.doubleRoomPrice
-	        ,b.twinRoomPrice
-	        ,c.roomSeq
-			,b.roomDetail_roomSeq as roomSeqF
-			,c.hotelList_seq as hotelListSeqF
-		FROM member a
-		LEFT JOIN hotelbooking b on b.member_seq = a.memberSeq
-		LEFT JOIN roomdetail c on b.roomDetail_roomSeq = c.roomSeq
-		WHERE 1=1
-		AND b.bookingSeq = #{bookingSeq}
+			,b.bkAdult
+			,b.bkChild
+			,b.bkCheckIn
+			,b.bkCheckOut
+			,b.member_seq as memberSeqF
+			,b.singleRoomPrice
+			,b.doubleRoomPrice
+			,b.twinRoomPrice
+			,b.bkTotalPrice
+			,b.member_seq as memberSeqF
+        FROM member a
+        LEFT JOIN hotelbooking b on b.member_seq = a.memberSeq
+        WHERE 1=1
+        AND b.bookingSeq = #{bookingSeq}
 	</select>
 	
-	<select id="bkInfoSelectOne">
-		SELECT 
-		a.memberSeq
-		,b.member_seq as memberSeqF
-		FROM member a 
-		LEFT JOIN hotelbooking b on a.memberSeq = b.member_seq
-		WHERE 1=1
-		AND b.bookingSeq = #{memberSeqF}
-	</select>
 	
-	<insert id="bookingInsert">
+	<insert id="bookingInsert" 
+	parameterType = "com.hotelstay.infra.booking.BookingDto">
+		<selectKey resultType ="String" keyProperty="bookingSeq" order="AFTER">
+		SELECT LAST_INSERT_ID()
+		</selectKey>
 		INSERT INTO hotelBooking(
 			bkCheckIn
 			,bkCheckOut
