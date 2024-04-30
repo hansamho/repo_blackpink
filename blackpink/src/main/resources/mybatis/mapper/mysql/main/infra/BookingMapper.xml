@@ -115,13 +115,12 @@
 			,b.twinRoomPrice
 			,b.bkTotalPrice
 			,b.member_seq as memberSeqF
-			,c.cardNumber
-            ,c.cardYear
-            ,c.cardDate
-            ,c.cardCcv
+			,b.cardNumber
+            ,b.cardYear
+            ,b.cardDate
+            ,b.cardCcv
         FROM member a
         LEFT JOIN hotelbooking b on b.member_seq = a.memberSeq
-        LEFT JOIN payment c on c.bookingSeqF = b.bookingSeq
         WHERE 1=1
         AND b.bookingSeq = #{bookingSeq}
 	</select>
@@ -155,21 +154,23 @@
 		)
 	</insert>
 	
-	<insert id="payInsert">
-		INSERT INTO payment(
-			cardNumber
-			,cardDate
-			,cardYear
-			,cardCcv
-			,bookingSeqF
-		)VALUES(
-			#{cardNumber}
-			,#{cardDate}
-			,#{cardYear}
-			,#{cardCcv}
-			,#{bookingSeqF}
-			
-		)
-	</insert>
+
+<!-- 		<insert id="payInsert"> -->
+<!-- 			INSERT INTO hotelBooking( -->
+<!-- 				cardNumber -->
+<!-- 				,cardDate -->
+<!-- 				,cardYear -->
+<!-- 				,cardCcv -->
+<!-- 				,member_seq -->
+<!-- 				,roomDetail_roomSeq -->
+<!-- 			)VALUES( -->
+<!-- 				#{cardNumber} -->
+<!-- 				,#{cardDate} -->
+<!-- 				,#{cardYear} -->
+<!-- 				,#{cardCcv} -->
+<!-- 				,#{memberSeqF} -->
+<!-- 				,#{roomSeqF} -->
+<!-- 			) -->
+<!-- 		</insert> -->
 	
 </mapper>

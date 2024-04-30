@@ -12,9 +12,9 @@ public class HotelVo extends BaseVo {
 	private int hotelRating;
 	
 	//체크박스 
-	private String[] shCheckboxHotelTypeArray = null; // 호텔 유형
-	private String[] shCheckboxAreaArray = null;      // 지역
-	private String[] shCheckboxRoomArray = null;      // 객실 내 시설
+	private String[] shCheckboxHotelTypeArray; // 호텔 유형
+	private String[] shCheckboxAreaArray;      // 지역
+	private String[] shCheckboxRoomArray;      // 객실 내 시설
 	
 	
 	

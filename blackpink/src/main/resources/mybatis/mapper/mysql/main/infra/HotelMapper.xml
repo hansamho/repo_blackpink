@@ -48,7 +48,7 @@
    		 	,b.roomTotalRating
    		 	,b.tvNy
             ,b.wifiNy
-            ,poolNy
+            ,b.poolNy
             ,b.bathNy
             ,b.bathSuppliesNy
             ,b.airNy

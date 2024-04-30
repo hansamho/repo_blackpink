@@ -24,8 +24,23 @@ public class HotelDto {
 	public Date bkCheckIn;
 	public Date bkCheckOut;
 	
+	private String cdSeq;
+	private String name;
 	
 	
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getCdSeq() {
+		return cdSeq;
+	}
+	public void setCdSeq(String cdSeq) {
+		this.cdSeq = cdSeq;
+	}
 	public Date getBkCheckIn() {
 		return bkCheckIn;
 	}

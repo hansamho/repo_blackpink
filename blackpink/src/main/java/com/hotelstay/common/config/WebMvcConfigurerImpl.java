@@ -48,6 +48,7 @@ public class WebMvcConfigurerImpl implements WebMvcConfigurer {
 							"/hotelList",
 							"/roomDetail",
 							"/main"
+							
 //							"/usr/infra/index/register",
 //							"/usr/infra/index/usrindex"
 //							"/usr/infra/index/mypage"

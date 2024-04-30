@@ -62,7 +62,7 @@ public class HotelController {
 	@RequestMapping(value = "/hotelList")
 	public String hotelList(@ModelAttribute("vo") HotelVo vo, Model model) throws Exception{
 		
-		model.addAttribute("list",codeGroupService.selectListWithoutPaging());
+//		model.addAttribute("list",codeGroupService.selectListWithoutPaging());
 		
 		
 		model.addAttribute("count", service.selectOneCount(vo));

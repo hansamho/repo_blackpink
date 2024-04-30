@@ -81,83 +81,17 @@
 								<input type="text" id="range" name="range" value="">
 							</div>
 							<div class="filter_type">
-								<h6>평점</h6>
-								<ul>
-									<li>
-                                        <label class="container_check">
-                                            <span class="rating">
-                                                <i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i>
-                                            </span>(15)
-                                            <input type="checkbox">
-                                            <span class="checkmark"></span>
-                                        </label>
-									</li>
-									<li>
-                                        <label class="container_check">
-                                            <span class="rating">
-                                                <i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81"></i>
-                                            </span>(10)
-                                            <input type="checkbox">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <label class="container_check">
-                                            <span class="rating">
-                                                <i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81"></i><i class="icon_set_1_icon-81"></i>
-                                            </span>(22)
-                                            <input type="checkbox">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <label class="container_check">
-                                            <span class="rating">
-                                                <i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81"></i><i class="icon_set_1_icon-81"></i><i class="icon_set_1_icon-81"></i>
-                                            </span>(08)
-                                            <input type="checkbox">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </li>
-                                    <li>
-                                        <label class="container_check">
-                                            <span class="rating">
-                                                <i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81"></i><i class="icon_set_1_icon-81"></i><i class="icon_set_1_icon-81"></i><i class="icon_set_1_icon-81"></i>
-                                            </span>(08)
-                                            <input type="checkbox">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </li>
-								</ul>
-							</div>
-							<div class="filter_type">
 								<h6>숙소 유형</h6>
 								<ul>
-								
+								<th:block th:each="list : ${@codeService.selectListCachedCode(3)}">
 									 <li>
                                         <label class="container_check">
-                                             호텔
-                                            <input type="checkbox"  id="checkboxHotel">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </li>
-								</ul>
-								<ul>
-									<li>
-										 <li>
-                                        <label class="container_check">
-                                             펜션
-                                            <input type="checkbox">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </li>
-									</li>
-								</ul>
-								<ul>
-									 <li>
-                                        <label class="container_check">
-                                             모텔
-                                            <input type="checkbox">
+                                             
+                                            <input th:if="${vo.shCheckboxHotelTypeArray != null}" th:id="'checkboxHotel'+${list.cdSeq}" name="checkboxHotelSeq" type="checkbox" th:value="${list.cdSeq}"
+		                                     th:checked="${#arrays.contains(vo.shCheckboxHotelTypeArray, list.cdSeq)}" th:text="${list.name}"
+		                                     onclick="checkboxClick()"/>
+		                                     <input th:unless="${vo.shCheckboxHotelTypeArray != null}" th:id="'checkboxHotel'+${list.cdSeq}" name="checkboxHotelSeq" type="checkbox" th:value="${list.cdSeq}"
+		                                        onclick="checkboxClick()"/>
                                             <span class="checkmark"></span>
                                         </label>
                                     </li>
@@ -273,7 +207,7 @@
 								</div>
 							
 							<div class="col-md-6 col-sm-4 d-none d-sm-block text-end">
-								<a href="all_hotels_list.html" class="bt_filters"><i class=" icon-list"></i></a>
+								<a class="bt_filters"><i class=" icon-list"></i></a>
 							</div>
 						</div>
 					<!--End tools -->
@@ -428,6 +362,29 @@
 			
 		</script>
 		
+		<script type="text/javascript">
+		let goUrlHotel = "/hotelList";
+		
+		
+		checkboxClick = function() {	
+			// 체크된 항목 저장 변수
+			let checkboxHotelTypeCheckedArray  = []; // 호텔 유형
+			let checkboxAreaCheckedArray = []; // 지역
+			
+			// 호텔유형 체크박스 항목 수 만큼 배열선언
+			let checkboxHotelTypeArr = document.querySelectorAll("input[name='checkboxHotelSeq']");
+			for(let i = 0; i < checkboxHotelTypeArr.length; i++) {
+				if(checkboxHotelTypeArr[i].checked) checkboxHotelTypeCheckedArray.push(checkboxHotelTypeArr[i].value);
+			}
+			alert(checkboxHotelTypeCheckedArray);
+			
+			document.querySelector("input[name='shCheckboxHotelTypeArray']").value = checkboxHotelTypeCheckedArray;
+			form.action = goUrlHotel;
+			form.submit();
+		}
+		
+		
+		</script>
 </body>
 
 </html>
