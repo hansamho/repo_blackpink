@@ -23,7 +23,7 @@
 <!--         	<if test="shCheckIn != null and !shAreaCD.equals('')" >AND c.bkCheckIn = #{shCheckIn}></if> -->
 <!--         	<if test="shCheckOut != null and !shAreaCD.equals('')" >AND c.bkCheckOut = #{shCheckOut}></if> -->
 			
-			<!-- 체크박스  -->
+			<!-- 체크박스 호텔 유형  -->
 			<if test="shCheckboxHotelTypeArray != null and shCheckboxHotelTypeArray.length != 0">
 				AND a.hotelTypeCD IN
 			<foreach collection="shCheckboxHotelTypeArray" item="type" open="(" close=")" separator=",">
@@ -31,7 +31,20 @@
 			</foreach> 		              	
 			</if>
 			
+			<!-- 체크박스 지역 -->
+			<if test="shCheckboxAreaArray != null and shCheckboxAreaArray.length != 0">
+				AND a.areaCD IN
+			<foreach collection="shCheckboxAreaArray" item="type" open="(" close=")" separator=",">
+		       #{type}
+			</foreach> 		              	
+			</if>
 			
+			<if test="shCheckboxRoomArray != null and shCheckboxRoomArray.length != 0">
+				AND tvNy IN
+			<foreach collection="shCheckboxRoomArray" item="type" open="(" close=")" separator=",">
+		       #{type}
+			</foreach> 		              	
+			</if>
        </sql>
 	
 	 <select id="selectList" resultMap="resultMapObj">

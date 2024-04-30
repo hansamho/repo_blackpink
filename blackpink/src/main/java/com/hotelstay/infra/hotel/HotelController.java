@@ -62,19 +62,17 @@ public class HotelController {
 	@RequestMapping(value = "/hotelList")
 	public String hotelList(@ModelAttribute("vo") HotelVo vo, Model model) throws Exception{
 		
-//		model.addAttribute("list",codeGroupService.selectListWithoutPaging());
-		
 		
 		model.addAttribute("count", service.selectOneCount(vo));
 		
 		vo.setParamsPaging(service.selectOneCount(vo));
 		
-		vo.setHotelTypeCD(vo.getHotelTypeCD() == null
-			    ? null
-			    : vo.getHotelTypeCD());
-			vo.setAreaCD(vo.getAreaCD() == null
-			    ? null
-			    : vo.getAreaCD());
+//		vo.setHotelTypeCD(vo.getHotelTypeCD() == null
+//			    ? null
+//			    : vo.getHotelTypeCD());
+//			vo.setAreaCD(vo.getAreaCD() == null
+//			    ? null
+//			    : vo.getAreaCD());
 			
 		
 		if (vo.getTotalRows() > 0) {
@@ -85,15 +83,6 @@ public class HotelController {
         return "/usr/infra/index/hotelList";
   	}
 	
-	@RequestMapping(value = "hotelMultiUele")
-	public String hotelMultiUele(HotelVo vo, HotelDto dto, RedirectAttributes redirectAttributes) throws Exception {
-
-		
-
-		redirectAttributes.addFlashAttribute("vo", vo);
-
-		return  "/usr/infra/index/hotelList";
-	}
 	
 	
 
