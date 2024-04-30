@@ -52,4 +52,10 @@ public class BookingService {
 	public BookingDto bkInfoSelectOne(BookingDto dto) {
 		return dao.bkInfoSelectOne(dto);
 	}
+	
+	public int payInsert(BookingDto dto) {
+		
+		dao.payInsert(dto);
+		return 1;
+	}
 }

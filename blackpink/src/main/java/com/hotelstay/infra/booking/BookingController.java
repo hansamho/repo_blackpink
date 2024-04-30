@@ -90,6 +90,16 @@ public class BookingController {
 		
 	}
 	
-	
+//	@RequestMapping(value = "/payInsert")
+//	public String payInsert(BookingDto dto,Model model,HttpSession httpSession,RedirectAttributes redirectAttributes  ) throws Exception{
+//		
+//		dto.setMemberSeqF((String) httpSession.getAttribute("sessSeqUsr"));
+//		
+//		service.payInsert(dto);
+//		
+//		
+//		return "redirect:/bookingInfo";  //
+//		
+//	}
 	
 }

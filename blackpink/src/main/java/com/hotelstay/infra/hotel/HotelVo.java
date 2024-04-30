@@ -11,8 +11,38 @@ public class HotelVo extends BaseVo {
 	private double roomTotalRating;
 	private int hotelRating;
 	
+	//체크박스 
+	private String[] shCheckboxHotelTypeArray = null; // 호텔 유형
+	private String[] shCheckboxAreaArray = null;      // 지역
+	private String[] shCheckboxRoomArray = null;      // 객실 내 시설
 	
 	
+	
+	
+
+	public String[] getShCheckboxHotelTypeArray() {
+		return shCheckboxHotelTypeArray;
+	}
+
+	public void setShCheckboxHotelTypeArray(String[] shCheckboxHotelTypeArray) {
+		this.shCheckboxHotelTypeArray = shCheckboxHotelTypeArray;
+	}
+
+	public String[] getShCheckboxAreaArray() {
+		return shCheckboxAreaArray;
+	}
+
+	public void setShCheckboxAreaArray(String[] shCheckboxAreaArray) {
+		this.shCheckboxAreaArray = shCheckboxAreaArray;
+	}
+
+	public String[] getShCheckboxRoomArray() {
+		return shCheckboxRoomArray;
+	}
+
+	public void setShCheckboxRoomArray(String[] shCheckboxRoomArray) {
+		this.shCheckboxRoomArray = shCheckboxRoomArray;
+	}
 
 	public int getHotelRating() {
 		return hotelRating;

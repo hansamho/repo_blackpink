@@ -40,7 +40,13 @@
 	<main>
 	<form name="formList" id="formList" method="post" autocomplete="off">
 	<input type="hidden" name="thisPage" th:value="${vo.thisPage}" default="1"/>
-<!-- 	<input type="hidden" id="rowNumToShow" name="rowNumToShow" th:value="${vo.rowNumToShow}"/> -->
+
+	<!-- 체크박스 배열  호텔유형-->
+	<input type="hidden" id="shCheckboxHotelTypeArray" name="shCheckboxHotelTypeArray">
+
+	<!-- 체크박스 배열 지역 -->
+	<input type="hidden" id="shCheckboxAreaArray" name="shCheckboxAreaArray">
+		
 		<div id="position">
 			<div class="container">
 				<ul>
@@ -127,11 +133,11 @@
 							<div class="filter_type">
 								<h6>숙소 유형</h6>
 								<ul>
-<!-- 								<th:block th:each="list : ${@codeService.selectListCachedCode(3)}"> -->
+								
 									 <li>
                                         <label class="container_check">
                                              호텔
-                                            <input type="checkbox" id="checkboxSeq">
+                                            <input type="checkbox"  id="checkboxHotel">
                                             <span class="checkmark"></span>
                                         </label>
                                     </li>

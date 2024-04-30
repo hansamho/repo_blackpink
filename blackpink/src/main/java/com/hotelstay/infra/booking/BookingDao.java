@@ -25,4 +25,8 @@ public interface BookingDao {
 	
 	public List<BookingDto> bookingSelectList(BookingDto dto);
 	
+	public int memberInsert(BookingDto dto);
+	
+	public int payInsert(BookingDto dto);
+	
 }

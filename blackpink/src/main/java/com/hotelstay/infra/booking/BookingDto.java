@@ -9,11 +9,6 @@ public class BookingDto {
 	private int bkAdult; 
 	private int bkChild;
 	private int bkTotalPrice; 
-	private String payType; 
-	private String cardNumber; 
-	private String cardDate; 
-	private String cardYear; 
-	private String cardCcv; 
 	private Date bkRegDate; 
 	private Date bkUpdate; 
 	private Integer bkDelny; 
@@ -48,9 +43,37 @@ public class BookingDto {
 	private String hotelList_seq;
 	private String hotelListSeqF;
 	
+	//결제
+	private String paySeq; 
+	private Integer payTypeCD; 
+	private String cardNumber; 
+	private String cardDate; 
+	private String cardYear; 
+	private String cardCcv;  
+	private Date cardRegDate;
+	private Date cardUpDate; 
+	private Integer cardDelny;
+	private String hotelBooking_bookingSeq;
+	private String hotelSeqF;
+	private String bookingSeqF;
 	
 	
 	
+	
+	
+	
+	public String getBookingSeqF() {
+		return bookingSeqF;
+	}
+	public void setBookingSeqF(String bookingSeqF) {
+		this.bookingSeqF = bookingSeqF;
+	}
+	public String getHotelSeqF() {
+		return hotelSeqF;
+	}
+	public void setHotelSeqF(String hotelSeqF) {
+		this.hotelSeqF = hotelSeqF;
+	}
 	public String getBkCheckIn() {
 		return bkCheckIn;
 	}
@@ -191,11 +214,42 @@ public class BookingDto {
 	public void setBkTotalPrice(int bkTotalPrice) {
 		this.bkTotalPrice = bkTotalPrice;
 	}
-	public String getPayType() {
-		return payType;
+	
+	public String getPaySeq() {
+		return paySeq;
 	}
-	public void setPayType(String payType) {
-		this.payType = payType;
+	public void setPaySeq(String paySeq) {
+		this.paySeq = paySeq;
+	}
+	public Integer getPayTypeCD() {
+		return payTypeCD;
+	}
+	public void setPayTypeCD(Integer payTypeCD) {
+		this.payTypeCD = payTypeCD;
+	}
+	public Date getCardRegDate() {
+		return cardRegDate;
+	}
+	public void setCardRegDate(Date cardRegDate) {
+		this.cardRegDate = cardRegDate;
+	}
+	public Date getCardUpDate() {
+		return cardUpDate;
+	}
+	public void setCardUpDate(Date cardUpDate) {
+		this.cardUpDate = cardUpDate;
+	}
+	public Integer getCardDelny() {
+		return cardDelny;
+	}
+	public void setCardDelny(Integer cardDelny) {
+		this.cardDelny = cardDelny;
+	}
+	public String getHotelBooking_bookingSeq() {
+		return hotelBooking_bookingSeq;
+	}
+	public void setHotelBooking_bookingSeq(String hotelBooking_bookingSeq) {
+		this.hotelBooking_bookingSeq = hotelBooking_bookingSeq;
 	}
 	public String getCardNumber() {
 		return cardNumber;

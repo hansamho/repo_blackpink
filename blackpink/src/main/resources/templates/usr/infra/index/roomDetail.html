@@ -479,7 +479,7 @@
 									</div>
 								</td>
 								<td>
-									<input type="hidden" id="singleRoomPrice" name="singleRoomPrice" th:value="${#numbers.formatInteger(item.singleRoomPrice,1,'COMMA')}">
+									<input type="hidden" id="singleRoomPrice" name="singleRoomPrice" th:value="${item.singleRoomPrice}">
 									<strong id="singlePrice" th:text="${#numbers.formatInteger(item.singleRoomPrice,1,'COMMA')}"></strong>
 								</td>
 							</tr>
@@ -499,7 +499,7 @@
 									</div>
 								</td>
 								<td>
-									<input type="hidden" id="doubleRoomPrice" name="doubleRoomPrice" th:value="${#numbers.formatInteger(item.doubleRoomPrice,1,'COMMA')}">
+									<input type="hidden" id="doubleRoomPrice" name="doubleRoomPrice" th:value="${item.doubleRoomPrice}">
 									<strong id="doublePrice" th:text="${#numbers.formatInteger(item.doubleRoomPrice,1,'COMMA')}"></strong>
 								</td>
 							</tr>
@@ -519,7 +519,7 @@
 									</div>
 								</td>
 								<td>
-									<input type="hidden" id="twinRoomPrice" name="twinRoomPrice" th:value="${#numbers.formatInteger(item.twinRoomPrice,1,'COMMA')} ">
+									<input type="hidden" id="twinRoomPrice" name="twinRoomPrice" th:value="${item.twinRoomPrice} ">
 									<strong id="twinPrice" th:text="${#numbers.formatInteger(item.twinRoomPrice,1,'COMMA')}"></strong>
 								</td>
 							</tr>

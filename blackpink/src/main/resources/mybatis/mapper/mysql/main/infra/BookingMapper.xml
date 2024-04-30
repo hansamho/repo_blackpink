@@ -115,8 +115,13 @@
 			,b.twinRoomPrice
 			,b.bkTotalPrice
 			,b.member_seq as memberSeqF
+			,c.cardNumber
+            ,c.cardYear
+            ,c.cardDate
+            ,c.cardCcv
         FROM member a
         LEFT JOIN hotelbooking b on b.member_seq = a.memberSeq
+        LEFT JOIN payment c on c.bookingSeqF = b.bookingSeq
         WHERE 1=1
         AND b.bookingSeq = #{bookingSeq}
 	</select>
@@ -147,6 +152,23 @@
 			,#{twinRoomPrice}
 			,#{memberSeqF}
 			,#{roomSeqF}
+		)
+	</insert>
+	
+	<insert id="payInsert">
+		INSERT INTO payment(
+			cardNumber
+			,cardDate
+			,cardYear
+			,cardCcv
+			,bookingSeqF
+		)VALUES(
+			#{cardNumber}
+			,#{cardDate}
+			,#{cardYear}
+			,#{cardCcv}
+			,#{bookingSeqF}
+			
 		)
 	</insert>
 	

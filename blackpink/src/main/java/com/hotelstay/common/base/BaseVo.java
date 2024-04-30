@@ -20,16 +20,18 @@ public class BaseVo {
 	private String shCheckOut;
 	
 	//체크박스 
-	private String[] shCheckboxHotelTypeArray; // 호텔 유형
-	private String[] shCheckboxAreaArray;      // 지역
-	private String[] shCheckboxRoomArray;      // 객실 내 시설
+	private String[] shCheckboxHotelTypeArray = null; // 호텔 유형
+	private String[] shCheckboxAreaArray = null;      // 지역
+	private String[] shCheckboxRoomArray = null;      // 객실 내 시설
 	
 	
 	// 공통코드
 		private String shGenderCD;
 		private String shAreaCD;
 		private String shRoomTypeCD;
-	
+		private String shPayTypeCD;
+		
+		
 	
 	public String[] getShCheckboxHotelTypeArray() {
 		return shCheckboxHotelTypeArray;
@@ -62,13 +64,18 @@ public class BaseVo {
 	public void setShRoomTypeCD(String shRoomTypeCD) {
 		this.shRoomTypeCD = shRoomTypeCD;
 	}
-
-
-
-
-
 	
-	
+	public String getShPayTypeCD() {
+		return shPayTypeCD;
+	}
+
+	public void setShPayTypeCD(String shPayTypeCD) {
+		this.shPayTypeCD = shPayTypeCD;
+	}
+
+
+
+
 	//paging
 	private int thisPage = 1;				// 현재 페이지
 	private int rowNumToShow = Constants.ROW_NUM_TO_SHOW;		// 화면에 보여줄 데이터 줄 갯수

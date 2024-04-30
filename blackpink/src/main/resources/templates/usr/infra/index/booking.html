@@ -79,47 +79,14 @@
 			</div>
 		</div>
 		<!-- End position -->
-		<form method="post">
+		
+		<form method="get" action="payInsert">
+		<input type="hidden" id="bookingSeqF" name="bookingSeqF" th:value="${item.bookingSeqF}">
 		<div class="container margin_60">
 			<div class="row">
 				<div class="col-lg-8 add_bottom_15">
 					<div class="form_title">
-						<h3><strong>1</strong>예약자 정보</h3>
-						<input type="hidden" id="bookingSeq" name="bookingSeq" th:value="${item.bookingSeq}">
-					</div>
-					<div class="step">
-						<div class="row">
-							<div class="col-sm-6">
-								<div class="form-group">
-									<label>이름</label>
-									<input type="text" class="form-control" id="lastname_booking" name="lastname_booking" placeholder="홍길동">
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-6">
-								<div class="form-group">
-									<label>전화번호</label>
-									<input type="text" id="telephone_booking" name="telephone_booking" class="form-control" placeholder="010-1234-5678"> 
-								</div>
-							</div>							
-						</div>
-						<div class="row">
-							<div class="col-sm-6">
-								<div class="form-group">
-									<label>생년월일</label>
-									<input type="text" id="birthday_booking" name="birthday_booking" class="form-control" placeholder="19970923"> 
-								</div>
-							</div>							
-						</div>
-					</div>
-					<!--End step -->
-
-					<div class="form_title">
 						<h3><strong>2</strong>결제 정보</h3>
-						<p>
-							
-						</p>
 					</div>
 					<div class="step">
 						<div class="form-group">
@@ -133,7 +100,7 @@
 							<div class="col-md-6 col-sm-12">
 								<div class="form-group">
 									<label>카드 번호</label>
-									<input type="text" id="card_number" name="card_number" class="form-control">
+									<input type="text" id="cardNumber" name="cardNumber" class="form-control">
 								</div>
 							</div>
 							<div class="col-md-6 col-sm-12">
@@ -146,12 +113,12 @@
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
-											<input type="text" id="expire_month" name="expire_month" class="form-control" placeholder="MM">
+											<input type="text" id="cardDate" name="cardDate" class="form-control" placeholder="MM">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<input type="text" id="expire_year" name="expire_year" class="form-control" placeholder="Year">
+											<input type="text" id="cardYear" name="cardYear" class="form-control" placeholder="Year">
 										</div>
 									</div>
 								</div>
@@ -162,7 +129,7 @@
 									<div class="row">
 										<div class="col-4">
 											<div class="form-group">
-												<input type="text" id="ccv" name="ccv" class="form-control" placeholder="CCV">
+												<input type="text" id="cardCcv" name="cardCcv" class="form-control" placeholder="CCV">
 											</div>
 										</div>
 										<div class="col-8">
@@ -187,14 +154,14 @@
 
 				<aside class="col-lg-4">
 					<div class="box_style_1">
-						<h3 class="inner">- 에약 정보 -</h3>
+						<h3 class="inner">- 예약 정보 -</h3>
 						<table class="table table_summary">
 							<tbody>
 								<tr>
 									<td>
 										체크인
 									</td>
-									<td class="text-end">
+									<td class="text-end" th:text="${item.bkCheckIn}">
 										10 April 2015
 									</td>
 								</tr>
@@ -202,24 +169,15 @@
 									<td>
 										체크아웃
 									</td>
-									<td class="text-end">
+									<td class="text-end" th:text="${item.bkCheckOut}">
 										12 April 2015
 									</td>
 								</tr>
 								<tr>
 									<td>
-										객실
-									</td>
-									<td class="text-end">
-										1 double room
-									</td>
-								</tr>
-								
-								<tr>
-									<td>
 										성인
 									</td>
-									<td class="text-end" >
+									<td class="text-end" th:text="${item.bkAdult}">
 										2
 									</td>
 								</tr>
@@ -227,7 +185,7 @@
 									<td>
 										아이
 									</td>
-									<td class="text-end" >
+									<td class="text-end" th:text="${item.bkChild}">
 										0
 									</td>
 								</tr>
@@ -242,8 +200,8 @@
 								</tr>
 							</tbody>
 						</table>
-						<a class="btn_full" th:href="@{/bookinginfo(memberSeq=${item.memberSeqF})}">예약</a>
-<!-- 						<a class="btn_full_outline" th:href="@{/roomDetail(roomSeq=${item.roomSeq})}"><i class="icon-right"></i> 뒤로가기</a> -->
+						<button type="submit" class="btn_full" th:href="@{/bookinginfo(bookingSeq=${item.bookingSeq})}">결제</button>
+<!-- 						<a class="btn_full" th:href="@{/bookinginfo(memberSeq=${item.memberSeqF})}">결제</a> -->
 					</div>
 					
 				</aside>
