@@ -111,13 +111,13 @@
 								</div>
 								<div class="col-lg-2 col-md-3">
 									<ul class="info_booking">
-										<li><strong>예약완료</strong> [[${#dates.format(list.roomRegDate, 'yyyy-MM-dd HH:mm:ss')}]]</li>
+										<li><strong>예약완료</strong> [[${#dates.format(list.bkRegDate, 'yyyy-MM-dd HH:mm:ss')}]]</li>
 										<li><strong>결제 가격</strong> [[${#numbers.formatInteger(list.bkTotalPrice,1,"COMMA")}]]원</li>
 									</ul>
 								</div>
 								<div class="col-lg-2 col-md-2">
 									<div class="booking_buttons">
-										<a href="#0" class="btn_2">상세정보</a>
+										<a th:href="@{/roomDetail(roomSeq=${list.roomSeq})}" class="btn_2">상세정보</a>
 										<a href="#0" class="btn_3">예약취소</a>
 									</div>
 								</div>

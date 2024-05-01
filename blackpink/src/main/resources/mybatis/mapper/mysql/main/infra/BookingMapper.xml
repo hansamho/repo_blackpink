@@ -15,12 +15,17 @@
             ,a.codeNumber
 			,a.addrDetail
 			,a.roadName
+			,bookingSeq
 	        ,b.member_seq as memberSeqF
 	        ,b.bkCheckin
 	        ,b.bkCheckout
 	        ,b.bkAdult
 	        ,b.bkChild
-	        ,b.bkTotalPrice	       
+	        ,b.bkTotalPrice
+	        ,b.bkRegDate
+	        ,b.singleRoomPrice
+		    ,b.doubleRoomPrice
+		    ,b.twinRoomPrice	       
 	        ,c.roomName
 	        ,c.roomTypeCD
 	        ,c.roomPrice
@@ -28,6 +33,11 @@
 	        ,c.roomSeq
 			,b.roomDetail_roomSeq as roomSeqF
 			,c.hotelList_seq as hotelListSeqF
+			,(
+	        SELECT COALESCE(SUM(singleRoomPrice + doubleRoomPrice + twinRoomPrice), 0) 
+	        FROM hotelbooking 
+	        WHERE bookingSeq = #{bookingSeq}
+	    ) AS totalRoomPrice
 		FROM member a
 		LEFT JOIN hotelbooking b on b.member_seq = a.memberSeq
 		LEFT JOIN roomdetail c on b.roomDetail_roomSeq = c.roomSeq
@@ -76,58 +86,37 @@
 		WHERE memberSeq = #{memberSeqF}
 	</update>
 	
-	<select id="bookingSelectList" resultMap="resultMapObj">
-		SELECT
-			a.bookingSeq
-			,a.bkAdult
-	        ,a.bkChild
-	        ,a.bkCheckIn
-	        ,a.bkCheckOut
-	        ,a.bkTotalPrice
-	        ,a.singleRoomPrice
-	        ,a.doubleRoomPrice
-	        ,a.twinRoomPrice
-	        ,a.member_seq as memberSeqF
-	        ,e.memberName
-		 from hotelbooking a
-        left join bookingpay c on a.bookingSeq = c.hotelBooking_bookingSeq
-        left join payment d on d.paySeq =c.payment_paySeq
-        left join member e on a.member_seq = e.memberSeq
-		WHERE 1=1
-	</select>
-	
-	
 	
 	
 	
 	<select id="bookingSelectOne" resultMap="resultMapObj">
 		SELECT 
-		    b.bookingSeq,
-		    a.memberSeq,
-		    a.memberName,
-		    b.bkAdult,
-		    b.bkChild,
-		    b.bkCheckIn,
-		    b.bkCheckOut,
-		    b.member_seq as memberSeqF,
-		    b.singleRoomPrice,
-		    b.doubleRoomPrice,
-		    b.twinRoomPrice,
-		    b.bkTotalPrice,
-		    b.member_seq as memberSeqF,
-		    b.cardNumber,
-		    b.cardDate,
-		    b.cardYear,
-		    b.cardCcv,
-		    (
-		        SELECT COALESCE(SUM(singleRoomPrice + doubleRoomPrice + twinRoomPrice), 0) 
-		        FROM hotelbooking 
-		        WHERE bookingSeq = #{bookingSeq}
-		    ) AS totalRoomPrice
-		FROM member a
-		LEFT JOIN hotelbooking b ON b.member_seq = a.memberSeq
-		WHERE 1=1
-		AND b.bookingSeq = #{bookingSeq}
+	    b.bookingSeq,
+	    a.memberSeq,
+	    a.memberName,
+	    b.bkAdult,
+	    b.bkChild,
+	    b.bkCheckIn,
+	    b.bkCheckOut,
+	    b.member_seq as memberSeqF,
+	    b.singleRoomPrice,
+	    b.doubleRoomPrice,
+	    b.twinRoomPrice,
+	    b.bkTotalPrice,
+	    b.member_seq as memberSeqF,
+	    b.cardNumber,
+	    b.cardDate,
+	    b.cardYear,
+	    b.cardCcv,
+	    (
+	        SELECT COALESCE(SUM(singleRoomPrice + doubleRoomPrice + twinRoomPrice), 0) 
+	        FROM hotelbooking 
+	        WHERE bookingSeq = #{bookingSeq}
+	    ) AS totalRoomPrice
+	FROM member a
+	LEFT JOIN hotelbooking b ON b.member_seq = a.memberSeq
+	WHERE 1=1
+	AND b.bookingSeq = #{bookingSeq}
 	</select>
 	
 	
@@ -167,55 +156,6 @@
 		)
 	</insert>
 	
-<!-- 	<select id="bookingInfoSelectOne"> -->
-<!-- 		SELECT	 -->
-<!-- 			a.bookingSeq -->
-<!-- 			,a.bkCheckIn -->
-<!-- 			,a.bkCheckOut -->
-<!-- 			,a.bkAdult -->
-<!-- 			,a.bkChild -->
-<!-- 			,a.singleRoomPrice -->
-<!-- 			,a.doubleRoomPrice -->
-<!-- 			,a.twinRoomPrice -->
-<!-- 			,c.cardTypeCD -->
-<!-- 			,c.cardNumber -->
-<!-- 			,c.cardDate -->
-<!-- 			,c.cardYear -->
-<!-- 			,c.cardCcv -->
-<!-- 			,d.memberName -->
-<!-- 		FROM hotelbooking a  -->
-<!-- 		LEFT JOIN bookingpay b on b.hotelBooking_bookingSeq = a.bookingSeq -->
-<!-- 		LEFT JOIN payment c on c.paySeq = b.payment_paySeq -->
-<!-- 		LEFT JOIN member d on d.memberSeq = a.member_seq -->
-<!-- 		WHERE 1=1 -->
-<!-- 		AND a.bookingSeq = #{bookingSeq} -->
-<!-- 	</select> -->
 	
-	<select id="pay">
-		SELECT 
-		*
-		FROM payment
-		WHERE 1=1
-		AND paySeq = #{paySeq}
-	</select>
-	
-	<insert id="payInsert">
-		INSERT INTO hotelBooking(
-			cardNumber
-			,cardDate
-			,cardYear
-			,cardCcv
-			,member_seq
-			,roomDetail_roomSeq
-			
-		)VALUES(
-			#{cardNumber}
-			,#{cardDate}
-			,#{cardYear}
-			,#{cardCcv}
-			,#{memberSeqF}
-			,#{roomSeqF}
-		)
-	</insert>
 	
 </mapper>
