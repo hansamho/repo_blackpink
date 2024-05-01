@@ -72,7 +72,10 @@
 		    a.wifiNy, 
 		    a.poolNy, 
 		    a.airNy, 
-		    a.bathNy, 
+		    a.bathNy,
+		    a.singleRoomPrice,
+		    a.doubleRoomPrice,
+		    a.twinRoomPrice,
 		    a.bathSuppliesNy,
 		    b.cleanRating,
 		    b.comfortRating,
@@ -81,9 +84,6 @@
 		    b.reviewContent,
 		    b.roomSeqF,
 		    a.hotelList_seq
-		     ,c.singleRoomPrice
-            ,c.doubleRoomPrice
-            ,c.twinRoomPrice
           ,c.member_seq as memberSeqF
           ,d.memberSeq
           ,c.bookingSeq

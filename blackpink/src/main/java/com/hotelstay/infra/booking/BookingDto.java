@@ -16,6 +16,8 @@ public class BookingDto {
 	private String roomDetail_roomSeq;
 	private String roomSeqF;
 	private String member_seq;
+	private int totalRoomPrice;
+	
 	
 	/*멤버*/
 	private String memberSeq;
@@ -62,6 +64,12 @@ public class BookingDto {
 	
 	
 	
+	public int getTotalRoomPrice() {
+		return totalRoomPrice;
+	}
+	public void setTotalRoomPrice(int totalRoomPrice) {
+		this.totalRoomPrice = totalRoomPrice;
+	}
 	public String getBookingSeqF() {
 		return bookingSeqF;
 	}

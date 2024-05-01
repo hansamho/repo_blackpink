@@ -27,45 +27,46 @@
     </header>
 	<!-- End Header -->
 
+
 	<section id="hero_2" class="background-image" data-background="url(/usr/assets/img/slide_hero_2.jpg)">
         <div class="opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.6)">
-    		<div class="intro_title">
-    			<h1>주문</h1>
-    			<div class="bs-wizard row">
+		<div class="intro_title">
+			<h1>결제</h1>
+			<div class="bs-wizard row">
 
-    				<div class="col-4 bs-wizard-step complete">
-    					<div class="text-center bs-wizard-stepnum">Your cart</div>
-    					<div class="progress">
-    						<div class="progress-bar"></div>
-    					</div>
-    					<a href="cart_hotel.html" class="bs-wizard-dot"></a>
-    				</div>
+				<div class="col-4 bs-wizard-step complete">
+					<div class="text-center bs-wizard-stepnum">Your cart</div>
+					<div class="progress">
+						<div class="progress-bar"></div>
+					</div>
+					<a class="bs-wizard-dot"></a>
+				</div>
 
-    				<div class="col-4 bs-wizard-step active">
-    					<div class="text-center bs-wizard-stepnum">Your details</div>
-    					<div class="progress">
-    						<div class="progress-bar"></div>
-    					</div>
-    					<a href="#" class="bs-wizard-dot"></a>
-    				</div>
+				<div class="col-4 bs-wizard-step complete">
+					<div class="text-center bs-wizard-stepnum">예약</div>
+					<div class="progress">
+						<div class="progress-bar"></div>
+					</div>
+					<a class="bs-wizard-dot"></a>
+				</div>
 
-    				<div class="col-4 bs-wizard-step disabled">
-    					<div class="text-center bs-wizard-stepnum">Finish!</div>
-    					<div class="progress">
-    						<div class="progress-bar"></div>
-    					</div>
-    					<a href="confirmation_hotel.html" class="bs-wizard-dot"></a>
-    				</div>
+				<div class="col-4 bs-wizard-step complete">
+					<div class="text-center bs-wizard-stepnum">예약 정보</div>
+					<div class="progress">
+						<div class="progress-bar"></div>
+					</div>
+					<a class="bs-wizard-dot"></a>
+				</div>
 
-    			</div>
-    			<!-- End bs-wizard -->
-    		</div>
-    		<!-- End intro-title -->
+			</div>
+			<!-- End bs-wizard -->
+		</div>
+		<!-- End intro-title -->
         </div>
         <!-- End opacity-mask-->
 	</section>
 	<!-- End Section hero_2 -->
-	
+	<form method="post">
 	<main>
 		<div id="position">
 			<div class="container">
@@ -79,140 +80,98 @@
 			</div>
 		</div>
 		<!-- End position -->
-		
-		<form method="get" action="payInsert">
-		<input type="hidden" id="bookingSeqF" name="bookingSeqF" th:value="${item.bookingSeqF}">
-		<input name="roomSeqF" id="roomSeqF" type="hidden" th:value="${item.roomSeqF}">
+
 		<div class="container margin_60">
+		<input type="hidden" id="bookingSeq" name="bookingSeq" th:value="${item.bookingSeq}">
 			<div class="row">
 				<div class="col-lg-8 add_bottom_15">
+
 					<div class="form_title">
-						<h3><strong>2</strong>결제 정보</h3>
+						<h3><strong><i class="icon-ok"></i></strong>결제 완료</h3>
+						<p>
+							
+						</p>
 					</div>
 					<div class="step">
-						<div class="form-group">
-							<p>결제수단</p>
-							<button type="button" class="btn btn-secondary">신용/체크 결제</button>
-							<button type="button" class="btn btn-secondary">휴대폰 결제</button>
-							<button type="button" class="btn btn-secondary">카카오페이</button>
-
-						</div>
-						<div class="row">
-							<div class="col-md-6 col-sm-12">
-								<div class="form-group">
-									<label>카드 번호</label>
-									<input type="text" id="cardNumber" name="cardNumber" class="form-control">
-								</div>
-							</div>
-							<div class="col-md-6 col-sm-12">
-								<img src="/usr/assets/img/cards.png" width="207" height="43" alt="Cards" class="cards">
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<label>카드 유효기간</label>
-								<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<input type="text" id="cardDate" name="cardDate" class="form-control" placeholder="MM">
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<input type="text" id="cardYear" name="cardYear" class="form-control" placeholder="Year">
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-									<label>CCV 번호</label>
-									<div class="row">
-										<div class="col-4">
-											<div class="form-group">
-												<input type="text" id="cardCcv" name="cardCcv" class="form-control" placeholder="CCV">
-											</div>
-										</div>
-										<div class="col-8">
-											<img src="/usr/assets/img/icon_ccv.gif" width="50" height="29" alt="ccv"><small>Last 3 digits</small>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--End row -->
-
-						<hr>
-
-						
+						<p>
+							이용해 주셔서 감사합니다
+						</p>
 					</div>
 					<!--End step -->
 
-		
-
-					 	
-				</div>
-
-				<aside class="col-lg-4">
-					<div class="box_style_1">
-						<h3 class="inner">- 예약 정보 -</h3>
-						<table class="table table_summary">
+					<div class="form_title">
+						<h3><strong><i class="icon-tag-1"></i></strong>예약 정보 확인</h3>
+						<p>
+							
+						</p>
+					</div>
+					<div class="step">
+						<table class="table table-striped confirm">
 							<tbody>
 								<tr>
 									<td>
-										체크인
+										<strong>이름</strong>
 									</td>
-									<td class="text-end" th:text="${item.bkCheckIn}">
-										10 April 2015
-									</td>
-								</tr>
-								<tr>
-									<td>
-										체크아웃
-									</td>
-									<td class="text-end" th:text="${item.bkCheckOut}">
-										12 April 2015
+									<td th:text="${item.memberName}">
+									
 									</td>
 								</tr>
 								<tr>
 									<td>
-										성인
+										<strong>체크인</strong>
 									</td>
-									<td class="text-end" th:text="${item.bkAdult}">
-										2
+									<td th:text="${item.bkCheckIn}">
+										</td>
+								</tr>
+								<tr>
+									<td><strong>체크아웃</strong>
+									</td>
+									<td th:text="${item.bkCheckOut}">
+										
+										<br>
+									</td>
+								</tr>
+								<tr>
+									<td><strong>성인</strong>
+									</td>
+									<td th:text="${item.bkAdult}"></td>
+								</tr>
+								<tr>
+									<td><strong>아이</strong>
+									</td>
+									<td th:text="${item.bkChild}"></td>
+								</tr>
+								<tr>
+									<td>
+										<strong>결제</strong>
+									</td>
+									<td>
+										Card
 									</td>
 								</tr>
 								<tr>
 									<td>
-										아이
+										<strong>총 가격</strong>
 									</td>
-									<td class="text-end" th:text="${item.bkChild}">
-										0
-									</td>
-								</tr>
-								
-								<tr class="total">
-									<td>
-										총 가격
-									</td>
-									<td class="text-end" >
+									<td th:text="${#numbers.formatInteger(item.totalRoomPrice,1,'COMMA')}+'원'">
 										$154
 									</td>
 								</tr>
 							</tbody>
 						</table>
-						<button type="submit" class="btn_full" th:href="@{/bookinginfo(bookingSeq=${item.bookingSeq})}">결제</button>
-<!-- 						<a class="btn_full" th:href="@{/bookinginfo(memberSeq=${item.memberSeqF})}">결제</a> -->
 					</div>
-					
-				</aside>
+					<!--End step -->
+				</div>
+				<!--End col -->
+
+				
 
 			</div>
 			<!--End row -->
 		</div>
-		</form>
 		<!--End container -->
 	</main>
+	</form>
 	<!-- End main -->
 
 	<!-- footer -->
@@ -231,10 +190,12 @@
 	</div><!-- End Search Menu -->
 	
 
-	<!-- Common scripts -->
+	
+	<!-- Jquery -->
 	<script src="/usr/assets/js/jquery-3.7.1.min.js"></script>
 	<script src="/usr/assets/js/common_scripts_min.js"></script>
 	<script src="/usr/assets/js/functions.js"></script>
+
 
 </body>
 

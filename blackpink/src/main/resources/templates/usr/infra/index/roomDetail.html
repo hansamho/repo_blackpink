@@ -500,7 +500,7 @@
 								</td>
 								<td>
 									<input type="hidden" id="doubleRoomPrice" name="doubleRoomPrice" th:value="${item.doubleRoomPrice}">
-									<strong id="doublePrice" th:text="${#numbers.formatInteger(item.doubleRoomPrice,1,'COMMA')}"></strong>
+									<strong id="doublePrice" th:text="${#numbers.formatInteger(item.doubleRoomPrice,1,'COMMA')}+'원'"></strong>
 								</td>
 							</tr>
 							<tr>
@@ -520,13 +520,69 @@
 								</td>
 								<td>
 									<input type="hidden" id="twinRoomPrice" name="twinRoomPrice" th:value="${item.twinRoomPrice} ">
-									<strong id="twinPrice" th:text="${#numbers.formatInteger(item.twinRoomPrice,1,'COMMA')}"></strong>
+									<strong id="twinPrice" th:text="${#numbers.formatInteger(item.twinRoomPrice,1,'COMMA')}+'원'"></strong>
 								</td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-12">
+					<div class="form-group">
+						<h3><strong></strong>결제</h3>
+					</div>
+						<div class="form-group">
+							<p>결제수단</p>
+							<button type="button" class="btn btn-secondary">신용/체크 결제</button>
+							<button type="button" class="btn btn-secondary">휴대폰 결제</button>
+							<button type="button" class="btn btn-secondary">카카오페이</button>
+
+						</div>
+						<div class="row">
+							<div class="col-12 ">
+								<div class="form-group">
+									<label>카드 번호</label>
+									<input type="text" id="cardNumber" name="cardNumber" class="form-control">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<label>카드 유효기간</label>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<input type="text" id="cardDate" name="cardDate" class="form-control" placeholder="MM">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<input type="text" id="cardYear" name="cardYear" class="form-control" placeholder="Year">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>CCV 번호</label>
+									<div class="row">
+										<div class="col-6">
+											<div class="form-group">
+												<input type="text" id="cardCcv" name="cardCcv" class="form-control" placeholder="CCV">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--End row -->
+						<hr>
+					<!--End step -->
+				</div>
+			</div>
+			<!--End row -->
+		</div>
 			<div class="d-flex justify-content-between mt-4">
 				<button  type="submit" class="btn_full" th:href="@{/booking(bookingSeq=${item.bookingSeq})}">예약</button>
 			</div>

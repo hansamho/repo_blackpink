@@ -101,28 +101,33 @@
 	
 	
 	<select id="bookingSelectOne" resultMap="resultMapObj">
-		 SELECT 
-			b.bookingSeq
-			,a.memberSeq
-			,a.memberName
-			,b.bkAdult
-			,b.bkChild
-			,b.bkCheckIn
-			,b.bkCheckOut
-			,b.member_seq as memberSeqF
-			,b.singleRoomPrice
-			,b.doubleRoomPrice
-			,b.twinRoomPrice
-			,b.bkTotalPrice
-			,b.member_seq as memberSeqF
-			,b.cardNumber
-            ,b.cardYear
-            ,b.cardDate
-            ,b.cardCcv
-        FROM member a
-        LEFT JOIN hotelbooking b on b.member_seq = a.memberSeq
-        WHERE 1=1
-        AND b.bookingSeq = #{bookingSeq}
+		SELECT 
+		    b.bookingSeq,
+		    a.memberSeq,
+		    a.memberName,
+		    b.bkAdult,
+		    b.bkChild,
+		    b.bkCheckIn,
+		    b.bkCheckOut,
+		    b.member_seq as memberSeqF,
+		    b.singleRoomPrice,
+		    b.doubleRoomPrice,
+		    b.twinRoomPrice,
+		    b.bkTotalPrice,
+		    b.member_seq as memberSeqF,
+		    b.cardNumber,
+		    b.cardDate,
+		    b.cardYear,
+		    b.cardCcv,
+		    (
+		        SELECT COALESCE(SUM(singleRoomPrice + doubleRoomPrice + twinRoomPrice), 0) 
+		        FROM hotelbooking 
+		        WHERE bookingSeq = #{bookingSeq}
+		    ) AS totalRoomPrice
+		FROM member a
+		LEFT JOIN hotelbooking b ON b.member_seq = a.memberSeq
+		WHERE 1=1
+		AND b.bookingSeq = #{bookingSeq}
 	</select>
 	
 	
@@ -139,6 +144,10 @@
 			,singleRoomPrice
 			,doubleRoomPrice
 			,twinRoomPrice
+			,cardNumber
+			,cardDate
+			,cardYear
+			,cardCcv
 			,member_seq
 			,roomDetail_roomSeq 
 		)VALUE(
@@ -149,28 +158,64 @@
 			,#{singleRoomPrice}
 			,#{doubleRoomPrice}
 			,#{twinRoomPrice}
+			,#{cardNumber}
+			,#{cardDate}
+			,#{cardYear}
+			,#{cardCcv}
 			,#{memberSeqF}
 			,#{roomSeqF}
 		)
 	</insert>
 	
-
-<!-- 		<insert id="payInsert"> -->
-<!-- 			INSERT INTO hotelBooking( -->
-<!-- 				cardNumber -->
-<!-- 				,cardDate -->
-<!-- 				,cardYear -->
-<!-- 				,cardCcv -->
-<!-- 				,member_seq -->
-<!-- 				,roomDetail_roomSeq -->
-<!-- 			)VALUES( -->
-<!-- 				#{cardNumber} -->
-<!-- 				,#{cardDate} -->
-<!-- 				,#{cardYear} -->
-<!-- 				,#{cardCcv} -->
-<!-- 				,#{memberSeqF} -->
-<!-- 				,#{roomSeqF} -->
-<!-- 			) -->
-<!-- 		</insert> -->
+<!-- 	<select id="bookingInfoSelectOne"> -->
+<!-- 		SELECT	 -->
+<!-- 			a.bookingSeq -->
+<!-- 			,a.bkCheckIn -->
+<!-- 			,a.bkCheckOut -->
+<!-- 			,a.bkAdult -->
+<!-- 			,a.bkChild -->
+<!-- 			,a.singleRoomPrice -->
+<!-- 			,a.doubleRoomPrice -->
+<!-- 			,a.twinRoomPrice -->
+<!-- 			,c.cardTypeCD -->
+<!-- 			,c.cardNumber -->
+<!-- 			,c.cardDate -->
+<!-- 			,c.cardYear -->
+<!-- 			,c.cardCcv -->
+<!-- 			,d.memberName -->
+<!-- 		FROM hotelbooking a  -->
+<!-- 		LEFT JOIN bookingpay b on b.hotelBooking_bookingSeq = a.bookingSeq -->
+<!-- 		LEFT JOIN payment c on c.paySeq = b.payment_paySeq -->
+<!-- 		LEFT JOIN member d on d.memberSeq = a.member_seq -->
+<!-- 		WHERE 1=1 -->
+<!-- 		AND a.bookingSeq = #{bookingSeq} -->
+<!-- 	</select> -->
+	
+	<select id="pay">
+		SELECT 
+		*
+		FROM payment
+		WHERE 1=1
+		AND paySeq = #{paySeq}
+	</select>
+	
+	<insert id="payInsert">
+		INSERT INTO hotelBooking(
+			cardNumber
+			,cardDate
+			,cardYear
+			,cardCcv
+			,member_seq
+			,roomDetail_roomSeq
+			
+		)VALUES(
+			#{cardNumber}
+			,#{cardDate}
+			,#{cardYear}
+			,#{cardCcv}
+			,#{memberSeqF}
+			,#{roomSeqF}
+		)
+	</insert>
 	
 </mapper>

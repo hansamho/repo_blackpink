@@ -45,6 +45,7 @@ public class BookingService {
 	public int bookingInsert(BookingDto dto) {
 		
 		dao.bookingInsert(dto);
+//		dao.payInsert(dto);
 		
 		return 1;
 	}
@@ -57,5 +58,13 @@ public class BookingService {
 		
 		dao.payInsert(dto);
 		return 1;
+	}
+	
+	public BookingDto bookingInfoSelectOne(BookingDto dto) {
+		return dao.bookingInfoSelectOne(dto);
+	}
+	
+	public BookingDto pay(BookingDto dto) {
+		return dao.pay(dto);
 	}
 }

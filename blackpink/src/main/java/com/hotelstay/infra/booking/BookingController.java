@@ -56,26 +56,21 @@ public class BookingController {
 	public String booking(@RequestParam("bookingSeq") String booking , BookingDto dto,Model model,HttpSession httpSession ) throws Exception{
 		dto.setMemberSeqF((String) httpSession.getAttribute("sessSeqUsr"));
 		
-		System.out.println("dto.getBookingSeq()"+" "+dto.getBookingSeq());
-		
-		System.out.println("booking"+" "+booking);
-		
 		model.addAttribute("item", service.bookingSelectOne(dto));
 		
 		return "/usr/infra/index/booking";  //
 		
 	}
 	
-	@RequestMapping(value = "/bookinginfo")
-	public String bookinginfo(BookingDto dto,Model model,HttpSession httpSession ) throws Exception{
-		dto.setMemberSeqF((String) httpSession.getAttribute("sessSeqUsr"));
-		
-		
-		model.addAttribute("item", service.bookingSelectOne(dto));
-		
-		return "/usr/infra/index/bookinginfo";  //
-		
-	}
+//	@RequestMapping(value = "/bookingInfo")
+//	public String bookingInfo(BookingDto dto,Model model,HttpSession httpSession ) throws Exception{
+//		dto.setMemberSeqF((String) httpSession.getAttribute("sessSeqUsr"));
+//		
+//		model.addAttribute("item", service.bookingSelectOne(dto));
+//		
+//		return "/usr/infra/index/bookingInfo";  //
+//		
+//	}
 	
 	@RequestMapping(value = "/bookingInsert")
 	public String bookingInsert(BookingDto dto,Model model,HttpSession httpSession,RedirectAttributes redirectAttributes  ) throws Exception{
@@ -83,6 +78,7 @@ public class BookingController {
 		dto.setMemberSeqF((String) httpSession.getAttribute("sessSeqUsr"));
 		
 		service.bookingInsert(dto);
+		
 		
 		redirectAttributes.addAttribute("bookingSeq", dto.getBookingSeq());
 		
