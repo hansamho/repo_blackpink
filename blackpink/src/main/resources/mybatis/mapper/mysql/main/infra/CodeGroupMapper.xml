@@ -3,7 +3,7 @@
 
 <mapper namespace="com.hotelstay.infra.codegroup.CodeGroupDao">
 
-	<resultMap id="resultMapObj" type="com.hotelstay.infra.codegroup.	Dto"></resultMap>
+	<resultMap id="resultMapObj" type="com.hotelstay.infra.codegroup.CodeGroupDto"></resultMap>
 
 <!--     <select id="selectList" resultMap="resultMapObj"> -->
 <!--         SELECT -->
