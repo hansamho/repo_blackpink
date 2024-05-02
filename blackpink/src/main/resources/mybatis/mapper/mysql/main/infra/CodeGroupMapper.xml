@@ -13,7 +13,7 @@
 <!--             ,a.cgUpdate -->
 <!--             ,a.cgDelny -->
 <!--              ,(select count(aa.seq) from Code aa where 1=1 and aa.codeDelete = 0 and aa.Seq = a.Seq) as xifcdSeqCount --> 
-<!--          FROM codeGroup a -->
+<!--          FROM codegroup a -->
 <!--         WHERE 1=1 -->
 <!--           <if test="shUseNy != null and !shUseNy.equals('')">AND ifcgUseNy = #{shUseNy}</if> --> 
 <!--         <if test="shDelny != null and !shDelny.equals('')">AND a.cgDelny = #{shDelny}</if>   AND a.cgDelete = #{shDelete} -->
@@ -31,7 +31,7 @@
 <!--         ORDER BY a.cgSeq DESC -->
 <!--     </select> -->
 	  	<sql id ="selectCommon">
-        FROM codeGroup a
+        FROM codegroup a
         WHERE 1=1
 <!--           <if test="shUseNy != null and !shUseNy.equals('')">AND ifcgUseNy = #{shUseNy}</if>  -->
         <if test="shDelny != null and !shDelny.equals('')">AND a.cgDelny = #{shDelny}</if> 
@@ -72,14 +72,14 @@
             ,a.cgRegDate
             ,a.cgUpdate
             ,a.cgDelny
-         FROM CodeGroup a
+         FROM codegroup a
         WHERE 1=1
         AND a.cgSeq = #{cgSeq}
         ORDER BY a.cgSeq DESC
     </select>
     
     <insert id="insert">
-    	INSERT INTO codeGroup(
+    	INSERT INTO codegroup(
             name
             ,cgRegDate
             ,cgUpdate
@@ -96,7 +96,7 @@
     
     <update id="update">
     	
-    	UPDATE codeGroup 
+    	UPDATE codegroup 
     	set
     	name = #{name}
     	WHERE cgSeq = #{cgSeq}
@@ -105,7 +105,7 @@
     
     <update id="updateDelete">
     	
-    	UPDATE codeGroup 
+    	UPDATE codegroup 
     	set
     	cgDelny = 1
     	WHERE cgSeq = #{cgSeq}
@@ -113,7 +113,7 @@
     </update>
     
     <delete id="delete">
-    	DELETE FROM  codeGroup
+    	DELETE FROM  codegroup
     	WHERE cgSeq = #{cgSeq}
     </delete>
     
@@ -121,7 +121,7 @@
 		SELECT
 			a.cgSeq
 			,a.name
-		FROM codeGroup a
+		FROM codegroup a
 		WHERE 1=1
 			AND cgDelNy = 0
 <!-- 			And ifcgUseNy = 1 -->
