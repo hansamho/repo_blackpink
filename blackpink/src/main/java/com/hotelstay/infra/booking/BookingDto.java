@@ -28,7 +28,7 @@ public class BookingDto {
 	private String codeNumber;
 	private String roadName;
 	private String addrDetail;
-	
+	private String reference;
 	
 	/*객실정보*/
 	private String roomName;
@@ -64,6 +64,12 @@ public class BookingDto {
 	
 	
 	
+	public String getReference() {
+		return reference;
+	}
+	public void setReference(String reference) {
+		this.reference = reference;
+	}
 	public int getTotalRoomPrice() {
 		return totalRoomPrice;
 	}

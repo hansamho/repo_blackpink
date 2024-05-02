@@ -15,6 +15,7 @@
             ,a.codeNumber
 			,a.addrDetail
 			,a.roadName
+			,a.reference
 			,bookingSeq
 	        ,b.member_seq as memberSeqF
 	        ,b.bkCheckin
@@ -54,6 +55,7 @@
             ,a.codeNumber
 			,a.addrDetail
 			,a.roadName
+			,a.reference
 		FROM member a
 		WHERE 1=1
 		AND a.memberSeq =  #{memberSeqF};
@@ -83,6 +85,7 @@
 		,codeNumber = #{codeNumber}
 		,roadName = #{roadName}
 		,addrDetail = #{addrDetail}
+		,reference = #{reference}
 		WHERE memberSeq = #{memberSeqF}
 	</update>
 	

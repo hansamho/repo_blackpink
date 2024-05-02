@@ -247,10 +247,10 @@
 									<input class="form-control" type="text" id="codeNumber" placeholder="우편번호" th:value="${item.codeNumber}">
 								</div>
 							</div>
-							<div class="col-md-2">
-								<label> </label>
-								<input class="form-control" type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-							</div>
+<!-- 							<div class="col-md-2"> -->
+<!-- 								<label> </label> -->
+<!-- 								<input class="form-control" type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br> -->
+<!-- 							</div> -->
 						</div>
 						<!-- End row -->
 
@@ -259,7 +259,6 @@
 								<div class="form-group">
 									<label>도로명</label>
 									<input class="form-control" name="roadName" id="roadName" type="text" th:value="${item.roadName}">
-<!-- 									<input class="form-control" type="text" id="sample6_address" placeholder="주소" th:value="${item.roadName}"><br> -->
 								</div>
 							</div>
 						</div>
@@ -268,12 +267,11 @@
 								<div class="form-group">
 									<label>상세정보</label>
 									<input class="form-control" name="addrDetail" id="addrDetail" type="text" th:value="${item.addrDetail}">
-<!-- 									<input class="form-control" type="text" id="sample6_detailAddress" placeholder="상세주소" th:value="${item.addrDetail}"> -->
 								</div>
 							</div>
 							<div class="col-md-6">
 								<label>참고항목</label>
-								<input class="form-control" type="text" id="sample6_extraAddress" placeholder="참고항목">
+								<input class="form-control" type="text" name="reference" id="reference" placeholder="참고항목" th:value="${item.reference}">
 							</div>
 						</div>
 						
@@ -390,15 +388,7 @@
 		}
 			
 		</script>
-		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-		<script>
-		    new daum.Postcode({
-		        oncomplete: function(data) {
-		            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
-		            // 예제를 참고하여 다양한 활용법을 확인해 보세요.
-		        }
-		    }).open();
-		</script>
+
 		
 		
 		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -436,10 +426,10 @@
 		                        extraAddr = ' (' + extraAddr + ')';
 		                    }
 		                    // 조합된 참고항목을 해당 필드에 넣는다.
-		                    document.getElementById("sample6_extraAddress").value = extraAddr;
+		                    document.getElementById("reference").value = extraAddr;
 		                
 		                } else {
-		                    document.getElementById("sample6_extraAddress").value = '';
+		                    document.getElementById("reference").value = '';
 		                }
 		
 		                // 우편번호와 주소 정보를 해당 필드에 넣는다.
