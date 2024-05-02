@@ -31,7 +31,7 @@
 <!--         ORDER BY a.cgSeq DESC -->
 <!--     </select> -->
 	  	<sql id ="selectCommon">
-        FROM codegroup a
+        FROM CodeGroup a
         WHERE 1=1
 <!--           <if test="shUseNy != null and !shUseNy.equals('')">AND ifcgUseNy = #{shUseNy}</if>  -->
         <if test="shDelny != null and !shDelny.equals('')">AND a.cgDelny = #{shDelny}</if> 
@@ -72,14 +72,14 @@
             ,a.cgRegDate
             ,a.cgUpdate
             ,a.cgDelny
-         FROM codegroup a
+         FROM CodeGroup a
         WHERE 1=1
         AND a.cgSeq = #{cgSeq}
         ORDER BY a.cgSeq DESC
     </select>
     
     <insert id="insert">
-    	INSERT INTO codegroup(
+    	INSERT INTO CodeGroup(
             name
             ,cgRegDate
             ,cgUpdate
@@ -96,7 +96,7 @@
     
     <update id="update">
     	
-    	UPDATE codegroup 
+    	UPDATE CodeGroup 
     	set
     	name = #{name}
     	WHERE cgSeq = #{cgSeq}
@@ -105,7 +105,7 @@
     
     <update id="updateDelete">
     	
-    	UPDATE codegroup 
+    	UPDATE CodeGroup 
     	set
     	cgDelny = 1
     	WHERE cgSeq = #{cgSeq}
@@ -113,7 +113,7 @@
     </update>
     
     <delete id="delete">
-    	DELETE FROM  codegroup
+    	DELETE FROM 
     	WHERE cgSeq = #{cgSeq}
     </delete>
     
@@ -121,7 +121,7 @@
 		SELECT
 			a.cgSeq
 			,a.name
-		FROM codegroup a
+		FROM CodeGroup a
 		WHERE 1=1
 			AND cgDelNy = 0
 <!-- 			And ifcgUseNy = 1 -->
