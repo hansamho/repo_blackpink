@@ -150,7 +150,7 @@ public class MemberController {
 	@RequestMapping(value = "/main")
 	public String main() throws Exception{
 	
-		return "/main/infra/index/mainindex";
+		return "main/infra/index/mainindex";
 	}
 	
 	/* =====관리자===== */
@@ -230,7 +230,7 @@ public class MemberController {
 	@RequestMapping(value = "/usrLogin")
 	public String usrLogin(MemberDto dto) throws Exception{
 	
-		return "/usr/infra/index/usrlogin";
+		return "usr/infra/index/usrlogin";
 	}
 	
 	@RequestMapping(value = "/usrIndex")
@@ -245,7 +245,7 @@ public class MemberController {
 			model.addAttribute("list", hotelService.selectList(vo));
 		
 		
-		return "/usr/infra/index/usrindex";
+		return "usr/infra/index/usrindex";
 	}
 	
 	//로그인
@@ -311,7 +311,7 @@ public class MemberController {
 		model.addAttribute("listCodeGroup", codeGroupService.selectListWithoutPaging());
 		
 		
-		return "/usr/infra/index/register";
+		return "usr/infra/index/register";
 	}
 	
 	
