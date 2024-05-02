@@ -70,7 +70,7 @@
 		FROM wishlist a
 		LEFT JOIN member b
 		on a.wishSeq = b.memberSeq
-		LEFT JOIN roomDetail c
+		LEFT JOIN roomdetail c
 		on a.wishSeq = c.roomSeq
 		WHERE member_seq = #{memberSeqF};
 
