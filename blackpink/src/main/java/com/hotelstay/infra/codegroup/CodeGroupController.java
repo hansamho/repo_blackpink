@@ -75,7 +75,7 @@ public class CodeGroupController {
 			
 //			model.addAttribute("vo",vo);
 
-        return "/adm/infra/codegroup/codeGroupXdmList";
+        return "adm/infra/codegroup/codeGroupXdmList";
   	}
 	
 	
@@ -84,14 +84,14 @@ public class CodeGroupController {
 		public String codeGroupAdmView(CodeGroupDto dto, Model model) throws Exception{
 			model.addAttribute("item", service.selectOne(dto));
 		
-			return "/adm/infra/codegroup/codeGroupAdmView"; //
+			return "adm/infra/codegroup/codeGroupAdmView"; //
 			
 		}
 	@RequestMapping(value = "/codeGroupForm")
 	public String codeGroupForm(CodeGroupDto dto, Model model) throws Exception{
 		model.addAttribute("item", service.selectOne(dto));
 	
-		return "/adm/infra/codegroup/codeGroupForm"; //
+		return "adm/infra/codegroup/codeGroupForm"; //
 		
 	}
 	
@@ -99,7 +99,7 @@ public class CodeGroupController {
 	public String codeGroupAdd() throws Exception{
 		
 	
-		return "/adm/infra/codegroup/codeGroupAdd"; //
+		return "adm/infra/codegroup/codeGroupAdd"; //
 		
 	}
 	

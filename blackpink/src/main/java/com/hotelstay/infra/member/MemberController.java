@@ -79,21 +79,21 @@ public class MemberController {
 			model.addAttribute("list", service.selectList(vo));
 		}
 		
-		return "/adm/infra/member/memberAdmList";
+		return "adm/infra/member/memberAdmList";
 	}
 	
 	@RequestMapping(value = "/memberAdmView")
 	public String memberAdmView(MemberDto dto, Model model) throws Exception{
 		model.addAttribute("item", service.selectOne(dto));
 	
-		return "/adm/infra/member/memberAdmView"; //
+		return "adm/infra/member/memberAdmView"; //
 		
 	}
 	@RequestMapping(value = "/memberAdmForm")
 	public String memberAdmForm(MemberDto dto, Model model) throws Exception{
 		model.addAttribute("item", service.selectOne(dto));
 
-	return "/adm/infra/member/memberAdmForm"; //
+	return "adm/infra/member/memberAdmForm"; //
 	
 	}
 
@@ -101,7 +101,7 @@ public class MemberController {
 	public String memberAdmAdd() throws Exception{
 	
 
-	return "/adm/infra/member/memberAdmAdd"; //
+	return "adm/infra/member/memberAdmAdd"; //
 	
 	}
 
@@ -158,13 +158,13 @@ public class MemberController {
 	@RequestMapping(value = "/admLogin")
 	public String admLogin(MemberDto dto) throws Exception{
 	
-		return "/adm/infra/index/admlogin";
+		return "adm/infra/index/admlogin";
 	}
 	
 	@RequestMapping(value = "/admIndex")
 	public String admIndex(MemberDto dto) throws Exception{
 	
-		return "/adm/infra/index/admindex";
+		return "adm/infra/index/admindex";
 	}
 	
 	@ResponseBody

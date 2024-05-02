@@ -56,7 +56,7 @@ public class HotelController {
 			model.addAttribute("list", service.selectList(vo));
 			
 
-        return "/adm/infra/hotel/hotelAdmList";
+        return "adm/infra/hotel/hotelAdmList";
   	}
 	
 	@RequestMapping(value = "/hotelList")
