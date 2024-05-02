@@ -65,7 +65,7 @@ public class RoomDetailController {
 		
 		
 		
-        return "/usr/infra/index/roomDetail";
+        return "usr/infra/index/roomDetail";
   	}
 		
 	

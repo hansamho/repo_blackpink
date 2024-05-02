@@ -80,7 +80,7 @@ public class HotelController {
 			
 		}
 		
-        return "/usr/infra/index/hotelList";
+        return "usr/infra/index/hotelList";
   	}
 	
 	

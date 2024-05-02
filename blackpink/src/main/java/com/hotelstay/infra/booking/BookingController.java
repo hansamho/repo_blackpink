@@ -30,7 +30,7 @@ public class BookingController {
 		model.addAttribute("list", service.selectMy(dto));
 		model.addAttribute("item", service.selectOne(dto));
 		model.addAttribute("wish", service.selectWish(dto));
-		return "/usr/infra/index/mypage";
+		return "usr/infra/index/mypage";
   	}
 	
 	@RequestMapping(value = "/memberForm")
@@ -39,7 +39,7 @@ public class BookingController {
 		dto.setMemberSeqF((String)httpSession.getAttribute("sessSeqUsr"));
 		model.addAttribute("item", service.selectOne(dto));
 	
-		return "/usr/infra/index/memberForm";   //
+		return "usr/infra/index/memberForm";   //
 	}
 	
 	@RequestMapping(value = "/memberUpdate")
@@ -58,7 +58,7 @@ public class BookingController {
 		
 		model.addAttribute("item", service.bookingSelectOne(dto));
 		
-		return "/usr/infra/index/booking";  //
+		return "usr/infra/index/booking";  //
 		
 	}
 	
