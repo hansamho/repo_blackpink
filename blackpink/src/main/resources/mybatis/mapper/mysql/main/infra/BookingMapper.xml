@@ -128,7 +128,7 @@
 		<selectKey resultType ="String" keyProperty="bookingSeq" order="AFTER">
 		SELECT LAST_INSERT_ID()
 		</selectKey>
-		INSERT INTO hotelBooking(
+		INSERT INTO hotelbooking(
 			bkCheckIn
 			,bkCheckOut
 			,bkAdult
