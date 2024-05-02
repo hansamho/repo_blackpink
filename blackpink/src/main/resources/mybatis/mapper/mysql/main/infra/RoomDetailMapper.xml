@@ -7,7 +7,7 @@
 	
 	 
 	<sql id ="selectCommon">
-        FROM roomDetail a 
+        FROM roomdetail a 
 		 LEFT JOIN review b on a.roomSeq= b.reviewSeq
 		 WHERE 1=1 
 		 AND a.roomSeq =#{roomSeq}
@@ -87,7 +87,7 @@
           ,c.member_seq as memberSeqF
           ,d.memberSeq
           ,c.bookingSeq
-		 FROM roomDetail a 
+		 FROM roomdetail a 
 		 LEFT JOIN review b on a.roomSeq= b.reviewSeq
 		 LEFT JOIN hotelbooking c on a.roomSeq = c.bookingSeq
 		 LEFT JOIN member d on c.member_seq = d.memberSeq
@@ -97,7 +97,7 @@
     	
     <select id="reviewCount" resultType="Integer">
     SELECT COUNT(*)
-    FROM roomDetail a
+    FROM roomdetail a
     LEFT JOIN review b on a.roomSeq = b.roomSeqF
     WHERE 1=1
     AND roomSeqF = #{roomSeq};
