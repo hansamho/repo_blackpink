@@ -12,7 +12,6 @@ env:
   PROJECT_NAME: blackpink
   AWS_REGION: ap-northeast-2
   S3_BUCKET: hsh-cicd
- 
   CODE_DEPLOY_APPLICATION_NAME: hsh-hotelstay
   CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: hsh-hotelstay-prdt
 
