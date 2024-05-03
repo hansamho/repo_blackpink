@@ -28,6 +28,7 @@ public class WebMvcConfigurerImpl implements WebMvcConfigurer {
 //							"/resources/**",
 							"/adm/**",
 							"/usr/**",
+							"/main/**",
 							"/usrLogin",
 							"/signinUsr",
 							"/usrIndex",

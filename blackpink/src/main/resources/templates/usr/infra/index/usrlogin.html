@@ -35,7 +35,8 @@
                             <hr>
                             <form method="get" class="needs-validation" novalidate>
                             <a href="#0" class="social_bt facebook">페이스북 로그인</a>
-							<a href="#0">
+							<a href="https://kauth.kakao.com/oauth/authorize"
+								th:href="@{https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${caaba650793949beff8ba21699a486ff}&redirect_uri=${https://localhost:8085/oauth/callback/kakao}}">
 							<img alt="image" src="/usr/assets/img/kakaoLogin.png">
 							</a>
 							<div class="divider"><span>Or</span></div>
