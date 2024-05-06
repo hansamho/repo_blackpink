@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -218,8 +219,9 @@ public class MemberController {
 	public Map<String, Object> signoutAdm(MemberDto dto, HttpSession httpSession) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		
-		returnMap.put("rt", "success");
 		httpSession.invalidate();
+		returnMap.put("rt", "success");
+		
 		return returnMap;
 	}
 	
@@ -229,7 +231,8 @@ public class MemberController {
 	
 	@RequestMapping(value = "/usrLogin")
 	public String usrLogin(MemberDto dto) throws Exception{
-	
+		
+		
 		return "usr/infra/index/usrlogin";
 	}
 	

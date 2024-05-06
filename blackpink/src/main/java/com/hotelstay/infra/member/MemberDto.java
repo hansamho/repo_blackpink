@@ -18,6 +18,7 @@ public class MemberDto {
 	private Date mbUpdate;
 	private Integer mbDelny;
 	private String memberSeqF;
+	private String email;
 	
 	//비밀번호 체크
 	private String checkPwd;
@@ -30,9 +31,12 @@ public class MemberDto {
 	private int roomPrice;
 	private double roomTotalRating;
 	
-	
-	
-	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public String getHotelSeq() {
 		return hotelSeq;
 	}
