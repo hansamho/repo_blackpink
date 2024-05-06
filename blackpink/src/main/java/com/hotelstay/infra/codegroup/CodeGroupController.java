@@ -15,20 +15,7 @@ public class CodeGroupController {
 //	CodeGroupService codeGroupService;
 	
 	
-//	@RequestMapping(value = "/codeGroupXdmList")
-//	public String codeGroupXdmList(Model model) throws Exception{
-////		List<CodeGroupDto> list = service.selectList();
-////		
-////		List<CodeGroupDto> codeGroupDtos = service.selectList();
-////		
-////		for(CodeGroupDto a:codeGroupDtos) {
-////			System.out.println(a.getName());
-////		}
-//		
-//		model.addAttribute("list", service.selectList());
-//		
-//		return "/adm/infra/codegroup/codeGroupXdmList"; 
-//	}
+
 	
 	public void setSearch(CodeGroupVo vo) throws Exception {
 		/* 최초 화면 로딩시에 세팅은 문제가 없지만 */
@@ -58,7 +45,7 @@ public class CodeGroupController {
 	@RequestMapping(value = "/codeGroupXdmList")
 	public String codeGroupXdmList(@ModelAttribute("vo") CodeGroupVo vo, Model model) throws Exception{
 			
-			model.addAttribute("list", service.selectList(vo));
+			
 			
 			setSearch(vo);
 			
@@ -70,10 +57,7 @@ public class CodeGroupController {
 				model.addAttribute("list", service.selectList(vo));
 			}
 			
-//			model.addAttribute("list", service.selectList(vo));
-	
-			
-//			model.addAttribute("vo",vo);
+
 
         return "adm/infra/codegroup/codeGroupXdmList";
   	}

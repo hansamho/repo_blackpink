@@ -221,11 +221,8 @@
 										<div class="card-title">멤버 관리</div>
 									</div>
 									<form method="post" action='memberInsert'>
+										<input type="hidden"name="memberSeq" id="memberSeq" class="form-control">
 										<div class="row">
-											<div class="col-lg-6 col-sm-4 col-6 gy-2">
-												<label class="form-label">seq</label> <input type="text"
-													name="memberSeq" id="memberSeq" class="form-control">
-											</div>
 											<div class="col-lg-6 col-sm-4 col-6 gy-2">
 												<label class="form-label">이름</label> <input type="text"
 													name="memberName" id="memberName" class="form-control">
@@ -234,10 +231,14 @@
 											</div>
 										</div>
 										<div class="row">
-											<div class="col-lg-6 col-sm-4 col-6 gy-2">
-												<label class="form-label">성별</label> <input type="text"
-													name="genderCD" id="gendeCD" class="form-control">
-											</div>
+											<div class="col-lg-6 col-sm-4 col-12 gy-2">
+										  		<label class="form-label">성별</label>
+										  		<select id="genderCD" name="genderCD" class="form-select">
+														<option value="">성별을 선택하세요</option>
+														<option th:each="list : ${@codeService.selectListCachedCode(5)}" th:value="${list.cdSeq}" th:text="${list.Name}"
+														th:selected="${list.cdSeq} == ${item?.genderCD}"></option>
+												</select>
+										  	</div>
 											<div class="col-lg-6 col-sm-4 col-6 gy-2">
 												<label class="form-label">생일</label> <input type="text"
 													name="birthday" id="birthday" class="form-control">

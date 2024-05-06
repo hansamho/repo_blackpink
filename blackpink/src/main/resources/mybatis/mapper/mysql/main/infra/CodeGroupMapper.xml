@@ -5,31 +5,7 @@
 
 	<resultMap id="resultMapObj" type="com.hotelstay.infra.codegroup.CodeGroupDto"></resultMap>
 
-<!--     <select id="selectList" resultMap="resultMapObj"> -->
-<!--         SELECT -->
-<!--             a.cgSeq -->
-<!--             ,a.Name -->
-<!--             ,a.cgRegDate -->
-<!--             ,a.cgUpdate -->
-<!--             ,a.cgDelny -->
-<!--              ,(select count(aa.seq) from Code aa where 1=1 and aa.codeDelete = 0 and aa.Seq = a.Seq) as xifcdSeqCount --> 
-<!--          FROM codegroup a -->
-<!--         WHERE 1=1 -->
-<!--           <if test="shUseNy != null and !shUseNy.equals('')">AND ifcgUseNy = #{shUseNy}</if> --> 
-<!--         <if test="shDelny != null and !shDelny.equals('')">AND a.cgDelny = #{shDelny}</if>   AND a.cgDelete = #{shDelete} -->
-       
-<!-- 				<choose> -->
-<!-- 					<when test="shOptionDate == 1">AND a.cgRegDate BETWEEN #{shDateStart} AND #{shDateEnd}</when> -->
-<!-- 					<when test="shOptionDate == 2">AND a.cgUpdate BETWEEN #{shDateStart} AND #{shDateEnd}</when> -->
-<!-- 				</choose> -->
-     
-<!--         <choose> -->
-<!--             <when test="shOption == 1">AND a.cgSeq = #{shValue}</when> -->
-<!--             <when test="shOption == 2">AND a.name LIKE CONCAT('%',#{shValue},'%')</when> -->
-<!--              <when test="shOption == 3">AND ifcgNameEng LIKE CONCAT('%',#{shValue},'%')</when> -->
-<!--         </choose> -->
-<!--         ORDER BY a.cgSeq DESC -->
-<!--     </select> -->
+
 	  	<sql id ="selectCommon">
         FROM codeGroup a
         WHERE 1=1

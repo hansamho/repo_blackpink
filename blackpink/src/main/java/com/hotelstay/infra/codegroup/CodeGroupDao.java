@@ -2,7 +2,6 @@ package com.hotelstay.infra.codegroup;
 
 import java.util.List;
 
-import com.hotelstay.infra.code.CodeDto;
 
 public interface CodeGroupDao {
 	
@@ -24,5 +23,6 @@ public interface CodeGroupDao {
 	
 	public int selectOneCount(CodeGroupVo vo);
 	
+	public List<CodeGroupDto> selectCg(CodeGroupVo vo);
 	
 }
