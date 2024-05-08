@@ -191,9 +191,9 @@
 					<div class="strip_all_tour_list wow fadeIn" th:if="${#lists.isEmpty(List)}" th:each="list : ${list}">
 						<div class="row" >
 							<div class="col-lg-4 col-md-4 position-relative" >
-								<div class="wishlist">
-									<a class="tooltip_flip tooltip-effect-1" th:href="@{/myPage}">+<span class="tooltip-content-flip"><span class=""></span></span></a>
-								</div>
+<!-- 								<div class="wishlist"> -->
+<!-- 									<a class="tooltip_flip tooltip-effect-1" th:href="@{/myPage}">+<span class="tooltip-content-flip"><span class=""></span></span></a> -->
+<!-- 								</div> -->
 								<div class="img_list">
 									<a th:href="@{/roomDetail(roomSeq=${list.roomSeq})}"><img src="/usr/assets/img/hotel_1.jpg" alt="Image">
 										<div class="short_info"></div>
