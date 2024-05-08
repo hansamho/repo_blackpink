@@ -202,7 +202,8 @@
                             </div>
                             <!-- end rating -->
                             <div class="wishlist">
-                                <a class="tooltip_flip tooltip-effect-1" th:href="@{/myPage}">+<span class="tooltip-content-flip"><span class="tooltip-back">Add to wishlist</span></span></a>
+                                <a class="tooltip_flip tooltip-effect-1" th:if="${session.sessNameUsr == null}" th:href="@{/usrLogin}">+<span class="tooltip-content-flip"><span class="tooltip-back">찜</span></span></a>
+                            	<a class="tooltip_flip tooltip-effect-1" th:unless="${session.sessNameUsr == null}" th:href="@{/myPage}">+<span class="tooltip-content-flip"><span class="tooltip-back"></span></span></a>
                             </div>
                             <!-- End wish list-->
                         </div>
