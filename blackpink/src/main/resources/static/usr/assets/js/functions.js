@@ -221,7 +221,7 @@ $(function () {
 	    document.getElementById("singlePrice").innerText = singleTotal;
 	    document.getElementById("singleRoomPrice").value = singleTotal;
 	
-	    var formattedSingleTotal = (singleTotal * 1000).toLocaleString();
+	    var formattedSingleTotal = (singleTotal * 1000).toFixed(0);
 	
 	    document.getElementById("singlePrice").innerText = formattedSingleTotal;
 	    alert(formattedSingleTotal);
@@ -258,7 +258,7 @@ $(function () {
 	    document.getElementById("doublePrice").innerText = doubleTotal;
 	    document.getElementById("doubleRoomPrice").value = doubleTotal;
 	
-	    var formattedDoubleTotal = (doubleTotal * 1000).toLocaleString();
+	    var formattedDoubleTotal = (doubleTotal * 1000).toFixed(0);
 	
 	    document.getElementById("doublePrice").innerText = formattedDoubleTotal;
 	    alert(formattedDoubleTotal);
@@ -295,7 +295,7 @@ $(function () {
 	    document.getElementById("twinPrice").innerText = twinTotal;
 	    document.getElementById("twinRoomPrice").value = twinTotal;
 	
-	    var formattedTwinTotal = (twinTotal * 1000).toLocaleString();
+	    var formattedTwinTotal = (twinTotal * 1000).toFixed(0);
 	
 	    document.getElementById("twinPrice").innerText = formattedTwinTotal;
 	    alert(formattedTwinTotal);
