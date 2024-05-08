@@ -17,7 +17,7 @@ public class KakakoController {
 	    @RequestMapping(value ="/oauth/callback/kakao")
 	    public String kakaoCallback(String code) {
 	        
-	        return "redirect:/";
+	        return "redirect:/usrIndex";
 	    }
 	}
 	

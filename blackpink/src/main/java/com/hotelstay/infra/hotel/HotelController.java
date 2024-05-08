@@ -67,12 +67,12 @@ public class HotelController {
 		
 		vo.setParamsPaging(service.selectOneCount(vo));
 		
-//		vo.setHotelTypeCD(vo.getHotelTypeCD() == null
-//			    ? null
-//			    : vo.getHotelTypeCD());
-//			vo.setAreaCD(vo.getAreaCD() == null
-//			    ? null
-//			    : vo.getAreaCD());
+		vo.setHotelTypeCD(vo.getHotelTypeCD() == null
+			    ? null
+			    : vo.getHotelTypeCD());
+			vo.setAreaCD(vo.getAreaCD() == null
+			    ? null
+			    : vo.getAreaCD());
 			
 		
 		if (vo.getTotalRows() > 0) {

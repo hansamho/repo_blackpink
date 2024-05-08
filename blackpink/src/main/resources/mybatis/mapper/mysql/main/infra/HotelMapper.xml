@@ -39,12 +39,12 @@
 			</foreach> 		              	
 			</if>
 			
-			<if test="shCheckboxRoomArray != null and shCheckboxRoomArray.length != 0">
-				AND tvNy IN
-			<foreach collection="shCheckboxRoomArray" item="type" open="(" close=")" separator=",">
-		       #{type}
-			</foreach> 		              	
-			</if>
+<!-- 			<if test="shCheckboxRoomArray != null and shCheckboxRoomArray.length != 0"> -->
+<!-- 				AND tvNy IN -->
+<!-- 			<foreach collection="shCheckboxRoomArray" item="type" open="(" close=")" separator=","> -->
+<!-- 		       #{type} -->
+<!-- 			</foreach> 		              	 -->
+<!-- 			</if> -->
        </sql>
 	
 	 <select id="selectList" resultMap="resultMapObj">

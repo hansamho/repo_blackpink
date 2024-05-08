@@ -72,13 +72,10 @@
                             <div class="row">
                                 <div class="col">
                                     <label>성별</label>
-									<select id="shGenderCD" name="shGenderCD"class="form-select form-select-sm">
-										<option value="">성별</option>
-										<option
-											th:each="list : ${@codeService.selectListCachedCode(5)}"
-											th:value="${list.cdSeq}" th:text="${list.name}"
-											th:selected="${list.cdSeq} == ${item?.genderCD}">
-										</option>
+									<select id="genderCD" name="genderCD" class="form-select">
+										<option value="">성별을 선택하세요</option>
+										<option th:each="list : ${@codeService.selectListCachedCode(5)}" th:value="${list.cdSeq}" th:text="${list.Name}"
+										th:selected="${list.cdSeq} == ${item?.genderCD}"></option>
 									</select>
                                 </div>
                                 

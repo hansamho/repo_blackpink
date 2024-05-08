@@ -149,7 +149,6 @@
 								<th:block th:each="list : ${@codeService.selectListCachedCode(4)}">
 									 <li>
                                         <label class="container_check">
-                                             
                                             <input th:if="${vo.shCheckboxAreaArray != null}" th:id="'checkboxArea'+${list.cdSeq}" name="checkboxAreaSeq" type="checkbox" th:value="${list.cdSeq}"
 		                                     th:checked="${#arrays.contains(vo.shCheckboxAreaArray, list.cdSeq)}" th:text="${list.name}"
 		                                     onclick="checkboxClick()"/>
