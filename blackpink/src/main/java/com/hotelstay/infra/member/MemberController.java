@@ -6,7 +6,6 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -221,7 +220,6 @@ public class MemberController {
 		
 		httpSession.invalidate();
 		returnMap.put("rt", "success");
-		
 		return returnMap;
 	}
 	

@@ -9,9 +9,7 @@
 		<!-- Page wrapper start -->
 		<div class="page-wrapper">
 
-			<header>
 				<div th:replace="~{adm/infra/include/header :: header}"></div>
-			</header>
 
 			<!-- Main container start -->
 			<div class="main-container">
@@ -27,11 +25,8 @@
 					<!-- Main header starts -->
 					<div class="main-header d-flex align-items-center justify-content-between position-relative">
 						<div class="d-flex align-items-center justify-content-center">
-							<div class="page-icon">
-								<i class="bi bi-house"></i>
-							</div>
 							<div class="page-title d-none d-md-block">
-								<h5>Welcome back, Roslyn</h5>
+								<h5>Welcome, [[${session.sessNameXdm}]]</h5>
 							</div>
 						</div>
 						<!-- Live updates start -->
@@ -494,33 +489,6 @@
 		<!-- Main Js Required -->
 		<script src="/adm/template/gear/assets/js/main.js"></script>
 		
-		<script type="text/javascript">
-	document.getElementById("buttonSignOut").onclick = function () {
-			
-// 			if(validation() == false) return false;
-			
-		
-			$.ajax({
-				async: true 
-				,cache: false
-				,type: "post"
-				/* ,dataType:"json" */
-				,url: "/signoutAdm "
-				/* ,data : $("#formLogin").serialize() */
-				,data : { "memberID" : $("#memberID").val(), "memberPassword" : $("#memberPassword").val()}
-				,success: function(response) {
-					if(response.rt == "success") {
-						location.href = "/admLogin";
-
-					}  
-				}
-				,error : function(jqXHR, textStatus, errorThrown){
-					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-				}
-			});
-		}
-			
-		</script>
 		
 	</body>
 	
