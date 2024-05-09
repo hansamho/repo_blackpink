@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hotelstay.common.contents.Constants;
 import com.hotelstay.common.util.UtilDateTime;
+import com.hotelstay.infra.Mail.MailService;
 import com.hotelstay.infra.codegroup.CodeGroupService;
 import com.hotelstay.infra.hotel.HotelDto;
 import com.hotelstay.infra.hotel.HotelService;
@@ -41,6 +42,9 @@ public class MemberController {
 	
 	@Autowired
 	RoomDetailService detailService;
+	
+	@Autowired
+	MailService mailService;
 	
 	public void setSearch(MemberVo vo) throws Exception {
 		/* 최초 화면 로딩시에 세팅은 문제가 없지만 */
@@ -113,6 +117,18 @@ public class MemberController {
 		
 		
 		service.insert(dto);
+		
+//		mailService.sendMailSimple();
+		
+		Thread thread = new Thread(new Runnable() {
+		@Override
+		public void run() {
+			mailService.sendMailSimple();
+		}
+	});
+	
+	thread.start();
+		
 
 	return "redirect:/memberAdmList"; //
 	
