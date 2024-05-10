@@ -46,7 +46,6 @@ public class KakaoLoginController {
         String accessToken = service.getAccessTokenFromKakao(kakaoRestKey, dto.getCode());
         dto = service.getUserInfo(accessToken, dto);
         
-        dto.setMemberSeqF((String)httpSession.getAttribute("sessSeqUsr"));
         
         // 회원존재확인
 //       mDto = memberService.selectLogin(mDto);
