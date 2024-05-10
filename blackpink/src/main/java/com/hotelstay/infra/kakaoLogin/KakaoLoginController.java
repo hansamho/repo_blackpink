@@ -6,36 +6,51 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
-public class KakakoLoginController {
+public class KakaoLoginController {
 	
     @Autowired
     KakaoLoginService service;
 
-    @Value("${kakao.rest_key}")
+    @Value("${kakao_rest_key}")
     private String kakaoRestKey;
 
-    @Value("${kakao.redirect_url}")
+    @Value("${kakao_redirect_url}")
     private String kakakoRedirectUrl;
+    
+    @Value("${kakao_location}")
+    private String location;
 
-    @RequestMapping(value="/kakaologin")
-    public String kakaologin(Model model) throws Exception {
+    @RequestMapping(value="/kakaoLogin")
+    public String kakaoLogin(Model model) throws Exception {
         String location = "https://kauth.kakao.com/oauth/authorize?client_id="+kakaoRestKey+"&redirect_uri="+kakakoRedirectUrl+"&response_type=code&scope=account_email";
         System.out.println(location);
         model.addAttribute("location", location);
         model.addAttribute("kakaoRestKey", kakaoRestKey);
         model.addAttribute("kakaoRedirectUri", kakakoRedirectUrl);
-        return "kakaologin/kakaoLogin";
+        return "usr/infra/index/kakaoLogin";
     }
 
     @RequestMapping(value="/redirectKakao")
-    public String loginKakaoRedirect(KakaoLoginDto dto, KakaoLoginDto isDto, Model model) throws Exception {
+    public String loginKakaoRedirect(KakaoLoginDto dto,KakaoLoginDto isDto ,Model model,HttpSession httpSession) throws Exception {
         System.out.println("dto.getCode()================"+dto.getCode());
         // 토큰 받기 
         String accessToken = service.getAccessTokenFromKakao(kakaoRestKey, dto.getCode());
         dto = service.getUserInfo(accessToken, dto);
+        
+//        dto.setMemberSeqF((String)httpSession.getAttribute("sessSeqUsr"));
+        
+        // 회원존재확인
+//       isDto = service.kakaoSelectOne(dto);
+//      
+//      	service.insert(dto);
+
+        
         model.addAttribute("info", dto);
-        return "kakaologin/kakaoLoginCallBack";
+        
+        return "usr/infra/index/kakaoLoginCallBack";
     }
 }
 	

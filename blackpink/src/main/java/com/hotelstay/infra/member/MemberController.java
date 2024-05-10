@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,8 @@ import com.hotelstay.infra.codegroup.CodeGroupService;
 import com.hotelstay.infra.hotel.HotelDto;
 import com.hotelstay.infra.hotel.HotelService;
 import com.hotelstay.infra.hotel.HotelVo;
+import com.hotelstay.infra.kakaoLogin.KakaoLoginDto;
+import com.hotelstay.infra.kakaoLogin.KakaoLoginService;
 import com.hotelstay.infra.roomdetail.RoomDetailDto;
 import com.hotelstay.infra.roomdetail.RoomDetailService;
 
@@ -45,6 +48,18 @@ public class MemberController {
 	
 	@Autowired
 	MailService mailService;
+	
+	@Autowired
+	KakaoLoginService kakaoLoginService;
+	
+	 @Value("${kakao_rest_key}")
+	    private String kakaoRestKey;
+
+	    @Value("${kakao_redirect_url}")
+	    private String kakakoRedirectUrl;
+	    
+	    @Value("${kakao_location}")
+	    private String location;
 	
 	public void setSearch(MemberVo vo) throws Exception {
 		/* 최초 화면 로딩시에 세팅은 문제가 없지만 */
@@ -244,8 +259,12 @@ public class MemberController {
 	
 	
 	@RequestMapping(value = "/usrLogin")
-	public String usrLogin(MemberDto dto) throws Exception{
-		
+	public String usrLogin(MemberDto dto,KakaoLoginDto kdto,Model model) throws Exception{
+		 String location = "https://kauth.kakao.com/oauth/authorize?client_id="+kakaoRestKey+"&redirect_uri="+kakakoRedirectUrl+"&response_type=code&scope=account_email";
+	        System.out.println(location);
+	        model.addAttribute("location", location);
+	        model.addAttribute("kakaoRestKey", kakaoRestKey);
+	        model.addAttribute("kakaoRedirectUri", kakakoRedirectUrl);
 		
 		return "usr/infra/index/usrlogin";
 	}

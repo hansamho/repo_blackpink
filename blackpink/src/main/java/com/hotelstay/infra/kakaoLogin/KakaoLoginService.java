@@ -19,6 +19,8 @@ public class KakaoLoginService {
 	@Autowired
 	KakaoLoginDao dao;
 	
+	
+	
 	// 토큰요청
 		public String getAccessTokenFromKakao(String client_id, String code) throws IOException {
 	        //------kakao POST 요청------
@@ -114,14 +116,16 @@ public class KakaoLoginService {
 	    }	
 		
 		// 로그인 id 확인
-//		public KakaoLoginDto selectOneLogin(KakaoLoginDto dto) {
-//			return dao.selectOneLogin(dto);
-//		};
-	//	
-//		// 회원등록
-//		public int insert(KakaoLoginDto dto) {
-//			return dao.insert(dto);
-//		};	
+		public KakaoLoginDto kakaoSelectOne(KakaoLoginDto dto) {
+			return dao.kakaoSelectOne(dto);
+		};
+	
+		// 회원등록
+		public int insert(KakaoLoginDto dto) {
+			return dao.insert(dto);
+		}
+
+		
 	}
 
 		

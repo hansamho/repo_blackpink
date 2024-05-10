@@ -63,7 +63,7 @@ public class WebMvcConfigurerImpl implements WebMvcConfigurer {
 							"/hotelList",
 							"/roomDetail",
 							"/main",
-							"/kakaologin",
+							"/kakaoLogin",
 							"/redirectKakao"
 							
 //							"/usr/infra/index/register",

@@ -7,7 +7,8 @@
 	
 	<select id="kakaoSelectOne" resultMap="resultMapObj">
 		SELECT 
-		eamil
+		memberName,
+		email
 		FROM member
 		WHERE 1=1 
 		AND memberSeq=#{memberSeq}
