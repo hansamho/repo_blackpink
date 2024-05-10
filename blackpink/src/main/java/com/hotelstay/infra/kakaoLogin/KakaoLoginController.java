@@ -6,6 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.hotelstay.infra.member.MemberDto;
+import com.hotelstay.infra.member.MemberService;
+
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -13,7 +16,10 @@ public class KakaoLoginController {
 	
     @Autowired
     KakaoLoginService service;
-
+    
+    @Autowired
+    MemberService memberService;
+    
     @Value("${kakao_rest_key}")
     private String kakaoRestKey;
 
@@ -34,16 +40,16 @@ public class KakaoLoginController {
     }
 
     @RequestMapping(value="/redirectKakao")
-    public String loginKakaoRedirect(KakaoLoginDto dto,KakaoLoginDto isDto ,Model model,HttpSession httpSession) throws Exception {
+    public String loginKakaoRedirect(KakaoLoginDto dto,MemberDto mDto ,Model model,HttpSession httpSession) throws Exception {
         System.out.println("dto.getCode()================"+dto.getCode());
         // 토큰 받기 
         String accessToken = service.getAccessTokenFromKakao(kakaoRestKey, dto.getCode());
         dto = service.getUserInfo(accessToken, dto);
         
-//        dto.setMemberSeqF((String)httpSession.getAttribute("sessSeqUsr"));
+        dto.setMemberSeqF((String)httpSession.getAttribute("sessSeqUsr"));
         
         // 회원존재확인
-//       isDto = service.kakaoSelectOne(dto);
+//       mDto = memberService.selectLogin(mDto);
 //      
 //      	service.insert(dto);
 
