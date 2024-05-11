@@ -2,6 +2,8 @@ package com.hotelstay.infra.codegroup;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class CodeGroupDto {
 	private String cgSeq;
 	private String name;
@@ -9,6 +11,22 @@ public class CodeGroupDto {
 	private Date cgUpdate;
 	private Integer cgDelny;
 	
+	private MultipartFile uploadFile;
+	private MultipartFile[] uploadFiles;
+	
+	
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
+	}
+	public MultipartFile[] getUploadFiles() {
+		return uploadFiles;
+	}
+	public void setUploadFiles(MultipartFile[] uploadFiles) {
+		this.uploadFiles = uploadFiles;
+	}
 	public String getCgSeq() {
 		return cgSeq;
 	}

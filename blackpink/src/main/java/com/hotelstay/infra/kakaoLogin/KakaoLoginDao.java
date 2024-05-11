@@ -4,5 +4,5 @@ public interface KakaoLoginDao {
 	
 	public KakaoLoginDto kakaoSelectOne(KakaoLoginDto dto);
 	
-	public int insert(KakaoLoginDto dto);
+	public int kakaoLoginInsert(KakaoLoginDto dto);
 }

@@ -121,8 +121,8 @@ public class KakaoLoginService {
 		};
 	
 		// 회원등록
-		public int insert(KakaoLoginDto dto) {
-			return dao.insert(dto);
+		public int kakaoLoginInsert(KakaoLoginDto dto) {
+			return dao.kakaoLoginInsert(dto);
 		}
 
 		

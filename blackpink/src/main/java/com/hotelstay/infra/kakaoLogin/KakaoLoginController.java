@@ -40,22 +40,40 @@ public class KakaoLoginController {
     }
 
     @RequestMapping(value="/redirectKakao")
-    public String loginKakaoRedirect(KakaoLoginDto dto,MemberDto mDto ,Model model,HttpSession httpSession) throws Exception {
+    public String loginKakaoRedirect(KakaoLoginDto dto,KakaoLoginDto isDto,MemberDto dto2,Model model,HttpSession httpSession) throws Exception {
         System.out.println("dto.getCode()================"+dto.getCode());
         // 토큰 받기 
         String accessToken = service.getAccessTokenFromKakao(kakaoRestKey, dto.getCode());
         dto = service.getUserInfo(accessToken, dto);
         
-        
-        // 회원존재확인
-//       mDto = memberService.selectLogin(mDto);
-//      
-//      	service.insert(dto);
-
-        
         model.addAttribute("info", dto);
+  
+        String id =dto.getEmail();
+        dto2.setMemberID(id);
+        MemberDto dDto = memberService.selectLogin(dto2);
+        String loginUrl = null;
         
-        return "usr/infra/index/kakaoLoginCallBack";
+        
+        if(dDto != null){
+        	if(id.equals(dDto.getMemberID())) 
+        	{
+        		httpSession.setAttribute("sessSeqUsr", dDto.getMemberSeq());
+    			httpSession.setAttribute("sessIdUsr", dDto.getMemberID());
+    			httpSession.setAttribute("sessNameUsr", dDto.getMemberName());
+    			
+    			System.out.println("httpSession.getAttribute(\"sessSeqUsr\"): " + httpSession.getAttribute("sessSeqUsr"));
+            	loginUrl="/usrIndex";
+        	}
+        	
+        }
+        else 
+        {
+        	service.kakaoLoginInsert(isDto);
+        	loginUrl="/usrIndex";
+        }
+        		
+        
+        return "redirect:/usrIndex";
     }
 }
 	

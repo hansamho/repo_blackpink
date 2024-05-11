@@ -15,10 +15,18 @@
 	</select>
 	
 	
-	<insert id="kakaoLogin">
+	<insert id="kakaoLoginInsert">
 		INSERT INTO member(
+			memberSeq,
+			memberName,
+			memberID,
+			memberPassword,
 			email
 		)VALUES(
+			#{memberSeq},
+			#{memberName},
+			#{memberID},
+			#{memberPassword},
 			#{email}
 		)
 	</insert>

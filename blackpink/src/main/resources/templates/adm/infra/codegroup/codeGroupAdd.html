@@ -69,7 +69,7 @@
 										<div class="card-header">
 											<div class="card-title">코드그룹 관리</div>
 										</div>
-									<form method="post" action='codeGroupInsert' class="needs-validation" novalidate>
+									<form method="post" action='cgInsert' enctype="multipart/form-data" novalidate>
 										<div class="row">
 											<div class="col-lg-6 col-sm-4 col-12 gy-2">
 											<label class="form-label">seq</label>
@@ -81,24 +81,26 @@
 										  		<input type="text" name="name" id="cgName" class="form-control" placeholder="name" required>
 										  		<div id="cgNameFeedback" class="invalid-feedback"></div>
 										  	</div>
-										  	
-										  	<div class="col gy-2" align="left">
-										  		<button type="submit" class="btn btn-primary"  onclick="javascript: form.action='codeGroupXdmList';">뒤로가기</button>
+										  	<div class="col-lg-6 col-sm-4 col-12 gy-2">
+										  		<label class="form-label">파일 업로드</label>
+										  	 	<input type="file" class="form-control" multiple id="uploadFiles" name="uploadFiles">
 										  	</div>
-										  	
-										  	<div class="col gy-2" align="right">
-										  		<button type="submit" id="btnSubmit" class="btn btn-primary" onclick="javascript: form.action='codeGroupInsert';">저장</button>
+										  	<div class="d-flex justify-content-between mt-4">
+											  	<div class="" align="left">
+											  		<button type="submit" class="btn btn-primary"  onclick="javascript: form.action='codeGroupXdmList';">뒤로가기</button>
+											  	</div>
+											  	<div class="" align="right">
+											  		<button type="submit" id="btnSubmit" class="btn btn-primary">저장</button>
+											  	</div>
 										  	</div>
-										  </div>
-  										</form>
 										</div>
-											
-										</div>
-										  
-									</div>
+  									</form>
 								</div>
 							</div>
 						</div>
+					</div>
+				</div>
+			</div>
 							
 						<!-- Row end -->
 

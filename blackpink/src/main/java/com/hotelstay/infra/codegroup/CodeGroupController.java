@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.hotelstay.common.contents.Constants;
 import com.hotelstay.common.util.UtilDateTime;
@@ -87,10 +88,18 @@ public class CodeGroupController {
 		
 	}
 	
-	@RequestMapping(value = "/codeGroupInsert")
-	public String codeGroupInsert(CodeGroupDto dto) throws Exception{
+	@RequestMapping(value = "/cgInsert")
+	public String cgInsert(CodeGroupDto dto) throws Exception{
+		
+		
+		System.out.println("dto.getUploadFiles().length:"+dto.getUploadFiles().length);
+		
+		for(MultipartFile a : dto.getUploadFiles()) {
+			System.out.println("a.getOriginalFilename():"+a.getOriginalFilename());
+		}
 		
 		service.insert(dto);
+		
 		return "redirect:/codeGroupXdmList"; //
 		
 	}
