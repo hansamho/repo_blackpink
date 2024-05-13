@@ -310,7 +310,7 @@ public class MemberController {
 			httpSession.setAttribute("sessNameUsr", rtDto.getMemberName());
 			
 			System.out.println("---------------------");
-			System.out.println("httpSession.getAttribute(\"sessNameUsr\"): " + httpSession.getAttribute("sessNameUsr"));
+			System.out.println("httpSession.getAttribute(\"sessSeqUsr\"): " + httpSession.getAttribute("sessSeqUsr"));
 			System.out.println("---------------------");
 			
 			if(loginId.equals(rtDto.getMemberID())) {

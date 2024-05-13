@@ -47,21 +47,20 @@ public class KakaoLoginController {
         dto = service.getUserInfo(accessToken, dto);
         
         model.addAttribute("info", dto);
-  
-        String id =dto.getEmail();
-        dto2.setMemberID(id);
+        
+        //카카오 로그인
+        String id =dto.getEmail(); //카카오 이메일 값
+        dto2.setMemberID(id);  //카카오 이메일을 set으로 값을 담음
         MemberDto dDto = memberService.selectLogin(dto2);
         String loginUrl = null;
         
         
-        if(dDto != null){
-        	if(id.equals(dDto.getMemberID())) 
+        if(isDto != null){
+        	
+        	
+        	if(id.equals(dDto.getMemberID()))  //db에 저장된 이메일 동일 할 경우 세션을 띄움
         	{
         		httpSession.setAttribute("sessSeqUsr", dDto.getMemberSeq());
-    			httpSession.setAttribute("sessIdUsr", dDto.getMemberID());
-    			httpSession.setAttribute("sessNameUsr", dDto.getMemberName());
-    			
-    			System.out.println("httpSession.getAttribute(\"sessSeqUsr\"): " + httpSession.getAttribute("sessSeqUsr"));
             	loginUrl="/usrIndex";
         	}
         	

@@ -92,11 +92,11 @@ public class CodeGroupController {
 	public String cgInsert(CodeGroupDto dto) throws Exception{
 		
 		
-		System.out.println("dto.getUploadFiles().length:"+dto.getUploadFiles().length);
-		
-		for(MultipartFile a : dto.getUploadFiles()) {
-			System.out.println("a.getOriginalFilename():"+a.getOriginalFilename());
-		}
+//		System.out.println("dto.getUploadFiles().length:"+dto.getUploadFiles().length);
+//		
+//		for(MultipartFile a : dto.getUploadFiles()) {
+//			System.out.println("a.getOriginalFilename():"+a.getOriginalFilename());
+//		}
 		
 		service.insert(dto);
 		

@@ -23,6 +23,6 @@ public interface CodeGroupDao {
 	
 	public int selectOneCount(CodeGroupVo vo);
 	
-	public List<CodeGroupDto> selectCg(CodeGroupVo vo);
+	
 	
 }

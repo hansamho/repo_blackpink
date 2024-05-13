@@ -3,7 +3,12 @@ package com.hotelstay.infra.codegroup;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.amazonaws.services.s3.AmazonS3Client;
+import com.amazonaws.services.s3.model.ObjectMetadata;
 
 
 @Service
@@ -12,33 +17,54 @@ public class CodeGroupService {
 	
 	@Autowired
 	CodeGroupDao dao;
-//	CodeGroupDao dao = new CodeGroupDao();
 	
-//	public List<CodeGroupDto> selectList(){
-//		
-//		List<CodeGroupDto> list = dao.selectList();
-//		
-//		return list;
-//	}
+	@Autowired
+	AmazonS3Client amazonS3Client;
 	
-//	public List<CodeGroupDto> selectList(){ return dao.selectList();}
+	@Value("${cloud.aws.s3.bucket}")
+	private String bucket;
 	
 	
 	public List<CodeGroupDto> selectList(CodeGroupVo vo) { 
     	return dao.selectList(vo); 
     }
 	
-	public List<CodeGroupDto> selectCg(CodeGroupVo vo) { 
-    	return dao.selectCg(vo); 
-    }
+	
 	
 	public CodeGroupDto selectOne(CodeGroupDto dto) {
 		return dao.selectOne(dto);
 	}
 	
-	public int insert(CodeGroupDto dto) {
-		return dao.insert(dto);
+	public int insert(CodeGroupDto dto)  throws Exception {
+//		setRegMod(dto);
+//		dao.insert(dto);
+		
+		for(MultipartFile multipartFile : dto.getUploadFiles()) {
+			
+			if(!multipartFile.isEmpty()) {
+				System.out.println("multipartFile.getOriginalFilename() : " + multipartFile.getOriginalFilename());
+				
+		        ObjectMetadata metadata = new ObjectMetadata();
+		        metadata.setContentLength(multipartFile.getSize());
+		        metadata.setContentType(multipartFile.getContentType());
+		        
+		        amazonS3Client.putObject(bucket, multipartFile.getOriginalFilename(), multipartFile.getInputStream(), metadata);
+				
+		        String objectUrl = amazonS3Client.getUrl(bucket, multipartFile.getOriginalFilename()).toString();
+		        
+		        
+		        
+		        System.out.println(objectUrl);
+				
+			}
+		}
+		
+		
+		return 1;
 	}
+	
+	
+
 	public int update(CodeGroupDto dto) {
 		return dao.update(dto);
 	}

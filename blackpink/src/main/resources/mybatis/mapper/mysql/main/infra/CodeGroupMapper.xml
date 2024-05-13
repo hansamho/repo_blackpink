@@ -93,6 +93,7 @@
     	WHERE cgSeq = #{cgSeq}
     </delete>
     
+    <!-- paging -->
     <select id="selectListWithoutPaging" resultMap="resultMapObj">
 		SELECT
 			a.cgSeq
@@ -103,7 +104,7 @@
 <!-- 			And ifcgUseNy = 1 -->
 		ORDER BY a.cgSeq DESC
 	</select>
-    <!-- paging -->
+    
    
    
     

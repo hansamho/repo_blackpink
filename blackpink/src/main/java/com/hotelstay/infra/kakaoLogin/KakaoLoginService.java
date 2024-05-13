@@ -116,8 +116,8 @@ public class KakaoLoginService {
 	    }	
 		
 		// 로그인 id 확인
-		public KakaoLoginDto kakaoSelectOne(KakaoLoginDto dto) {
-			return dao.kakaoSelectOne(dto);
+		public KakaoLoginDto kakaoLogin(KakaoLoginDto dto) {
+			return dao.kakaoLogin(dto);
 		};
 	
 		// 회원등록

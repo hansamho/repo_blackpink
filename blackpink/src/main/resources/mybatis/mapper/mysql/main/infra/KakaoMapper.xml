@@ -5,28 +5,21 @@
 
 	<resultMap id="resultMapObj" type="com.hotelstay.infra.kakaoLogin.KakaoLoginDto"></resultMap>
 	
-	<select id="kakaoSelectOne" resultMap="resultMapObj">
+	<select id="kakaoLogin" resultMap="resultMapObj">
 		SELECT 
-		memberName,
-		email
+		memberSeq
+		,memberName
+		,email
 		FROM member
 		WHERE 1=1 
-		AND memberSeq=#{memberSeq}
+		AND email=#{email}
 	</select>
 	
 	
 	<insert id="kakaoLoginInsert">
 		INSERT INTO member(
-			memberSeq,
-			memberName,
-			memberID,
-			memberPassword,
 			email
 		)VALUES(
-			#{memberSeq},
-			#{memberName},
-			#{memberID},
-			#{memberPassword},
 			#{email}
 		)
 	</insert>
