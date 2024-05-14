@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.hotelstay.common.base.BaseDto;
+import com.hotelstay.common.base.BaseService;
 import com.hotelstay.common.contents.Constants;
 import com.hotelstay.common.util.UtilDateTime;
 @Controller
@@ -15,8 +17,9 @@ public class CodeGroupController {
 	CodeGroupService service;
 //	CodeGroupService codeGroupService;
 	
+	@Autowired
+	BaseService baseService;
 	
-
 	
 	public void setSearch(CodeGroupVo vo) throws Exception {
 		/* 최초 화면 로딩시에 세팅은 문제가 없지만 */
@@ -99,6 +102,8 @@ public class CodeGroupController {
 //		}
 		
 		service.insert(dto);
+		
+		
 		
 		return "redirect:/codeGroupXdmList"; //
 		

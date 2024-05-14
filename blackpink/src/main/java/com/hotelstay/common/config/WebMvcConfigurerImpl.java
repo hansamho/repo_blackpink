@@ -65,7 +65,8 @@ public class WebMvcConfigurerImpl implements WebMvcConfigurer {
 							"/main",
 							"/kakaoLogin",
 							"/redirectKakao",
-							"/cgInsert"
+							"/cgInsert",
+							"/hotelAdmList"
 							
 //							"/usr/infra/index/register",
 //							"/usr/infra/index/usrindex"

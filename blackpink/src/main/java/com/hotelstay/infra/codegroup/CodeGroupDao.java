@@ -3,6 +3,7 @@ package com.hotelstay.infra.codegroup;
 import java.util.List;
 
 
+
 public interface CodeGroupDao {
 	
 //	public List<CodeGroupDto> selectList(); // 여러개 데이터를 보낼떄는 list 
@@ -23,6 +24,6 @@ public interface CodeGroupDao {
 	
 	public int selectOneCount(CodeGroupVo vo);
 	
-	
+	public int imageUpload(CodeGroupDto dto);
 	
 }

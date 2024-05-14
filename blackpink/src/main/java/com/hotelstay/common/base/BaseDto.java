@@ -1,20 +1,11 @@
-package com.hotelstay.infra.codegroup;
+package com.hotelstay.common.base;
 
 import java.util.Date;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import com.hotelstay.common.base.BaseDto;
-
-public class CodeGroupDto extends BaseDto {
-	private String cgSeq;
-	private String name;
-	private Date cgRegDate;
-	private Date cgUpdate;
-	private Integer cgDelny;
+public class BaseDto {
 	
-	
-	//파일 업로드 컬럼
 	private String seq; 
 	private int type; 
 	private Integer defaultNy; 
@@ -33,6 +24,18 @@ public class CodeGroupDto extends BaseDto {
 	private MultipartFile[] uploadFiles;
 	
 	
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
+	}
+	public MultipartFile[] getUploadFiles() {
+		return uploadFiles;
+	}
+	public void setUploadFiles(MultipartFile[] uploadFiles) {
+		this.uploadFiles = uploadFiles;
+	}
 	public String getSeq() {
 		return seq;
 	}
@@ -81,7 +84,6 @@ public class CodeGroupDto extends BaseDto {
 	public void setExt(String ext) {
 		this.ext = ext;
 	}
-	
 	public long getSize() {
 		return size;
 	}
@@ -105,48 +107,6 @@ public class CodeGroupDto extends BaseDto {
 	}
 	public void setRegDateTime(Date regDateTime) {
 		this.regDateTime = regDateTime;
-	}
-	public MultipartFile getUploadFile() {
-		return uploadFile;
-	}
-	public void setUploadFile(MultipartFile uploadFile) {
-		this.uploadFile = uploadFile;
-	}
-	public MultipartFile[] getUploadFiles() {
-		return uploadFiles;
-	}
-	public void setUploadFiles(MultipartFile[] uploadFiles) {
-		this.uploadFiles = uploadFiles;
-	}
-	public String getCgSeq() {
-		return cgSeq;
-	}
-	public void setCgSeq(String cgSeq) {
-		this.cgSeq = cgSeq;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public Date getCgRegDate() {
-		return cgRegDate;
-	}
-	public void setCgRegDate(Date cgRegDate) {
-		this.cgRegDate = cgRegDate;
-	}
-	public Date getCgUpdate() {
-		return cgUpdate;
-	}
-	public void setCgUpdate(Date cgUpdate) {
-		this.cgUpdate = cgUpdate;
-	}
-	public Integer getCgDelny() {
-		return cgDelny;
-	}
-	public void setCgDelny(Integer cgDelny) {
-		this.cgDelny = cgDelny;
 	}
 	
 	

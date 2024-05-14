@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hotelstay.common.base.BaseDao">
+<resultMap id="resultMapObj" type="com.hotelstay.common.base.BaseDto"></resultMap>
+
+ 	<insert id="imageUpload">
+   		INSERT INTO imageloaded(
+   			originalName
+   			,path
+   			,uuidName
+   			,ext
+   			,size
+   			,type
+   			,pSeq
+   		)VALUES(
+   			#{originalName}
+   			,#{path}
+   			,#{uuidName}
+   			,#{ext}
+   			,#{size}
+   			,#{type}
+   			,#{pSeq}
+   			
+   		)
+   	</insert>
+    
+    
+</mapper>
