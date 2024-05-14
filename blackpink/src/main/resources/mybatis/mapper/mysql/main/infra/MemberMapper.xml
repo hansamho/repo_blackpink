@@ -193,7 +193,6 @@
      <select id="selectLogin" resultMap="resultMapObj">
  		SELECT
  			memberID
- 			,email
  			,memberPassword
  			,memberName
  			,memberSeq
