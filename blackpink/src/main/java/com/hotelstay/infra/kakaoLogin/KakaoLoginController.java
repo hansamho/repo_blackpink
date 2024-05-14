@@ -55,15 +55,18 @@ public class KakaoLoginController {
         String loginUrl = null;
         
         
-        if(isDto != null){
+        if(dDto != null){
         	
         	
         	if(id.equals(dDto.getMemberID()))  //db에 저장된 이메일 동일 할 경우 세션을 띄움
         	{
         		httpSession.setAttribute("sessSeqUsr", dDto.getMemberSeq());
             	loginUrl="/usrIndex";
-        	}
-        	
+            	System.out.println("---------------------");
+    			System.out.println("httpSession.getAttribute(\"sessSeqUsr\"): " + httpSession.getAttribute("sessSeqUsr"));
+    			System.out.println("---------------------");
+        	} 
+        		
         }
         else 
         {
@@ -72,7 +75,7 @@ public class KakaoLoginController {
         }
         		
         
-        return "redirect:/usrIndex";
+        return "redirect:" + loginUrl;
     }
 }
 	
