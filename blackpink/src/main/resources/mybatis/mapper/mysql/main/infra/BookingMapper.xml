@@ -8,40 +8,40 @@
 
 	<select id="selectMy" resultMap="resultMapObj">
 		SELECT
-			a.memberSeq
-			,a.memberName
-	        ,a.birthday
-	        ,a.memberPhone
-            ,a.codeNumber
-			,a.addrDetail
-			,a.roadName
-			,a.reference
-			,bookingSeq
-	        ,b.member_seq as memberSeqF
-	        ,b.bkCheckin
-	        ,b.bkCheckout
-	        ,b.bkAdult
-	        ,b.bkChild
-	        ,b.bkTotalPrice
-	        ,b.bkRegDate
-	        ,b.singleRoomPrice
-		    ,b.doubleRoomPrice
-		    ,b.twinRoomPrice	       
-	        ,c.roomName
-	        ,c.roomTypeCD
-	        ,c.roomPrice
-            ,c.roomRegDate
-	        ,c.roomSeq
-			,b.roomDetail_roomSeq as roomSeqF
-			,c.hotelList_seq as hotelListSeqF
-			,(
-	        SELECT COALESCE(SUM(singleRoomPrice + doubleRoomPrice + twinRoomPrice), 0) 
-	        FROM hotelbooking 
-	        WHERE bookingSeq = #{bookingSeq}
-	    ) AS totalRoomPrice
+		    a.memberSeq,
+		    a.memberName,
+		    a.birthday,
+		    a.memberPhone,
+		    a.codeNumber,
+		    a.addrDetail,
+		    a.roadName,
+		    a.reference,
+		    bookingSeq,
+		    b.member_seq AS memberSeqF,
+		    b.bkCheckin,
+		    b.bkCheckout,
+		    b.bkAdult,
+		    b.bkChild,
+		    b.bkTotalPrice,
+		    b.bkRegDate,
+		    b.singleRoomPrice,
+		    b.doubleRoomPrice,
+		    b.twinRoomPrice,       
+		    c.roomName,
+		    c.roomTypeCD,
+		    c.roomPrice,
+		    c.roomRegDate,
+		    c.roomSeq,
+		    b.roomDetail_roomSeq AS roomSeqF,
+		    c.hotelList_seq AS hotelListSeqF,
+		    (
+		        SELECT COALESCE(SUM(singleRoomPrice + doubleRoomPrice + twinRoomPrice), 0) 
+		        FROM hotelbooking 
+		        WHERE bookingSeq = b.bookingSeq
+		    ) AS totalRoomPrice
 		FROM member a
-		LEFT JOIN hotelbooking b on b.member_seq = a.memberSeq
-		LEFT JOIN roomdetail c on b.roomDetail_roomSeq = c.roomSeq
+		LEFT JOIN hotelbooking b ON b.member_seq = a.memberSeq
+		LEFT JOIN roomdetail c ON b.roomDetail_roomSeq = c.roomSeq
 		WHERE 1=1
 		AND a.memberSeq = #{memberSeqF}
 	</select>
