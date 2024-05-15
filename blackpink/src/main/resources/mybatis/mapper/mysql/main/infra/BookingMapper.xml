@@ -133,7 +133,7 @@
 			,bkCheckOut
 			,bkAdult
 			,bkChild
-			,singleRoomPrice
+			,singleRoomPrice 
 			,doubleRoomPrice
 			,twinRoomPrice
 			,cardNumber
