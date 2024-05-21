@@ -143,7 +143,7 @@
 											<table class="table align-middle m-0">
 												<thead>
 													<tr>
-														<th><input type="checkbox" id="checkboxType"></th>
+														<th><input type="checkbox" name="checkAll" id="th_checkAll" onclick="checkAll();"/></th>
 														<th>코드그룹 seq</th>
 														<th>코드그룹 이름</th>
 														<th>코드 seq</th>
@@ -156,7 +156,7 @@
 												</thead>
 												<tbody>
 													<tr  th:if="${#lists.isEmpty(List)}" th:each="list : ${list}">
-														<td><input type="checkbox" id="checkboxType2"></td>
+														<td><input type="checkbox" name="checkRow"></td>
 														<td th:text="${list.codeGroup_seq}"></td>
 														<td th:text="${list.codeGroup_name}"></td>
 														<td th:text="${list.cdSeq}"></td>
@@ -339,6 +339,17 @@
 				
 				
 		</script>
+		
+		<script type="text/javascript">
+		function checkAll(){
+			      if( $("#th_checkAll").is(':checked') ){
+			        $("input[name=checkRow]").prop("checked", true);
+			      }else{
+			        $("input[name=checkRow]").prop("checked", false);
+			      }
+			}
+		</script>
+		
 		
 	</body>
 

@@ -2,7 +2,9 @@ package com.hotelstay.infra.roomdetail;
 
 import java.util.Date;
 
-public class RoomDetailDto {
+import com.hotelstay.common.base.BaseDto;
+
+public class RoomDetailDto extends BaseDto {
 	private String roomSeq;
 	private String roomName; 
 	private double roomPrice;
@@ -33,6 +35,7 @@ public class RoomDetailDto {
 	/*호텔*/
 	private String hotelName;
 	private String hotelListSeqF;
+	private String hotelSeq;
 	/*예약*/
 	private Date bkCheckin;
 	private Date bkCheckout;
@@ -59,6 +62,12 @@ public class RoomDetailDto {
 	
 	
 	
+	public String getHotelSeq() {
+		return hotelSeq;
+	}
+	public void setHotelSeq(String hotelSeq) {
+		this.hotelSeq = hotelSeq;
+	}
 	public String getBookingSeq() {
 		return bookingSeq;
 	}

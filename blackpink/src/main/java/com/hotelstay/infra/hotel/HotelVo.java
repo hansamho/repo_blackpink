@@ -10,6 +10,8 @@ public class HotelVo extends BaseVo {
 	private Integer areaCD;
 	private double roomTotalRating;
 	private int hotelRating;
+	private Integer roomTypeCD;
+	
 	
 	//체크박스 
 	private String[] shCheckboxHotelTypeArray; // 호텔 유형
@@ -19,6 +21,14 @@ public class HotelVo extends BaseVo {
 	
 	
 	
+
+	public Integer getRoomTypeCD() {
+		return roomTypeCD;
+	}
+
+	public void setRoomTypeCD(Integer roomTypeCD) {
+		this.roomTypeCD = roomTypeCD;
+	}
 
 	public String[] getShCheckboxHotelTypeArray() {
 		return shCheckboxHotelTypeArray;

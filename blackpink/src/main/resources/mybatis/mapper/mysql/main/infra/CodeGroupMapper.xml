@@ -115,17 +115,24 @@
    			,uuidName
    			,ext
    			,size
-   			,pSeq
+   			,pseq
    		)VALUES(
    			#{originalName}
    			,#{path}
    			,#{uuidName}
    			,#{ext}
    			,#{size}
-   			,#{cgSeq}
+   			,#{pseq}
    		)
    	</insert>
    	
-   	
+   	<select id="uploadOne" resultMap="resultMapObj">
+    	SELECT 
+    	a.path
+    	FROM imageloaded a
+    	LEFT JOIN codeGroup b on a.seq = b.cgSeq
+    	WHERE 1=1
+    	AND a.pseq = #{cgSeq}
+    </select>
     
 </mapper>

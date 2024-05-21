@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.hotelstay.common.contents.Constants;
 import com.hotelstay.common.util.UtilDateTime;
 import com.hotelstay.infra.Mail.MailService;
+import com.hotelstay.infra.codegroup.CodeGroupDto;
 import com.hotelstay.infra.codegroup.CodeGroupService;
 import com.hotelstay.infra.hotel.HotelDto;
 import com.hotelstay.infra.hotel.HotelService;
@@ -119,6 +120,7 @@ public class MemberController {
 	@RequestMapping(value = "/memberAdmAdd")
 	public String memberAdmAdd() throws Exception{
 	
+		
 
 	return "adm/infra/member/memberAdmAdd"; //
 	
@@ -270,7 +272,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/usrIndex")
-	public String usrIndex(@ModelAttribute("vo") HotelVo vo,HotelDto dto,RoomDetailDto detailDto, Model model) throws Exception{
+	public String usrIndex(@ModelAttribute("vo") HotelVo vo,HotelDto dto,RoomDetailDto detailDto,CodeGroupDto cDto ,Model model) throws Exception{
 		
 		model.addAttribute("listCodeGroup",codeGroupService.selectListWithoutPaging());
 			
@@ -279,8 +281,10 @@ public class MemberController {
 		            .collect(Collectors.toList());
 			
 			model.addAttribute("list", hotelService.selectList(vo));
-		
-		
+			
+			model.addAttribute("imglist", detailService.uploadList(detailDto));
+			
+			model.addAttribute("imgitem", detailService.uploadOne(detailDto));
 		return "usr/infra/index/usrindex";
 	}
 	

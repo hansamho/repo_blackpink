@@ -10,27 +10,24 @@
         FROM roomdetail a 
 		 LEFT JOIN review b on a.roomSeq= b.reviewSeq
 		 WHERE 1=1 
-		 AND a.roomSeq =#{roomSeq}
 <!--         	<if test="hotelTypeCD != null and !hotelTypeCD.equals('')">AND a.hotelTypeCD = #{hotelTypeCD}</if> -->
 <!--         	<if test="areaCD != null and !areaCD.equals('')">AND a.areaCD = #{areaCD}</if>  -->
         	
 <!--          <if test="shUseNy != null and !shUseNy.equals('')">AND ifcgUseNy = #{shUseNy}</if> -->
-<!--         	<if test="shDelny != null and !shDelny.equals('')">AND a.htDelny = #{shDelny}</if>  -->
+        	<if test="shDelny != null and !shDelny.equals('')">AND a.roomDelny = #{shDelny}</if> 
         
-<!-- 				<choose> -->
-<!-- 					<when test="shOptionDate == 1">AND a.htRegDate BETWEEN #{shDateStart} AND #{shDateEnd}</when> -->
-<!-- 					<when test="shOptionDate == 2">AND a.htUpdate BETWEEN #{shDateStart} AND #{shDateEnd}</when> -->
-<!-- 				</choose> -->
+				<choose>
+					<when test="shOptionDate == 1">AND a.roomRegDate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+					<when test="shOptionDate == 2">AND a.roomUpdate BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+				</choose>
 			
 <!-- 			<if test="shGenderCD != null and !shGenderCD.equals('')">AND a.genderCD = #{shGenderCD}</if>  -->
        
-<!--         <choose> -->
-<!--             <when test="shOption == 1">AND a.memberSeq = #{shValue}</when> -->
-<!--             <when test="shOption == 2">AND a.memberName LIKE CONCAT('%',#{shValue},'%')</when> -->
-<!--             <when test="shOption == 3">AND a.birthday LIKE CONCAT('%',#{shValue},'%')</when> -->
-<!--             <when test="shOption == 4">AND a.memberID LIKE CONCAT('%',#{shValue},'%')</when> -->
-<!--             <when test="shOption == 5">AND a.memberPhone LIKE CONCAT('%',#{shValue},'%')</when> -->
-<!--         </choose> -->
+        <choose>
+            <when test="shOption == 1">AND a.roomSeq = #{shValue}</when>
+            <when test="shOption == 2">AND a.roomName LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 3">AND a.roomPrice LIKE CONCAT('%',#{shValue},'%')</when>
+        </choose>
        </sql>
 	
 	 <select id="selectList" resultMap="resultMapObj">
@@ -102,4 +99,111 @@
     WHERE 1=1
     AND roomSeqF = #{roomSeq};
 	</select>
+	
+	<insert id="hotelInsert">
+		INSERT INTO hotellist(
+			hotelName
+			,hotelContent
+			,hotelTypeCD
+			,areaCD
+		)VALUES(
+			#{hotelName}
+			,#{hotelContent}
+			,#{hotelTypeCD}
+			,#{areaCD}
+		)
+	
+	</insert>
+	
+	 <insert id="roomInsert">
+	 <selectKey resultType ="String" keyProperty="roomSeq" order="AFTER">
+		SELECT LAST_INSERT_ID()
+		</selectKey>
+    	INSERT INTO roomdetail(
+    		roomName
+    		,roomPrice
+    		,hotelList_seq
+    	)VALUES(
+    		#{roomName}
+    		,#{roomPrice}
+    		,#{hotelList_seq}
+    	)
+    
+    </insert>
+    
+    <insert id="imageUpload">
+   		INSERT INTO imageloaded(
+   			originalName
+   			,path
+   			,uuidName
+   			,ext
+   			,size
+   			,pseq
+   		)VALUES(
+   			#{originalName}
+   			,#{path}
+   			,#{uuidName}
+   			,#{ext}
+   			,#{size}
+   			,#{pseq}
+   		)
+   	</insert>
+    
+    <select id="uploadList" resultMap="resultMapObj">
+    	SELECT 
+    	a.path
+    	,a.pseq
+    	FROM imageloaded a
+    	WHERE 1=1
+    	AND a.type = 4
+    </select>
+    
+    <select id="uploadOne" resultMap="resultMapObj">
+    	SELECT 
+    	a.path
+    	,a.pseq
+    	FROM imageloaded a
+    	WHERE 1=1
+    	AND a.pseq=#{roomSeq}
+    </select>
+    
+    <select id="uploadDoble" resultMap="resultMapObj">
+    	SELECT 
+    	a.path
+    	,a.pseq
+    	FROM imageloaded a
+    	WHERE 1=1
+    	AND a.pseq = #{roomSeq}
+    	AND a.type = 2
+    </select>
+    
+    <select id="uploadSingle" resultMap="resultMapObj">
+    	SELECT 
+    	a.path
+    	,a.pseq
+    	FROM imageloaded a
+    	WHERE 1=1
+    	AND a.pseq = #{roomSeq}
+    	AND a.type = 1
+    </select>
+    
+    <select id="uploadTwin" resultMap="resultMapObj">
+    	SELECT 
+    	a.path
+    	,a.pseq
+    	FROM imageloaded a
+    	WHERE 1=1
+    	AND a.pseq = #{roomSeq}
+    	AND a.type = 3
+    </select>
+    
+    <select id="uploadNy" resultMap="resultMapObj">
+    	SELECT 
+    	a.path
+    	,a.pseq
+    	FROM imageloaded a
+    	WHERE 1=1
+    </select>
+    
+	
 </mapper>

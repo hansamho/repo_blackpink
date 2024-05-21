@@ -15,6 +15,7 @@
         	<!-- list 조건에 맞는 화면 띄우기 -->
         	<if test="hotelTypeCD != null and !hotelTypeCD.equals('')">AND a.hotelTypeCD = #{hotelTypeCD}</if>
         	<if test="areaCD != null and !areaCD.equals('')">AND a.areaCD = #{areaCD}</if> 
+<!--         	<if test="roomTypeCD != null and !roomTypeCD.equals('')">AND a.roomTypeCD = #{roomTypeCD}</if> -->
         	
         	<!-- 지역 검색 -->
         	<if test="shAreaCD != null and !shAreaCD.equals('')">AND a.areaCD = #{shAreaCD}</if> 
@@ -45,6 +46,13 @@
 <!-- 		       #{type} -->
 <!-- 			</foreach> 		              	 -->
 <!-- 			</if> -->
+
+				<choose>
+            <when test="shOption == 1">AND a.hotelSeq = #{shValue}</when>
+            <when test="shOption == 2">AND a.hotelName LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 3">AND b.roomName LIKE CONCAT('%',#{shValue},'%')</when>
+            <when test="shOption == 4">AND b.roomPrice LIKE CONCAT('%',#{shValue},'%')</when>
+        </choose>
        </sql>
 	
 	 <select id="selectList" resultMap="resultMapObj">
@@ -55,6 +63,9 @@
     		,a.hotelRating
     		,a.hotelTypeCD
     		,a.areaCD
+    		,a.htRegDate
+    		,a.htUpDate
+    		,a.htDelny
     		,b.roomName
     		,b.roomPrice
    		 	,b.roomTypeCD
@@ -68,6 +79,7 @@
     		,b.roomSeq
     		,c.bkCheckIn
     		,c.bkCheckOut
+    		,b.hotelList_seq as hotelSeq
         	<include refid="selectCommon" />
         ORDER BY a.hotelSeq DESC
         limit #{rowNumToShow} offset #{startRnumForMysql}
@@ -89,8 +101,8 @@
             ,a.htRegDate
             ,a.htUpdate
             ,a.htDelny
-            ,a.wishlist_seq
             ,b.roomPrice
+            ,b.roomName
          FROM hotellist a
          LEFT JOIN roomdetail b on a.hotelSeq = b.roomSeq
         WHERE 1=1
@@ -98,5 +110,47 @@
     </select>
     
     
+    <insert id="roomInsert">
+    	INSERT INTO roomdetail(
+    		roomName
+    		,roomTypeCD
+    		,roomPrice
+    		,hotelList_seq
+    	)VALUES(
+    		#{roomName}
+    		,#{roomTypeCD}
+    		,#{roomPrice}
+    		,#{hotelList_seq}
+    	)
+    
+    </insert>
+    
+    <insert id="imageUpload">
+   		INSERT INTO imageloaded(
+   			originalName
+   			,path
+   			,uuidName
+   			,ext
+   			,size
+   			,pseq
+   		)VALUES(
+   			#{originalName}
+   			,#{path}
+   			,#{uuidName}
+   			,#{ext}
+   			,#{size}
+   			,#{pseq}
+   		)
+   	</insert>
+    
+    <select id="uploadOne" resultMap="resultMapObj">
+    	SELECT 
+    	a.path
+    	FROM imageloaded a
+    	LEFT JOIN codeGroup b on a.seq = b.cgSeq
+    	WHERE 1=1
+    	AND a.seq = #{cgSeq}
+    
+    </select>
     
 </mapper>

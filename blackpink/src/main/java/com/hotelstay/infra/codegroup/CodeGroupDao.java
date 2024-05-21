@@ -26,4 +26,5 @@ public interface CodeGroupDao {
 	
 	public int imageUpload(CodeGroupDto dto);
 	
+	public CodeGroupDto uploadOne(CodeGroupDto dto);
 }

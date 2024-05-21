@@ -65,7 +65,7 @@
 		</div>
 		<!-- End Map -->
 
-		<div class="container margin_60">
+		<div class="container margin_60" >
 			<div class="row">
 				<div class="col-lg-8" id="single_tour_desc">
 					<div id="single_tour_feat">
@@ -84,51 +84,51 @@
 					<div id="Img_carousel" class="slider-pro">
 						<div class="sp-slides">
 
-							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="/usr/assets/css/images/blank.gif" data-src="/usr/assets/img/slider_single_tour/1_medium.jpg" data-small="/usr/assets/img/slider_single_tour/1_small.jpg" data-medium="/usr/assets/img/slider_single_tour/1_medium.jpg" data-large="/usr/assets/img/slider_single_tour/1_large.jpg" data-retina="/usr/assets/img/slider_single_tour/1_large.jpg">
+							<div class="sp-slide" th:each="imglist : ${imglist}">
+								<img alt="Image" class="sp-image"  th:data-medium="${imglist.path}">
 							</div>
-							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="/usr/assets/css/images/blank.gif" data-src="/usr/assets/img/slider_single_tour/2_medium.jpg" data-small="/usr/assets/img/slider_single_tour/2_small.jpg" data-medium="/usr/assets/img/slider_single_tour/2_medium.jpg" data-large="/usr/assets/img/slider_single_tour/2_large.jpg" data-retina="/usr/assets/img/slider_single_tour/2_large.jpg">
-							</div>
+<!-- 							<div class="sp-slide"> -->
+<!-- 								<img alt="Image" class="sp-image" src="/usr/assets/css/images/blank.gif" data-src="/usr/assets/img/slider_single_tour/2_medium.jpg" data-small="/usr/assets/img/slider_single_tour/2_small.jpg" data-medium="/usr/assets/img/slider_single_tour/2_medium.jpg" data-large="/usr/assets/img/slider_single_tour/2_large.jpg" data-retina="/usr/assets/img/slider_single_tour/2_large.jpg"> -->
+<!-- 							</div> -->
 
-							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="/usr/assets/css/images/blank.gif" data-src="/usr/assets/img/slider_single_tour/3_medium.jpg" data-small="/usr/assets/img/slider_single_tour/3_small.jpg" data-medium="/usr/assets/img/slider_single_tour/3_medium.jpg" data-large="/usr/assets/img/slider_single_tour/3_large.jpg" data-retina="/usr/assets/img/slider_single_tour/3_large.jpg">
-							</div>
+<!-- 							<div class="sp-slide"> -->
+<!-- 								<img alt="Image" class="sp-image" src="/usr/assets/css/images/blank.gif" data-src="/usr/assets/img/slider_single_tour/3_medium.jpg" data-small="/usr/assets/img/slider_single_tour/3_small.jpg" data-medium="/usr/assets/img/slider_single_tour/3_medium.jpg" data-large="/usr/assets/img/slider_single_tour/3_large.jpg" data-retina="/usr/assets/img/slider_single_tour/3_large.jpg"> -->
+<!-- 							</div> -->
 
-							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="/usr/assets/css/images/blank.gif" data-src="/usr/assets/img/slider_single_tour/4_medium.jpg" data-small="/usr/assets/img/slider_single_tour/4_small.jpg" data-medium="/usr/assets/img/slider_single_tour/4_medium.jpg" data-large="/usr/assets/img/slider_single_tour/4_large.jpg" data-retina="/usr/assets/img/slider_single_tour/4_large.jpg">
-							</div>
+<!-- 							<div class="sp-slide"> -->
+<!-- 								<img alt="Image" class="sp-image" src="/usr/assets/css/images/blank.gif" data-src="/usr/assets/img/slider_single_tour/4_medium.jpg" data-small="/usr/assets/img/slider_single_tour/4_small.jpg" data-medium="/usr/assets/img/slider_single_tour/4_medium.jpg" data-large="/usr/assets/img/slider_single_tour/4_large.jpg" data-retina="/usr/assets/img/slider_single_tour/4_large.jpg"> -->
+<!-- 							</div> -->
 
-							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="/usr/assets/css/images/blank.gif" data-src="/usr/assets/img/slider_single_tour/5_medium.jpg" data-small="/usr/assets/img/slider_single_tour/5_small.jpg" data-medium="/usr/assets/img/slider_single_tour/5_medium.jpg" data-large="/usr/assets/img/slider_single_tour/5_large.jpg" data-retina="/usr/assets/img/slider_single_tour/5_large.jpg">
-							</div>
+<!-- 							<div class="sp-slide"> -->
+<!-- 								<img alt="Image" class="sp-image" src="/usr/assets/css/images/blank.gif" data-src="/usr/assets/img/slider_single_tour/5_medium.jpg" data-small="/usr/assets/img/slider_single_tour/5_small.jpg" data-medium="/usr/assets/img/slider_single_tour/5_medium.jpg" data-large="/usr/assets/img/slider_single_tour/5_large.jpg" data-retina="/usr/assets/img/slider_single_tour/5_large.jpg"> -->
+<!-- 							</div> -->
 
-							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="/usr/assets/css/images/blank.gif" data-src="/usr/assets/img/slider_single_tour/6_medium.jpg" data-small="/usr/assets/img/slider_single_tour/6_small.jpg" data-medium="/usr/assets/img/slider_single_tour/6_medium.jpg" data-large="/usr/assets/img/slider_single_tour/6_large.jpg" data-retina="/usr/assets/img/slider_single_tour/6_large.jpg">
-							</div>
+<!-- 							<div class="sp-slide"> -->
+<!-- 								<img alt="Image" class="sp-image" src="/usr/assets/css/images/blank.gif" data-src="/usr/assets/img/slider_single_tour/6_medium.jpg" data-small="/usr/assets/img/slider_single_tour/6_small.jpg" data-medium="/usr/assets/img/slider_single_tour/6_medium.jpg" data-large="/usr/assets/img/slider_single_tour/6_large.jpg" data-retina="/usr/assets/img/slider_single_tour/6_large.jpg"> -->
+<!-- 							</div> -->
 
-							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="/usr/assets/css/images/blank.gif" data-src="/usr/assets/img/slider_single_tour/7_medium.jpg" data-small="/usr/assets/img/slider_single_tour/7_small.jpg" data-medium="/usr/assets/img/slider_single_tour/7_medium.jpg" data-large="/usr/assets/img/slider_single_tour/7_large.jpg" data-retina="/usr/assets/img/slider_single_tour/7_large.jpg">
-							</div>
+<!-- 							<div class="sp-slide"> -->
+<!-- 								<img alt="Image" class="sp-image" src="/usr/assets/css/images/blank.gif" data-src="/usr/assets/img/slider_single_tour/7_medium.jpg" data-small="/usr/assets/img/slider_single_tour/7_small.jpg" data-medium="/usr/assets/img/slider_single_tour/7_medium.jpg" data-large="/usr/assets/img/slider_single_tour/7_large.jpg" data-retina="/usr/assets/img/slider_single_tour/7_large.jpg"> -->
+<!-- 							</div> -->
 
-							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="/usr/assets/css/images/blank.gif" data-src="/usr/assets/img/slider_single_tour/8_medium.jpg" data-small="/usr/assets/img/slider_single_tour/8_small.jpg" data-medium="/usr/assets/img/slider_single_tour/8_medium.jpg" data-large="/usr/assets/img/slider_single_tour/8_large.jpg" data-retina="/usr/assets/img/slider_single_tour/8_large.jpg">
-							</div>
+<!-- 							<div class="sp-slide"> -->
+<!-- 								<img alt="Image" class="sp-image" src="/usr/assets/css/images/blank.gif" data-src="/usr/assets/img/slider_single_tour/8_medium.jpg" data-small="/usr/assets/img/slider_single_tour/8_small.jpg" data-medium="/usr/assets/img/slider_single_tour/8_medium.jpg" data-large="/usr/assets/img/slider_single_tour/8_large.jpg" data-retina="/usr/assets/img/slider_single_tour/8_large.jpg"> -->
+<!-- 							</div> -->
 
-							<div class="sp-slide">
-								<img alt="Image" class="sp-image" src="/usr/assets/css/images/blank.gif" data-src="/usr/assets/img/slider_single_tour/9_medium.jpg" data-small="/usr/assets/img/slider_single_tour/9_small.jpg" data-medium="/usr/assets/img/slider_single_tour/9_medium.jpg" data-large="/usr/assets/img/slider_single_tour/9_large.jpg" data-retina="/usr/assets/img/slider_single_tour/9_large.jpg">
-							</div>
+<!-- 							<div class="sp-slide"> -->
+<!-- 								<img alt="Image" class="sp-image" src="/usr/assets/css/images/blank.gif" data-src="/usr/assets/img/slider_single_tour/9_medium.jpg" data-small="/usr/assets/img/slider_single_tour/9_small.jpg" data-medium="/usr/assets/img/slider_single_tour/9_medium.jpg" data-large="/usr/assets/img/slider_single_tour/9_large.jpg" data-retina="/usr/assets/img/slider_single_tour/9_large.jpg"> -->
+<!-- 							</div> -->
 						</div>
-						<div class="sp-thumbnails">
-							<img alt="Image" class="sp-thumbnail" src="/usr/assets/img/slider_single_tour/1_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="/usr/assets/img/slider_single_tour/2_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="/usr/assets/img/slider_single_tour/3_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="/usr/assets/img/slider_single_tour/4_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="/usr/assets/img/slider_single_tour/5_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="/usr/assets/img/slider_single_tour/6_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="/usr/assets/img/slider_single_tour/7_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="/usr/assets/img/slider_single_tour/8_medium.jpg">
-							<img alt="Image" class="sp-thumbnail" src="/usr/assets/img/slider_single_tour/9_medium.jpg">
+						<div class="sp-thumbnails" >
+							<img alt="Image" class="sp-thumbnail" th:each="imglist : ${imglist}" th:src="${imglist.path}">
+<!-- 							<img alt="Image" class="sp-thumbnail" src="/usr/assets/img/slider_single_tour/2_medium.jpg"> -->
+<!-- 							<img alt="Image" class="sp-thumbnail" src="/usr/assets/img/slider_single_tour/3_medium.jpg"> -->
+<!-- 							<img alt="Image" class="sp-thumbnail" src="/usr/assets/img/slider_single_tour/4_medium.jpg"> -->
+<!-- 							<img alt="Image" class="sp-thumbnail" src="/usr/assets/img/slider_single_tour/5_medium.jpg"> -->
+<!-- 							<img alt="Image" class="sp-thumbnail" src="/usr/assets/img/slider_single_tour/6_medium.jpg"> -->
+<!-- 							<img alt="Image" class="sp-thumbnail" src="/usr/assets/img/slider_single_tour/7_medium.jpg"> -->
+<!-- 							<img alt="Image" class="sp-thumbnail" src="/usr/assets/img/slider_single_tour/8_medium.jpg"> -->
+<!-- 							<img alt="Image" class="sp-thumbnail" src="/usr/assets/img/slider_single_tour/9_medium.jpg"> -->
 						</div>
 					</div>
 
@@ -188,22 +188,22 @@
 							</div>
 							<!-- End row  -->
 							<div class="owl-carousel owl-theme carousel-thumbs-2 magnific-gallery">
-								<div class="item">
-									<a href="/usr/assets/img/carousel/1.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/1.jpg" alt="Image">
+								<div class="item" th:each="imgsingle : ${imgsingle}">
+									<a href="/usr/assets/img/carousel/1.jpg" data-effect="mfp-zoom-in"><img th:src="${imgsingle.path}" alt="Image">
 									</a>
 								</div>
-								<div class="item">
-									<a href="/usr/assets/img/carousel/2.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/2.jpg" alt="Image">
-									</a>
-								</div>
-								<div class="item">
-									<a href="/usr/assets/img/carousel/3.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/3.jpg" alt="Image">
-									</a>
-								</div>
-								<div class="item">
-									<a href="/usr/assets/img/carousel/4.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/4.jpg" alt="Image">
-									</a>
-								</div>
+<!-- 								<div class="item"> -->
+<!-- 									<a href="/usr/assets/img/carousel/2.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/2.jpg" alt="Image"> -->
+<!-- 									</a> -->
+<!-- 								</div> -->
+<!-- 								<div class="item"> -->
+<!-- 									<a href="/usr/assets/img/carousel/3.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/3.jpg" alt="Image"> -->
+<!-- 									</a> -->
+<!-- 								</div> -->
+<!-- 								<div class="item"> -->
+<!-- 									<a href="/usr/assets/img/carousel/4.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/4.jpg" alt="Image"> -->
+<!-- 									</a> -->
+<!-- 								</div> -->
 							</div>
 							<!-- End photo carousel  -->
 
@@ -232,22 +232,22 @@
 							</div>
 							<!-- End row  -->
 							<div class="owl-carousel owl-theme carousel-thumbs-2 magnific-gallery">
-								<div class="item">
-									<a href="/usr/assets/img/carousel/1.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/1.jpg" alt="Image">
+								<div class="item" th:each="imgdouble : ${imgdouble}">
+									<a href="/usr/assets/img/carousel/1.jpg" th:data-effect="mfp-zoom-in"><img th:src="${imgdouble.path}" alt="Image">
 									</a>
 								</div>
-								<div class="item">
-									<a href="/usr/assets/img/carousel/2.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/2.jpg" alt="Image">
-									</a>
-								</div>
-								<div class="item">
-									<a href="/usr/assets/img/carousel/3.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/3.jpg" alt="Image">
-									</a>
-								</div>
-								<div class="item">
-									<a href="/usr/assets/img/carousel/4.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/4.jpg" alt="Image">
-									</a>
-								</div>
+<!-- 								<div class="item"> -->
+<!-- 									<a href="/usr/assets/img/carousel/2.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/2.jpg" alt="Image"> -->
+<!-- 									</a> -->
+<!-- 								</div> -->
+<!-- 								<div class="item"> -->
+<!-- 									<a href="/usr/assets/img/carousel/3.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/3.jpg" alt="Image"> -->
+<!-- 									</a> -->
+<!-- 								</div> -->
+<!-- 								<div class="item"> -->
+<!-- 									<a href="/usr/assets/img/carousel/4.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/4.jpg" alt="Image"> -->
+<!-- 									</a> -->
+<!-- 								</div> -->
 							</div>
 							<!-- End photo carousel  -->
 							
@@ -276,22 +276,22 @@
 							</div>
 							<!-- End row  -->
 							<div class="owl-carousel owl-theme carousel-thumbs-2 magnific-gallery">
-								<div class="item">
-									<a href="/usr/assets/img/carousel/1.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/1.jpg" alt="Image">
+								<div class="item" th:each="imgtwin : ${imgtwin}">
+									<a href="/usr/assets/img/carousel/1.jpg" data-effect="mfp-zoom-in"><img th:src="${imgtwin.path}" alt="Image">
 									</a>
 								</div>
-								<div class="item">
-									<a href="/usr/assets/img/carousel/2.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/2.jpg" alt="Image">
-									</a>
-								</div>
-								<div class="item">
-									<a href="/usr/assets/img/carousel/3.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/3.jpg" alt="Image">
-									</a>
-								</div>
-								<div class="item">
-									<a href="/usr/assets/img/carousel/4.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/4.jpg" alt="Image">
-									</a>
-								</div>
+<!-- 								<div class="item"> -->
+<!-- 									<a href="/usr/assets/img/carousel/2.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/2.jpg" alt="Image"> -->
+<!-- 									</a> -->
+<!-- 								</div> -->
+<!-- 								<div class="item"> -->
+<!-- 									<a href="/usr/assets/img/carousel/3.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/3.jpg" alt="Image"> -->
+<!-- 									</a> -->
+<!-- 								</div> -->
+<!-- 								<div class="item"> -->
+<!-- 									<a href="/usr/assets/img/carousel/4.jpg" data-effect="mfp-zoom-in"><img src="/usr/assets/img/carousel/4.jpg" alt="Image"> -->
+<!-- 									</a> -->
+<!-- 								</div> -->
 							</div>
 						</div>
 						<!-- End col-md-9  -->
@@ -853,6 +853,8 @@
 		}
 			
 		</script>
+		
+		
 		
 </body>
 

@@ -15,6 +15,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.hotelstay.common.contents.Constants;
 import com.hotelstay.common.util.UtilDateTime;
 import com.hotelstay.infra.codegroup.CodeGroupService;
+import com.hotelstay.infra.roomdetail.RoomDetailDto;
+import com.hotelstay.infra.roomdetail.RoomDetailService;
 
 @Controller
 public class HotelController {
@@ -23,6 +25,10 @@ public class HotelController {
 		
 	@Autowired
 	CodeGroupService codeGroupService;
+	
+	@Autowired
+	RoomDetailService detailService;
+	
 	
 	public void setSearch(HotelVo vo) throws Exception {
 		/* 최초 화면 로딩시에 세팅은 문제가 없지만 */
@@ -48,19 +54,42 @@ public class HotelController {
 	}
 	
 	
-	@RequestMapping(value = "/hotelAdmList")
-	public String hotelAdmList(@ModelAttribute("vo") HotelVo vo, Model model) throws Exception{
-			
-			setSearch(vo);
-			
-			model.addAttribute("list", service.selectList(vo));
-			
-
-        return "adm/infra/hotel/hotelAdmList";
-  	}
+//	@RequestMapping(value = "/hotelAdmList")
+//	public String hotelAdmList(@ModelAttribute("vo") HotelVo vo, Model model) throws Exception{
+//			
+//		setSearch(vo);
+//		
+//		model.addAttribute("count", service.selectOneCount(vo));
+//		
+//		vo.setParamsPaging(service.selectOneCount(vo));
+//		
+//		if (vo.getTotalRows() > 0) {
+//			model.addAttribute("list", service.selectList(vo));
+//		}
+//			
+//
+//        return "adm/infra/hotel/hotelAdmList";
+//  	}
+//	
+//	@RequestMapping(value = "/hotelInsert")
+//	public String hotelInsert(RoomDetailDto dto) throws Exception{
+//		
+//		service.roomInsert(dto);
+//		
+//		return "redirect:/hotelAdmList"; //
+//		
+//	}
+//	
+//	@RequestMapping(value = "/hotelAdd")
+//	public String hotelAdd() throws Exception{
+//		
+//	
+//		return "adm/infra/hotel/hotelAdd"; //
+//		
+//	}
 	
 	@RequestMapping(value = "/hotelList")
-	public String hotelList(@ModelAttribute("vo") HotelVo vo, Model model) throws Exception{
+	public String hotelList(@ModelAttribute("vo") HotelVo vo,RoomDetailDto detailDto, Model model) throws Exception{
 		
 		
 		model.addAttribute("count", service.selectOneCount(vo));
@@ -78,7 +107,14 @@ public class HotelController {
 		if (vo.getTotalRows() > 0) {
 			model.addAttribute("list", service.selectList(vo));
 			
+			
 		}
+		
+		model.addAttribute("imglist", detailService.uploadNy(detailDto));
+		
+//		model.addAttribute("imgitem", detailService.uploadOne(detailDto));
+//		
+//		model.addAttribute("imgdouble", detailService.uploadDoble(detailDto));
 		
         return "usr/infra/index/hotelList";
   	}

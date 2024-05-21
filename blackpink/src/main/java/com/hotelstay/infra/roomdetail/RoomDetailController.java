@@ -5,15 +5,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.amazonaws.services.s3.AmazonS3Client;
 import com.hotelstay.common.contents.Constants;
 import com.hotelstay.common.util.UtilDateTime;
 import com.hotelstay.infra.booking.BookingDto;
+import com.hotelstay.infra.hotel.HotelDto;
+import com.hotelstay.infra.hotel.HotelService;
+import com.hotelstay.infra.hotel.HotelVo;
 import com.hotelstay.infra.member.MemberDto;
 import com.hotelstay.infra.review.ReviewDto;
 import com.hotelstay.infra.review.ReviewService;
@@ -29,6 +34,10 @@ public class RoomDetailController {
 	
 	@Autowired
 	ReviewService reviewService;
+	
+	@Autowired
+	HotelService hotelService;
+	
 	
 	public void setSearch(RoomDetailVo vo) throws Exception {
 		/* 최초 화면 로딩시에 세팅은 문제가 없지만 */
@@ -63,7 +72,13 @@ public class RoomDetailController {
 		
 		model.addAttribute("list", reviewService.selectList(rdto));
 		
+		model.addAttribute("imglist", service.uploadOne(dto));
 		
+		model.addAttribute("imgdouble", service.uploadDoble(dto));
+		
+		model.addAttribute("imgsingle", service.uploadSingle(dto));
+		
+		model.addAttribute("imgtwin", service.uploadTwin(dto));
 		
         return "usr/infra/index/roomDetail";
   	}
@@ -89,5 +104,49 @@ public class RoomDetailController {
 
 			
 			return returnMap;
+	}
+	
+	
+	@RequestMapping(value = "/hotelAdmList")
+	public String hotelAdmList(@ModelAttribute("vo") RoomDetailVo vo,HotelVo hotelVo ,Model model) throws Exception{
+			
+		setSearch(vo);
+		
+		model.addAttribute("count", service.selectOneCount(vo));
+		
+		vo.setParamsPaging(service.selectOneCount(vo));
+		
+		if (vo.getTotalRows() > 0) {
+			model.addAttribute("list", hotelService.selectList(hotelVo));
+		}
+			
+
+        return "adm/infra/hotel/hotelAdmList";
+  	}
+	
+	@RequestMapping(value = "/hotelInsert")
+	public String hotelInsert(RoomDetailDto dto,HotelDto hotelDto) throws Exception{
+		
+		service.roomInsert(dto, hotelDto);
+		
+		return "redirect:/hotelAdmList"; //
+		
+	}
+	
+	@RequestMapping(value = "/hotelAdd")
+	public String hotelAdd() throws Exception{
+		
+	
+		return "adm/infra/hotel/hotelAdd"; //
+		
+	}
+	
+	@RequestMapping(value = "/hotelAdmView")
+	public String hotelAdmView(HotelDto dto,Model model) throws Exception{
+		 
+		model.addAttribute("item", hotelService.selectOne(dto));
+		
+		return "adm/infra/hotel/hotelAdmView";
+		
 	}
 }

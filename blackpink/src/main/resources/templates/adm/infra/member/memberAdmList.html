@@ -191,8 +191,7 @@
 													</tr>
 												</thead>
 												<tbody>
-													<tr th:if="${#lists.isEmpty(List)}"
-														th:each="list : ${list}">
+													<tr th:if="${#lists.isEmpty(List)}"th:each="list : ${list}">
 														<td><input type="checkbox" id="checkboxType2"></td>
 														<td th:text="${list.memberSeq}"></td>
 														<td><a
@@ -405,7 +404,12 @@
 			form.action = goUrlXdmForm;
 			form.submit();
 		}
-
+		
+		goList = function (thisPage) {
+		    document.querySelector("input[name=thisPage]").value = thisPage;
+		    form.action = goUrlXdmList;
+		    form.submit();
+		}
 		document.getElementById("btnSearch").onclick = function() {
 			form.action = goUrlXdmList;
 			form.submit();

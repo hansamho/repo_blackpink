@@ -122,7 +122,7 @@
                         <div class="ribbon_3 popular"><span>인기</span></div>
                         <div class="img_container">
                             <a th:href="@{/hotelList(areaCD=11)}">
-                                <img src="/usr/assets/img/tour_box_3.jpg" width="800" height="533" class="img-fluid" alt="image">
+                                <img src="/usr/assets/img/busan.jpg" width="800" height="533" class="img-fluid" alt="image">
                                 
                                 
                             </a>
@@ -139,7 +139,7 @@
                         <div class="ribbon_3 popular"><span>인기</span></div>
                         <div class="img_container">
                             <a th:href="@{/hotelList(areaCD=12)}">
-                                <img src="/usr/assets/img/tour_box_4.jpg" width="800" height="533" class="img-fluid" alt="image">
+                                <img src="/usr/assets/img/gangneung.jpg" width="800" height="533" class="img-fluid" alt="image">
                                
                                
                             </a>
@@ -157,7 +157,7 @@
                         <div class="ribbon_3 popular"><span>인기</span></div>
                         <div class="img_container">
                             <a th:href="@{/hotelList(areaCD=13)}">
-                                <img src="/usr/assets/img/tour_box_14.jpg" width="800" height="533" class="img-fluid" alt="image">                                
+                                <img src="/usr/assets/img/Incheon.jpg" width="800" height="533" class="img-fluid" alt="image">                                
                             </a>
                         </div>
                         <div class="tour_title">
@@ -188,6 +188,7 @@
                         <div class="img_container">
                             <a th:href="@{/roomDetail(roomSeq=${list.roomSeq})}">
                                 <img src="/usr/assets/img/hotel_1.jpg" width="800" height="533" class="img-fluid" alt="image">
+<!--                                 <img th:each="imglist : ${imglist}" th:src="${imglist.path}" width="800" height="533" class="img-fluid" alt="image"> -->
                                 <div class="score"><span th:text="${list.hotelRating}"></span>평점</div>
                                 <div class="short_info hotel">
                                     <span class="price"><sup th:text="${#numbers.formatInteger(list.roomPrice,1,'COMMA')} + '원'"></sup></span>

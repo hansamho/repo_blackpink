@@ -19,7 +19,8 @@ public class HotelDto {
 	private String roomSeq;
 	private int roomPrice;
 	private double roomTotalRating;
-	
+	private String roomName;
+	private Integer roomTypeCD;
 	// 체크인,체크아웃
 	public Date bkCheckIn;
 	public Date bkCheckOut;
@@ -29,6 +30,18 @@ public class HotelDto {
 	
 	
 	
+	public Integer getRoomTypeCD() {
+		return roomTypeCD;
+	}
+	public void setRoomTypeCD(Integer roomTypeCD) {
+		this.roomTypeCD = roomTypeCD;
+	}
+	public String getRoomName() {
+		return roomName;
+	}
+	public void setRoomName(String roomName) {
+		this.roomName = roomName;
+	}
 	public String getName() {
 		return name;
 	}

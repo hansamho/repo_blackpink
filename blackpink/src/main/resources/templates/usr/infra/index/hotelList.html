@@ -190,14 +190,14 @@
 					<!-- 리스트 화면 -->
 					<div class="strip_all_tour_list wow fadeIn" th:if="${#lists.isEmpty(List)}" th:each="list : ${list}">
 						<div class="row" >
-							<div class="col-lg-4 col-md-4 position-relative" >
-<!-- 								<div class="wishlist"> -->
-<!-- 									<a class="tooltip_flip tooltip-effect-1" th:href="@{/myPage}">+<span class="tooltip-content-flip"><span class=""></span></span></a> -->
-<!-- 								</div> -->
-								<div class="img_list">
+							<div class="col-lg-4 col-md-4 position-relative">
+								<div class="img_list" >
 									<a th:href="@{/roomDetail(roomSeq=${list.roomSeq})}"><img src="/usr/assets/img/hotel_1.jpg" alt="Image">
 										<div class="short_info"></div>
 									</a>
+<!-- 									<a th:href="@{/roomDetail(roomSeq=${list.roomSeq})}"><img th:src="${imglist.path}" alt="Image"> -->
+<!-- 										<div class="short_info"></div> -->
+<!-- 									</a> -->
 								</div>
 							</div>
 							<div class="col-lg-6 col-md-6">
@@ -206,8 +206,8 @@
 									<span class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class=" icon-star-empty"></i></span>
 									<div class="score">평점<span th:text="${list.roomTotalRating}"></span>
 									</div>
-<!-- 									<div class="rating" th:text="${list.hotelRating}"><i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i> -->
-<!-- 									</div> -->
+									<div class="rating" th:text="${list.hotelRating}"><i class="icon-star voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i><i class="icon-star  voted"></i>
+									</div>
 									<!-- 호텔이름 -->
 									<h3 th:text="${list.hotelName}"></h3>
 									<!-- 호텔 소개 -->

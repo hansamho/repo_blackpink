@@ -12,7 +12,7 @@ public class CodeGroupDto extends BaseDto {
 	private Date cgRegDate;
 	private Date cgUpdate;
 	private Integer cgDelny;
-	
+	private String pseq;
 	
 	//파일 업로드 컬럼
 //	private String seq; 
@@ -106,8 +106,16 @@ public class CodeGroupDto extends BaseDto {
 //	public void setRegDateTime(Date regDateTime) {
 //		this.regDateTime = regDateTime;
 //	}
+	
+	
 	public MultipartFile getUploadFile() {
 		return uploadFile;
+	}
+	public String getPseq() {
+		return pseq;
+	}
+	public void setPseq(String pseq) {
+		this.pseq = pseq;
 	}
 	public void setUploadFile(MultipartFile uploadFile) {
 		this.uploadFile = uploadFile;

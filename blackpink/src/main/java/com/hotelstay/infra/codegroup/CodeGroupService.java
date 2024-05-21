@@ -42,6 +42,7 @@ public class CodeGroupService {
 		
 		for(MultipartFile multipartFile : dto.getUploadFiles()) {
 			
+			System.out.println(dto.getCgSeq()+"@@@@@@@@@@@@@2");
 			if(!multipartFile.isEmpty()) {
 				
 //				String className = dto.getClass().getSimpleName().toString().toLowerCase();		
@@ -61,7 +62,7 @@ public class CodeGroupService {
 		        metadata.setContentLength(multipartFile.getSize());
 		        metadata.setContentType(multipartFile.getContentType());
 		        
-		        amazonS3Client.putObject(bucket, multipartFile.getOriginalFilename(), multipartFile.getInputStream(), metadata);
+		        amazonS3Client.putObject(bucket, uuidFileName, multipartFile.getInputStream(), metadata);
 				
 		        String objectUrl = amazonS3Client.getUrl(bucket,uuidFileName).toString();
 		        
@@ -72,7 +73,7 @@ public class CodeGroupService {
 				dto.setUuidName(uuidFileName);
 				dto.setExt(ext);
 				dto.setSize(multipartFile.getSize());
-				
+				dto.setPseq(dto.getCgSeq());
 //				dto.setTableName(tableName);
 //				dto.setType(type);
 	//			dto.setDefaultNy();
@@ -107,5 +108,7 @@ public class CodeGroupService {
 		return dao.selectOneCount(vo);
 	}
 	
-	
+	public CodeGroupDto uploadOne(CodeGroupDto dto) {
+		return dao.uploadOne(dto);
+	}
 }

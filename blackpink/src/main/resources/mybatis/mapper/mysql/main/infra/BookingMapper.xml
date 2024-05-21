@@ -32,7 +32,7 @@
 		    c.roomPrice,
 		    c.roomRegDate,
 		    c.roomSeq,
-		    b.roomDetail_roomSeq AS roomSeqF,
+		    b.roomDetail_seq AS roomSeqF,
 		    c.hotelList_seq AS hotelListSeqF,
 		    (
 		        SELECT COALESCE(SUM(singleRoomPrice + doubleRoomPrice + twinRoomPrice), 0) 
@@ -41,7 +41,7 @@
 		    ) AS totalRoomPrice
 		FROM member a
 		LEFT JOIN hotelbooking b ON b.member_seq = a.memberSeq
-		LEFT JOIN roomdetail c ON b.roomDetail_roomSeq = c.roomSeq
+		LEFT JOIN roomdetail c ON b.roomDetail_seq = c.roomSeq
 		WHERE 1=1
 		AND a.memberSeq = #{memberSeqF}
 	</select>
@@ -63,7 +63,7 @@
 
 	<select id="selectWish" resultMap="resultMapObj">
 		SELECT
-		a.member_seq as memberSeqF
+		a.memberSeqF
 		,c.roomName
 		,c.roomPrice
 		,c.roomTotalRating
@@ -72,7 +72,7 @@
 		on a.wishSeq = b.memberSeq
 		LEFT JOIN roomdetail c
 		on a.wishSeq = c.roomSeq
-		WHERE member_seq = #{memberSeqF};
+		WHERE memberSeqF = #{memberSeqF};
 
 	</select>
 
@@ -141,7 +141,7 @@
 			,cardYear
 			,cardCcv
 			,member_seq
-			,roomDetail_roomSeq 
+			,roomDetail_seq 
 		)VALUE(
 			#{bkCheckIn}
 			,#{bkCheckOut}
