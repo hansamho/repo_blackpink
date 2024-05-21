@@ -69,6 +69,8 @@ public class BookingController {
 		
 		dto.setMemberSeqF((String) httpSession.getAttribute("sessSeqUsr"));
 		
+		System.out.println("roomSeqF"+dto.getRoomSeqF());
+		
 		service.bookingInsert(dto);
 		
 		

@@ -68,6 +68,7 @@ public class WebMvcConfigurerImpl implements WebMvcConfigurer {
 							"/cgInsert",
 							"/hotelAdmList",
 							"/hotelAdd",
+							"/hotelAdmView",
 							"/test",
 							"/hotelInsert",
 							"/test2",

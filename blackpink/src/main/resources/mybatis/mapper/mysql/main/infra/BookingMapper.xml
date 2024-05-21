@@ -155,7 +155,7 @@
 			,#{cardYear}
 			,#{cardCcv}
 			,#{memberSeqF}
-			,#{roomSeqF}
+			,#{roomSeq}
 		)
 	</insert>
 	

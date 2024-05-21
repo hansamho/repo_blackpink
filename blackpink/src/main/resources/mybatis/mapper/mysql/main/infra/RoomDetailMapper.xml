@@ -84,6 +84,7 @@
           ,c.member_seq as memberSeqF
           ,d.memberSeq
           ,c.bookingSeq
+          ,c.roomDetail_seq
 		 FROM roomdetail a 
 		 LEFT JOIN review b on a.roomSeq= b.reviewSeq
 		 LEFT JOIN hotelbooking c on a.roomSeq = c.bookingSeq

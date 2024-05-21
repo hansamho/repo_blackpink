@@ -13,7 +13,7 @@ public class BookingDto {
 	private Date bkUpdate; 
 	private Integer bkDelny; 
 	private String memberSeqF; 
-	private String roomDetail_roomSeq;
+	private String roomDetail_seq;
 	private String roomSeqF;
 	private String member_seq;
 	private int totalRoomPrice;
@@ -146,12 +146,7 @@ public class BookingDto {
 	public void setTwinRoomPrice(String twinRoomPrice) {
 		this.twinRoomPrice = twinRoomPrice;
 	}
-	public String getRoomDetail_roomSeq() {
-		return roomDetail_roomSeq;
-	}
-	public void setRoomDetail_roomSeq(String roomDetail_roomSeq) {
-		this.roomDetail_roomSeq = roomDetail_roomSeq;
-	}
+	
 	public String getRoomSeq() {
 		return roomSeq;
 	}
@@ -313,12 +308,7 @@ public class BookingDto {
 	public void setMemberSeqF(String memberSeqF) {
 		this.memberSeqF = memberSeqF;
 	}
-	public String getRoomDetail_seq() {
-		return roomDetail_roomSeq;
-	}
-	public void setRoomDetail_seq(String roomDetail_roomSeq) {
-		this.roomDetail_roomSeq = roomDetail_roomSeq;
-	}
+	
 	public String getMemberSeq() {
 		return memberSeq;
 	}
@@ -355,7 +345,12 @@ public class BookingDto {
 	public void setMemberID(String memberID) {
 		this.memberID = memberID;
 	}
-	
+	public String getRoomDetail_seq() {
+		return roomDetail_seq;
+	}
+	public void setRoomDetail_seq(String roomDetail_seq) {
+		this.roomDetail_seq = roomDetail_seq;
+	}
 	
 	
 	}
