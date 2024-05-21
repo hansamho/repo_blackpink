@@ -224,9 +224,7 @@ $(function () {
 	    var formattedSingleTotal = (singleTotal * 1000).toFixed(0);
 	
 	    document.getElementById("singlePrice").innerText = formattedSingleTotal;
-	    alert(formattedSingleTotal);
 	    document.getElementById("singleRoomPrice").value = formattedSingleTotal;
-	     alert(formattedSingleTotal);
 	});
 	
 	
@@ -261,9 +259,7 @@ $(function () {
 	    var formattedDoubleTotal = (doubleTotal * 1000).toFixed(0);
 	
 	    document.getElementById("doublePrice").innerText = formattedDoubleTotal;
-	    alert(formattedDoubleTotal);
 	    document.getElementById("doubleRoomPrice").value = formattedDoubleTotal;
-	    alert(formattedDoubleTotal);
 	});
 	
 	
@@ -298,9 +294,7 @@ $(function () {
 	    var formattedTwinTotal = (twinTotal * 1000).toFixed(0);
 	
 	    document.getElementById("twinPrice").innerText = formattedTwinTotal;
-	    alert(formattedTwinTotal);
 	    document.getElementById("twinRoomPrice").value = formattedTwinTotal;
-	    alert(formattedTwinTotal);
 	});
 });
 
