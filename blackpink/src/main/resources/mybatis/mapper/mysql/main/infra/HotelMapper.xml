@@ -10,13 +10,15 @@
          FROM hotellist a
          LEFT JOIN roomdetail b on a.hotelSeq = b.roomSeq
          LEFT JOIN hotelbooking c on b.roomSeq = c.bookingSeq
+         LEFT JOIN imageloaded d on d.seq = a.hotelSeq
         WHERE 1=1
-        	
         	<!-- list 조건에 맞는 화면 띄우기 -->
         	<if test="hotelTypeCD != null and !hotelTypeCD.equals('')">AND a.hotelTypeCD = #{hotelTypeCD}</if>
         	<if test="areaCD != null and !areaCD.equals('')">AND a.areaCD = #{areaCD}</if> 
 <!--         	<if test="roomTypeCD != null and !roomTypeCD.equals('')">AND a.roomTypeCD = #{roomTypeCD}</if> -->
         	
+			 
+			        	
         	<!-- 지역 검색 -->
         	<if test="shAreaCD != null and !shAreaCD.equals('')">AND a.areaCD = #{shAreaCD}</if> 
         	
@@ -80,7 +82,10 @@
     		,c.bkCheckIn
     		,c.bkCheckOut
     		,b.hotelList_seq as hotelSeq
+    		,d.path
+    		,d.defaultNy
         	<include refid="selectCommon" />
+        	AND d.defaultNy = 0
         ORDER BY a.hotelSeq DESC
         limit #{rowNumToShow} offset #{startRnumForMysql}
     </select>
@@ -110,47 +115,8 @@
     </select>
     
     
-    <insert id="roomInsert">
-    	INSERT INTO roomdetail(
-    		roomName
-    		,roomTypeCD
-    		,roomPrice
-    		,hotelList_seq
-    	)VALUES(
-    		#{roomName}
-    		,#{roomTypeCD}
-    		,#{roomPrice}
-    		,#{hotelList_seq}
-    	)
+   
     
-    </insert>
     
-    <insert id="imageUpload">
-   		INSERT INTO imageloaded(
-   			originalName
-   			,path
-   			,uuidName
-   			,ext
-   			,size
-   			,pseq
-   		)VALUES(
-   			#{originalName}
-   			,#{path}
-   			,#{uuidName}
-   			,#{ext}
-   			,#{size}
-   			,#{pseq}
-   		)
-   	</insert>
-    
-    <select id="uploadOne" resultMap="resultMapObj">
-    	SELECT 
-    	a.path
-    	FROM imageloaded a
-    	LEFT JOIN codeGroup b on a.seq = b.cgSeq
-    	WHERE 1=1
-    	AND a.seq = #{cgSeq}
-    
-    </select>
     
 </mapper>

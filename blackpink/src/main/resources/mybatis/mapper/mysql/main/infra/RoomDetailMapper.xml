@@ -198,13 +198,14 @@
     	AND a.type = 3
     </select>
     
-    <select id="uploadNy" resultMap="resultMapObj">
-    	SELECT 
-    	a.path
-    	,a.pseq
-    	FROM imageloaded a
-    	WHERE 1=1
-    </select>
+<!--     <select id="uploadNy" resultMap="resultMapObj"> -->
+<!--     	SELECT  -->
+<!--     	a.path -->
+<!--     	,a.pseq -->
+<!--     	FROM imageloaded a -->
+<!--     	WHERE 1=1 -->
+<!--     	AND  -->
+<!--     </select> -->
     
 	
 </mapper>

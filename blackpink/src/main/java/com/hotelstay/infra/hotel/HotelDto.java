@@ -2,7 +2,9 @@ package com.hotelstay.infra.hotel;
 
 import java.util.Date;
 
-public class HotelDto {
+import com.hotelstay.common.base.BaseDto;
+
+public class HotelDto extends BaseDto{
 	
 	private String hotelSeq;
 	private String hotelName; 
@@ -27,6 +29,8 @@ public class HotelDto {
 	
 	private String cdSeq;
 	private String name;
+	
+	private String path;
 	
 	
 	
@@ -151,6 +155,12 @@ public class HotelDto {
 	}
 	public void setRoomSeq(String roomSeq) {
 		this.roomSeq = roomSeq;
+	}
+	public String getPath() {
+		return path;
+	}
+	public void setPath(String path) {
+		this.path = path;
 	}
 	
 	

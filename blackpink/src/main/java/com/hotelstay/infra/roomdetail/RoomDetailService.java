@@ -53,11 +53,17 @@ public class RoomDetailService {
 		
 		dao.roomInsert(dto);
 		
-for(MultipartFile multipartFile : dto.getUploadFiles()) {
+		int i =0;
+		
+		for(MultipartFile multipartFile : dto.getUploadFiles()) {
 			
 			System.out.println(dto.getRoomSeq()+"@@@@@@@@@@@@@2");
 			if(!multipartFile.isEmpty()) {
-				
+				if(i == 0) {
+					dto.setDefaultNy(1);
+				} else {
+					dto.setDefaultNy(0);
+				}
 //				String className = dto.getClass().getSimpleName().toString().toLowerCase();		
 				String fileName = multipartFile.getOriginalFilename();
 				String ext = fileName.substring(fileName.lastIndexOf(".") + 1);
@@ -96,6 +102,7 @@ for(MultipartFile multipartFile : dto.getUploadFiles()) {
 		        dao.imageUpload(dto);
 				
 			}
+			i++;
 		}
 		
 		

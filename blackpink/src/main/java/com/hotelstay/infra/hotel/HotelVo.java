@@ -11,7 +11,7 @@ public class HotelVo extends BaseVo {
 	private double roomTotalRating;
 	private int hotelRating;
 	private Integer roomTypeCD;
-	
+	private Integer defaultNy;
 	
 	//체크박스 
 	private String[] shCheckboxHotelTypeArray; // 호텔 유형
@@ -100,6 +100,14 @@ public class HotelVo extends BaseVo {
 
 	public void setAreaCD(Integer areaCD) {
 		this.areaCD = areaCD;
+	}
+
+	public Integer getDefaultNy() {
+		return defaultNy;
+	}
+
+	public void setDefaultNy(Integer defaultNy) {
+		this.defaultNy = defaultNy;
 	}
 
 	

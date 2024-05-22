@@ -110,7 +110,7 @@ public class HotelController {
 			
 		}
 		
-		model.addAttribute("imglist", detailService.uploadNy(detailDto));
+//		model.addAttribute("imglist", detailService.uploadNy(detailDto));
 		
 //		model.addAttribute("imgitem", detailService.uploadOne(detailDto));
 //		
