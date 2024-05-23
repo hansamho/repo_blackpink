@@ -187,8 +187,8 @@
                         <div class="ribbon_3 "><span>추천</span></div>
                         <div class="img_container">
                             <a th:href="@{/roomDetail(roomSeq=${list.roomSeq})}">
-                                <img src="/usr/assets/img/hotel_1.jpg" width="800" height="533" class="img-fluid" alt="image">
-<!--                                 <img th:each="imglist : ${imglist}" th:src="${imglist.path}" width="800" height="533" class="img-fluid" alt="image"> -->
+<!--                                 <img src="/usr/assets/img/hotel_1.jpg" width="800" height="533" class="img-fluid" alt="image"> -->
+                                <img  th:src="${list.path}" width="800" height="533" class="img-fluid" alt="image">
                                 <div class="score"><span th:text="${list.hotelRating}"></span>평점</div>
                                 <div class="short_info hotel">
                                     <span class="price"><sup th:text="${#numbers.formatInteger(list.roomPrice,1,'COMMA')} + '원'"></sup></span>
