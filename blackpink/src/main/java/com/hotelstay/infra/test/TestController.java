@@ -21,12 +21,14 @@ public class TestController {
 	@RequestMapping(value = "/test")
 	public String test(Model model) throws Exception{
 		
-		String apiUrl = "http://apis.data.go.kr/1471000/CovidDagnsRgntProdExprtStusService/getCovidDagnsRgntProdExprtStusInq?serviceKey=tR4050In%2FV39UwZVcQ9bGxrq0hqmf2vs6x%2FV8kOBnedR4jD90tcCNJ6RcpQnqKtiEcZ1zNA2NPcYTxSwjQT9CQ%3D%3D&numOfRows=3&pageNo=1&type=json";
+		String apiUrl = "http://api.kcisa.kr/openapi/API_CNV_061/request?serviceKey=19efceae-25a1-4ba8-a9fd-be28977b79c5&numOfRows=10&pageNo=1&";
 		
 		
 		URL url = new URL(apiUrl);
 		HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 		httpURLConnection.setRequestMethod("GET");
+		
+		httpURLConnection.setRequestProperty("Accept", "application/json");
 		
 		BufferedReader bufferedReader;
 		if (httpURLConnection.getResponseCode() >= 200 && httpURLConnection.getResponseCode() <= 300) {
@@ -38,7 +40,6 @@ public class TestController {
 		StringBuilder stringBuilder = new StringBuilder();
 		String line;
 		while ((line = bufferedReader.readLine()) != null) {
-			System.out.println("line: " + line);
 			stringBuilder.append(line);
 		}
 
@@ -48,16 +49,13 @@ public class TestController {
 		ObjectMapper objectMapper = new ObjectMapper();
 		JsonNode node = objectMapper.readTree(stringBuilder.toString());
 		
-		System.out.println("node.get(\"header\").get(\"resultCode\").asText(): " + node.get("header").get("resultCode").asText());
-		System.out.println("node.get(\"header\").get(\"resultMsg\").asText(): " + node.get("header").get("resultMsg").asText());
-		System.out.println("node.get(\"header\").get(\"resultMsg\").asText(): " + node.get("body").get("items").get(0).get("KIT_PROD_QTY").asText());
 		
-		model.addAttribute("node", node);
+		model.addAttribute("item", node);
 		
 //		model.addAttribute(node);
 		
 		
-		return "adm/infra/test/publicCorona1.JsonNedeList"; //
+		return "adm/infra/test/tourism"; //
 		
 	}
 	

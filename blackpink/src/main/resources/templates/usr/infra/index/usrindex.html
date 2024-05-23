@@ -1,13 +1,75 @@
-
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
-<head>
     <div th:replace="~{usr/infra/include/head :: head}"></div>
-</head>
+	
+	<style>
+    .body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-<body>
+    .h1 {
+        text-align: center;
+        color: #333;
+        font-size: 18px;
+        margin-top: 20px; /* 위쪽 여백 추가 */
+    }
 
+    .slide-container {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        width: 100%;
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px 0;
+        border-radius: 20px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        margin-top: 20px;
+    }
+
+    .slide-item {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        min-width: 250px;
+        margin-right: 20px;
+        padding: 20px;
+        border-radius: 12px;
+        background-color: #fff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .slide-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .slide-item h2 {
+        color: #333;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .slide-item p {
+        color: #666;
+        font-size: 14px;
+        margin: 0;
+    }
+</style>
+	
+<body >
+	
+	
     <div id="preloader">
         <div class="sk-spinner sk-spinner-wave">
             <div class="sk-rect1"></div>
@@ -187,7 +249,6 @@
                         <div class="ribbon_3 "><span>추천</span></div>
                         <div class="img_container">
                             <a th:href="@{/roomDetail(roomSeq=${list.roomSeq})}">
-<!--                                 <img src="/usr/assets/img/hotel_1.jpg" width="800" height="533" class="img-fluid" alt="image"> -->
                                 <img  th:src="${list.path}" width="800" height="533" class="img-fluid" alt="image">
                                 <div class="score"><span th:text="${list.hotelRating}"></span>평점</div>
                                 <div class="short_info hotel">
@@ -219,7 +280,17 @@
 			<p class="text-center nopadding">
 				<a th:href="@{/hotelList}" class="btn_1">전체 목록</a>
 			</p>
+				<h1 class="h1">관광지 추천</h1>
+		    <div class="slide-container">
+				<div th:each="node : ${node.get('response').get('body').get('items').get('item')}" class="slide-item">
+				    <h2 th:text="${node.get('title').asText()}"></h2>
+				     <p th:text="${'위치: ' + node.get('spatialCoverage').asText()}"></p>
+				     <p th:text="${'참조: ' + node.get('reference').asText()}"></p>
+				 </div>
+		    </div>
 		</div>
+			
+		
 		
         <!-- End container -->
 	</main>

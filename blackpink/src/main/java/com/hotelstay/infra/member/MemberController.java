@@ -1,5 +1,9 @@
 package com.hotelstay.infra.member;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +18,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hotelstay.common.contents.Constants;
 import com.hotelstay.common.util.UtilDateTime;
 import com.hotelstay.infra.Mail.MailService;
@@ -274,6 +280,8 @@ public class MemberController {
 	@RequestMapping(value = "/usrIndex")
 	public String usrIndex(@ModelAttribute("vo") HotelVo vo,HotelDto dto,RoomDetailDto detailDto,CodeGroupDto cDto ,Model model) throws Exception{
 		
+		
+		
 		model.addAttribute("listCodeGroup",codeGroupService.selectListWithoutPaging());
 			
 		 List<HotelDto> highRatedHotels = hotelService.selectList(vo).stream()
@@ -282,9 +290,43 @@ public class MemberController {
 			
 			model.addAttribute("list", hotelService.selectList(vo));
 			
-			model.addAttribute("imglist", detailService.uploadList(detailDto));
+//			model.addAttribute("imglist", detailService.uploadList(detailDto));
+//			
+//			model.addAttribute("imgitem", detailService.uploadOne(detailDto));
 			
-			model.addAttribute("imgitem", detailService.uploadOne(detailDto));
+			
+			String apiUrl = "http://api.kcisa.kr/openapi/API_CNV_061/request?serviceKey=19efceae-25a1-4ba8-a9fd-be28977b79c5&numOfRows=10&pageNo=1&";
+			
+			
+			URL url = new URL(apiUrl);
+			HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+			httpURLConnection.setRequestMethod("GET");
+			
+			httpURLConnection.setRequestProperty("Accept", "application/json");
+			
+			BufferedReader bufferedReader;
+			if (httpURLConnection.getResponseCode() >= 200 && httpURLConnection.getResponseCode() <= 300) {
+				bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+			} else {
+				bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getErrorStream()));
+			}
+			
+			StringBuilder stringBuilder = new StringBuilder();
+			String line;
+			while ((line = bufferedReader.readLine()) != null) {
+				stringBuilder.append(line);
+			}
+
+			bufferedReader.close();
+			httpURLConnection.disconnect();
+
+			ObjectMapper objectMapper = new ObjectMapper();
+			JsonNode node = objectMapper.readTree(stringBuilder.toString());
+			
+			
+			model.addAttribute("node", node);
+			
+			
 		return "usr/infra/index/usrindex";
 	}
 	
