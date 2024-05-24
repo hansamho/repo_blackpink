@@ -1,10 +1,46 @@
-<!doctype html>
- <html class="no-js" lang="ko" xmlns:th="http://www.thymeleaf.org">
- 	<head>
- 	<meta charset="utf-8">
- 	</head>
- 	<body>
- 		<hr>코로나 데이터</hr>
- 		<div th:text="${node}"></div>
- 	</body>
- </html>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body class="body">
+<h1>관광지</h1>
+
+    <div class="slide-container">
+        <div th:each="item : ${item.get('response').get('body').get('items').get('item')}" class="slide-item">
+            <h2 th:text="${item.get('title').asText()}"></h2>
+            <p th:text="${'위치: ' + item.get('spatialCoverage').asText()}"></p>
+            <p th:text="${'참조: ' + item.get('reference').asText()}"></p>
+<!--             <p th:text="${'설명: ' + item.get('description').asText()}"></p> -->
+<!--             <p th:text="${item.get('description').asText().replace(/<[^>]+>/g, '').trim()}"></p> -->
+        </div>
+    </div>
+	
+	<script>
+    // 이전 버튼 클릭 시
+    function scrollLeft() {
+        const container = document.querySelector('.slide-container');
+        container.scrollBy({
+            left: -200, // 이동할 거리를 조정하세요
+            behavior: 'smooth'
+        });
+    }
+
+    // 다음 버튼 클릭 시
+    function scrollRight() {
+        const container = document.querySelector('.slide-container');
+        container.scrollBy({
+            left: 200, // 이동할 거리를 조정하세요
+            behavior: 'smooth'
+        });
+    }
+</script>
+	
+<script>
+    // Optional: You can add JavaScript here for additional functionality, such as autoplay or navigation controls.
+</script>
+</body>
+</html>

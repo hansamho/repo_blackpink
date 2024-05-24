@@ -73,7 +73,8 @@ public class WebMvcConfigurerImpl implements WebMvcConfigurer {
 							"/hotelInsert",
 							"/test2",
 							"/publicCorona1List",
-							"/publicCorona2List"
+							"/publicCorona2List",
+							"/tests"
 							
 //							"/usr/infra/index/register",
 //							"/usr/infra/index/usrindex"

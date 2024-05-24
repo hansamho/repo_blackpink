@@ -200,4 +200,6 @@
  		 WHERE 1=1
  		 AND memberID = #{memberID}
 	  </select>
+	  
+	  
 </mapper>

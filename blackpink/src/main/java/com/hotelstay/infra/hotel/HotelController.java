@@ -119,7 +119,11 @@ public class HotelController {
         return "usr/infra/index/hotelList";
   	}
 	
-	
+	@RequestMapping(value="/tests")
+	public String tests()throws Exception{
+		
+		return "usr/infra/index/test2";
+	}
 	
 
 }

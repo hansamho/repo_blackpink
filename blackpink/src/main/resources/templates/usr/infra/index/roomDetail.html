@@ -189,7 +189,7 @@
 							<!-- End row  -->
 							<div class="owl-carousel owl-theme carousel-thumbs-2 magnific-gallery">
 								<div class="item" th:each="imgsingle : ${imgsingle}">
-									<a href="/usr/assets/img/carousel/1.jpg" data-effect="mfp-zoom-in"><img th:src="${imgsingle.path}" width="200" height="100" alt="Image">
+									<a th:href="${imgsingle.path}" data-effect="mfp-zoom-in"><img th:src="${imgsingle.path}" width="200" height="100" alt="Image">
 									</a>
 								</div>
 <!-- 								<div class="item"> -->
@@ -233,7 +233,7 @@
 							<!-- End row  -->
 							<div class="owl-carousel owl-theme carousel-thumbs-2 magnific-gallery">
 								<div class="item" th:each="imgdouble : ${imgdouble}">
-									<a href="/usr/assets/img/carousel/1.jpg" th:data-effect="mfp-zoom-in"><img th:src="${imgdouble.path}" width="200" height="100" alt="Image">
+									<a th:href="${imgdouble.path}" th:data-effect="mfp-zoom-in"><img th:src="${imgdouble.path}" width="200" height="100" alt="Image">
 									</a>
 								</div>
 <!-- 								<div class="item"> -->
@@ -277,7 +277,7 @@
 							<!-- End row  -->
 							<div class="owl-carousel owl-theme carousel-thumbs-2 magnific-gallery">
 								<div class="item" th:each="imgtwin : ${imgtwin}">
-									<a href="/usr/assets/img/carousel/1.jpg" data-effect="mfp-zoom-in"><img th:src="${imgtwin.path}" width="200" height="100" alt="Image">
+									<a th:href="${imgtwin.path}" data-effect="mfp-zoom-in"><img th:src="${imgtwin.path}" width="200" height="100" alt="Image">
 									</a>
 								</div>
 <!-- 								<div class="item"> -->
@@ -467,7 +467,7 @@
 							<tr>
 								<td>
 									<div class="thumb_cart">
-										<a href="#" data-bs-toggle="modal" data-bs-target="#modal_single_room"><img src="/usr/assets/img/thumb_cart_1.jpg" alt="Image">
+										<a href="#" data-bs-toggle="modal" data-bs-target="#modal_single_room">
 										</a>
 									</div>
 									<!-- 객실 유형 싱글룸 -->
@@ -487,7 +487,7 @@
 							<tr>
 								<td>
 									<div class="thumb_cart">
-										<a href="#" data-bs-toggle="modal" data-bs-target="#modal_double_room"><img src="/usr/assets/img/thumb_cart_1.jpg" alt="Image">
+										<a href="#" data-bs-toggle="modal" data-bs-target="#modal_double_room">
 										</a>
 									</div>
 									<!-- 객실 유형 더블룸 -->
@@ -507,7 +507,7 @@
 							<tr>
 								<td>
 									<div class="thumb_cart">
-										<a href="#" data-bs-toggle="modal" data-bs-target="#modal_double_room"><img src="/usr/assets/img/thumb_cart_1.jpg" alt="Image">
+										<a href="#" data-bs-toggle="modal" data-bs-target="#modal_double_room">
 										</a>
 									</div>
 									<!-- 객실 유형 트윈룸 -->
