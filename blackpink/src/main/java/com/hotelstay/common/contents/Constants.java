@@ -26,7 +26,7 @@ public final class Constants {
 
 	public static final String TIME_FORMAT_BASIC = "HH:mm:ss";
 	
-	public static final int DATE_INTERVAL = -90;
+	public static final int DATE_INTERVAL = -120;
 	
 	public static final long PASSWOPRD_CHANGE_INTERVAL = 90;
 	
