@@ -72,7 +72,7 @@
 										<div class="card-header">
 											<div class="card-title">코드 관리</div>
 										</div>
-										<form method="post" action="codeInsert">
+										<form method="post" name="form" id="form" action="codeInsert">
 											<div class="row">
 												<div  class="col-lg-6 col-sm-4 col-12 gy-2">
 													<label class="form-label">코드그룹</label>
@@ -87,7 +87,8 @@
 													<div id="cdNameFeedback" class="invalid-feedback"></div>
 												</div>
 												<div class="col gy-2" align="left">
-													<button type="submit"  class="btn btn-primary" onclick="javascript: form.action='codeXdmList';">뒤로가기</button>
+													<button type="submit"  id="btnList" class="btn btn-primary" onclick="javascript: form.action='codeXdmList';">뒤로가기</button>
+<!-- 														<button type="button"  id="btnList" class="btn btn-primary">뒤로가기</button> -->
 												</div>
 												<div class="col gy-2" align="right">
 													<button type="submit" class="btn btn-primary" id="btnSubmit" onclick="javascript: form.action='codeInsert';">저장</button>
@@ -157,6 +158,8 @@
 	let goUrlXdmMultiDele = "/codeXdmMultiDele";			/* ### */
 	let goUrlXdmView = "/codeGroupAdmView";
 	
+	let form = document.querySelector("form[name=form]");
+	let formVo = document.querySelector("form[name=formVo]");
 	
 	document.getElementById("btnSubmit").onclick = function () {
 		if(validationInsert() == false){
@@ -166,6 +169,10 @@
 			form.submit();
 		}
 		
+		document.getElementById("btnList").onclick = function () {
+			formVo.action = goUrlXdmList;
+			formVo.submit();
+		}
 		
 // 		validationInsert();
 // 		if(seq.value == "0" || seq.value == ""){

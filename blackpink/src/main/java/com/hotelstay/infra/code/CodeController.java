@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hotelstay.common.contents.Constants;
 import com.hotelstay.common.util.UtilDateTime;
@@ -69,9 +70,9 @@ public class CodeController {
 	
 	
 	@RequestMapping(value = "/codeView")
-	public String codeView(CodeDto dto, Model model) throws Exception{
+	public String codeView(CodeDto dto, Model model,@ModelAttribute("vo") CodeVo vo,RedirectAttributes redirectAttributes) throws Exception{
 		model.addAttribute("item", service.selectOne(dto));
-	
+		redirectAttributes.addFlashAttribute("vo", vo);
 		return "/adm/infra/code/codeView"; //
 		
 	}
@@ -79,7 +80,7 @@ public class CodeController {
 	@RequestMapping(value = "/codeForm")
 	public String codeForm(CodeDto dto, Model model) throws Exception{
 		model.addAttribute("item", service.selectOne(dto));
-	
+		
 		return "/adm/infra/code/codeForm"; //
 		
 	}
@@ -94,9 +95,11 @@ public class CodeController {
 	
 	 
 	@RequestMapping(value = "/codeInsert")
-	public String codeInsert(CodeDto dto) throws Exception{
+	public String codeInsert(CodeDto dto,RedirectAttributes redirectAttributes) throws Exception{
 		
 		service.insert(dto);
+		
+		redirectAttributes.addFlashAttribute("vo", dto);
 	
 		return "redirect:/codeXdmList";   //
 		
