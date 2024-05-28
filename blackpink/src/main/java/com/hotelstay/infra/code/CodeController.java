@@ -73,7 +73,7 @@ public class CodeController {
 	public String codeView(CodeDto dto, Model model,@ModelAttribute("vo") CodeVo vo,RedirectAttributes redirectAttributes) throws Exception{
 		model.addAttribute("item", service.selectOne(dto));
 		redirectAttributes.addFlashAttribute("vo", vo);
-		return "/adm/infra/code/codeView"; //
+		return "adm/infra/code/codeView"; //
 		
 	}
 	
@@ -81,7 +81,7 @@ public class CodeController {
 	public String codeForm(CodeDto dto, Model model) throws Exception{
 		model.addAttribute("item", service.selectOne(dto));
 		
-		return "/adm/infra/code/codeForm"; //
+		return "adm/infra/code/codeForm"; //
 		
 	}
 	
@@ -89,7 +89,7 @@ public class CodeController {
 	public String codeAdd(CodeDto dto, Model model) throws Exception{
 		model.addAttribute("listcodegroup", codeGroupService.selectListWithoutPaging());
 		
-		return "/adm/infra/code/codeAdd"; //
+		return "adm/infra/code/codeAdd"; //
 		
 	}
 	
