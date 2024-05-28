@@ -64,7 +64,7 @@ public class CodeController {
 //			model.addAttribute("vo",vo);
 			
 			
-			return "/adm/infra/code/codeXdmList";
+			return "adm/infra/code/codeXdmList";
   	}
 	
 	
