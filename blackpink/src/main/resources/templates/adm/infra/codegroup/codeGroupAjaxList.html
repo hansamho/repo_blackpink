@@ -124,12 +124,22 @@
 											</div>
 										</div>
 										
-										
-										
+										<div class="row  gx-2">
+											<div class="col gx-2">
+												<strong>Total :</strong>
+												<label class="form-label" th:text="${count}"></label>
+											</div>
+											<div class="col-1 gy-2" align="right">
+												<select class="form-select form-select-sm" id="rowNumToShow" name="rowNumToShow"
+												th:onchange = "javascript : goList(1)">
+													<option value="5" th:selected="${vo.rowNumToShow == 5}">5</option>
+													<option value="10" th:selected="${vo.rowNumToShow == 10}">10</option>
+													<option value="20" th:selected="${vo.rowNumToShow == 20}">20</option>
+												</select>								
+											</div>
+										</div>
 										<!-- Ajax Lita data -->
 										<div id="lita"></div>
-									
-									
 									</form>
 								<div class="row">
 									<div class="col">
@@ -216,11 +226,9 @@
 		<!-- Data Tables -->
 		<script src="/adm/template/gear/assets/vendor/datatables/dataTables.min.js"></script>
 	
-		<script th:inline="javascript">
+		<script>
 		window.addEventListener('load', function() {
-			let a= [[${vo.thisPage}]];
-			
-			setLita(a);
+			setLita();
 		$("#shDateStart, #shDateEnd").datetimepicker({
 		timepicker:false,
  		format: 'Y-m-d'
@@ -240,7 +248,7 @@
 		
 		/* 실제 데이터 넘겨주는 ajax data*/
 		function setLita(thisPage) {
-			document.querySelector("input[name=thisPage]").value = thisPage;
+			alert(thisPage);
 		    $.ajax({
 		        async: true
 		        ,cache: false
@@ -260,13 +268,13 @@
 		
 		goList = function (thisPage) {
 		    document.querySelector("input[name=thisPage]").value = thisPage;
-		    form.action = goUrlXdmList;
+		    form.action = goUrlXdmAjaxList;
 		    form.submit();
 		}
 		
 		
 		document.getElementById("btnReset").onclick = function () {
-		    location.href = goUrlXdmList;
+		    location.href = goUrlXdmAjaxList;
 		}
 		
 		
@@ -283,13 +291,13 @@
 		}
 				
 		document.getElementById("btnSearch").onclick = function () {
-		    form.action = goUrlXdmList;
+		    form.action = goUrlXdmAjaxList;
 		    form.submit();
 			};
 			
 			function enterkey() {
 				if (window.event.keyCode == 13) {
-				    form.action = goUrlXdmList;
+				    form.action = goUrlXdmAjaxList;
 				    form.submit();
 			    }
 			}

@@ -49,23 +49,42 @@ public class CodeGroupController {
 	@RequestMapping(value = "/codeGroupXdmList")
 	public String codeGroupXdmList(@ModelAttribute("vo") CodeGroupVo vo, Model model) throws Exception{
 			
-			
-			
 			setSearch(vo);
 			
-			model.addAttribute("count", service.selectOneCount(vo));
+//			model.addAttribute("count", service.selectOneCount(vo));
+//			
+//			vo.setParamsPaging(service.selectOneCount(vo));
+//			
+//			if (vo.getTotalRows() > 0) {
+//				model.addAttribute("list", service.selectList(vo));
+//			}
 			
-			vo.setParamsPaging(service.selectOneCount(vo));
-			
-			if (vo.getTotalRows() > 0) {
-				model.addAttribute("list", service.selectList(vo));
-			}
-			
-
-
         return "adm/infra/codegroup/codeGroupXdmList";
   	}
 	
+	@RequestMapping(value="/codeGroupAjaxList")
+	public String codeGroupAjaxList(@ModelAttribute("vo") CodeGroupVo vo, Model model) throws Exception{
+		
+		setSearch(vo);
+		
+		return "adm/infra/codegroup/codeGroupAjaxList";
+	}
+	
+	@RequestMapping(value="/codeGroupAjaxLita")
+	public String codeGroupAjaxLita(@ModelAttribute("vo") CodeGroupVo vo, Model model) throws Exception{
+		
+//		setSearch(vo);
+		model.addAttribute("count", service.selectOneCount(vo));
+		
+		vo.setParamsPaging(service.selectOneCount(vo));
+		
+		
+		if (vo.getTotalRows() > 0) {
+			model.addAttribute("list", service.selectList(vo));
+		}
+		
+		return "adm/infra/codegroup/codeGroupAjaxLita";
+	}
 	
 	
 	@RequestMapping(value = "/codeGroupAdmView")

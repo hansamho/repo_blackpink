@@ -74,7 +74,9 @@ public class WebMvcConfigurerImpl implements WebMvcConfigurer {
 							"/test2",
 							"/publicCorona1List",
 							"/publicCorona2List",
-							"/tests"
+							"/tests",
+							"/codeGroupAjaxList",
+							"/codeGroupAjaxLita"
 							
 //							"/usr/infra/index/register",
 //							"/usr/infra/index/usrindex"
