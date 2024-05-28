@@ -33,7 +33,7 @@
             ,a.cdRegDate
             ,a.cdUpdate
             ,a.cdDelny
-            ,(select aa.name from codegroup aa where 1=1 and aa.cgSeq = a.codeGroup_seq) as codegroup_name
+            ,(select aa.name from codeGroup aa where 1=1 and aa.cgSeq = a.codeGroup_seq) as codegroup_name
 			<include refid="selectCommon" />         
         ORDER BY a.cdSeq DESC
          limit #{rowNumToShow} offset #{startRnumForMysql}
