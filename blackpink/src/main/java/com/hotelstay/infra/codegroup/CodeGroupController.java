@@ -163,8 +163,8 @@ public class CodeGroupController {
 		if (vo.getTotalRows() > 0) {
 			List<CodeGroupDto> list = service.selectList(vo);
 			
-			Workbook workbook = new HSSFWorkbook();	// for xls
-//	        Workbook workbook = new XSSFWorkbook();
+		//  Workbook workbook = new HSSFWorkbook();	// for xls
+	        Workbook workbook = new XSSFWorkbook();
 	        Sheet sheet = workbook.createSheet("첫번째 시트");
 	        CellStyle cellStyle = workbook.createCellStyle();        
 	        Row row = null;
