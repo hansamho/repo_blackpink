@@ -79,7 +79,8 @@
 												<input type="text" name="name" th:value="${item.name}" class="form-control">
 											</div>
 											<div class="col gy-2">
-												<button type="submit" class="btn btn-primary"><a th:href="@{/codeGroupXdmList(cgSeq=${item.cgSeq})}" th:text="뒤로가기"></a></button>
+<!-- 												<button type="submit" class="btn btn-primary"><a th:href="@{/codeGroupXdmList(cgSeq=${item.cgSeq})}" th:text="뒤로가기"></a></button> -->
+												<button onclick="history.back()" type="button" class="btn btn-primary">뒤로가기</button>
 											</div>
 											<div class="col gy-2" align="right">
 												<button type="submit" class="btn btn-primary"><a th:href="@{/codeGroupForm(cgSeq=${item.cgSeq})}" th:text="수정"></a></button>
