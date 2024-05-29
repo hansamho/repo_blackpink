@@ -176,7 +176,7 @@ public class CodeGroupController {
 	        sheet.setColumnWidth(1, 3100);
 
 //	        Header
-	        String[] tableHeader = {"코드그룹 코드", "코드그룹 이름", "등록일", "수정일", "삭제여부"};
+	        String[] tableHeader = {"코드그룹 코드", "코드그룹 이름", "삭제여부", "등록일", "수정일"};
 
 	        row = sheet.createRow(rowNum++);
 			for(int i=0; i<tableHeader.length; i++) {
