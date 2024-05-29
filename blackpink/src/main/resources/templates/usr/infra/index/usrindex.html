@@ -281,14 +281,14 @@
 			<p class="text-center nopadding">
 				<a th:href="@{/hotelList}" class="btn_1">전체 목록</a>
 			</p>
-<!-- 				<h1 class="h1">관광지 추천</h1> -->
-<!-- 		    <div class="slide-container"> -->
-<!-- 				<div th:each="node : ${node.get('response').get('body').get('items').get('item')}" class="slide-item"> -->
-<!-- 				    <h2 th:text="${node.get('title').asText()}"></h2> -->
-<!-- 				     <p th:text="${'위치: ' + node.get('spatialCoverage').asText()}"></p> -->
-<!-- 				     <p th:text="${'참조: ' + node.get('reference').asText()}"></p> -->
-<!-- 				 </div> -->
-<!-- 		    </div> -->
+				<h1 class="h1">관광지 추천</h1>
+		    <div class="slide-container">
+				<div th:each="node : ${node.get('response').get('body').get('items').get('item')}" class="slide-item">
+				    <h2 th:text="${node.get('title').asText()}"></h2>
+				     <p th:text="${'위치: ' + node.get('spatialCoverage').asText()}"></p>
+				     <p th:text="${'참조: ' + node.get('reference').asText()}"></p>
+				 </div>
+		    </div>
 		</div>
 			
 		
