@@ -389,7 +389,6 @@ public class MemberController {
 	public String register(MemberDto dto,Model model) throws Exception{
 		model.addAttribute("listCodeGroup", codeGroupService.selectListWithoutPaging());
 		
-		service.usrInsert(dto);
 		return "usr/infra/index/register";
 	}
 	
