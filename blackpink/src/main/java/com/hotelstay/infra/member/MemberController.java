@@ -291,7 +291,6 @@ public class MemberController {
 			model.addAttribute("list", hotelService.selectList(vo));
 			
 			
-			
 			String apiUrl = "http://api.kcisa.kr/openapi/API_CNV_061/request?serviceKey=19efceae-25a1-4ba8-a9fd-be28977b79c5&numOfRows=10&pageNo=1&";
 			
 			
