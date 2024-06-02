@@ -32,7 +32,7 @@
 					<form>
 					<div class="header-profile d-flex align-items-center">
 						<div class="dropdown">
-							<a th:href="@{/admlogin}" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
+							<a th:href="@{/admLogin}" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
 								<span class="user-name d-none d-md-block">[[${session.sessNameXdm}]]</span>
 								<span class="avatar">
 									<img src="/adm/template/gear/assets/images/user4.png" alt="Admin Templates" />
@@ -41,8 +41,9 @@
 							</a>
 							<div class="dropdown-menu dropdown-menu-end" aria-labelledby="userSettings">
 								<div class="header-profile-actions">
-									<button th:if="${session.sessSeqXdm == null}" type="button" id="buttonSignOut"><a th:href="@{/admLogin}">로그인</a></button>
-									<button th:unless="${session.sessSeqXdm == null}" type="button" id="buttonSignOut">로그아웃</button>
+										<button type="button" id="buttonSignOut"><a th:href="@{/admLogin}">로그아웃</a></button>
+<!-- 									<button th:if="${session.sessSeqXdm == null}" type="button" id="buttonSignOut"><a th:href="@{/admLogin}">로그인</a></button> -->
+<!-- 									<button th:unless="${session.sessSeqXdm == null}" type="button" id="buttonSignOut">로그아웃</button> -->
 								</div>
 							</div>
 						</div>
@@ -59,8 +60,6 @@
 			<script type="text/javascript">
 			
 			document.getElementById("buttonSignOut").onclick = function () {
-// 			if(validation() == false) return false;
-			alert("@@@@@@@@@@@2");
 			$.ajax({
 				async: true 
 				,cache: false
@@ -71,7 +70,6 @@
 				,data : { "memberID" : $("#memberID").val(), "memberPassword" : $("#memberPassword").val()}
 				,success: function(response) {
 					if(response.rt == "success") {
-						alert("@@@@@@@@@2222@@@");
 						location.href = "/admLogin";
 					}  
 				}
