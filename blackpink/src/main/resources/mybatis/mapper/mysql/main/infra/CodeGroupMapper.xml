@@ -55,9 +55,6 @@
     </select>
     
     <insert id="insert">
-    	<selectKey resultType ="String" keyProperty="cgSeq" order="AFTER">
-		SELECT LAST_INSERT_ID()
-		</selectKey>
     	INSERT INTO codeGroup(
             name
             ,cgRegDate
@@ -134,5 +131,6 @@
     	WHERE 1=1
     	AND a.pseq = #{cgSeq}
     </select>
+    
     
 </mapper>

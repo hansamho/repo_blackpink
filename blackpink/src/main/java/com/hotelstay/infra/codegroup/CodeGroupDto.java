@@ -29,8 +29,8 @@ public class CodeGroupDto extends BaseDto {
 //	private Date regDateTime;
 	
 	//파일 업로드
-	private MultipartFile uploadFile;
-	private MultipartFile[] uploadFiles;
+//	private MultipartFile uploadFile;
+//	private MultipartFile[] uploadFiles;
 	
 	
 //	public String getSeq() {
@@ -108,23 +108,12 @@ public class CodeGroupDto extends BaseDto {
 //	}
 	
 	
-	public MultipartFile getUploadFile() {
-		return uploadFile;
-	}
+	
 	public String getPseq() {
 		return pseq;
 	}
 	public void setPseq(String pseq) {
 		this.pseq = pseq;
-	}
-	public void setUploadFile(MultipartFile uploadFile) {
-		this.uploadFile = uploadFile;
-	}
-	public MultipartFile[] getUploadFiles() {
-		return uploadFiles;
-	}
-	public void setUploadFiles(MultipartFile[] uploadFiles) {
-		this.uploadFiles = uploadFiles;
 	}
 	public String getCgSeq() {
 		return cgSeq;

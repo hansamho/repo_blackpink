@@ -4,6 +4,7 @@ import java.util.List;
 
 
 
+
 public interface CodeGroupDao {
 	
 //	public List<CodeGroupDto> selectList(); // 여러개 데이터를 보낼떄는 list 
@@ -27,4 +28,5 @@ public interface CodeGroupDao {
 	public int imageUpload(CodeGroupDto dto);
 	
 	public CodeGroupDto uploadOne(CodeGroupDto dto);
+	
 }

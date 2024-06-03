@@ -259,6 +259,7 @@ public class MemberController {
 		
 		httpSession.invalidate();
 		returnMap.put("rt", "success");
+		
 		return returnMap;
 	}
 	

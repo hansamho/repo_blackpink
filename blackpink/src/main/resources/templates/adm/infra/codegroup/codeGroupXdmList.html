@@ -164,7 +164,7 @@
 										</div>
 									</div>
 										<div class="col" align="Right">
-										<button type="button" id="btnExcel" class="btn btn-primary">엑셀</button>
+										<button type="button" id="btnExcel" class="btn btn-primary">Excel</button>
   										<button type="submit" id="btnSubmit" class="btn btn-primary"><a th:href="@{codeGroupAdd}" th:text="등록"></a></button>
 									</div>
 								</div>
@@ -231,6 +231,7 @@
 		let goUrlXdmAjaxList = "/codeGroupAjaxList";				/* ### */
 		let goUrlXdmAjaxLita = "/codeGroupAjaxLita";				/* ### */
 		let goUrlXdmList = "/codeGroupXdmList";								/* ### */
+		let goUrlXdmInsert = "/cgInsert";
 		let goUrlXdmForm = "/codeGroupForm";								/* ### */
 		let goUrlXdmMultiUele = "/codeGroupXdmMultiUele";			/* ### */
 		let goUrlXdmMultiDele = "/codeGroupXdmMultiDele";			/* ### */
@@ -278,7 +279,10 @@
 		    location.href = goUrlXdmList;
 		}
 		
-		
+		document.getElementById("btnUPload").onclick = function () {
+			 form.action = goUrlXdmInsert;
+			 form.submit();
+		}
 
 // 		document.getElementById("btnForm").onclick = function () {
 // 		    goForm(0);
