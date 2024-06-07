@@ -124,6 +124,5 @@ public class HotelController {
 		
 		return "usr/infra/index/test2";
 	}
-	
 
 }
