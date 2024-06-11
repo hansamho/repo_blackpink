@@ -78,7 +78,8 @@ public class WebMvcConfigurerImpl implements WebMvcConfigurer {
 							"/codeGroupAjaxList",
 							"/codeGroupAjaxLita",
 							"/excelDownload",
-							"/excelTest"
+							"/excelTest",
+							"/route"
 							
 //							"/usr/infra/index/register",
 //							"/usr/infra/index/usrindex"

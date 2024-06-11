@@ -124,5 +124,10 @@ public class HotelController {
 		
 		return "usr/infra/index/test2";
 	}
-
+	
+	@RequestMapping(value="/kakaoTest")
+	public String kakaoTest()throws Exception{
+		
+		return "usr/infra/index/kakaoTest";
+	}
 }
