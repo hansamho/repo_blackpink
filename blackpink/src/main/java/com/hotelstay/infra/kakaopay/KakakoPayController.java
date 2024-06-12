@@ -20,23 +20,23 @@ public class KakakoPayController {
 	RoomDetailService roomDetailService;
 	
 	
-	@ResponseBody
-    @RequestMapping(value="/kakaopay")
-	public  Map<String, Object>  kakaopay(RoomDetailDto dto) {
-    	Map<String, Object> returnMap = new HashMap<String, Object>();
-    	returnMap.put("rt", service.kakaoPayReady(dto));
-    	System.out.println(".................................................... kakaopay");
-    	
-    	service.kakaoPrice(dto);
-    	
-        return returnMap;
-	}
-    
-    // 결제성공
-    @RequestMapping(value="/kakaoPaySuccess")
-    public String kakaoPaySuccess(RoomDetailDto dto) {
-//    	model.addAttribute("info", kakaoPayService.kakaoPayInfo(pg_token, httpSession));
-    	
-    	return "redirect:/booking";
-    }  
+//	@ResponseBody
+//    @RequestMapping(value="/kakaopay")
+//	public  Map<String, Object>  kakaopay(RoomDetailDto dto) {
+//    	Map<String, Object> returnMap = new HashMap<String, Object>();
+//    	returnMap.put("rt", service.kakaoPayReady(dto));
+//    	System.out.println(".................................................... kakaopay");
+//    	
+//    	service.kakaoPrice(dto);
+//    	
+//        return returnMap;
+//	}
+//    
+//    // 결제성공
+//    @RequestMapping(value="/kakaoPaySuccess")
+//    public String kakaoPaySuccess(RoomDetailDto dto) {
+////    	model.addAttribute("info", kakaoPayService.kakaoPayInfo(pg_token, httpSession));
+//    	
+//    	return "redirect:/booking";
+//    }  
 }
