@@ -20,13 +20,13 @@ import com.hotelstay.infra.roomdetail.RoomDetailDto;
 public class KakaoPayService {
 	private static final String Host = "https://kapi.kakao.com";
 	
-	@Value("${kakao_admin_key}")
-	private String kakaoAdminKey;
-	
-	@Autowired
-	RoomDetailDao roomDetailDao;
-	
-	private KakaoPayDto kakaoPayDto;
+//	@Value("${kakao_admin_key}")
+//	private String kakaoAdminKey;
+//	
+//	@Autowired
+//	RoomDetailDao roomDetailDao;
+//	
+//	private KakaoPayDto kakaoPayDto;
 	
 	 // 결제요청
 //    public String kakaoPayReady(RoomDetailDto dto) {
