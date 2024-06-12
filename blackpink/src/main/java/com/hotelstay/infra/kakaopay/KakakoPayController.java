@@ -13,11 +13,11 @@ import com.hotelstay.infra.roomdetail.RoomDetailService;
 
 @Controller
 public class KakakoPayController {
-	@Autowired
-	KakaoPayService service;
-	
-	@Autowired
-	RoomDetailService roomDetailService;
+//	@Autowired
+//	KakaoPayService service;
+//	
+//	@Autowired
+//	RoomDetailService roomDetailService;
 	
 	
 //	@ResponseBody
