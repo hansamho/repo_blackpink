@@ -26,7 +26,7 @@ public class RoomDetailDto extends BaseDto {
 	private int singleRoomPrice;
 	private int doubleRoomPrice;
 	private int twinRoomPrice;
-	
+	private String kakaoPrice;
 	/*멤버*/
 	private String memberName;
 	private String memberSeqF;
@@ -340,6 +340,14 @@ public class RoomDetailDto extends BaseDto {
 	public void setMemberNickName(String memberNickName) {
 		this.memberNickName = memberNickName;
 	}
+	public String getKakaoPrice() {
+		return kakaoPrice;
+	}
+	public void setKakaoPrice(String kakaoPrice) {
+		this.kakaoPrice = kakaoPrice;
+	}
+	
+	
 	
 	
 	

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko"xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8"/>
+	<title>Kakaopay</title>
+	
+</head>
+<body>
+	<button id="btnPay">결제</button>
+	
+	
+	<script type="text/javascript"> 
+ 		document.getElementById("btnPay").onclick = function () {
+			
+			
+		
+ 			$.ajax({
+ 				async: true 
+ 				,cache: false
+ 				,type: "post"
+ 				/* ,dataType:"json" */
+ 				,url: "/kakaopay"
+ 				/* ,data : $("#formLogin").serialize() */
+ 				,data : { "memberID" : $("#memberID").val(), "memberPassword" : $("#memberPassword").val()}
+ 				,success: function(response) {
+ 					if(response.rt == "success") {
+//  						alert("sqqqqqqqq");
+ 						location.href = "/usrIndex";
+ 					}  
+ 				}
+ 				,error : function(jqXHR, textStatus, errorThrown){
+ 					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+ 				}
+ 			});
+ 		}
+		
+ 		</script>
+</body>
+</html>
