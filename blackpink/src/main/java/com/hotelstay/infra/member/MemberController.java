@@ -292,36 +292,36 @@ public class MemberController {
 			model.addAttribute("list", hotelService.selectList(vo));
 			
 			
-//			String apiUrl = "http://api.kcisa.kr/openapi/API_CNV_061/request?serviceKey=19efceae-25a1-4ba8-a9fd-be28977b79c5&numOfRows=10&pageNo=1&";
-//			
-//			
-//			URL url = new URL(apiUrl);
-//			HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-//			httpURLConnection.setRequestMethod("GET");
-//			
-//			httpURLConnection.setRequestProperty("Accept", "application/json");
-//			
-//			BufferedReader bufferedReader;
-//			if (httpURLConnection.getResponseCode() >= 200 && httpURLConnection.getResponseCode() <= 300) {
-//				bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
-//			} else {
-//				bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getErrorStream()));
-//			}
-//			
-//			StringBuilder stringBuilder = new StringBuilder();
-//			String line;
-//			while ((line = bufferedReader.readLine()) != null) {
-//				stringBuilder.append(line);
-//			}
-//
-//			bufferedReader.close();
-//			httpURLConnection.disconnect();
-//
-//			ObjectMapper objectMapper = new ObjectMapper();
-//			JsonNode node = objectMapper.readTree(stringBuilder.toString());
-//			
-//			
-//			model.addAttribute("node", node);
+			String apiUrl = "http://api.kcisa.kr/openapi/API_CNV_061/request?serviceKey=19efceae-25a1-4ba8-a9fd-be28977b79c5&numOfRows=10&pageNo=1&";
+			
+			
+			URL url = new URL(apiUrl);
+			HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+			httpURLConnection.setRequestMethod("GET");
+			
+			httpURLConnection.setRequestProperty("Accept", "application/json");
+			
+			BufferedReader bufferedReader;
+			if (httpURLConnection.getResponseCode() >= 200 && httpURLConnection.getResponseCode() <= 300) {
+				bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+			} else {
+				bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getErrorStream()));
+			}
+			
+			StringBuilder stringBuilder = new StringBuilder();
+			String line;
+			while ((line = bufferedReader.readLine()) != null) {
+				stringBuilder.append(line);
+			}
+
+			bufferedReader.close();
+			httpURLConnection.disconnect();
+
+			ObjectMapper objectMapper = new ObjectMapper();
+			JsonNode node = objectMapper.readTree(stringBuilder.toString());
+			
+			
+			model.addAttribute("node", node);
 			
 			
 		return "usr/infra/index/usrindex";
