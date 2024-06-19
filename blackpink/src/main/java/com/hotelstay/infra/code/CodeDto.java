@@ -15,6 +15,8 @@ public class CodeDto {
 	private String codeGroup_seq;
 	private String codeGroup_name;
 	
+	private String[] checkboxSeqArray  = null;
+	
 //	for cache
 	public static List<CodeDto> cachedCodeArrayList = new ArrayList<CodeDto>();
 	
@@ -67,6 +69,12 @@ public class CodeDto {
 	}
 	public void setCodeGroup_name(String codeGroup_name) {
 		this.codeGroup_name = codeGroup_name;
+	}
+	public String[] getCheckboxSeqArray() {
+		return checkboxSeqArray;
+	}
+	public void setCheckboxSeqArray(String[] checkboxSeqArray) {
+		this.checkboxSeqArray = checkboxSeqArray;
 	}
 	
 }
