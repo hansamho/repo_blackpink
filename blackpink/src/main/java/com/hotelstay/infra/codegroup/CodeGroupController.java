@@ -135,7 +135,7 @@ public class CodeGroupController {
 
 		service.update(dto);
 		
-		return "redirect:/codeGroupXdmList"; //
+		return "redirect:/codeGroupXdmList";
 		
 	}
 	
